@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---------------------------------------------------------------- Node (verificación)
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# ---------------------------------------------------------------- Ofimática
+# Archivos de bloqueo que Excel y Word crean al abrir un documento
+~$*
+.~lock.*#
+
+# ---------------------------------------------------------------- Sincronización en la nube
+# Este repositorio suele vivir dentro de una carpeta de OneDrive
+.tmp.drivedownload/
+.tmp.driveupload/
+*.laccdb
+
+# ---------------------------------------------------------------- Sistema operativo
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+desktop.ini
+
+# ---------------------------------------------------------------- Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------- Salidas de verificación
+qa/
+*.log
+
+# ---------------------------------------------------------------- Datos sensibles
+# Ninguna base con identificadores de participantes, postulantes o empresas
+# debe entrar a este repositorio. El sistema MEL trabaja con datos personales
+# y con cifras empresariales confidenciales.
+datos/
+data/
+*.csv
+*.sav
+*.dta
+*.sqlite
+*.db
+credenciales*
+*.env
+.env.*

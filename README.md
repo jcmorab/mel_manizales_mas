@@ -1,9 +1,8 @@
 # Teoría de cambio de Manizales Más
 
-Modelo conceptual de la teoría de cambio de la alianza Manizales Más, publicado como
-un documento web interactivo de un solo archivo.
+Documento web interactivo de un solo archivo.
 
-**Versión 2.2** · Julio de 2026
+**Versión 2.4** · Agosto de 2026
 
 ---
 
@@ -16,131 +15,159 @@ mel_manizales_mas/
 └── .gitignore
 ```
 
-`index.html` no depende de ningún recurso externo. El CSS, el JavaScript, el modelo
-completo y el logo institucional en base64 están embebidos en el archivo. Se puede
-abrir con doble clic, enviar por correo o publicar en cualquier servidor estático.
-Los únicos enlaces salientes son las referencias bibliográficas, que abren en una
-pestaña nueva.
+`index.html` no depende de recursos externos: CSS, JavaScript, modelo, logo y las
+tres variantes de Poppins van embebidos. Se abre con doble clic, se envía por correo
+o se publica en cualquier servidor estático. Los únicos enlaces salientes son las
+referencias bibliográficas.
 
 ---
 
 ## Publicar en GitHub Pages
 
-1. Cree el repositorio en GitHub y suba los tres archivos.
+```bash
+git init
+git add .
+git commit -m "Teoría de cambio de Manizales Más, versión 2.4"
+git branch -M main
+git remote add origin https://github.com/USUARIO/mel_manizales_mas.git
+git push -u origin main
+```
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Teoría de cambio de Manizales Más, versión 2.2"
-   git branch -M main
-   git remote add origin https://github.com/USUARIO/mel_manizales_mas.git
-   git push -u origin main
-   ```
+En **Settings → Pages**, elegir *Deploy from a branch*, rama `main`, carpeta
+`/ (root)`. La URL será `https://USUARIO.github.io/mel_manizales_mas/`.
 
-2. En el repositorio, vaya a **Settings → Pages**.
-3. En **Source** elija **Deploy from a branch**.
-4. En **Branch** elija `main` y la carpeta `/ (root)`. Guarde.
-5. Espere entre uno y dos minutos. La URL será
-   `https://USUARIO.github.io/mel_manizales_mas/`.
-
-Si la página aparece en blanco, la causa casi siempre es una de estas tres:
-
-- El commit no incluyó `index.html`. Verifíquelo con `git ls-files`, que debe
-  listarlo.
-- La rama o la carpeta seleccionada en Pages no es la que contiene el archivo.
-- El despliegue todavía no terminó. La pestaña **Actions** del repositorio muestra
-  el estado.
-
-El documento incluye una red de seguridad: si el navegador no logra ejecutar el
-JavaScript, muestra todas las secciones desplegadas y un aviso con el detalle del
-error, en lugar de quedar en blanco.
+Si la página sale en blanco: verificar con `git ls-files` que `index.html` esté en el
+commit, revisar que la rama y carpeta en Pages sean las correctas, y mirar la pestaña
+Actions. El documento tiene una red de seguridad: si el JavaScript falla, despliega
+todas las secciones con un aviso en lugar de quedar en blanco.
 
 ---
 
-## Cómo se lee el documento
+## Las cinco secciones
 
-Seis secciones, navegables desde el menú lateral o con las flechas del teclado.
-
-| Sección | Qué contiene |
+| Sección | Contenido |
 |---|---|
-| Modelo institucional | El impacto que persigue la alianza y las cinco líneas de trabajo |
-| Teoría de cambio | Todos los elementos ordenados de la problemática al impacto |
-| Cadenas causales | Las cinco secuencias, cada una con su hipótesis y sus supuestos |
-| Programas | Mapa bidireccional entre los 14 programas y los elementos de la teoría |
-| Indicadores | La batería de medición, con resumen y filtros |
-| Referencias | Las 23 fuentes, con lo que aporta cada una y su fecha de verificación |
+| 01 Modelo institucional | Quiénes somos, el impacto que persigue la alianza, las cifras del sistema y las cuatro líneas |
+| 02 Teoría de cambio | La rejilla completa, con interruptor por línea o por programa |
+| 03 Cadenas causales | Las cuatro secuencias con su hipótesis y sus supuestos, cada uno con riesgo, señal de alerta y respuesta |
+| 04 Indicadores | Los 39 indicadores en tabla filtrable, con ficha completa al abrir cada fila |
+| 05 Referencias | Las 22 fuentes, con su uso y su fecha de verificación |
 
-### Distinción entre enunciado e indicador
+### El interruptor de la rejilla
 
-Un elemento de la teoría de cambio y un indicador no son la misma cosa. El elemento
-se enuncia como el cambio que se espera; el indicador es la forma de medirlo. El
-diagrama muestra el enunciado y la ficha de cada tarjeta revela el indicador.
+**Por línea** filtra con la leyenda de colores, que incluye un chip "Todas" para
+volver al conjunto. **Por programa** muestra dos hileras separadas: arriba los cinco
+programas de portafolio, abajo los demás. Al seleccionar uno se ilumina su recorrido
+completo por la teoría y el resto se atenúa; al abrir una tarjeta se muestra qué hace
+ese programa concretamente en esa parte de la cadena, no el indicador.
 
-| Elemento | Cambio esperado | Indicador |
+### Enunciado e indicador
+
+Un elemento de la teoría y un indicador no son lo mismo. El diagrama muestra el
+enunciado; la sección 04 muestra la medición. Abrir una fila de la tabla despliega la
+ficha completa: definición, forma de cálculo, lógica, periodicidad, responsable,
+desagregación, línea base, estado de la meta, instrumento de recolección y
+referencias que la respaldan.
+
+| Elemento | Enunciado | Indicador |
 |---|---|---|
-| `IMP_1` | Aumento de las ventas de las empresas del ecosistema | Efecto sobre las ventas reales a 24 meses |
-| `RES_3` | Los jóvenes avanzan hacia el empleo formal o hacia un emprendimiento activo | Proporción de participantes con transición verificada |
-| `HAB_5` | Lo que reportamos está respaldado por evidencia, no por declaración | Resultados con evidencia documental sobre resultados reportados |
+| `IMP_1` | Crecimiento de las ventas de las empresas acompañadas | Efecto sobre las ventas reales a 24 meses |
+| `IMP_3` | Vinculación laboral de los jóvenes participantes | Efecto sobre la vinculación laboral de los participantes |
+| `IMP_5` | Crecimiento de las empresas atendidas en los territorios replicadores | Diferencia en el crecimiento de ventas frente a un grupo de comparación local |
 
 ---
 
 ## El modelo
 
-Cuatro líneas sustantivas, cada una con impacto propio, y una capa habilitante que
-se declara deliberadamente sin impacto porque su efecto ya está contabilizado en las
-otras cadenas. Presentarla con impacto propio sería contar dos veces lo mismo.
+Cuatro líneas, cada una con problemática, cadena e impacto propios.
 
-| Código | Línea | Impacto propio |
-|---|---|---|
-| `EMP` | Empresas y emprendimientos | Ventas, empleo formal y supervivencia |
-| `TAL` | Talento y empleabilidad | Acceso de los jóvenes a empleo formal |
-| `ECO` | Ecosistema y movilización | Acceso de las empresas a financiación y contratos |
-| `REP` | Réplica y transferencia | El de `EMP` y `TAL` medido en el territorio replicador |
-| `TRA` | Capacidad habilitante | Ninguno, por decisión explícita |
+| Código | Línea | A quién atiende | Impacto |
+|---|---|---|---|
+| `EMP` | Empresas | Empresas con operación establecida y capacidad de crecer | Ventas y empleo |
+| `TAL` | Talento | Jóvenes entre 18 y 25 años en búsqueda de empleo o con un emprendimiento | Vinculación laboral |
+| `ECO` | Ecosistema | Oportunidades de negocio y financiación que requieren varios actores | Negocios de mayor escala |
+| `TRF` | Transferencia | Territorios y organizaciones que adoptan la metodología | Crecimiento en el territorio replicador |
 
-**Capas y códigos.** `PRB` problemática · `ACT` actividades · `PRD` productos ·
-`RES` resultados · `IMP` impacto · `CTX` contexto territorial · `SUP` supuestos ·
-`HAB` habilitadores de evidencia. El prefijo del código siempre coincide con la capa.
+Transferencia reúne dos cosas que antes estaban separadas: formar mentores y
+docentes, y replicar el modelo en otros territorios. Es el mismo mecanismo,
+sistematizar y enseñar, y su impacto ocurre sobre unidades distintas de las que
+atiende Manizales Más directamente, así que no genera doble conteo.
 
-**Cifras.** 42 elementos en la teoría, de los cuales 35 llevan indicador propio.
-El núcleo de rendición de cuentas son 19 indicadores de producto, resultado e
-impacto. 5 cadenas causales y 14 programas mapeados.
+**Capas.** `PRB` problemática · `ACT` actividades · `PRD` productos · `RES`
+resultados · `IMP` impacto · `SUP` supuestos · `CTX` contexto. El prefijo del código
+siempre coincide con la capa.
 
-Las siete actividades compartían una fórmula idéntica de cumplimiento de hitos, de
-modo que se consolidaron en un solo indicador con desglose obligatorio por
-actividad, línea y programa. La información se conserva completa y la batería deja
-de cargar seis medidas redundantes.
+**Cifras.** 39 indicadores: 4 de problemática, 8 de actividad, 8 de producto, 9 de
+resultado, 5 de impacto, 4 supuestos y 1 referente de contexto. 4 cadenas, 15
+programas mapeados (5 de portafolio), 10 instrumentos de recolección, 74 preguntas de
+formulario y 22 referencias. Ningún indicador queda sin fuente.
+
+Cada cadena tiene menos impactos que resultados, que es la disciplina de embudo que
+la versión anterior no cumplía.
 
 ---
 
 ## Alcance de esta versión
 
-El documento presenta únicamente la teoría de cambio. Instrumentos de levantamiento,
-matriz de cobertura, metas, banco de preguntas, agenda de aprendizaje, intervención
-mínima viable, hallazgos de auditoría y análisis de potencia estadística existen en
-el libro técnico de Excel que acompaña al proyecto, pero no se presentan aquí por una
-razón deliberada: primero hay que estar seguros de la teoría de cambio.
+El documento presenta solo la teoría de cambio. Instrumentos, cobertura, metas, banco
+de preguntas, agenda de aprendizaje, intervención mínima viable, hallazgos de
+auditoría y análisis de potencia estadística viven en el libro técnico de Excel
+`Sistema_MEL_Manizales_Mas.xlsx`, que se genera del mismo modelo.
 
-Tres decisiones esperan validación del comité:
+La información económica del portafolio comercial no está en ninguno de los dos
+entregables por ahora. El deck conserva únicamente la marca de qué programas lo
+integran.
+
+Cuatro decisiones esperan al comité:
 
 1. Si los cinco enunciados de impacto son los que la institución quiere defender.
-2. Si la capa habilitante debe seguir declarada sin impacto propio.
-3. Si la línea de réplica se activa ahora o queda enunciada para un ciclo posterior.
+2. Si la fusión de transferencia y capacidad en una sola línea es correcta.
+3. Si el alcance de "Desarrollo de ecosistema", hoy marcado **en definición**, se
+   precisa antes de ofrecerse.
+4. Cuál es la lista canónica de programas: el documento tiene 15 y el portal muestra 9.
+
+### El hallazgo que condiciona todo lo demás
+
+Ningún instrumento registraba a los postulantes que no quedan seleccionados. Sin
+ellos no hay grupo de comparación, y sin grupo de comparación ninguno de los impactos
+de empresas se puede estimar. `INS_10`, el registro de convocatoria, se creó para
+cerrar ese vacío y es la pieza que habilita todo lo demás.
+
+Hay además una tensión estratégica: la línea de talento es la única con evaluación
+prospectiva viable, y es la que no se vende. La de empresas concentra el portafolio y
+es la que más lejos está de poder demostrar un efecto con una sola cohorte, donde el
+efecto mínimo detectable ronda los 23 puntos porcentuales en ventas. La salida de
+corto plazo es la evaluación retrospectiva de las cohortes 2013 a 2024 cruzadas con
+RUES y PILA: con el conjunto de empresas acompañadas por los programas de esta línea,
+cercano a 500, la precisión baja a unos 4 puntos.
 
 ---
 
-## Principios que sostienen el modelo
+## Identidad visual
 
-1. **Impacto solo con comparación.** Un dato sin grupo de comparación se reporta
-   como seguimiento, nunca como impacto.
-2. **Ningún indicador huérfano.** Todo indicador debe tener al menos una fuente que
-   lo alimente.
-3. **Metas ancladas.** Una meta de resultado o de impacto necesita línea base y una
-   referencia externa verificada. Una cifra sin sustento produce una falsa sensación
-   de precisión.
-4. **Sin datos personales.** Este repositorio no aloja bases con identificadores de
-   participantes ni cifras empresariales. El `.gitignore` bloquea los formatos
-   habituales, pero la responsabilidad es de quien hace el commit.
+| Elemento | Valor |
+|---|---|
+| Azul institucional | `#104380`, con `#0B2E5C` para degradados |
+| Verde lima | `#CDDD00` |
+| Azul claro | `#5BB7E7` y cian `#27B9E1` |
+| Tipografía | Poppins en tres pesos, subconjuntada e incrustada |
+
+Las capas usan una progresión de azules de la problemática al impacto. El lima queda
+para la interacción y para el portafolio. Los tonos de texto sobre fondo claro se
+oscurecieron para cumplir el contraste mínimo de WCAG 2.1 nivel AA. El documento
+respeta `prefers-reduced-motion` e imprime en horizontal.
+
+---
+
+## Principios
+
+1. **Impacto solo con comparación.** Sin grupo de comparación es seguimiento.
+2. **Ningún indicador huérfano.** Todo indicador necesita una fuente que lo alimente.
+3. **Metas ancladas.** Una meta de resultado o impacto necesita línea base y
+   referencia externa verificada.
+4. **Sin riesgo moral.** Ningún indicador puede mejorar porque el desempeño propio
+   empeore, ni depender de una cifra que reporta quien es evaluado por ella.
+5. **Sin datos personales.** El repositorio no aloja bases con identificadores.
 
 ---
 
@@ -155,5 +182,5 @@ Tres decisiones esperan validación del comité:
 - [Manual Eurostat y OCDE de demografía empresarial](https://ec.europa.eu/eurostat/web/business-demography/information-data)
 - [Impact Evaluation in Practice, Banco Mundial y BID](https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice)
 
-El listado completo, con lo que aporta cada fuente y su fecha de verificación, está
-en la sección de referencias del propio documento.
+El listado completo está en la sección de referencias del documento. Las fuentes
+externas se verificaron el 29 de julio de 2026.

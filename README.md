@@ -2,7 +2,7 @@
 
 Documento web interactivo de un solo archivo.
 
-**Versión 2.4** · Agosto de 2026
+**Versión 2.5** · Agosto de 2026
 
 ---
 
@@ -27,7 +27,7 @@ referencias bibliográficas.
 ```bash
 git init
 git add .
-git commit -m "Teoría de cambio de Manizales Más, versión 2.4"
+git commit -m "Teoría de cambio de Manizales Más, versión 2.5"
 git branch -M main
 git remote add origin https://github.com/USUARIO/mel_manizales_mas.git
 git push -u origin main
@@ -47,10 +47,10 @@ todas las secciones con un aviso en lugar de quedar en blanco.
 
 | Sección | Contenido |
 |---|---|
-| 01 Modelo institucional | Quiénes somos, el impacto que persigue la alianza, las cifras del sistema y las cuatro líneas |
+| 01 Modelo institucional | Quiénes somos, el impacto que persigue la alianza, las cifras del sistema y las cuatro líneas. Cada tarjeta de línea revela sus programas al pasar el cursor |
 | 02 Teoría de cambio | La rejilla completa, con interruptor por línea o por programa |
 | 03 Cadenas causales | Las cuatro secuencias con su hipótesis y sus supuestos, cada uno con riesgo, señal de alerta y respuesta |
-| 04 Indicadores | Los 39 indicadores en tabla filtrable, con ficha completa al abrir cada fila |
+| 04 Indicadores | Los 39 indicadores en tabla filtrable: código, cambio esperado, indicador, definición, fórmula y periodicidad. Al abrir una fila, el resto de la ficha |
 | 05 Referencias | Las 22 fuentes, con su uso y su fecha de verificación |
 
 ### El interruptor de la rejilla
@@ -64,10 +64,12 @@ ese programa concretamente en esa parte de la cadena, no el indicador.
 ### Enunciado e indicador
 
 Un elemento de la teoría y un indicador no son lo mismo. El diagrama muestra el
-enunciado; la sección 04 muestra la medición. Abrir una fila de la tabla despliega la
-ficha completa: definición, forma de cálculo, lógica, periodicidad, responsable,
-desagregación, línea base, estado de la meta, instrumento de recolección y
-referencias que la respaldan.
+enunciado; la sección 04 muestra la medición. La tabla trae el cambio esperado, el
+indicador, su definición, su fórmula y su periodicidad. Abrir una fila despliega el
+resto de la ficha en lenguaje corriente: cómo se calcula, cómo se desagrega, cuál es
+el punto de partida, de dónde salen los datos y qué referencias lo respaldan. No hay
+metas ni responsables en el deck: las metas están sin definir y el responsable es
+información operativa que vive en el Excel.
 
 | Elemento | Enunciado | Indicador |
 |---|---|---|
@@ -99,8 +101,13 @@ siempre coincide con la capa.
 
 **Cifras.** 39 indicadores: 4 de problemática, 8 de actividad, 8 de producto, 9 de
 resultado, 5 de impacto, 4 supuestos y 1 referente de contexto. 4 cadenas, 15
-programas mapeados (5 de portafolio), 10 instrumentos de recolección, 74 preguntas de
-formulario y 22 referencias. Ningún indicador queda sin fuente.
+programas mapeados (5 de portafolio), 10 instrumentos de recolección y 22
+referencias. Ningún indicador queda sin fuente.
+
+**Periodicidad.** Tres valores y no más: `Por cohorte`, `Anual` y `Por réplica`. El
+horizonte de observación de un efecto, por ejemplo los 24 meses de las ventas, vive en
+el nombre del indicador, que es donde corresponde, y no se confunde con la cadencia
+con que se toma el dato.
 
 Cada cadena tiene menos impactos que resultados, que es la disciplina de embudo que
 la versión anterior no cumplía.
@@ -122,8 +129,7 @@ Cuatro decisiones esperan al comité:
 
 1. Si los cinco enunciados de impacto son los que la institución quiere defender.
 2. Si la fusión de transferencia y capacidad en una sola línea es correcta.
-3. Si el alcance de "Desarrollo de ecosistema", hoy marcado **en definición**, se
-   precisa antes de ofrecerse.
+3. Si el alcance de "Desarrollo de ecosistema" es el que quedó descrito en la teoría.
 4. Cuál es la lista canónica de programas: el documento tiene 15 y el portal muestra 9.
 
 ### El hallazgo que condiciona todo lo demás

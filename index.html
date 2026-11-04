@@ -313,14 +313,19 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .view{display:block!important;break-before:page}
   .view:first-of-type{break-before:auto}
   .card,.impact{box-shadow:none}
-  .impact,.node.imp{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .hero,.next,.ico,.pillars .pi,.line-card::before,.lane::before,.swim-h .sn,.node.imp,.node.prb,.tags li,.ev-path .step,.badge,.f3c span{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .hero,.goal,.next,.pillars li,.line-card,.ev-card{break-inside:avoid;box-shadow:none}
+  .hero{padding:28px 32px}
+  .hero-art svg{max-width:240px}
+  .view{animation:none}
   .swim-wrap,.table-scroll{overflow:visible}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
   .lane{display:flex;gap:10px;padding:8px 0;break-inside:avoid}
   .lane+.lane{break-before:page}
   .lane>*{flex:1 1 0;min-width:0;border:0!important}
-  .lane>.lane-name{flex:0 0 100px}
+  .lane>.lane-name{flex:0 0 120px;padding-left:14px}
+  .lane-name h2{font-size:10pt}
   .cell-label{display:block;font-size:8pt;font-weight:600;color:var(--soft);text-transform:uppercase}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
@@ -381,19 +386,19 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en los jóvenes y en el territorio. Sumados, esos cambios mueven la economía de la región. Elija un frente o un programa para seguir su recorrido, y abra «Hipótesis» para ver por qué debería funcionar.</p></div>
-    <div class="mode" role="group" aria-label="Ver la cadena"><button type="button" data-mode="line" aria-pressed="true">Por línea</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en los jóvenes y en el territorio. Sumados, esos cambios mueven la economía de la región. Elija un frente o un programa para seguir su recorrido; «Hipótesis» explica por qué debería funcionar y «Supuestos», qué tiene que pasar para que funcione.</p></div>
+    <div class="mode" role="group" aria-label="Ver la cadena"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
-  <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Línea</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
+  <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
   <div class="flt" id="byProgram" hidden>
     <p class="flt-label">Programas de portafolio</p><div class="pgrid" id="pPortfolio"></div>
     <p class="flt-label">Otros programas</p><div class="pgroups" id="pRest"></div>
   </div>
-  <div class="swim-wrap" tabindex="0" role="region" aria-label="Cadena de resultados por línea"><div class="swim" id="swim"></div></div>
+  <div class="swim-wrap" tabindex="0" role="region" aria-label="Cadena de resultados por frente"><div class="swim" id="swim"></div></div>
 
   <div class="measure" id="medicion">
     <div class="measure-head">
-      <div><p class="kicker">Indicadores</p><h2>Cómo lo medimos</h2><p class="lede">Cada eslabón de la cadena tiene indicadores con definición, fórmula y fuente, para que una cifra signifique lo mismo en un informe, en un boletín o ante un cooperante. Haga clic en cualquier elemento de la cadena y aquí verá solo sus indicadores.</p></div>
+      <div><p class="kicker">Indicadores</p><h2>Cómo lo medimos</h2><p class="lede">Cada eslabón de la cadena tiene indicadores con definición, fórmula y fuente, para que una cifra signifique lo mismo en un informe, en un boletín o ante un cooperante. Haga clic en una actividad, un producto, un resultado o el impacto, y aquí verá solo sus indicadores.</p></div>
       <div class="field"><label for="fq">Buscar indicador</label><input id="fq" type="search" placeholder="Por ejemplo: empleo, ventas" autocomplete="off"></div>
     </div>
     <p class="scope" aria-live="polite"><span id="scopeText"></span><button type="button" class="link" id="scopeReset" hidden>Ver todos</button><a class="link" href="#h-teoria" id="scopeUp" hidden>Volver a la cadena</a></p>
@@ -1158,7 +1163,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "ECO",
    "statement": "Casos de crecimiento documentados y difundidos.",
    "name": "Casos de crecimiento con cifras verificadas",
-   "definition": "Casos de empresas de la región que crecieron, publicados con cifras verificadas según el glosario y con la contribución de los aliados.",
+   "definition": "Casos de empresas de la región que crecieron, publicados con cifras verificadas y con la contribución de los aliados.",
    "calculation": "N(casos publicados)",
    "variables": {
     "N": "Casos publicados en el año con cifras verificadas."
@@ -1171,7 +1176,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_04",
     "INS_08"
    ],
-   "rule": "Cada cifra del caso debe tener definición en el glosario y fuente verificable.",
+   "rule": "Cada cifra del caso usa la definición de su indicador y tiene fuente verificable.",
    "refs": [
     "REF_ISEN10",
     "REF_ISEN16"
@@ -1988,7 +1993,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "population": "Mentores y facilitadores de organizaciones aliadas.",
    "role": "Forma personas para acompañar empresas desde sus propias organizaciones.",
    "focus": [
-    "PRD_8",
+    "PRD_0",
     "RES_24",
     "RES_23"
    ],
@@ -2205,7 +2210,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "population": "Docentes de universidades aliadas.",
    "role": "Forma docentes para enseñar emprendimiento orientado al crecimiento.",
    "focus": [
-    "PRD_8",
+    "PRD_0",
     "RES_24"
    ],
    "elements": [
@@ -2225,7 +2230,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "population": "Estudiantes de universidades aliadas.",
    "role": "Formación aplicada en emprendimiento impartida por docentes formados.",
    "focus": [
-    "PRD_8"
+    "PRD_0",
+    "RES_24"
    ],
    "elements": [
     "ACT_8",
@@ -2753,7 +2759,7 @@ const byIns = new Map(M.instruments.map(i => [i.id, i]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
 const IND = M.indicators.filter(x => x.name && !x.measuredBy);
 const outsOf = id => M.outcomes.filter(o => o.line === id);
-const lineName = id => id === 'SIS' ? 'Todas las líneas' : byLine.get(id)?.name || id;
+const lineName = id => id === 'SIS' ? 'Todos los frentes' : byLine.get(id)?.name || id;
 const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
 const layerName = id => byLayer.get(id)?.name || id;
@@ -2827,7 +2833,7 @@ function scope(){
   const p = S.mode === 'program' ? byProg.get(S.prog) : null;
   if(S.node) return {codes:new Set(codesOf(S.node)), label:`${nodeStage(S.node)}: <strong>${esc(nodeLabel(S.node))}</strong>`};
   if(p){ const cs = new Set(p.elements.map(c => byCode.get(c)?.measuredBy || c)); return {codes:cs, label:`<strong>${esc(p.name)}</strong>. ${esc(p.role)}`}; }
-  if(S.mode === 'line' && S.line){ const cs = new Set(M.indicators.filter(x => x.line === S.line).map(x => x.measuredBy || x.code)); return {codes:cs, label:`Línea <strong>${esc(lineName(S.line))}</strong>`}; }
+  if(S.mode === 'line' && S.line){ const cs = new Set(M.indicators.filter(x => x.line === S.line).map(x => x.measuredBy || x.code)); return {codes:cs, label:`Frente <strong>${esc(lineName(S.line))}</strong>`}; }
   return {codes:null, label:'Todos los indicadores'};
 }
 function drawIndicators(){

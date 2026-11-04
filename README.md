@@ -11,7 +11,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Qué es Manizales Más, hacia dónde va y sus cuatro frentes de trabajo |
-| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa. Cada línea tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los 37 indicadores agrupados por etapa, filtrados por lo que se seleccione en la cadena |
+| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por frente o por programa. Cada frente tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los 37 indicadores agrupados por etapa, filtrados por lo que se seleccione en la cadena |
 | 03 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.0

@@ -2816,7 +2816,8 @@ function drawModel(){
 /* ---------- 02 teoría ---------- */
 function drawControls(){
   $('lineChips').innerHTML = [{id:'',name:'Todas'}, ...M.lines].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
-  $('pick').innerHTML = M.lines.map(l => {
+  const bySize = [...M.lines].sort((a, b) => M.programs.filter(p => p.line === b.id).length - M.programs.filter(p => p.line === a.id).length);
+  $('pick').innerHTML = bySize.map(l => {
     const ps = M.programs.filter(p => p.line === l.id).sort((a, b) => (b.portfolio ? 1 : 0) - (a.portfolio ? 1 : 0));
     return `<section class="pick-col" style="${lineVars(l.id)}" aria-labelledby="pk-${l.id}">
       <header><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><h3 id="pk-${l.id}">${esc(l.name)}</h3><span class="cnt">${ps.length}</span></header>

@@ -200,6 +200,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .d-head .x:hover{background:rgba(255,255,255,.26)}
 .d-body{overflow:auto;padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px;font-size:14.5px}
 .def{font-size:15.5px}
+.excl{font-size:14px;color:var(--ink);background:#FBEDEC;border-radius:10px;padding:10px 14px;margin-top:-6px}
+.excl b{color:#8A2A1E}
 .why{font-size:14.5px;background:var(--pale);border-left:4px solid var(--lime);border-radius:10px;padding:14px 16px}
 .why b{color:var(--navy);display:block;margin-bottom:4px}
 .formula{background:var(--pale);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:10px;padding:16px 18px}
@@ -442,6 +444,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   "CAP": "Capacidad",
   "CAJ": "Caja",
   "VEN": "Ventas",
+  "ESC": "Escala",
   "EMPL": "Ruta de empleabilidad",
   "EMPR": "Ruta de emprendimiento",
   "AMB": "Ambas rutas",
@@ -474,7 +477,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_6",
     "RES_7",
     "RES_8",
-    "RES_9"
+    "RES_9",
+    "RES_27"
    ],
    "products": [
     "PRD_1",
@@ -1134,7 +1138,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_10"
    ],
-   "rule": "Cuenta solo si un equipo externo lo aplicó o lo revisó con la lista de criterios."
+   "rule": "Cuenta solo si un equipo externo lo aplicó o lo revisó con la lista de criterios.",
+   "excludes": "Presentaciones o documentos internos sin versión ni criterios de calidad."
   },
   {
    "code": "PRD_11",
@@ -1159,7 +1164,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_REAP",
     "REF_GEM"
-   ]
+   ],
+   "excludes": "Visitas, talleres de sensibilización o diagnósticos parciales."
   },
   {
    "code": "PRD_12",
@@ -1184,7 +1190,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_ISEN10",
     "REF_ISEN16"
-   ]
+   ],
+   "excludes": "Casos con cifras sin fuente verificable."
   },
   {
    "code": "RES_1",
@@ -1232,7 +1239,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría. Modelo de mentoría en equipo por hitos.",
    "refs": [
     "REF_VMS"
-   ]
+   ],
+   "excludes": "Tareas operativas menores o compromisos sin fecha ni evidencia."
   },
   {
    "code": "RES_3",
@@ -1255,7 +1263,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Comparar contra los doce meses previos al ingreso."
+   "rule": "Comparar contra los doce meses previos al ingreso.",
+   "excludes": "Clientes con los que solo hubo contacto o cotización."
   },
   {
    "code": "RES_4",
@@ -1278,7 +1287,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total."
+   "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total.",
+   "excludes": "Contactos, ferias, cotizaciones o perfiles en redes sin venta facturada."
   },
   {
    "code": "RES_5",
@@ -1301,7 +1311,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Conversión = propuestas con venta facturada / propuestas formales enviadas."
+   "rule": "Conversión = propuestas con venta facturada / propuestas formales enviadas.",
+   "excludes": "Contactos informales o prospectos sin propuesta formal."
   },
   {
    "code": "RES_6",
@@ -1330,7 +1341,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_IPC",
     "REF_CONF17"
-   ]
+   ],
+   "excludes": "Ventas proyectadas, pedidos sin facturar y cifras sin deflactar."
   },
   {
    "code": "RES_7",
@@ -1359,7 +1371,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_PILA",
     "REF_RELAB"
-   ]
+   ],
+   "excludes": "Contratistas por prestación de servicios, propietarios sin salario, practicantes y empleos estimados."
   },
   {
    "code": "RES_8",
@@ -1383,7 +1396,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_04",
     "INS_11"
    ],
-   "rule": "Margen operativo = utilidad operacional / ventas netas, del mismo tipo de fuente en ambos años."
+   "rule": "Margen operativo = utilidad operacional / ventas netas, del mismo tipo de fuente en ambos años.",
+   "excludes": "Comparar estados auditados con estimaciones del empresario."
   },
   {
    "code": "RES_9",
@@ -1406,7 +1420,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Reportar junto al valor de línea base para mostrar el cambio."
+   "rule": "Reportar junto al valor de línea base para mostrar el cambio.",
+   "excludes": "Entradas por préstamos, aportes de socios o venta de activos."
   },
   {
    "code": "RES_10",
@@ -1428,7 +1443,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Nunca reemplazar por número de postulantes o asistentes."
+   "rule": "Nunca reemplazar por número de postulantes o asistentes.",
+   "excludes": "Ventas a familiares, socios o aliados del programa, y preventas sin entrega."
   },
   {
    "code": "RES_11",
@@ -1454,7 +1470,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "La matrícula mercantil vigente no basta: se exigen ventas.",
    "refs": [
     "REF_CONF5"
-   ]
+   ],
+   "excludes": "Matrícula mercantil vigente sin ventas."
   },
   {
    "code": "RES_12",
@@ -1476,7 +1493,37 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Registrar el tipo de contingencia y la adaptación adoptada (precio, canal, producto o costos)."
+   "rule": "Registrar el tipo de contingencia y la adaptación adoptada (precio, canal, producto o costos).",
+   "excludes": "Caídas estacionales previsibles."
+  },
+  {
+   "code": "RES_27",
+   "layer": "RES",
+   "line": "EMP",
+   "outcome": "OUT_02",
+   "dim": "ESC",
+   "statement": "Empresas acompañadas que escalan.",
+   "name": "Empresas escaladas",
+   "definition": "Empresas atendidas con al menos diez asalariados al ingreso que crecen más de 20 % al año, en empleo o en ventas reales, durante tres años seguidos.",
+   "calculation": "N y 100 × N / B",
+   "variables": {
+    "N": "Empresas atendidas que cumplen el criterio de alto crecimiento de la OCDE.",
+    "B": "Empresas atendidas con diez o más asalariados al ingreso y tres años de seguimiento."
+   },
+   "unit": "Empresas y %",
+   "population": "Empresas atendidas con diez o más asalariados al ingreso.",
+   "frequency": "Anual",
+   "horizon": "36 meses desde el ingreso",
+   "sources": [
+    "INS_04",
+    "INS_11"
+   ],
+   "rule": "Convención Eurostat y OCDE.",
+   "refs": [
+    "REF_OECD",
+    "REF_ISEN16"
+   ],
+   "excludes": "Crecimiento por fusiones o adquisiciones, o empresas que crecen un solo año."
   },
   {
    "code": "RES_13",
@@ -1499,7 +1546,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_06"
    ],
-   "rule": "Reportar también el cambio medio del índice y separar por ruta."
+   "rule": "Reportar también el cambio medio del índice y separar por ruta.",
+   "excludes": "Mediciones solo de salida o con versiones distintas del instrumento."
   },
   {
    "code": "RES_14",
@@ -1526,7 +1574,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Solo ruta de empleabilidad. Otras vinculaciones se reportan aparte.",
    "refs": [
     "REF_PILA"
-   ]
+   ],
+   "excludes": "Entrevistas, pasantías no remuneradas, prestación de servicios y trabajo informal."
   },
   {
    "code": "RES_15",
@@ -1550,7 +1599,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_05",
     "INS_11"
    ],
-   "rule": "Un cambio de empleador sin interrupción mayor a 30 días cuenta como permanencia."
+   "rule": "Un cambio de empleador sin interrupción mayor a 30 días cuenta como permanencia.",
+   "excludes": "Contratos terminados antes del día 90 sin nueva vinculación."
   },
   {
    "code": "RES_16",
@@ -1573,7 +1623,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_05"
    ],
-   "rule": "Verificar con la descripción del cargo o con el empleador."
+   "rule": "Verificar con la descripción del cargo o con el empleador.",
+   "excludes": "Declaraciones del joven sin verificar con el cargo o el empleador."
   },
   {
    "code": "RES_17",
@@ -1596,7 +1647,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_05"
    ],
-   "rule": "Solo ruta de emprendimiento."
+   "rule": "Solo ruta de emprendimiento.",
+   "excludes": "Ventas a familiares, socios o aliados del programa, y preventas sin entrega."
   },
   {
    "code": "RES_18",
@@ -1622,7 +1674,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Deflactar con el IPC al mes base de la cohorte.",
    "refs": [
     "REF_IPC"
-   ]
+   ],
+   "excludes": "Ventas sin soporte o cifras sin deflactar."
   },
   {
    "code": "RES_19",
@@ -1678,7 +1731,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_NEVADO",
     "REF_AURA"
-   ]
+   ],
+   "excludes": "Montos solicitados, aprobados sin desembolso o en negociación."
   },
   {
    "code": "RES_21",
@@ -1704,7 +1758,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Contar una vez cada empresa por cohorte de postulación.",
    "refs": [
     "REF_OPEN"
-   ]
+   ],
+   "excludes": "Postulaciones o pilotos sin contrato firmado."
   },
   {
    "code": "RES_22",
@@ -1731,7 +1786,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Reportar junto al porcentaje con meta al ingreso para mostrar el cambio.",
    "refs": [
     "REF_ISEN13"
-   ]
+   ],
+   "excludes": "Metas sin cifra de ventas y empleo o sin aprobación de quien decide."
   },
   {
    "code": "RES_23",
@@ -1754,7 +1810,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_07"
    ],
-   "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas."
+   "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas.",
+   "excludes": "Horas pagadas, horas del equipo de Manizales Más y asistencia como público."
   },
   {
    "code": "RES_24",
@@ -1779,7 +1836,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Verificar operador local, cierre de cohorte y componentes del protocolo.",
    "refs": [
     "REF_LLEVA"
-   ]
+   ],
+   "excludes": "Servicios instalados que aún no cierran su primera cohorte."
   },
   {
    "code": "RES_25",
@@ -1823,7 +1881,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_10"
    ],
-   "rule": "Reportar también la distribución por nivel."
+   "rule": "Reportar también la distribución por nivel.",
+   "excludes": "Autoevaluaciones sin evidencia."
   },
   {
    "code": "IMP_1",
@@ -1851,7 +1910,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "REF_SIEF",
     "REF_ISEN16",
     "REF_IPC"
-   ]
+   ],
+   "excludes": "Comparaciones contra promedios nacionales o sectoriales."
   },
   {
    "code": "IMP_2",
@@ -1878,7 +1938,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_PILA",
     "REF_SIEF"
-   ]
+   ],
+   "excludes": "Empleos brutos, anunciados o estimados, y contratistas."
   },
   {
    "code": "IMP_3",
@@ -1905,7 +1966,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_SIEF",
     "REF_PILA"
-   ]
+   ],
+   "excludes": "Comparaciones contra promedios nacionales y empleos informales."
   },
   {
    "code": "SUP_1",
@@ -2081,7 +2143,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_7",
     "RES_8",
     "RES_9",
-    "RES_4"
+    "RES_4",
+    "RES_27"
    ],
    "elements": [
     "PRB_1",
@@ -2098,6 +2161,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_7",
     "RES_8",
     "RES_9",
+    "RES_27",
     "RES_22",
     "IMP_1",
     "IMP_2",
@@ -2114,7 +2178,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "EMP",
    "portfolio": true,
    "population": "Empresas de municipios de Caldas distintos de Manizales.",
-   "role": "Lleva el acompañamiento para crecer a los municipios, con los mismos indicadores de crecimiento.",
+   "role": "Lleva el acompañamiento para crecer a los municipios de Caldas, con los mismos indicadores de crecimiento que en Manizales, reportados municipio por municipio.",
    "focus": [
     "RES_6",
     "RES_7",
@@ -2134,6 +2198,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_7",
     "RES_8",
     "RES_9",
+    "RES_27",
     "RES_22",
     "IMP_1",
     "IMP_2",
@@ -3124,7 +3189,7 @@ function open(code){
   $('dHead').style.setProperty('--dh', lineTone(x.line));
   const a = M.assumptions[code];
   $('dBody').innerHTML = `${a?`<p class="why"><b>${esc(a.title)}</b> ${esc(a.why)}</p>`:''}
-    <p class="def">${esc(x.definition)}</p>
+    <p class="def">${esc(x.definition)}</p>${x.excludes?`<p class="excl"><b>No cuenta:</b> ${esc(x.excludes)}</p>`:''}
     <div class="formula"><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd></dl>`;
   if(!dlg.open) dlg.showModal();

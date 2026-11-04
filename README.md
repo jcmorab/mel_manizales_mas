@@ -34,7 +34,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
 
 Siete actividades con la misma fórmula se miden con un indicador común (`ACT_0`), así que hay
-54 indicadores distintos.
+55 indicadores distintos.
 
 Los códigos de indicadores se renumeraron; el libro técnico de Excel debe regenerarse con este modelo.
 

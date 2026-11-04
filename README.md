@@ -10,10 +10,10 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 
 | Sección | Para qué sirve |
 |---|---|
-| Modelo | Impacto, principio de contribución, marco conceptual (Babson, MIT REAP, MIT VMS), el portafolio en los seis dominios del ecosistema, las cuatro líneas y los cambios de la versión |
+| Modelo | Impacto, principio de contribución, tablero de la junta con los 19 indicadores clave, marco conceptual (Babson, MIT REAP, MIT VMS), el portafolio en los seis dominios del ecosistema, las cuatro líneas y los cambios de la versión |
 | Teoría de cambio | La cadena por línea (problemática → actividades → productos → resultados → impacto), con resaltado por programa, hipótesis y supuestos |
 | Programas | Qué hace cada programa, por qué indicadores responde y qué no debe reportarse como resultado |
-| Indicadores | 61 fichas técnicas filtrables, con exportación a CSV e instrumentos de recolección |
+| Indicadores | 54 fichas técnicas filtrables (19 clave), con exportación a CSV e instrumentos de recolección |
 | Glosario | Definiciones operativas: qué cuenta, qué no cuenta y cómo comunicarlo; reglas comunes de cálculo |
 | Referencias | Babson, MIT REAP, fuentes oficiales e institucionales, con el indicador que respalda cada una |
 
@@ -37,6 +37,9 @@ para citarla en reportes y boletines.
 - **Contribución multiactor** como supuesto explícito y **glosario operativo** unificado.
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
+
+Siete actividades con la misma fórmula se miden con un indicador común (`ACT_0`), así que hay
+54 indicadores distintos: 19 clave para la junta, cooperantes y medios, y el resto para gestión.
 
 Los códigos de indicadores se renumeraron; el libro técnico de Excel debe regenerarse con este modelo.
 

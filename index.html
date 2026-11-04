@@ -117,6 +117,10 @@ main{max-width:var(--wrap);margin:0 auto;padding:36px var(--gut) 72px}
 .out-link::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--lc)}
 .out-link:hover{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
 .line-card .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.board-g{padding:16px 18px;border-top:4px solid var(--lc,var(--navy));display:flex;flex-direction:column;gap:8px}
+.board-g h3{font-size:14.5px;color:var(--lt,var(--navy))}
+.board-g .ind-ref{font-size:13px;padding:7px 10px}
 .fw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .fw{padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:14px;border-top:4px solid var(--sky)}
 .fw h3{font-size:1rem}
@@ -307,6 +311,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .nav{margin-left:-6px;width:calc(100% + 12px)}
   html{scroll-padding-top:118px}
   .lines,.hyps,.fw-grid{grid-template-columns:1fr}
+  .board{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
@@ -324,7 +329,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   body{font-size:15px}
   main{padding-top:24px}
   .brand img{width:112px}
-  .impact-grid,.yn,.dom-grid{grid-template-columns:1fr}
+  .impact-grid,.yn,.dom-grid,.board{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .step::after{display:none!important}
   .change{grid-template-columns:1fr;gap:6px}
@@ -404,6 +409,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <p class="lede">Cada línea de trabajo recorre la misma cadena. Los resultados se miden con indicadores; el impacto se estima frente a un grupo de comparación.</p>
     <ol class="steps" id="steps"></ol>
   </div>
+  <div class="block" id="tablero">
+    <h2 id="boardTitle"></h2>
+    <p class="lede" id="boardLede"></p>
+    <div class="board" id="board"></div>
+  </div>
   <div class="block" id="marco">
     <h2>Marco conceptual</h2>
     <p class="lede">Tres metodologías del MIT y de Babson dan forma al modelo. Esto es lo que cada una aporta y dónde se ve.</p>
@@ -453,7 +463,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 
 <section class="view" id="indicadores" aria-labelledby="h-indicadores" hidden>
   <div class="view-head">
-    <div><h1 id="h-indicadores" tabindex="-1">Indicadores</h1><p class="lede">Cada indicador tiene ficha técnica: definición, fórmula, población, medición, fuente y criterio.</p></div>
+    <div><h1 id="h-indicadores" tabindex="-1">Indicadores</h1><p class="lede">Cada indicador tiene ficha técnica: definición, fórmula, población, medición, fuente y criterio. Los marcados como clave forman el tablero de la junta.</p></div>
   </div>
   <div class="chips layer-chips" id="layerChips" role="group" aria-label="Etapa"></div>
   <div class="card filters">
@@ -727,7 +737,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "products": [
     "PRD_5",
     "PRD_6",
-    "PRD_7"
+    "PRD_11"
    ]
   },
   {
@@ -922,67 +932,50 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   {
+   "code": "ACT_0",
+   "layer": "ACT",
+   "line": "SIS",
+   "statement": "Ejecución de las actividades programadas.",
+   "name": "Cumplimiento de la agenda de actividades",
+   "definition": "Sesiones, reuniones y acciones realizadas respecto de las programadas con vencimiento al corte. Un solo indicador mide todas las actividades de formación, mentoría, conexión, preparación para capital y cultura.",
+   "calculation": "100 × A / B",
+   "variables": {
+    "A": "Sesiones o acciones realizadas con fecha programada hasta el corte.",
+    "B": "Sesiones o acciones programadas con fecha hasta el corte."
+   },
+   "unit": "%",
+   "population": "Agendas aprobadas de todos los programas.",
+   "frequency": "Mensual",
+   "horizon": "Durante la ejecución",
+   "sources": [
+    "INS_03",
+    "INS_08"
+   ],
+   "rule": "Reportar siempre por actividad, programa y tipo. Usar la agenda aprobada antes del vencimiento; no reprogramar para mejorar la cifra."
+  },
+  {
    "code": "ACT_1",
    "layer": "ACT",
    "line": "EMP",
    "statement": "Acompañamiento y mentoría para decisiones de crecimiento.",
-   "name": "Ejecución del acompañamiento empresarial",
-   "definition": "Sesiones de formación o mentoría realizadas respecto de las programadas con vencimiento al corte.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones realizadas con fecha programada hasta el corte.",
-    "B": "Sesiones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda aprobada de cada cohorte.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Separar formación y mentoría. Usar la agenda aprobada antes del vencimiento."
+   "measuredBy": "ACT_0",
+   "detail": "Separar formación y mentoría. Usar la agenda aprobada antes del vencimiento."
   },
   {
    "code": "ACT_2",
    "layer": "ACT",
    "line": "EMP",
    "statement": "Conexión con clientes, mercados y financiadores.",
-   "name": "Reuniones de conexión realizadas",
-   "definition": "Reuniones con una contraparte identificada realizadas respecto de las programadas.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Reuniones realizadas con fecha programada hasta el corte.",
-    "B": "Reuniones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda de conexiones empresariales.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Exigir fecha, contraparte y registro de la reunión. Separar clientes, mercados y financiadores."
+   "measuredBy": "ACT_0",
+   "detail": "Exigir fecha, contraparte y registro de la reunión. Separar clientes, mercados y financiadores."
   },
   {
    "code": "ACT_3",
    "layer": "ACT",
    "line": "TAL",
    "statement": "Formación técnica, en IA y socioemocional, por ruta.",
-   "name": "Ejecución de la formación de talento",
-   "definition": "Sesiones de formación realizadas respecto de las programadas, por ruta.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones realizadas con fecha programada hasta el corte.",
-    "B": "Sesiones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda de formación de Qué Nivel.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Reportar por separado la ruta de empleabilidad y la de emprendimiento.",
+   "measuredBy": "ACT_0",
+   "detail": "Reportar por separado la ruta de empleabilidad y la de emprendimiento.",
    "dim": "AMB"
   },
   {
@@ -990,21 +983,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "ACT",
    "line": "TAL",
    "statement": "Conexión con empleadores y con clientes.",
-   "name": "Conexiones de talento realizadas",
-   "definition": "Entrevistas y pruebas técnicas (empleabilidad) o reuniones con clientes (emprendimiento) realizadas respecto de las programadas.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Conexiones realizadas con fecha programada hasta el corte.",
-    "B": "Conexiones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda de conexiones de Qué Nivel.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Cada conexión pertenece a una sola ruta.",
+   "measuredBy": "ACT_0",
+   "detail": "Cada conexión pertenece a una sola ruta.",
    "dim": "AMB"
   },
   {
@@ -1041,69 +1021,24 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "ACT",
    "line": "ECO",
    "statement": "Preparación de empresas y conexión con capital.",
-   "name": "Preparación para capital ejecutada",
-   "definition": "Sesiones de preparación para inversión, crédito o pago por resultados realizadas respecto de las programadas.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones realizadas con fecha programada hasta el corte.",
-    "B": "Sesiones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda de preparación para capital.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Separar inversión, crédito y pago por resultados."
+   "measuredBy": "ACT_0",
+   "detail": "Separar inversión, crédito y pago por resultados."
   },
   {
    "code": "ACT_7",
    "layer": "ACT",
    "line": "ECO",
    "statement": "Agenda de cultura de crecimiento: casos, referentes y retribución.",
-   "name": "Agenda de cultura de crecimiento ejecutada",
-   "definition": "Acciones de la agenda de cultura realizadas respecto de las programadas: casos documentados, encuentros con referentes y espacios de retribución de empresarios consolidados.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Acciones realizadas con fecha programada hasta el corte.",
-    "B": "Acciones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda anual de cultura.",
-   "frequency": "Trimestral",
-   "horizon": "Durante el año",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Cada acción tiene responsable, fecha y evidencia.",
-   "terms": [
-    "give_back"
-   ],
-   "refs": [
-    "REF_ISEN13"
-   ]
+   "measuredBy": "ACT_0",
+   "detail": "Cada acción tiene responsable, fecha y evidencia."
   },
   {
    "code": "ACT_8",
    "layer": "ACT",
    "line": "TRF",
    "statement": "Formación de mentores, docentes y facilitadores.",
-   "name": "Formación de transferencia ejecutada",
-   "definition": "Sesiones para mentores, docentes, facilitadores o estudiantes realizadas respecto de las programadas.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones realizadas con fecha programada hasta el corte.",
-    "B": "Sesiones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agendas de formación de transferencia.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Separar programa y rol."
+   "measuredBy": "ACT_0",
+   "detail": "Separar programa y rol."
   },
   {
    "code": "ACT_9",
@@ -1148,6 +1083,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Los requisitos de cierre se fijan al inicio de la cohorte.",
    "terms": [
     "empresa_atendida",
+    "empresa_alto_potencial",
     "cohorte"
    ]
   },
@@ -1260,33 +1196,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Exigir fecha y soporte de presentación; contar una vez cada empresa."
   },
   {
-   "code": "PRD_7",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Medición anual de condiciones del ecosistema publicada.",
-   "name": "Medición de condiciones publicada",
-   "definition": "Medición anual de los seis dominios del ecosistema y de las capacidades innovadora y emprendedora, aplicada a los cinco tipos de actor y devuelta a los participantes.",
-   "calculation": "Sí / No",
-   "variables": {
-    "Sí": "Medición aplicada, analizada y publicada en el año."
-   },
-   "unit": "Medición anual",
-   "population": "Ecosistema de Manizales.",
-   "frequency": "Anual",
-   "horizon": "Cierre del año",
-   "sources": [
-    "INS_09"
-   ],
-   "rule": "Cobertura mínima de los cinco tipos de actor.",
-   "terms": [
-    "condiciones_ecosistema"
-   ],
-   "refs": [
-    "REF_REAP",
-    "REF_GEM"
-   ]
-  },
-  {
    "code": "PRD_8",
    "layer": "PRD",
    "line": "TRF",
@@ -1356,7 +1265,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "TRF",
    "statement": "Territorios y ecosistemas diagnosticados.",
    "name": "Territorios con diagnóstico de ecosistema",
-   "definition": "Municipios o ecosistemas con medición completa de condiciones en los seis dominios y devolución de resultados a sus actores.",
+   "definition": "Municipios o ecosistemas, incluido Manizales cada año, con medición completa de los seis dominios y de las capacidades innovadora y emprendedora, y devolución de resultados a sus actores.",
    "calculation": "N(territorios diagnosticados)",
    "variables": {
     "N": "Territorios con diagnóstico completo y devuelto."
@@ -1369,12 +1278,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_09",
     "INS_10"
    ],
-   "rule": "Un territorio cuenta una vez por año.",
+   "rule": "Un territorio cuenta una vez por año. La medición exige cobertura de los cinco tipos de actor.",
    "terms": [
-    "territorio_diagnosticado"
+    "territorio_diagnosticado",
+    "condiciones_ecosistema"
    ],
    "refs": [
-    "REF_REAP"
+    "REF_REAP",
+    "REF_GEM"
    ]
   },
   {
@@ -1948,9 +1859,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_08",
     "INS_12"
    ],
-   "rule": "No se cuentan montos solicitados ni aprobados sin desembolso. Separar tipo de capital.",
+   "rule": "No se cuentan montos solicitados ni aprobados sin desembolso. Separar tipo de capital y si la empresa es de base innovadora.",
    "terms": [
-    "capital_movilizado"
+    "capital_movilizado",
+    "ide"
    ],
    "refs": [
     "REF_NEVADO",
@@ -2521,7 +2433,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRB_3",
     "ACT_5",
     "ACT_7",
-    "PRD_7",
     "PRD_11",
     "PRD_12",
     "RES_19",
@@ -2980,6 +2891,27 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   }
  ],
+ "core": [
+  "IMP_1",
+  "IMP_2",
+  "IMP_3",
+  "RES_6",
+  "RES_7",
+  "RES_8",
+  "RES_9",
+  "RES_4",
+  "RES_2",
+  "RES_11",
+  "RES_14",
+  "RES_15",
+  "RES_17",
+  "RES_19",
+  "RES_20",
+  "RES_23",
+  "RES_24",
+  "CTX_1",
+  "CTX_2"
+ ],
  "glossary": [
   {
    "id": "empresa_atendida",
@@ -3242,7 +3174,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "elements": "Liderazgo, gobierno, marcos legales",
    "codes": [
     "ACT_5",
-    "PRD_7",
+    "PRD_11",
     "RES_19",
     "SUP_5"
    ]
@@ -3252,7 +3184,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Financiación",
    "elements": "Capital de riesgo, crédito, pago por resultados",
    "codes": [
-    "ACT_6",
     "PRD_6",
     "RES_20"
    ]
@@ -3262,7 +3193,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Cultura",
    "elements": "Casos de éxito, normas sociales, ambición",
    "codes": [
-    "ACT_7",
     "PRD_12",
     "RES_22",
     "RES_23"
@@ -3621,6 +3551,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "go": "marco"
   },
   {
+   "who": "Auditoría",
+   "text": "Menos indicadores y mejor jerarquía: siete actividades con la misma fórmula se miden con un indicador común (ACT_0) y 19 indicadores clave forman el tablero de la junta.",
+   "go": "ACT_0"
+  },
+  {
    "who": "Evaluación 2",
    "text": "Glosario con definiciones operativas: qué cuenta, qué no cuenta y cómo comunicarlo.",
    "go": "view:glosario"
@@ -3645,11 +3580,14 @@ const byProg = new Map(M.programs.map(p => [p.id, p]));
 const byIns = new Map(M.instruments.map(i => [i.id, i]));
 const byTerm = new Map(M.glossary.map(t => [t.id, t]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
-const progsOf = code => M.programs.filter(p => p.elements.includes(code));
+const IND = M.indicators.filter(x => !x.measuredBy);
+const CORE = new Set(M.core);
+const nodesOf = code => M.indicators.filter(x => x.measuredBy === code).map(x => x.code);
+const progsOf = code => { const cs = [code, ...nodesOf(code)]; return M.programs.filter(p => cs.some(c => p.elements.includes(c))); };
 const outProgs = o => M.programs.filter(p => o.indicators.some(c => p.elements.includes(c)));
-const termUses = id => M.indicators.filter(x => (x.terms || []).includes(id));
-const insUses = id => M.indicators.filter(x => x.sources.includes(id));
-const refUses = id => [...M.indicators.filter(x => (x.refs || []).includes(id)).map(x => x.code), ...M.programs.filter(p => (p.refs || []).includes(id)).map(p => p.name)];
+const termUses = id => IND.filter(x => (x.terms || []).includes(id));
+const insUses = id => IND.filter(x => x.sources.includes(id));
+const refUses = id => [...IND.filter(x => (x.refs || []).includes(id)).map(x => x.code), ...M.programs.filter(p => (p.refs || []).includes(id)).map(p => p.name)];
 const outcomesOfLine = id => M.outcomes.filter(o => o.line === id);
 const lineName = id => id === 'SIS' ? 'Sistema' : byLine.get(id)?.name || id;
 const lineColor = id => byLine.get(id)?.color || '#0B2E5C';
@@ -3669,7 +3607,7 @@ const CLAIM = {
 const VIEWS = ['modelo','teoria','programas','indicadores','glosario','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
 
-const S = {view:'modelo', line:'', prog:'', progLine:'', layer:'', fLine:'', fProg:'', fOut:'', fDom:''};
+const S = {core:false, view:'modelo', line:'', prog:'', progLine:'', layer:'', fLine:'', fProg:'', fOut:'', fDom:''};
 const domainOf = code => M.domains.find(d => d.codes.includes(code));
 
 /* ---------- 01 modelo ---------- */
@@ -3683,6 +3621,10 @@ function drawModel(){
     <p class="impact-why">${esc(g.why)}</p>
     <p class="impact-ctx">Contexto regional, sin atribución: ${g.context.map(c => `<button type="button" data-open="${c}">${esc(byCode.get(c).name.replace(/^./, ch => ch.toLowerCase()))}</button>`).join(' y ')}.</p>
     <div class="principle"><span class="pi" aria-hidden="true">+</span><b>Principio de contribución multiactor</b><span>${esc(g.contribution)}</span></div>`;
+  const groups = [['Impacto','SIS',c => c.startsWith('IMP')], ...M.lines.map(l => [l.name, l.id, c => byCode.get(c).line === l.id && c.startsWith('RES')]), ['Contexto regional','SIS',c => c.startsWith('CTX')]];
+  $('boardTitle').textContent = `Tablero de la junta: ${M.core.length} indicadores clave`;
+  $('boardLede').textContent = `El sistema tiene ${IND.length} indicadores para gestionar los programas. Estos ${M.core.length} son los que se reportan a la junta, a los cooperantes y a los medios: cubren el impacto, las 3C de las empresas, las dos rutas de talento, el ecosistema, la transferencia y el contexto.`;
+  $('board').innerHTML = groups.map(([name, line, test]) => { const cs = M.core.filter(test); return cs.length ? `<article class="card board-g" style="${line==='SIS'?'':lineVars(line)}"><h3>${esc(name)}</h3><div class="ind-list">${cs.map(c => `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span>${esc(byCode.get(c).name)}</button>`).join('')}</div></article>` : ''; }).join('');
   $('frameworks').innerHTML = M.frameworks.map(f => { const r = byRef.get(f.ref); return `<article class="card fw"><h3>${esc(f.name)}</h3><p>${esc(f.idea)}</p><div><p class="lbl">En este modelo</p><p>${esc(f.inModel)}</p></div>${r.url?`<a class="src-link" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>`:''}</article>`; }).join('');
   $('domains').innerHTML = M.domains.map(d => `<article class="card dom"><h4>${esc(d.name)}</h4><p>${esc(d.elements)}</p><div class="ind-list">${d.codes.map(c => `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span>${esc(byCode.get(c).name)}</button>`).join('')}</div></article>`).join('');
   const flow = ['PRB','ACT','PRD','RES','IMP'];
@@ -3766,7 +3708,7 @@ function drawPrograms(){
 /* ---------- 04 indicadores ---------- */
 function drawIndicatorControls(){
   const opt = (v, label, sel) => `<option value="${esc(v)}"${sel===v?' selected':''}>${esc(label)}</option>`;
-  $('layerChips').innerHTML = [{id:'',name:'Todas'}, ...M.layers].map(l => `<button type="button" class="chip" data-layer="${l.id}" aria-pressed="${S.layer===l.id}">${esc(l.name)} <b>${l.id ? M.indicators.filter(x => x.layer === l.id).length : M.indicators.length}</b></button>`).join('');
+  $('layerChips').innerHTML = [{id:'',name:'Todas'}, ...M.layers].map(l => `<button type="button" class="chip" data-layer="${l.id}" aria-pressed="${S.layer===l.id}">${esc(l.name)} <b>${l.id ? IND.filter(x => x.layer === l.id).length : IND.length}</b></button>`).join('') + `<button type="button" class="chip core-chip" data-core aria-pressed="${S.core}">Solo indicadores clave <b>${CORE.size}</b></button>`;
   $('fLine').innerHTML = opt('','Todas las líneas',S.fLine) + [...M.lines,{id:'SIS',name:'Sistema (impacto y contexto)'}].map(l => opt(l.id,l.name,S.fLine)).join('');
   $('fProg').innerHTML = opt('','Todos los programas',S.fProg) + M.lines.map(l => `<optgroup label="${esc(l.name)}">${M.programs.filter(p => p.line === l.id).map(p => opt(p.id,p.name,S.fProg)).join('')}</optgroup>`).join('');
   $('fDom').innerHTML = opt('','Todos los dominios',S.fDom) + M.domains.map(d => opt(d.id,d.name,S.fDom)).join('');
@@ -3774,7 +3716,8 @@ function drawIndicatorControls(){
 }
 function filteredIndicators(){
   const q = norm($('fq').value.trim()), p = byProg.get(S.fProg);
-  return M.indicators.filter(x => {
+  return IND.filter(x => {
+    if(S.core && !CORE.has(x.code)) return false;
     if(S.layer && x.layer !== S.layer) return false;
     if(S.fLine && x.line !== S.fLine) return false;
     if(p && !p.elements.includes(x.code)) return false;
@@ -3786,9 +3729,9 @@ function filteredIndicators(){
 }
 function drawIndicators(){
   const items = filteredIndicators();
-  $('indCount').textContent = `${plural(items.length,'indicador','indicadores')} de ${M.indicators.length}`;
+  $('indCount').textContent = `${plural(items.length,'indicador','indicadores')} de ${IND.length}`;
   $('indRows').innerHTML = items.length ? items.map(x => `<tr style="${lineVars(x.line)}"><td class="c-code"><span class="code">${x.code}</span><span class="sub">${esc(layerLabel(x))}</span></td>
-    <td><button type="button" class="link" data-open="${x.code}">${esc(x.name)}</button><span class="sub">${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span></td>
+    <td><button type="button" class="link" data-open="${x.code}">${esc(x.name)}</button>${CORE.has(x.code)?' <span class="badge">Clave</span>':''}<span class="sub">${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span></td>
     <td><code>${esc(x.calculation)}</code></td><td>${esc(x.unit)}</td><td>${esc(measure(x))}</td></tr>`).join('')
     : `<tr><td colspan="5" class="empty">Ningún indicador coincide con estos filtros.</td></tr>`;
   $('insGrid').innerHTML = M.instruments.map(i => `<button type="button" class="card ins" data-open="${i.id}"><span class="code">${i.id}</span><b>${esc(i.name)}</b><span>${esc(i.purpose)}</span></button>`).join('');
@@ -3855,12 +3798,21 @@ function open(id, push = true){
 }
 function head(title, tag, line){ $('dTitle').textContent = title; $('dTag').textContent = tag; $('dHead').style.setProperty('--dh', lineTone(line)); }
 const indRef = (c, mark) => { const x = byCode.get(c); return `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span><span>${esc(x.name)}</span>${mark && mark(x) ? '<span class="mine">Programa resaltado</span>' : ''}</button>`; };
+function renderNode(x){
+  const m = byCode.get(x.measuredBy), ps = progsOf(x.code);
+  head(x.statement, `${x.code} · Actividad · ${lineName(x.line)}`, x.line);
+  $('dBody').innerHTML = `<div class="claim"><b>Cómo se mide</b>Con el indicador común ${m.code}, desagregado por esta actividad. ${esc(x.detail)}</div>
+    <div class="ind-list">${indRef(m.code)}</div>
+    ${ps.length?`<div><h3>Programas que la realizan</h3><div class="d-progs">${ps.map(p => `<button type="button" data-goprog="${p.id}">${esc(p.name)}</button>`).join('')}</div></div>`:''}`;
+}
 function renderInd(code){
+  if(byCode.get(code).measuredBy) return renderNode(byCode.get(code));
   const x = byCode.get(code), o = byOut.get(x.outcome), ps = progsOf(code);
   head(x.name, `${x.code} · ${layerLabel(x)} · ${lineName(x.line)}`, x.line);
   $('dBody').innerHTML = `${o?`<div class="parent"><span>Resultado</span><button type="button" class="link" data-open="${o.id}">${esc(o.statement)}</button>${x.dim?` · ${esc(M.dims[x.dim])}`:''}</div>`:''}${domainOf(code)?`<p class="d-note">Dominio del ecosistema (Babson): ${esc(domainOf(code).name)}</p>`:''}
     <div><p class="def">${esc(x.definition)}</p><p class="stmt">En la teoría de cambio: ${esc(x.statement)}</p></div>
-    <div class="claim"><b>Qué permite afirmar: ${esc(CLAIM[x.layer][0])}</b>${esc(CLAIM[x.layer][1])}</div>
+    <div class="claim"><b>Qué permite afirmar: ${esc(CLAIM[x.layer][0])}</b>${esc(CLAIM[x.layer][1])}${CORE.has(code)?' Es uno de los indicadores clave del tablero de la junta.':''}</div>
+    ${nodesOf(code).length?`<div><h3>Actividades que mide</h3><div class="ind-list">${nodesOf(code).map(c => `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span><span>${esc(byCode.get(c).statement)} <span class="d-note">(${esc(lineName(byCode.get(c).line))})</span></span></button>`).join('')}</div></div>`:''}
     <div class="formula"><h3>Fórmula</h3><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Población</dt><dd>${esc(x.population)}</dd><dt>Frecuencia</dt><dd>${esc(x.frequency)}</dd><dt>Momento</dt><dd>${esc(x.horizon)}</dd>
       <dt>Fuentes</dt><dd class="src">${x.sources.map(s => `<button type="button" data-open="${s}">${esc(byIns.get(s).name)}</button>`).join('')}</dd><dt>Criterio</dt><dd>${esc(x.rule)}</dd></dl>
@@ -3950,6 +3902,7 @@ document.addEventListener('click', e => {
   if(d.goprog){ goProgram(d.goprog); return; }
   if(d.pline !== undefined){ S.progLine = d.pline; drawPrograms(); return; }
   if(d.fprog){ S.fProg = d.fprog; S.layer = ''; S.fLine = ''; S.fOut = ''; S.fDom = ''; $('fq').value = ''; drawIndicatorControls(); drawIndicators(); go('indicadores'); return; }
+  if('core' in d){ S.core = !S.core; drawIndicatorControls(); drawIndicators(); return; }
   if(d.layer !== undefined){ S.layer = d.layer; drawIndicatorControls(); drawIndicators(); return; }
   if(d.go){
     const g = d.go;
@@ -3966,7 +3919,7 @@ $('fOut').addEventListener('change', e => { S.fOut = e.target.value; drawIndicat
 $('fDom').addEventListener('change', e => { S.fDom = e.target.value; drawIndicators(); });
 $('fq').addEventListener('input', drawIndicators);
 $('gq').addEventListener('input', drawGlossary);
-$('fClear').addEventListener('click', () => { Object.assign(S, {layer:'', fLine:'', fProg:'', fOut:'', fDom:''}); $('fq').value = ''; drawIndicatorControls(); drawIndicators(); });
+$('fClear').addEventListener('click', () => { Object.assign(S, {core:false, layer:'', fLine:'', fProg:'', fOut:'', fDom:''}); $('fq').value = ''; drawIndicatorControls(); drawIndicators(); });
 $('fCsv').addEventListener('click', downloadCsv);
 let printState = null;
 window.addEventListener('beforeprint', () => { printState = {line:S.line, prog:S.prog}; S.line = ''; S.prog = ''; drawTheory(); document.querySelectorAll('.view').forEach(v => v.hidden = false); });

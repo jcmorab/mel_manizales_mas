@@ -13,7 +13,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Modelo | Impacto, principio de contribución, marco conceptual (Babson, MIT REAP, MIT VMS), el portafolio en los seis dominios del ecosistema, las cuatro líneas y los cambios de la versión |
 | Teoría de cambio | La cadena por línea (problemática → actividades → productos → resultados → impacto), con resaltado por programa, hipótesis y supuestos |
 | Programas | Qué hace cada programa, por qué indicadores responde y qué no debe reportarse como resultado |
-| Indicadores | 60 fichas técnicas filtrables, con exportación a CSV e instrumentos de recolección |
+| Indicadores | 61 fichas técnicas filtrables, con exportación a CSV e instrumentos de recolección |
 | Glosario | Definiciones operativas: qué cuenta, qué no cuenta y cómo comunicarlo; reglas comunes de cálculo |
 | Referencias | Babson, MIT REAP, fuentes oficiales e institucionales, con el indicador que respalda cada una |
 
@@ -22,8 +22,10 @@ para citarla en reportes y boletines.
 
 ## Cambios de la versión 7.0
 
-- **Impacto:** crecimiento económico de Manizales y Caldas (ventas reales y empleo formal
-  frente a grupo de comparación), en lugar de mejora de ingresos. Contexto regional sin atribución.
+- **Impacto:** crecimiento económico de Manizales y Caldas (ventas reales y empleo formal de
+  las empresas, empleo formal de los jóvenes, siempre frente a grupo de comparación), en lugar
+  de mejora de ingresos. Cada ficha dice qué permite afirmar su cifra: gestión, seguimiento,
+  efecto o contexto. Contexto regional sin atribución.
 - **Ecosistema:** el resultado es mejores condiciones del entorno para crecer (dominios de
   Babson, actores de MIT REAP), no acceso a financiación. Nuevo resultado de cultura de crecimiento.
 - **Empresas:** fórmula de las 3C (clientes, capacidad, caja), apertura de mercados y canales,

@@ -88,14 +88,14 @@ main{max-width:var(--wrap);margin:0 auto;padding:36px var(--gut) 72px}
 .impact .eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
 .impact h2{color:#fff;font-size:clamp(1.6rem,3.4vw,2.6rem);max-width:22ch;margin:10px 0 14px}
 .impact>p{font-size:1.05rem;color:#E4ECF7;max-width:62ch}
-.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:26px;max-width:900px}
+.impact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px;max-width:1040px}
 .impact-ind{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 16px;color:#fff}
 .impact-ind:hover{background:rgba(255,255,255,.14);border-color:var(--lime)}
 .impact-ind .code{color:var(--lime)}
 .impact-ind strong{font-size:15px;line-height:1.35}
 .impact-ctx{margin-top:14px;font-size:14px;color:#C9D7EA}
 .impact-ctx button{background:none;border:0;padding:0;color:#fff;text-decoration:underline;text-underline-offset:3px}
-.principle{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;background:var(--lime-s);color:var(--ink);border-radius:12px;padding:16px 18px;max-width:900px}
+.principle{margin-top:22px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;background:var(--lime-s);color:var(--ink);border-radius:12px;padding:16px 18px;max-width:1040px}
 .principle b{grid-column:2;color:var(--navy-d)}
 .principle span{grid-column:2;font-size:14px}
 .principle .pi{grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--lime);display:grid;place-items:center;font-weight:700}
@@ -269,6 +269,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .parent span{display:block;font-size:12.5px;color:var(--soft)}
 .def{font-size:15.5px}
 .stmt{font-size:13.5px;color:var(--muted)}
+.claim{font-size:13.5px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff}
+.claim b{display:block;color:var(--navy);font-size:13px;margin-bottom:2px}
 .formula{background:var(--pale);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:10px;padding:16px 18px}
 .formula code{display:block;font-family:var(--fm);font-size:18px;color:var(--navy-d);overflow-wrap:anywhere}
 .formula dl{display:grid;grid-template-columns:minmax(48px,auto) 1fr;gap:6px 14px;margin-top:12px;font-size:14px}
@@ -344,12 +346,30 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   main{max-width:none;padding:0}
   .view{display:block!important;break-before:page}
   .view:first-of-type{break-before:auto}
+  .view-head{break-after:avoid}
   .card,.impact{box-shadow:none}
   .impact,.node.imp,.chip[aria-pressed="true"]{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .swim-wrap,.table-scroll{overflow:visible}
   .swim,.ind-table{min-width:0}
   .node.dim{opacity:1}
-  .node,.prog,.term,.hyp,.line-card,.ref,tr{break-inside:avoid}
+  .node,.prog,.term,.hyp,.line-card,.ref,.card,.fw,.dom,.rule,.change,.step,tr{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .impact{break-inside:avoid}
+  .swim{display:block}
+  .swim-h{display:none}
+  .lane{display:flex;gap:10px;padding:8px 0;break-inside:avoid}
+  .lane+.lane{break-before:page}
+  .lane>*{flex:1 1 0;min-width:0;border:0!important}
+  .lane>.lane-name{flex:0 0 100px}
+  .imp-cell{break-before:page}
+  .change .link,.line-card .foot .btn,.prog-panel .acts{display:none!important}
+  .lane-name,.cell{border:0;padding:0}
+  .lane-name .link{display:none}
+  .cell-label{display:block;font-size:8pt;font-weight:600;color:var(--soft);text-transform:uppercase}
+  .imp-cell{display:block;margin-top:10px;border:0;padding:0;break-inside:avoid}
+  .node.imp{min-height:0;height:auto}
+  .node{padding:6px 8px;font-size:8.5pt}
+  .lines,.hyps{grid-template-columns:1fr 1fr}
   thead{display:table-header-group}
 }
 </style>
@@ -505,10 +525,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  "impact": {
   "id": "IMP",
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen de manera sostenida en ventas y empleo formal, en un entorno donde crecer es cada vez más fácil.",
+  "statement": "Más empresas que crecen de manera sostenida en ventas y empleo formal, y más jóvenes con empleo formal, en un entorno donde crecer es cada vez más fácil.",
   "indicators": [
    "IMP_1",
-   "IMP_2"
+   "IMP_2",
+   "IMP_3"
   ],
   "context": [
    "CTX_1",
@@ -1430,7 +1451,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría. Modelo de mentoría en equipo por hitos.",
    "terms": [
-    "compromiso_estrategico"
+    "hito_estrategico"
    ],
    "refs": [
     "REF_VMS"
@@ -2125,7 +2146,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "IMP_2",
    "layer": "IMP",
    "line": "SIS",
-   "statement": "Las empresas acompañadas generan empleo formal neto.",
+   "statement": "Las empresas acompañadas generan más empleo formal neto que empresas comparables.",
    "name": "Empleo formal neto generado a 24 meses",
    "definition": "Puestos formales netos creados por las empresas atendidas a 24 meses, frente al cambio en el grupo de comparación.",
    "calculation": "Σ(Ei,24 − Ei,0) y diferencia frente a comparación",
@@ -2151,6 +2172,38 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_PILA",
     "REF_SIEF"
+   ]
+  },
+  {
+   "code": "IMP_3",
+   "layer": "IMP",
+   "line": "SIS",
+   "statement": "Los jóvenes de la ruta de empleabilidad consiguen más empleo formal que jóvenes comparables.",
+   "name": "Efecto sobre el empleo formal de los jóvenes a 12 meses",
+   "definition": "Diferencia en el porcentaje con empleo formal a 12 meses del cierre entre los jóvenes atendidos y un grupo de comparación.",
+   "calculation": "P(atendidos) − P(comparación)",
+   "variables": {
+    "P": "Porcentaje de cada grupo con cotización en PILA como dependiente doce meses después del cierre."
+   },
+   "unit": "Puntos porcentuales",
+   "population": "Ruta de empleabilidad de Qué Nivel y postulantes elegibles no seleccionados o en lista de espera.",
+   "frequency": "Anual",
+   "horizon": "12 meses desde el cierre",
+   "sources": [
+    "INS_01",
+    "INS_05",
+    "INS_11"
+   ],
+   "rule": "Es la línea con evaluación prospectiva más viable: la convocatoria tiene más postulantes que cupos. Medir a ambos grupos con la misma fuente.",
+   "dim": "EMPL",
+   "terms": [
+    "grupo_comparacion",
+    "empleo_formal",
+    "contribucion"
+   ],
+   "refs": [
+    "REF_SIEF",
+    "REF_PILA"
    ]
   },
   {
@@ -2592,6 +2645,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_16",
     "RES_17",
     "RES_18",
+    "IMP_3",
     "SUP_2"
    ],
    "refs": [
@@ -2614,6 +2668,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_5",
     "RES_21",
     "RES_3",
+    "RES_6",
     "SUP_3"
    ],
    "refs": [
@@ -2636,6 +2691,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_6",
     "PRD_6",
     "RES_20",
+    "RES_6",
+    "IMP_1",
     "SUP_3"
    ],
    "refs": [
@@ -2659,6 +2716,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_6",
     "RES_20",
     "RES_7",
+    "IMP_2",
     "SUP_3"
    ],
    "refs": [
@@ -3067,7 +3125,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "no": "Comparar versiones distintas o mediciones solo de salida."
   },
   {
-   "id": "compromiso_estrategico",
+   "id": "hito_estrategico",
    "term": "Hito estratégico",
    "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada. La mentoría por hitos sigue el modelo MIT Venture Mentoring Service.",
    "yes": "Compromisos con evidencia de cumplimiento hasta su fecha.",
@@ -3514,7 +3572,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  "changes": [
   {
    "who": "Evaluación 1",
-   "text": "El impacto pasa de mejora de ingresos a crecimiento económico: ventas y empleo formal frente a comparación, con el contexto regional al lado.",
+   "text": "El impacto pasa de mejora de ingresos a crecimiento económico: ventas y empleo formal de las empresas, y empleo formal de los jóvenes, siempre frente a comparación, con el contexto regional al lado.",
    "go": "impact"
   },
   {
@@ -3549,7 +3607,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "who": "Evaluación 2",
-   "text": "Mentoría medida por compromisos estratégicos cumplidos y por retribución en horas y valor equivalente.",
+   "text": "Mentoría medida por hitos estratégicos cumplidos y por retribución en horas y valor equivalente.",
    "go": "RES_2"
   },
   {
@@ -3600,6 +3658,14 @@ const lineVars = id => `--lc:${lineColor(id)};--lt:${lineTone(id)}`;
 const layerName = id => byLayer.get(id)?.name || id;
 const layerLabel = x => ({RES:'Resultado',IMP:'Impacto',PRB:'Problemática',ACT:'Actividad',PRD:'Producto',SUP:'Supuesto',CTX:'Contexto'}[x.layer]);
 const measure = x => `${x.frequency} · ${x.horizon}`;
+const CLAIM = {
+  ACT:['Gestión','Muestra si el programa ejecutó lo que planeó. No habla de cambios en las empresas o personas.'],
+  PRD:['Gestión','Muestra lo que el programa entregó. Es responsabilidad directa del equipo.'],
+  PRB:['Línea base','Describe el punto de partida de quienes ingresan.'],
+  RES:['Seguimiento','Describe cómo cambiaron las mismas empresas o personas. No prueba que el cambio se deba al programa: escriba «las empresas acompañadas pasaron de X a Y», no «el programa logró».'],
+  IMP:['Efecto','Estimado frente a un grupo de comparación: es la única cifra que permite decir «gracias a» o «más que un grupo comparable», siempre nombrando a los aliados.'],
+  SUP:['Supuesto','Vigila una condición externa. Si falla, la cadena se rompe aunque el programa cumpla.'],
+  CTX:['Contexto','Muestra hacia dónde va la región. No se atribuye a Manizales Más ni a ningún programa.']};
 const VIEWS = ['modelo','teoria','programas','indicadores','glosario','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
 
@@ -3794,6 +3860,7 @@ function renderInd(code){
   head(x.name, `${x.code} · ${layerLabel(x)} · ${lineName(x.line)}`, x.line);
   $('dBody').innerHTML = `${o?`<div class="parent"><span>Resultado</span><button type="button" class="link" data-open="${o.id}">${esc(o.statement)}</button>${x.dim?` · ${esc(M.dims[x.dim])}`:''}</div>`:''}${domainOf(code)?`<p class="d-note">Dominio del ecosistema (Babson): ${esc(domainOf(code).name)}</p>`:''}
     <div><p class="def">${esc(x.definition)}</p><p class="stmt">En la teoría de cambio: ${esc(x.statement)}</p></div>
+    <div class="claim"><b>Qué permite afirmar: ${esc(CLAIM[x.layer][0])}</b>${esc(CLAIM[x.layer][1])}</div>
     <div class="formula"><h3>Fórmula</h3><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Población</dt><dd>${esc(x.population)}</dd><dt>Frecuencia</dt><dd>${esc(x.frequency)}</dd><dt>Momento</dt><dd>${esc(x.horizon)}</dd>
       <dt>Fuentes</dt><dd class="src">${x.sources.map(s => `<button type="button" data-open="${s}">${esc(byIns.get(s).name)}</button>`).join('')}</dd><dt>Criterio</dt><dd>${esc(x.rule)}</dd></dl>
@@ -3847,6 +3914,7 @@ function show(view, focus = true){
   S.view = view;
   document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== view);
   document.querySelectorAll('.nav a').forEach(a => a.getAttribute('href') === `#${view}` ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
+  document.querySelector('.nav a[aria-current]')?.scrollIntoView({block:'nearest', inline:'nearest'});
   document.title = `${document.querySelector(`#${view} h1`).textContent} · Manizales Más`;
   window.scrollTo(0, 0);
   if(focus) $(`h-${view}`).focus({preventScroll:true});

@@ -53,7 +53,7 @@ Los códigos de indicadores se renumeraron; el libro técnico de Excel debe rege
 ## Editar el modelo
 
 El modelo vive en el bloque `<script type="application/json" id="model">` de `index.html`.
-Los programas declaran sus elementos; programas por indicador, conteos y usos del glosario
+Los programas declaran sus elementos; programas por indicador y conteos
 se calculan solos, así que basta editar en un lugar.
 
 ## Principios
@@ -61,5 +61,5 @@ se calculan solos, así que basta editar en un lugar.
 1. **Impacto solo con comparación.** Sin grupo de comparación es seguimiento.
 2. **Ninguna cifra sola.** Las ventas se reportan con empleo formal, margen y caja.
 3. **Contribución, no atribución.** Se nombran los aliados que cofinancian.
-4. **Definiciones únicas.** Toda cifra pública usa el glosario.
+4. **Definiciones únicas.** Toda cifra pública usa la definición de su ficha.
 5. **Sin datos personales.** El repositorio no aloja bases con identificadores.

@@ -10,11 +10,10 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 
 | Sección | Contenido |
 |---|---|
-| 01 Modelo | Quiénes somos, el impacto y las cuatro líneas de trabajo con sus resultados y programas |
-| 02 Teoría de cambio | La cadena de cada línea, de la problemática al impacto, por línea o por programa. «Hipótesis» explica por qué debería funcionar y qué tan respaldado está cada eslabón (fuerte, moderado o limitado) |
-| 03 Indicadores | Los 54 indicadores en tabla filtrable; al abrir uno, su definición, fórmula, medición y fuente |
-| 04 Glosario | Qué significa exactamente cada término al medir y reportar, y qué queda por fuera |
-| 05 Referencias | Evidencia de las cadenas causales, marcos, fuentes de datos y programas |
+| 01 Modelo | Qué es Manizales Más, hacia dónde va y sus cuatro frentes de trabajo |
+| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa, con la hipótesis y la evidencia que la sustenta. Debajo, «Cómo lo medimos»: los indicadores, filtrados por lo que se seleccione en la cadena |
+| 03 Glosario | Qué significa exactamente cada término al medir y reportar, y las reglas para contar |
+| 04 Referencias | Evidencia, marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.0
 
@@ -31,8 +30,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 - **Mentoría y transferencia:** compromisos estratégicos cumplidos, retribución (give back),
   toolkits, territorios diagnosticados y madurez institucional.
 - **Contribución multiactor** como supuesto explícito y **glosario** unificado.
-- **Evidencia:** cada eslabón de las cadenas causales indica su nivel de respaldo y los estudios que lo sustentan.
-  Empresas: moderado a fuerte. Talento: moderado. Ecosistema: parcial. Transferencia: débil.
+- **Evidencia:** cada cadena causal presenta los estudios que sustentan su diseño.
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
 

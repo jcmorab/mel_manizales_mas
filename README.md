@@ -8,17 +8,13 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 
 ## Secciones
 
-| Sección | Para qué sirve |
+| Sección | Contenido |
 |---|---|
-| Modelo | Impacto, principio de contribución, tablero de la junta con los 19 indicadores clave, marco conceptual (Babson, MIT REAP, MIT VMS), el portafolio en los seis dominios del ecosistema, las cuatro líneas y los cambios de la versión |
-| Teoría de cambio | La cadena por línea (problemática → actividades → productos → resultados → impacto), con resaltado por programa, hipótesis y supuestos |
-| Programas | Qué hace cada programa, por qué indicadores responde y qué no debe reportarse como resultado |
-| Indicadores | 54 fichas técnicas filtrables (19 clave), con exportación a CSV e instrumentos de recolección |
-| Glosario | Definiciones operativas: qué cuenta, qué no cuenta y cómo comunicarlo; reglas comunes de cálculo |
-| Referencias | Babson, MIT REAP, fuentes oficiales e institucionales, con el indicador que respalda cada una |
-
-Cada ficha tiene enlace propio (por ejemplo `#indicadores/RES_6` o `#glosario/empleo_formal`)
-para citarla en reportes y boletines.
+| 01 Modelo | Quiénes somos, el impacto y las cuatro líneas de trabajo con sus resultados y programas |
+| 02 Teoría de cambio | La cadena de cada línea, de la problemática al impacto, por línea o por programa. «Hipótesis» muestra por qué se espera que funcione la cadena y la evidencia que la respalda |
+| 03 Indicadores | Los 54 indicadores en tabla filtrable; al abrir uno, su definición, fórmula, medición y fuente |
+| 04 Glosario | Qué significa exactamente cada término al medir y reportar, y qué queda por fuera |
+| 05 Referencias | Evidencia de las cadenas causales, marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.0
 
@@ -34,12 +30,13 @@ para citarla en reportes y boletines.
   y emprendimiento (validación, ventas), más índice de agencia.
 - **Mentoría y transferencia:** compromisos estratégicos cumplidos, retribución (give back),
   toolkits, territorios diagnosticados y madurez institucional.
-- **Contribución multiactor** como supuesto explícito y **glosario operativo** unificado.
+- **Contribución multiactor** como supuesto explícito y **glosario** unificado.
+- **Evidencia:** cada cadena causal cita estudios empíricos que respaldan sus supuestos de causalidad.
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
 
 Siete actividades con la misma fórmula se miden con un indicador común (`ACT_0`), así que hay
-54 indicadores distintos: 19 clave para la junta, cooperantes y medios, y el resto para gestión.
+54 indicadores distintos.
 
 Los códigos de indicadores se renumeraron; el libro técnico de Excel debe regenerarse con este modelo.
 

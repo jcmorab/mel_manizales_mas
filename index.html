@@ -155,8 +155,16 @@ main{padding:44px var(--pad) 72px;max-width:1360px;min-width:0}
 .tip .t-ev{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.16)}
 .tip .t-ev h4{color:var(--lime);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .tip li{position:relative;padding-left:14px;margin-bottom:7px}
-.tip li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
-.tip cite{font-style:normal;color:#A9BFDA;white-space:nowrap}
+.tip li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+.tip cite{font-style:normal;color:#A9BFDA}
+.tip li b{color:#fff;font-weight:600}
+.lv{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:0 8px;margin-right:2px;vertical-align:1px}
+.lv-f{background:var(--lime);color:var(--navy-d)}
+.lv-m{background:var(--sky);color:var(--navy-d)}
+.lv-l{background:rgba(255,255,255,.2);color:#fff}
+.tip .t-note{margin-top:10px;font-size:12.5px;color:#A9BFDA}
+.support{font-size:12px;color:var(--muted);line-height:1.35}
+.support b{display:block;color:var(--ink);font-weight:600}
 
 /* ------------------------------------------------ 03 indicadores */
 .filters{padding:18px 20px;display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-end;margin-bottom:12px}
@@ -305,7 +313,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
-    <div><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1><p class="lede">La cadena de cada línea, de la problemática al impacto. «Hipótesis» muestra por qué se espera que funcione y qué evidencia la respalda.</p></div>
+    <div><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1><p class="lede">De la problemática al impacto, línea por línea. «Hipótesis» explica por qué debería funcionar cada cadena y cuánta evidencia la respalda.</p></div>
     <div class="mode" role="group" aria-label="Ver la cadena"><button type="button" data-mode="line" aria-pressed="true">Por línea</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Línea</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
@@ -324,9 +332,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <div class="field"><label for="fLine">Línea</label><select id="fLine"></select></div>
     <div class="field"><label for="fProg">Programa</label><select id="fProg"></select></div>
     <div class="field grow"><label for="fq">Buscar</label><input id="fq" type="search" placeholder="Código o palabra, por ejemplo: empleo" autocomplete="off"></div>
-    <button class="btn" id="fClear" type="button">Limpiar</button>
   </div>
-  <div class="result-bar"><span class="count" id="indCount" aria-live="polite"></span><button class="btn" id="fCsv" type="button">Descargar CSV</button></div>
+  <div class="result-bar"><span class="count" id="indCount" aria-live="polite"></span></div>
   <div class="card table-card"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores">
     <table><caption class="sr">Indicadores</caption>
       <thead><tr><th scope="col">Código</th><th scope="col">Indicador</th><th scope="col">Unidad</th><th scope="col">Medición</th></tr></thead>
@@ -361,12 +368,12 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   "title": "Teoría de cambio de Manizales Más",
   "version": "7.0",
   "date": "2026-11-04",
-  "who": "Manizales Más es una alianza público, privada y académica creada en 2012 con el Babson Entrepreneurship Ecosystem Project para que más empresas de Manizales y Caldas crezcan. Su mentoría sigue el modelo MIT Venture Mentoring Service desde 2013, y Caldas participó en MIT REAP en la cohorte 2021 a 2023."
+  "who": "Alianza público, privada y académica que trabaja desde 2012 para que más empresas de Manizales y Caldas crezcan, con la metodología de Babson College y del MIT."
  },
  "impact": {
   "id": "IMP",
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen de manera sostenida en ventas y empleo formal, y más jóvenes con empleo formal, en un entorno donde crecer es cada vez más fácil.",
+  "statement": "Más empresas que crecen en ventas y empleo formal, y más jóvenes con empleo formal.",
   "indicators": [
    "IMP_1",
    "IMP_2",
@@ -478,7 +485,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_02",
    "line": "EMP",
-   "statement": "Crecimiento estructural de las empresas: más clientes, más capacidad y caja sana.",
+   "statement": "Empresas que crecen con más clientes, capacidad y caja.",
    "formula": "3C",
    "indicators": [
     "RES_3",
@@ -532,7 +539,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_05",
    "line": "TAL",
-   "statement": "Ruta de empleabilidad: jóvenes en empleos formales, pertinentes y estables.",
+   "statement": "Ruta de empleo: jóvenes con empleo formal y estable.",
    "indicators": [
     "RES_14",
     "RES_15",
@@ -546,7 +553,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_06",
    "line": "TAL",
-   "statement": "Ruta de emprendimiento: jóvenes con negocios validados que generan ingresos.",
+   "statement": "Ruta de emprendimiento: jóvenes con negocios que venden.",
    "indicators": [
     "RES_17",
     "RES_18"
@@ -559,7 +566,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_07",
    "line": "ECO",
-   "statement": "Un entorno con mejores condiciones para crecer: capital, mercados, apoyos, talento y políticas.",
+   "statement": "Un entorno con mejores condiciones para crecer.",
    "indicators": [
     "RES_19",
     "RES_20",
@@ -586,7 +593,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_09",
    "line": "TRF",
-   "statement": "Capacidad instalada y transferible en organizaciones y territorios.",
+   "statement": "Organizaciones y territorios que operan el modelo por su cuenta.",
    "indicators": [
     "RES_24",
     "RES_25",
@@ -602,29 +609,38 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  ],
  "chains": {
   "EMP": {
-   "hypothesis": "Si las empresas con potencial reciben acompañamiento, mentoría y conexiones, y participa quien decide, adoptan prácticas y cumplen decisiones de crecimiento. Eso se traduce en más clientes y mercados, más empleo formal y caja sana.",
-   "evidence": [
+   "hypothesis": "Si las empresas con potencial reciben acompañamiento, mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se traduce en más empleo formal, caja sana y ventas que crecen.",
+   "support": "Moderado a fuerte",
+   "links": [
     {
-     "text": "La asesoría en prácticas de gestión elevó la productividad de empresas en India y la productividad y el empleo de pymes en México.",
+     "link": "Acompañamiento en gestión → productividad y empleo",
+     "level": "Fuerte",
+     "text": "Ensayos aleatorios en India y México.",
      "refs": [
       "REF_BLOOM",
       "REF_BRUHN"
      ]
     },
     {
-     "text": "La mentoría de empresarios con experiencia aumentó 20 % las utilidades; la clase tradicional no tuvo efecto.",
+     "link": "Mentoría de empresarios → mejores utilidades",
+     "level": "Moderado",
+     "text": "Ensayo en Kenia: +20 % en utilidades, con efecto que se desvanece si la relación termina.",
      "refs": [
       "REF_BROOKS"
      ]
     },
     {
-     "text": "Exportar mejoró la calidad y las utilidades de pequeñas empresas en Egipto.",
+     "link": "Nuevos mercados → crecimiento",
+     "level": "Moderado",
+     "text": "Ensayo en Egipto con exportadores.",
      "refs": [
       "REF_ATKIN"
      ]
     },
     {
-     "text": "En aceleración temprana, la formación emprendedora mejoró el desempeño; el dinero y el espacio solos, no.",
+     "link": "Aceleración temprana → emprendimientos que crecen",
+     "level": "Moderado",
+     "text": "Start-Up Chile: funciona la formación, no el dinero solo.",
      "refs": [
       "REF_GU"
      ]
@@ -635,23 +651,23 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   "TAL": {
-   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleabilidad o de emprendimiento, y los empleadores cumplen las vacantes, consiguen empleos formales que conservan o negocios que venden.",
-   "evidence": [
+   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, consiguen empleo formal estable o negocios que venden.",
+   "support": "Moderado",
+   "links": [
     {
-     "text": "Jóvenes en Acción, en Colombia, aumentó el empleo formal y los ingresos de los participantes, sobre todo de las mujeres.",
+     "link": "Formación con práctica laboral → empleo formal",
+     "level": "Moderado",
+     "text": "Jóvenes en Acción, Colombia: más empleo formal e ingresos. En promedio, los programas juveniles tienen efectos pequeños.",
      "refs": [
-      "REF_ATT"
-     ]
-    },
-    {
-     "text": "Los programas para jóvenes tienen efectos promedio pequeños; funcionan mejor los que combinan servicios y conectan con empleo.",
-     "refs": [
+      "REF_ATT",
       "REF_KLUVE",
       "REF_CARD"
      ]
     },
     {
-     "text": "Formar iniciativa personal, una habilidad de agencia, aumentó 30 % las utilidades de microempresarios, más que la capacitación tradicional.",
+     "link": "Agencia e iniciativa → negocios que venden",
+     "level": "Moderado",
+     "text": "Ensayo en Togo: +30 % en utilidades frente a la capacitación tradicional.",
      "refs": [
       "REF_CAMPOS"
      ]
@@ -662,28 +678,37 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   "ECO": {
-   "hypothesis": "Si los actores del ecosistema actúan coordinados sobre capital, mercados, apoyos, talento, políticas y cultura, crecer se vuelve más fácil: más empresas encuentran clientes y capital, y crecer se vuelve una aspiración compartida.",
-   "evidence": [
+   "hypothesis": "Si los actores del ecosistema actúan coordinados sobre capital, mercados, apoyos, talento, políticas y cultura, crecer se vuelve más fácil y más empresas encuentran clientes y capital.",
+   "support": "Parcial",
+   "links": [
     {
-     "text": "Convertirse en proveedor de una multinacional aumentó 26 % el empleo de empresas en Costa Rica cuatro años después.",
+     "link": "Contratos con empresas ancla → crecimiento",
+     "level": "Moderado",
+     "text": "Costa Rica: +26 % de empleo en proveedores de multinacionales.",
      "refs": [
       "REF_ALFARO"
      ]
     },
     {
-     "text": "Capital asignado por concurso a empresas con potencial aumentó la supervivencia, las ventas y el empleo en Nigeria.",
+     "link": "Capital para empresas con potencial → crecimiento",
+     "level": "Moderado",
+     "text": "Ensayo en Nigeria: más supervivencia, ventas y empleo.",
      "refs": [
       "REF_MCK"
      ]
     },
     {
-     "text": "Las visitas de empresarios referentes elevaron los ingresos de microempresarios en Chile, a menor costo que la asesoría individual.",
+     "link": "Referentes empresariales → cultura de crecimiento",
+     "level": "Moderado",
+     "text": "Ensayo en Chile con microempresarios.",
      "refs": [
       "REF_LAF"
      ]
     },
     {
-     "text": "La evidencia sobre cambios a escala de ecosistema es sobre todo de casos, como el de Manizales Más; por eso se mide cada año.",
+     "link": "Mejor ecosistema → crecimiento regional",
+     "level": "Limitado",
+     "text": "Solo estudios de caso, entre ellos el de Manizales Más.",
      "refs": [
       "REF_ISEN16"
      ]
@@ -695,22 +720,21 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   "TRF": {
-   "hypothesis": "Si la metodología se documenta en herramientas estándar y se forma a equipos locales, otras organizaciones la operan y la repiten con calidad, y más empresas reciben acompañamiento sin depender del equipo original.",
-   "evidence": [
+   "hypothesis": "Si la metodología se documenta y se forma a equipos locales, otras organizaciones la operan y la repiten con calidad, y más empresas reciben acompañamiento.",
+   "support": "Débil",
+   "links": [
     {
-     "text": "Al escalar con otras organizaciones, los efectos suelen caer si no se cuida la fidelidad de la implementación; por eso se mide si se aplican los componentes acordados.",
+     "link": "Operadores locales → mismos resultados",
+     "level": "Limitado",
+     "text": "Al escalar, los efectos suelen caer si no se cuida la fidelidad.",
      "refs": [
       "REF_BANERJEE"
      ]
     },
     {
-     "text": "El modelo de Manizales Más ya se replicó en otras ciudades, como Milwaukee.",
-     "refs": [
-      "REF_ISEN16"
-     ]
-    },
-    {
-     "text": "La evidencia sobre transferencia de metodologías es limitada: es la cadena que más necesita evaluación propia.",
+     "link": "Herramientas y formación → continuidad del servicio",
+     "level": "Limitado",
+     "text": "Sin evaluaciones rigurosas: es la cadena que más necesita evaluación propia.",
      "refs": []
     }
    ],
@@ -931,7 +955,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Cada iniciativa se vincula a una apuesta estratégica.",
    "terms": [
-    "iniciativa_multiactor",
     "apuesta_estrategica"
    ],
    "refs": [
@@ -1006,8 +1029,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "rule": "Los requisitos de cierre se fijan al inicio de la cohorte.",
    "terms": [
     "empresa_atendida",
-    "empresa_alto_potencial",
-    "cohorte"
+    "empresa_alto_potencial"
    ]
   },
   {
@@ -1203,7 +1225,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Un territorio cuenta una vez por año. La medición exige cobertura de los cinco tipos de actor.",
    "terms": [
-    "territorio_diagnosticado",
     "condiciones_ecosistema"
    ],
    "refs": [
@@ -1337,8 +1358,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total.",
    "terms": [
-    "nuevo_mercado",
-    "canal_nuevo"
+    "nuevo_mercado"
    ]
   },
   {
@@ -1424,8 +1444,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Incluir ceros confirmados. Excluir contratistas y propietarios sin salario.",
    "terms": [
-    "empleo_formal",
-    "empleo_neto"
+    "empleo_formal"
    ],
    "refs": [
     "REF_PILA",
@@ -1784,8 +1803,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "No se cuentan montos solicitados ni aprobados sin desembolso. Separar tipo de capital y si la empresa es de base innovadora.",
    "terms": [
-    "capital_movilizado",
-    "ide"
+    "capital_movilizado"
    ],
    "refs": [
     "REF_NEVADO",
@@ -1868,8 +1886,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas.",
    "terms": [
-    "give_back",
-    "empresario_consolidado"
+    "give_back"
    ]
   },
   {
@@ -2000,7 +2017,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Reportar el total neto y la diferencia frente a comparación. Nunca empleos brutos ni estimados.",
    "terms": [
-    "empleo_neto",
     "empleo_formal",
     "grupo_comparacion"
    ],
@@ -2799,76 +2815,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  ],
  "glossary": [
   {
-   "id": "empresa_atendida",
-   "term": "Empresa atendida",
-   "def": "Empresa con registro inicial y al menos una actividad del programa con asistencia documentada.",
-   "no": "Postulantes no seleccionados; inscritos que nunca asistieron."
-  },
-  {
-   "id": "cohorte",
-   "term": "Cohorte",
-   "def": "Grupo que inicia un programa en la misma convocatoria y comparte calendario de seguimiento.",
-   "no": "Mezclar participantes de convocatorias distintas en un mismo seguimiento."
-  },
-  {
-   "id": "ventas_reales",
-   "term": "Ventas reales",
-   "def": "Ventas netas de devoluciones e impuestos, deflactadas con el IPC del DANE al mes base de la cohorte y sumadas en doce meses.",
-   "no": "Ventas proyectadas, pedidos sin facturar, cifras nominales comparadas entre años."
-  },
-  {
-   "id": "empleo_formal",
-   "term": "Empleo formal",
-   "def": "Puesto asalariado con cotización como dependiente en PILA a nombre de la empresa.",
-   "no": "Contratistas por prestación de servicios, propietarios sin salario, practicantes sin vínculo laboral."
-  },
-  {
-   "id": "empleo_neto",
-   "term": "Empleo formal neto generado",
-   "def": "Cotizantes dependientes al corte menos cotizantes dependientes al ingreso, en las mismas empresas.",
-   "no": "Empleos brutos, empleos anunciados, empleos indirectos estimados."
-  },
-  {
-   "id": "empresa_escalada",
-   "term": "Empresa escalada",
-   "def": "Empresa con al menos diez asalariados al inicio y crecimiento anualizado superior al 20 % en empleo o en ventas reales durante tres años (convención Eurostat y OCDE).",
-   "no": "Crecimiento por fusiones o adquisiciones; empresas que crecen un solo año."
-  },
-  {
-   "id": "empresa_alto_potencial",
-   "term": "Empresa de alto potencial",
-   "def": "Empresa existente con ventas, equipo y decisión expresa de crecer, seleccionada con criterios publicados. Es el foco del enfoque de scale-up de Babson.",
-   "no": "Empresas invitadas sin criterios o seleccionadas después de crecer."
-  },
-  {
-   "id": "ide",
-   "term": "Empresa de base innovadora",
-   "def": "Empresa que persigue mercados amplios a partir de una innovación (en MIT REAP, innovation-driven enterprise). Puede tener ventas bajas durante años antes de crecer muy rápido; se diferencia de la pyme tradicional que atiende mercados locales con ideas conocidas.",
-   "no": "Juzgarla solo por ventas a 12 meses."
-  },
-  {
-   "id": "nuevo_mercado",
-   "term": "Nuevo mercado",
-   "def": "Departamento o país donde la empresa factura y no había facturado en los doce meses previos al ingreso.",
-   "no": "Contactos, ferias o cotizaciones sin venta."
-  },
-  {
-   "id": "canal_nuevo",
-   "term": "Canal comercial nuevo",
-   "def": "Canal de mayor alcance que la empresa no usaba: comercio electrónico con ventas, distribuidores o grandes superficies, compras corporativas o públicas, exportación.",
-   "no": "Perfiles en redes sociales o páginas web sin ventas."
-  },
-  {
-   "id": "conversion",
-   "term": "Conversión comercial",
-   "def": "Propuestas o cotizaciones formales que terminan en venta facturada, divididas por las propuestas enviadas en el mismo periodo.",
-   "no": "Contactos informales o prospectos sin propuesta."
-  },
-  {
-   "id": "margen_operativo",
-   "term": "Margen operativo",
-   "def": "Utilidad operacional dividida por ventas netas del mismo año.",
-   "no": "Comparar estados auditados con estimaciones del empresario."
+   "id": "apuesta_estrategica",
+   "term": "Apuesta estratégica regional",
+   "def": "Prioridad que acuerdan empresarios, capital, empresas ancla, gobierno y universidades sobre la ventaja de la región, y que se ejecuta con acciones conjuntas de al menos tres de ellos.",
+   "no": "Listas de sectores sin meta, firmas de convenio o reuniones sin acción."
   },
   {
    "id": "caja_operativa",
@@ -2877,28 +2827,94 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "no": "Entradas por préstamos, aportes de socios o venta de activos."
   },
   {
-   "id": "venta_validada",
-   "term": "Validación comercial",
-   "def": "Ventas a al menos tres clientes no relacionados en un periodo de tres meses.",
-   "no": "Ventas a familiares, socios o aliados del programa; preventas sin entrega."
-  },
-  {
-   "id": "supervivencia",
-   "term": "Supervivencia comercial",
-   "def": "Emprendimiento con ventas en los tres meses previos al seguimiento.",
-   "no": "Matrícula mercantil vigente sin ventas."
-  },
-  {
-   "id": "resiliencia",
-   "term": "Resiliencia empresarial",
-   "def": "Recuperación de al menos el 80 % de las ventas previas dentro de los seis meses siguientes a una contingencia registrada.",
-   "no": "Caídas estacionales previsibles."
+   "id": "capital_movilizado",
+   "term": "Capital movilizado",
+   "def": "Inversión, crédito o pago por resultados efectivamente desembolsado a una empresa acompañada.",
+   "no": "Montos solicitados, aprobados sin desembolso o en negociación."
   },
   {
    "id": "colocacion_efectiva",
    "term": "Colocación efectiva (vinculación laboral exitosa)",
    "def": "Joven de la ruta de empleabilidad con contrato laboral y cotización en PILA iniciada dentro de los seis meses siguientes al cierre.",
    "no": "Entrevistas, pasantías no remuneradas, prestación de servicios, trabajo informal (se reportan aparte)."
+  },
+  {
+   "id": "condiciones_ecosistema",
+   "term": "Condiciones del ecosistema",
+   "def": "Puntaje anual de seis dominios (políticas, financiación, cultura, apoyos, capital humano y mercados) dado por los cinco tipos de actor del ecosistema, en Manizales y en cada territorio diagnosticado.",
+   "no": "Encuestas a un solo tipo de actor o diagnósticos parciales."
+  },
+  {
+   "id": "contribucion",
+   "term": "Contribución, no atribución",
+   "def": "El crecimiento regional resulta de muchos actores. Manizales Más reporta lo que su intervención aporta, nombra a los aliados que cofinancian y no presenta el resultado como exclusivo.",
+   "no": "«Gracias a Manizales Más la economía creció», sumas de resultados de aliados como propios."
+  },
+  {
+   "id": "conversion",
+   "term": "Conversión comercial",
+   "def": "Propuestas o cotizaciones formales que terminan en venta facturada, divididas por las propuestas enviadas en el mismo periodo.",
+   "no": "Contactos informales o prospectos sin propuesta."
+  },
+  {
+   "id": "empleo_formal",
+   "term": "Empleo formal neto",
+   "def": "Puestos asalariados con cotización como dependiente en PILA al corte, menos los que había al ingreso, en las mismas empresas.",
+   "no": "Contratistas, propietarios sin salario, practicantes, empleos brutos o estimados."
+  },
+  {
+   "id": "empresa_atendida",
+   "term": "Empresa atendida",
+   "def": "Empresa con registro inicial y al menos una actividad del programa con asistencia documentada.",
+   "no": "Postulantes no seleccionados; inscritos que nunca asistieron."
+  },
+  {
+   "id": "empresa_alto_potencial",
+   "term": "Empresa de alto potencial",
+   "def": "Empresa existente con ventas, equipo y decisión expresa de crecer, seleccionada con criterios publicados. Es el foco del enfoque de scale-up de Babson.",
+   "no": "Empresas invitadas sin criterios o seleccionadas después de crecer."
+  },
+  {
+   "id": "empresa_escalada",
+   "term": "Empresa escalada",
+   "def": "Empresa con al menos diez asalariados al inicio y crecimiento anualizado superior al 20 % en empleo o en ventas reales durante tres años (convención Eurostat y OCDE).",
+   "no": "Crecimiento por fusiones o adquisiciones; empresas que crecen un solo año."
+  },
+  {
+   "id": "grupo_comparacion",
+   "term": "Grupo de comparación",
+   "def": "Empresas similares que no recibieron el programa: postulantes no seleccionados o empresas comparables en RUES y PILA.",
+   "no": "Promedios nacionales o del sector usados como contrafactual."
+  },
+  {
+   "id": "hito_estrategico",
+   "term": "Hito estratégico",
+   "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada. La mentoría por hitos sigue el modelo MIT Venture Mentoring Service.",
+   "no": "Tareas operativas menores o compromisos sin fecha."
+  },
+  {
+   "id": "indice_agencia",
+   "term": "Índice de agencia",
+   "def": "Medición estandarizada de agencia y habilidades socioemocionales aplicada con el mismo instrumento al ingreso y al cierre.",
+   "no": "Comparar versiones distintas o mediciones solo de salida."
+  },
+  {
+   "id": "madurez_institucional",
+   "term": "Madurez institucional",
+   "def": "Nivel de 1 a 5 de una organización socia para operar un servicio: responsable, equipo formado, protocolo, financiación y medición propios.",
+   "no": "Autoevaluaciones sin evidencia."
+  },
+  {
+   "id": "margen_operativo",
+   "term": "Margen operativo",
+   "def": "Utilidad operacional dividida por ventas netas del mismo año.",
+   "no": "Comparar estados auditados con estimaciones del empresario."
+  },
+  {
+   "id": "nuevo_mercado",
+   "term": "Nuevo mercado o canal",
+   "def": "Departamento, país o canal de mayor alcance (comercio electrónico, distribuidores, compras corporativas o públicas, exportación) donde la empresa factura y no facturaba en los doce meses previos al ingreso.",
+   "no": "Contactos, ferias, cotizaciones o perfiles en redes sin venta."
   },
   {
    "id": "permanencia",
@@ -2913,58 +2929,22 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "no": "Declaración del joven sin verificación."
   },
   {
-   "id": "indice_agencia",
-   "term": "Índice de agencia",
-   "def": "Medición estandarizada de agencia y habilidades socioemocionales aplicada con el mismo instrumento al ingreso y al cierre.",
-   "no": "Comparar versiones distintas o mediciones solo de salida."
-  },
-  {
-   "id": "hito_estrategico",
-   "term": "Hito estratégico",
-   "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada. La mentoría por hitos sigue el modelo MIT Venture Mentoring Service.",
-   "no": "Tareas operativas menores o compromisos sin fecha."
+   "id": "resiliencia",
+   "term": "Resiliencia empresarial",
+   "def": "Recuperación de al menos el 80 % de las ventas previas dentro de los seis meses siguientes a una contingencia registrada.",
+   "no": "Caídas estacionales previsibles."
   },
   {
    "id": "give_back",
    "term": "Retribución al ecosistema (give back)",
-   "def": "Tiempo que empresarios consolidados aportan sin pago para formar a nuevas generaciones: mentoría, formación y jurados.",
+   "def": "Horas que empresarios con trayectoria aportan sin pago a mentoría, formación y jurados, y su valor equivalente en consultoría.",
    "no": "Horas pagadas, horas del equipo de Manizales Más, asistencia como público."
   },
   {
-   "id": "empresario_consolidado",
-   "term": "Empresario consolidado",
-   "def": "Propietario o directivo de una empresa con al menos cinco años de operación y crecimiento demostrado, que participa como mentor o referente.",
-   "no": "Consultores que cobran por su tiempo."
-  },
-  {
-   "id": "capital_movilizado",
-   "term": "Capital movilizado",
-   "def": "Inversión, crédito o pago por resultados efectivamente desembolsado a una empresa acompañada.",
-   "no": "Montos solicitados, aprobados sin desembolso o en negociación."
-  },
-  {
-   "id": "condiciones_ecosistema",
-   "term": "Condiciones del ecosistema",
-   "def": "Seis dominios del modelo de Babson: políticas y liderazgo, financiación, cultura, apoyos, capital humano y mercados, valorados por los cinco tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Se complementa con las capacidades innovadora (I-Cap) y emprendedora (E-Cap) de la región.",
-   "no": "Encuestas a un solo tipo de actor o percepciones sin método."
-  },
-  {
-   "id": "apuesta_estrategica",
-   "term": "Apuesta estratégica regional",
-   "def": "Prioridad que los cinco tipos de actor acuerdan sobre la ventaja comparativa de la región; en MIT REAP se llama must-win battle. Ordena las iniciativas del ecosistema.",
-   "no": "Listas de sectores sin meta ni responsables."
-  },
-  {
-   "id": "iniciativa_multiactor",
-   "term": "Iniciativa multiactor",
-   "def": "Acción conjunta con objetivo, responsables y evidencia, en la que participan al menos tres tipos de actor del ecosistema.",
-   "no": "Firmas de convenio o reuniones sin acción ejecutada."
-  },
-  {
-   "id": "territorio_diagnosticado",
-   "term": "Territorio diagnosticado",
-   "def": "Municipio o ecosistema con medición completa de los seis dominios y devolución de resultados a sus actores.",
-   "no": "Visitas, talleres de sensibilización o diagnósticos parciales."
+   "id": "supervivencia",
+   "term": "Supervivencia comercial",
+   "def": "Emprendimiento con ventas en los tres meses previos al seguimiento.",
+   "no": "Matrícula mercantil vigente sin ventas."
   },
   {
    "id": "toolkit",
@@ -2973,22 +2953,16 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "no": "Presentaciones o documentos internos sin versión."
   },
   {
-   "id": "madurez_institucional",
-   "term": "Madurez institucional",
-   "def": "Nivel de 1 a 5 de una organización socia para operar un servicio: responsable, equipo formado, protocolo, financiación y medición propios.",
-   "no": "Autoevaluaciones sin evidencia."
+   "id": "venta_validada",
+   "term": "Validación comercial",
+   "def": "Ventas a al menos tres clientes no relacionados en un periodo de tres meses.",
+   "no": "Ventas a familiares, socios o aliados del programa; preventas sin entrega."
   },
   {
-   "id": "grupo_comparacion",
-   "term": "Grupo de comparación",
-   "def": "Empresas similares que no recibieron el programa: postulantes no seleccionados o empresas comparables en RUES y PILA.",
-   "no": "Promedios nacionales o del sector usados como contrafactual."
-  },
-  {
-   "id": "contribucion",
-   "term": "Contribución, no atribución",
-   "def": "El crecimiento regional resulta de muchos actores. Manizales Más reporta lo que su intervención aporta, nombra a los aliados que cofinancian y no presenta el resultado como exclusivo.",
-   "no": "«Gracias a Manizales Más la economía creció», sumas de resultados de aliados como propios."
+   "id": "ventas_reales",
+   "term": "Ventas reales",
+   "def": "Ventas netas de devoluciones e impuestos, deflactadas con el IPC del DANE al mes base de la cohorte y sumadas en doce meses.",
+   "no": "Ventas proyectadas, pedidos sin facturar, cifras nominales comparadas entre años."
   }
  ],
  "rules": [
@@ -3424,27 +3398,29 @@ function drawTheory(){
   const head = `<div class="swim-h" aria-hidden="true">Línea</div>` + ['PRB','ACT','PRD','RES','IMP'].map(id => `<div class="swim-h" aria-hidden="true">${esc(layerName(id))}</div>`).join('');
   const rows = lanes.map(l => {
     const items = layer => M.indicators.filter(x => x.layer === layer && x.line === l.id);
-    const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-open="${o.id}">${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}<span class="n">${plural(o.indicators.length,'indicador','indicadores')}</span></button>`).join('');
+    const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-open="${o.id}">${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}</button>`).join('');
     const sups = M.chains[l.id].assumptions.map(c => `<button type="button" class="node sup${state([c])}" data-open="${c}"><b>Supuesto</b>${esc(byCode.get(c).statement)}</button>`).join('');
     return `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><button type="button" class="hyp-btn" data-tip="${l.id}" aria-expanded="false">Hipótesis</button></div>
+      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><button type="button" class="hyp-btn" data-tip="${l.id}" aria-expanded="false">Hipótesis</button><p class="support">Evidencia<b>${esc(M.chains[l.id].support)}</b></p></div>
       ${cell('Problemática', items('PRB').map(node).join(''))}${cell('Actividades', items('ACT').map(node).join(''))}${cell('Productos', items('PRD').map(node).join(''))}${cell('Resultados', outs + sups)}
     </section>`;
   }).join('');
-  const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-open="impact"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span><em>Ver cómo se mide →</em></button></div>`;
+  const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-open="impact"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span><em>Cómo se mide →</em></button></div>`;
   $('swim').innerHTML = head + rows + imp;
   const panel = $('selPanel');
   panel.hidden = !p;
-  if(p) panel.innerHTML = `<div><h2>${esc(p.name)}</h2><p>${esc(p.role)} ${esc(p.population)}</p></div>
+  if(p) panel.innerHTML = `<div><h2>${esc(p.name)}</h2><p>${esc(p.role)}</p></div>
     <button type="button" class="btn" data-clear>Quitar selección</button>`;
 }
 
 /* ---------- tooltip de hipótesis ---------- */
 const tip = $('tip'); let tipFor = null, tipPinned = false;
+const lvClass = v => ({Fuerte:'lv-f',Moderado:'lv-m',Limitado:'lv-l'}[v] || 'lv-m');
 function showTip(btn, pin){
   const l = byLine.get(btn.dataset.tip), ch = M.chains[l.id];
   tip.innerHTML = `<h3>Hipótesis · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
-    <div class="t-ev"><h4>Evidencia</h4><ul>${ch.evidence.map(e => `<li>${esc(e.text)}${e.refs.length ? ` <cite>(${e.refs.map(r => esc(byRef.get(r).cite)).join('; ')})</cite>` : ''}</li>`).join('')}</ul></div>`;
+    <div class="t-ev"><h4>Respaldo de la evidencia: ${esc(ch.support.toLowerCase())}</h4><ul>${ch.links.map(e => `<li><span class="lv ${lvClass(e.level)}">${esc(e.level)}</span> <b>${esc(e.link)}</b><br>${esc(e.text)}${e.refs.length ? ` <cite>(${e.refs.map(r => esc(byRef.get(r).cite)).join('; ')})</cite>` : ''}</li>`).join('')}</ul>
+    <p class="t-note">Casi todos los estudios son de otros países: muestran que el mecanismo funciona, no que funcione aquí. El efecto en Manizales se medirá con los indicadores de impacto.</p></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
   tip.hidden = false; tipFor = btn; tipPinned = !!pin;
   btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-describedby','tip');
@@ -3482,16 +3458,6 @@ function drawIndicators(){
     <td>${esc(x.unit)}</td><td>${esc(x.frequency)}<span class="sub">${esc(x.horizon)}</span></td></tr>`).join('')
     : `<tr><td colspan="4" class="empty">Ningún indicador coincide con estos filtros.</td></tr>`;
 }
-function csv(){
-  const cols = [['Código','code'],['Etapa',x => STAGE[x.layer]],['Línea',x => lineName(x.line)],['Resultado',x => byOut.get(x.outcome)?.statement || ''],['Indicador','name'],['Definición','definition'],['Fórmula','calculation'],['Variables',x => Object.entries(x.variables).map(([k,v]) => `${k}: ${v}`).join(' | ')],['Unidad','unit'],['Población','population'],['Frecuencia','frequency'],['Momento','horizon'],['Fuentes',x => x.sources.map(s => byIns.get(s).name).join(' | ')],['Criterio','rule']];
-  const c = v => `"${String(v ?? '').replace(/"/g,'""')}"`;
-  const rows = [cols.map(k => c(k[0])).join(';'), ...filtered().map(x => cols.map(([,f]) => c(typeof f === 'function' ? f(x) : x[f])).join(';'))];
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob(['﻿' + rows.join('\r\n')], {type:'text/csv;charset=utf-8'}));
-  a.download = `indicadores_manizales_mas_v${M.meta.version}.csv`;
-  document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-}
-
 /* ---------- 04 glosario y 05 referencias ---------- */
 function drawGlossary(){
   const q = norm($('gq').value.trim());
@@ -3592,8 +3558,6 @@ $('fLine').addEventListener('change', e => { S.fLine = e.target.value; drawIndic
 $('fProg').addEventListener('change', e => { S.fProg = e.target.value; drawIndicators(); });
 $('fq').addEventListener('input', drawIndicators);
 $('gq').addEventListener('input', drawGlossary);
-$('fClear').addEventListener('click', () => { Object.assign(S, {layer:'', fLine:'', fProg:''}); $('fq').value = ''; drawIndControls(); drawIndicators(); });
-$('fCsv').addEventListener('click', csv);
 addEventListener('beforeprint', () => document.querySelectorAll('.view').forEach(v => v.hidden = false));
 addEventListener('afterprint', () => show(S.view, false));
 

@@ -11,7 +11,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Quiénes somos, el impacto y las cuatro líneas de trabajo con sus resultados y programas |
-| 02 Teoría de cambio | La cadena de cada línea, de la problemática al impacto, por línea o por programa. «Hipótesis» muestra por qué se espera que funcione la cadena y la evidencia que la respalda |
+| 02 Teoría de cambio | La cadena de cada línea, de la problemática al impacto, por línea o por programa. «Hipótesis» explica por qué debería funcionar y qué tan respaldado está cada eslabón (fuerte, moderado o limitado) |
 | 03 Indicadores | Los 54 indicadores en tabla filtrable; al abrir uno, su definición, fórmula, medición y fuente |
 | 04 Glosario | Qué significa exactamente cada término al medir y reportar, y qué queda por fuera |
 | 05 Referencias | Evidencia de las cadenas causales, marcos, fuentes de datos y programas |
@@ -31,7 +31,8 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 - **Mentoría y transferencia:** compromisos estratégicos cumplidos, retribución (give back),
   toolkits, territorios diagnosticados y madurez institucional.
 - **Contribución multiactor** como supuesto explícito y **glosario** unificado.
-- **Evidencia:** cada cadena causal cita estudios empíricos que respaldan sus supuestos de causalidad.
+- **Evidencia:** cada eslabón de las cadenas causales indica su nivel de respaldo y los estudios que lo sustentan.
+  Empresas: moderado a fuerte. Talento: moderado. Ecosistema: parcial. Transferencia: débil.
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
 

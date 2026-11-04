@@ -11,9 +11,8 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Qué es Manizales Más, hacia dónde va y sus cuatro frentes de trabajo |
-| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa, con la hipótesis y la evidencia que la sustenta. Debajo, «Cómo lo medimos»: los indicadores, filtrados por lo que se seleccione en la cadena |
-| 03 Glosario | Qué significa exactamente cada término al medir y reportar, y las reglas para contar |
-| 04 Referencias | Evidencia, marcos, fuentes de datos y programas |
+| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa. Cada línea tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los indicadores, filtrados por lo que se seleccione en la cadena |
+| 03 Referencias | Evidencia, marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.0
 
@@ -29,7 +28,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
   y emprendimiento (validación, ventas), más índice de agencia.
 - **Mentoría y transferencia:** compromisos estratégicos cumplidos, retribución (give back),
   toolkits, territorios diagnosticados y madurez institucional.
-- **Contribución multiactor** como supuesto explícito y **glosario** unificado.
+- **Contribución multiactor** como supuesto explícito.
 - **Evidencia:** cada cadena causal presenta los estudios que sustentan su diseño.
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.

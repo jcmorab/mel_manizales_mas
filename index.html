@@ -71,26 +71,35 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
 
 /* ------------------------------------------------ 01 modelo */
-.intro{display:grid;gap:14px;max-width:72ch}
-.intro p{font-size:1.1rem;line-height:1.65}
-.intro p:first-child{font-size:1.22rem;color:var(--navy-d)}
-.impact{margin-top:34px;border-radius:22px;padding:clamp(28px,4vw,48px);color:#fff;background:radial-gradient(circle at 92% 0%,rgba(205,221,0,.2),transparent 40%),linear-gradient(135deg,var(--navy-d),var(--navy) 70%,#1A5AA8);box-shadow:var(--sh)}
-.impact .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
-.impact h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.5rem);max-width:22ch;margin:12px 0 16px}
-.impact p{color:#E4ECF7;font-size:1.1rem;line-height:1.65;max-width:62ch}
-.sec{margin-top:52px}
-.sec>h2{font-size:1.45rem}
-.sec>.lede{margin-bottom:22px}
+.hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:12px 0}
+.hero-text h1{font-size:clamp(2.2rem,4.1vw,3.4rem);line-height:1.08;letter-spacing:-.028em;max-width:16ch}
+.hero-text h1:focus{outline:none}
+.hero-text h1 em{font-style:normal;background:linear-gradient(transparent 60%,rgba(205,221,0,.6) 60%,rgba(205,221,0,.6) 92%,transparent 92%)}
+.hero-lead{font-size:1.1rem;line-height:1.72;margin-top:24px;max-width:54ch;color:var(--ink)}
+.impact{position:relative;overflow:hidden;border-radius:24px;padding:clamp(28px,3.6vw,46px);color:#fff;background:radial-gradient(circle at 100% 0%,rgba(91,183,231,.35),transparent 45%),linear-gradient(150deg,var(--navy-d),var(--navy) 65%,#1A5AA8);box-shadow:0 24px 60px -30px rgba(11,46,92,.65);display:flex;flex-direction:column;justify-content:flex-end;min-height:360px}
+.impact::before{content:"+";position:absolute;right:26px;top:-24px;font-size:170px;font-weight:700;line-height:1;color:var(--lime)}
+.impact::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--sky),var(--lime))}
+.impact .eyebrow{position:relative;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.impact h2{position:relative;color:#fff;font-size:clamp(1.55rem,2.6vw,2.15rem);line-height:1.15;max-width:15ch;margin:12px 0 16px}
+.impact p{position:relative;color:#E4ECF7;font-size:1.02rem;line-height:1.68;max-width:46ch}
+.sec{margin-top:64px}
+.sec-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:12px 40px;align-items:end;margin-bottom:24px}
+.sec-head h2{font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.15}
+.sec-head p{color:var(--muted);font-size:1rem;line-height:1.65}
+.lc-head{display:flex;align-items:center;gap:14px}
+.ico{display:grid;place-items:center;width:46px;height:46px;flex:none;border-radius:14px;color:var(--lt);background:color-mix(in srgb,var(--lc) 14%,#fff)}
 .lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.line-card{border-top:5px solid var(--lc);padding:26px 28px;display:flex;flex-direction:column;gap:14px}
+.line-card{border-top:5px solid var(--lc);padding:26px 28px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .2s,transform .2s}
+.line-card:hover{box-shadow:0 18px 40px -24px rgba(11,46,92,.4);transform:translateY(-2px)}
 .line-card h3{font-size:1.25rem;color:var(--lt)}
-.line-card p{font-size:15px;line-height:1.65}
+.line-card p{font-size:15px;line-height:1.7;color:var(--ink)}
 .line-card .foot{margin-top:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:14px;font-size:14px}
 .line-card details{flex:1 1 auto}
 .line-card summary{cursor:pointer;font-weight:600;color:var(--lt)}
 .line-card details ul{margin-top:10px;display:grid;gap:4px;color:var(--muted)}
-.next{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:22px 26px;border-left:4px solid var(--lime)}
-.next p{flex:1 1 360px;font-size:15px}
+.next{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding:28px 32px;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--sh)}
+.next p{flex:1 1 380px;font-size:1.02rem;line-height:1.65;color:var(--ink)}
 
 /* ------------------------------------------------ 02 teoría */
 .mode{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--sh)}
@@ -145,6 +154,11 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .tip li{position:relative;padding-left:14px;margin-bottom:8px}
 .tip li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
 .tip cite{font-style:normal;color:#A9BFDA}
+.tip .t-sup li{margin-bottom:12px}
+.tip .t-sup b{color:#fff;font-weight:600}
+.tip .t-ind{display:block;margin-top:4px;font-size:12.5px;color:var(--lime)}
+.lane-btns{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.hyp-btn.sup::before{content:"✓";font-style:normal}
 .tip .t-note{margin-top:10px;font-size:12.5px;color:#A9BFDA}
 
 /* indicadores debajo de la cadena */
@@ -166,17 +180,9 @@ td.c-code{border-left:4px solid var(--lc,var(--navy));white-space:nowrap;width:8
 td .sub{display:block;color:var(--muted);font-size:13px;margin-top:2px}
 .empty{text-align:center;color:var(--muted);padding:34px}
 
-/* ------------------------------------------------ 03 glosario y 04 referencias */
-.gl-grid,.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px}
-.term,.ref{padding:18px 20px;display:flex;flex-direction:column;gap:8px;font-size:14px}
-.term h2{font-size:1rem}
-.term .no{color:var(--muted);font-size:13.5px}
-.term .no b{color:var(--ink);font-weight:600}
-.rules{margin-top:24px;padding:18px 22px}
-.rules summary{cursor:pointer;font-weight:600;color:var(--navy)}
-.rules dl{display:grid;grid-template-columns:190px 1fr;gap:10px 20px;margin-top:16px;font-size:14px}
-.rules dt{font-weight:600;color:var(--navy)}
-.rules dd{color:var(--muted)}
+/* ------------------------------------------------ 03 referencias */
+.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px}
+.ref{padding:18px 20px;display:flex;flex-direction:column;gap:8px;font-size:14px}
 .ref a{font-weight:600;line-height:1.4}
 .ref p{color:var(--muted);font-size:13.5px}
 .ref-group+.ref-group{margin-top:30px}
@@ -194,6 +200,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .d-head .x:hover{background:rgba(255,255,255,.26)}
 .d-body{overflow:auto;padding:22px 24px 26px;display:flex;flex-direction:column;gap:18px;font-size:14.5px}
 .def{font-size:15.5px}
+.why{font-size:14.5px;background:var(--pale);border-left:4px solid var(--lime);border-radius:10px;padding:14px 16px}
+.why b{color:var(--navy);display:block;margin-bottom:4px}
 .formula{background:var(--pale);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:10px;padding:16px 18px}
 .formula code{display:block;font-family:var(--fm);font-size:17px;color:var(--navy-d);overflow-wrap:anywhere}
 .formula dl{display:grid;grid-template-columns:minmax(44px,auto) 1fr;gap:6px 14px;margin-top:12px;font-size:14px}
@@ -214,12 +222,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .nav a{white-space:nowrap;padding:8px 11px;border-left:0;font-size:14px}
   .nav a span,.side-meta{display:none}
   main{padding:28px 16px 56px}
-  .lines{grid-template-columns:1fr}
+  .lines,.hero,.sec-head{grid-template-columns:1fr}
+  .impact{min-height:0}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
   .lane{display:block;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--lc);border-radius:var(--r);padding:16px;margin-bottom:14px}
   .lane-name,.cell{border-bottom:0;padding:0 0 12px}
   .lane-name{flex-direction:row;align-items:center;justify-content:space-between}
+  .lane-btns{flex-direction:row}
   .lane-name h2::before{display:none}
   .cell-label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
   .imp-cell{padding:16px;border:1px solid var(--line);border-top:4px solid var(--lime);border-radius:var(--r);background:var(--paper)}
@@ -228,10 +238,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 }
 @media (max-width:640px){
   .pgrid,.pgroups{grid-template-columns:1fr 1fr}
-  .facts,.rules dl{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
   .facts dt{border-bottom:0;padding-bottom:0}
   .d-head{padding:16px 18px}.d-body{padding:18px}
-  .intro p:first-child{font-size:1.1rem}
+  .impact::before{font-size:170px;top:-38px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{
@@ -255,7 +265,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
   .measure{break-before:page}
-  .line-card,.term,.ref,tr{break-inside:avoid}
+  .line-card,.ref,tr{break-inside:avoid}
   thead{display:table-header-group}
 }
 </style>
@@ -268,8 +278,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   <nav class="nav" aria-label="Secciones">
     <a href="#modelo"><span>01</span>Modelo</a>
     <a href="#teoria"><span>02</span>Teoría de cambio</a>
-    <a href="#glosario"><span>03</span>Glosario</a>
-    <a href="#referencias"><span>04</span>Referencias</a>
+    <a href="#referencias"><span>03</span>Referencias</a>
   </nav>
   <p class="side-meta" id="sideMeta"></p>
 </aside>
@@ -277,16 +286,21 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 <main id="main">
 <noscript><p class="card" style="padding:20px">Este documento necesita JavaScript.</p></noscript>
 
+
 <section class="view" id="modelo" aria-labelledby="h-modelo">
-  <div class="view-head"><div><p class="kicker">Teoría de cambio</p><h1 id="h-modelo" tabindex="-1">Manizales Más</h1></div></div>
-  <div class="intro" id="intro"></div>
-  <div class="impact" id="impactHero"></div>
+  <div class="hero">
+    <div class="hero-text">
+      <p class="kicker">Manizales Más · Teoría de cambio</p>
+      <h1 id="h-modelo" tabindex="-1">Que en Caldas crecer sea la <em>regla</em>, no la excepción</h1>
+      <p class="hero-lead" id="heroLead"></p>
+    </div>
+    <div class="impact" id="impactHero"></div>
+  </div>
   <div class="sec">
-    <h2>Cuatro frentes, un mismo propósito</h2>
-    <p class="lede">El crecimiento no depende de un solo actor. Por eso trabajamos en cuatro frentes que se refuerzan entre sí: las empresas que pueden crecer, el talento que necesitan, el entorno que las rodea y la capacidad de llevar el modelo a otros territorios.</p>
+    <div class="sec-head"><h2>Cuatro frentes, un mismo propósito</h2><p>El crecimiento no depende de un solo actor. Por eso trabajamos en cuatro frentes que se refuerzan entre sí: las empresas que pueden crecer, el talento que necesitan, el entorno que las rodea y la capacidad de llevar el modelo a otros territorios.</p></div>
     <div class="lines" id="lineCards"></div>
   </div>
-  <div class="card next"><p>La teoría de cambio muestra, frente por frente, cómo cada programa lleva de un problema concreto a un cambio que se puede medir.</p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
+  <div class="next"><p id="nextText"></p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
 </section>
 
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
@@ -316,12 +330,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   </div>
 </section>
 
-<section class="view" id="glosario" aria-labelledby="h-glosario" hidden>
-  <div class="view-head"><div><h1 id="h-glosario" tabindex="-1">Glosario</h1><p class="lede">Una cifra solo genera confianza si todos la entendemos igual. Estas son las definiciones que usamos en informes, boletines y reuniones con aliados: qué cuenta y qué queda por fuera.</p></div>
-    <div class="field"><label for="gq">Buscar término</label><input id="gq" type="search" placeholder="Por ejemplo: empleo, venta" autocomplete="off"></div></div>
-  <div class="gl-grid" id="glGrid"></div>
-  <details class="card rules"><summary>Reglas para contar</summary><dl id="rules"></dl></details>
-</section>
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
   <div class="view-head"><div><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">La teoría de cambio se apoya en la experiencia de Babson College y del MIT, en evaluaciones rigurosas de programas similares en el mundo y en las fuentes oficiales con las que medimos.</p></div></div>
@@ -696,29 +704,24 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  },
  "assumptions": {
   "SUP_1": {
-   "risk": "Las decisiones acordadas no se implementan.",
-   "signal": "Sesión decisoria sin propietario, gerente o delegado con autoridad.",
-   "response": "Contactar a la dirección de la empresa y reprogramar la decisión."
+   "title": "Quien decide en la empresa se sienta en la mesa.",
+   "why": "Si el dueño o el gerente no participa, las decisiones de crecimiento no pasan del papel. Por eso cada sesión clave debe contar con alguien que tenga autoridad para decidir."
   },
   "SUP_2": {
-   "risk": "La formación no se conecta con vacantes reales.",
-   "signal": "Vacante comprometida no habilitada en la fecha acordada.",
-   "response": "Confirmar el compromiso o activar otro empleador de la red."
+   "title": "Los empleadores abren las vacantes que prometen.",
+   "why": "La formación solo se convierte en empleo si hay puestos reales esperando a los jóvenes. Seguimos cada vacante comprometida hasta que se abre."
   },
   "SUP_3": {
-   "risk": "Las iniciativas pierden recursos o apoyo.",
-   "signal": "Aporte o entrega de un aliado vencido sin verificación.",
-   "response": "Acordar recuperación o registrar el cierre del compromiso."
+   "title": "Los aliados cumplen lo que ponen sobre la mesa.",
+   "why": "Las apuestas del ecosistema se sostienen con aportes de muchos actores; si uno falla, la iniciativa pierde fuerza. Verificamos cada compromiso en su fecha."
   },
   "SUP_4": {
-   "risk": "El servicio transferido deja de operar.",
-   "signal": "Siguiente periodo sin responsable o sin financiación confirmada.",
-   "response": "Acordar continuidad o documentar la suspensión del servicio."
+   "title": "Las organizaciones que adoptan el modelo lo sostienen.",
+   "why": "Un servicio transferido deja huella solo si conserva equipo y recursos después de su primera cohorte. Confirmamos responsable y financiación para cada nuevo periodo."
   },
   "SUP_5": {
-   "risk": "Comunicar logros como exclusivos debilita la alianza y sobrestima el efecto.",
-   "signal": "Reporte o pieza de comunicación que omite a los aliados que cofinancian el programa.",
-   "response": "Revisar la pieza con el glosario y nombrar a los aliados y su aporte."
+   "title": "El crecimiento es una tarea compartida.",
+   "why": "Ninguna organización mueve sola la economía de una región. Los resultados se construyen con universidades, gremios, gobierno, empresas ancla y financiadores, que además cofinancian buena parte de los programas."
   }
  },
  "indicators": [
@@ -743,9 +746,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_11"
    ],
    "rule": "Comparar dos años consecutivos completos de ventas deflactadas.",
-   "terms": [
-    "ventas_reales"
-   ],
    "refs": [
     "REF_IPC"
    ]
@@ -771,9 +771,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Reportar siempre por separado la ruta de empleabilidad y la de emprendimiento.",
    "dim": "AMB",
-   "terms": [
-    "empleo_formal"
-   ],
    "refs": [
     "REF_GEIH"
    ]
@@ -797,9 +794,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_09"
    ],
    "rule": "Usar los seis dominios: políticas, financiación, cultura, apoyos, capital humano y mercados.",
-   "terms": [
-    "condiciones_ecosistema"
-   ],
    "refs": [
     "REF_ISEN10",
     "REF_GEM"
@@ -824,10 +818,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_10"
    ],
-   "rule": "Evaluar el primer servicio acordado con cada organización.",
-   "terms": [
-    "madurez_institucional"
-   ]
+   "rule": "Evaluar el primer servicio acordado con cada organización."
   },
   {
    "code": "ACT_0",
@@ -905,10 +896,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_08"
    ],
    "rule": "Tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Cada iniciativa se vincula a una apuesta estratégica.",
-   "terms": [
-    "iniciativa_multiactor",
-    "apuesta_estrategica"
-   ],
    "refs": [
     "REF_REAP",
     "REF_REAP2"
@@ -978,12 +965,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_03"
    ],
-   "rule": "Los requisitos de cierre se fijan al inicio de la cohorte.",
-   "terms": [
-    "empresa_atendida",
-    "empresa_alto_potencial",
-    "cohorte"
-   ]
+   "rule": "Los requisitos de cierre se fijan al inicio de la cohorte."
   },
   {
    "code": "PRD_2",
@@ -1152,10 +1134,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_10"
    ],
-   "rule": "Cuenta solo si un equipo externo lo aplicó o lo revisó con la lista de criterios.",
-   "terms": [
-    "toolkit"
-   ]
+   "rule": "Cuenta solo si un equipo externo lo aplicó o lo revisó con la lista de criterios."
   },
   {
    "code": "PRD_11",
@@ -1177,10 +1156,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_10"
    ],
    "rule": "Un territorio cuenta una vez por año. La medición exige cobertura de los cinco tipos de actor.",
-   "terms": [
-    "territorio_diagnosticado",
-    "condiciones_ecosistema"
-   ],
    "refs": [
     "REF_REAP",
     "REF_GEM"
@@ -1206,10 +1181,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_08"
    ],
    "rule": "Cada cifra del caso debe tener definición en el glosario y fuente verificable.",
-   "terms": [
-    "contribucion",
-    "empresa_escalada"
-   ],
    "refs": [
     "REF_ISEN10",
     "REF_ISEN16"
@@ -1259,9 +1230,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_07"
    ],
    "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría. Modelo de mentoría en equipo por hitos.",
-   "terms": [
-    "hito_estrategico"
-   ],
    "refs": [
     "REF_VMS"
    ]
@@ -1310,11 +1278,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total.",
-   "terms": [
-    "nuevo_mercado",
-    "canal_nuevo"
-   ]
+   "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total."
   },
   {
    "code": "RES_5",
@@ -1337,10 +1301,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Conversión = propuestas con venta facturada / propuestas formales enviadas.",
-   "terms": [
-    "conversion"
-   ]
+   "rule": "Conversión = propuestas con venta facturada / propuestas formales enviadas."
   },
   {
    "code": "RES_6",
@@ -1366,9 +1327,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "Nunca se reporta solo: va con empleo formal y caja (RES_7 a RES_9). Separar atención directa y por socios.",
-   "terms": [
-    "ventas_reales"
-   ],
    "refs": [
     "REF_IPC",
     "REF_CONF17"
@@ -1398,10 +1356,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_11"
    ],
    "rule": "Incluir ceros confirmados. Excluir contratistas y propietarios sin salario.",
-   "terms": [
-    "empleo_formal",
-    "empleo_neto"
-   ],
    "refs": [
     "REF_PILA",
     "REF_RELAB"
@@ -1429,10 +1383,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_04",
     "INS_11"
    ],
-   "rule": "Margen operativo = utilidad operacional / ventas netas, del mismo tipo de fuente en ambos años.",
-   "terms": [
-    "margen_operativo"
-   ]
+   "rule": "Margen operativo = utilidad operacional / ventas netas, del mismo tipo de fuente en ambos años."
   },
   {
    "code": "RES_9",
@@ -1455,10 +1406,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Reportar junto al valor de línea base para mostrar el cambio.",
-   "terms": [
-    "caja_operativa"
-   ]
+   "rule": "Reportar junto al valor de línea base para mostrar el cambio."
   },
   {
    "code": "RES_10",
@@ -1480,10 +1428,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Nunca reemplazar por número de postulantes o asistentes.",
-   "terms": [
-    "venta_validada"
-   ]
+   "rule": "Nunca reemplazar por número de postulantes o asistentes."
   },
   {
    "code": "RES_11",
@@ -1507,9 +1452,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_11"
    ],
    "rule": "La matrícula mercantil vigente no basta: se exigen ventas.",
-   "terms": [
-    "supervivencia"
-   ],
    "refs": [
     "REF_CONF5"
    ]
@@ -1534,10 +1476,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_04"
    ],
-   "rule": "Registrar el tipo de contingencia y la adaptación adoptada (precio, canal, producto o costos).",
-   "terms": [
-    "resiliencia"
-   ]
+   "rule": "Registrar el tipo de contingencia y la adaptación adoptada (precio, canal, producto o costos)."
   },
   {
    "code": "RES_13",
@@ -1560,10 +1499,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_06"
    ],
-   "rule": "Reportar también el cambio medio del índice y separar por ruta.",
-   "terms": [
-    "indice_agencia"
-   ]
+   "rule": "Reportar también el cambio medio del índice y separar por ruta."
   },
   {
    "code": "RES_14",
@@ -1588,10 +1524,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_11"
    ],
    "rule": "Solo ruta de empleabilidad. Otras vinculaciones se reportan aparte.",
-   "terms": [
-    "colocacion_efectiva",
-    "empleo_formal"
-   ],
    "refs": [
     "REF_PILA"
    ]
@@ -1618,10 +1550,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_05",
     "INS_11"
    ],
-   "rule": "Un cambio de empleador sin interrupción mayor a 30 días cuenta como permanencia.",
-   "terms": [
-    "permanencia"
-   ]
+   "rule": "Un cambio de empleador sin interrupción mayor a 30 días cuenta como permanencia."
   },
   {
    "code": "RES_16",
@@ -1644,10 +1573,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_05"
    ],
-   "rule": "Verificar con la descripción del cargo o con el empleador.",
-   "terms": [
-    "pertinencia"
-   ]
+   "rule": "Verificar con la descripción del cargo o con el empleador."
   },
   {
    "code": "RES_17",
@@ -1670,10 +1596,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_05"
    ],
-   "rule": "Solo ruta de emprendimiento.",
-   "terms": [
-    "venta_validada"
-   ]
+   "rule": "Solo ruta de emprendimiento."
   },
   {
    "code": "RES_18",
@@ -1697,9 +1620,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "Deflactar con el IPC al mes base de la cohorte.",
-   "terms": [
-    "ventas_reales"
-   ],
    "refs": [
     "REF_IPC"
    ]
@@ -1725,9 +1645,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_09"
    ],
    "rule": "Publicar siempre el puntaje de cada dominio y por tipo de actor; reportar aparte las capacidades innovadora y emprendedora.",
-   "terms": [
-    "condiciones_ecosistema"
-   ],
    "refs": [
     "REF_ISEN10",
     "REF_ISEN11",
@@ -1758,10 +1675,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "No se cuentan montos solicitados ni aprobados sin desembolso. Separar tipo de capital y si la empresa es de base innovadora.",
-   "terms": [
-    "capital_movilizado",
-    "ide"
-   ],
    "refs": [
     "REF_NEVADO",
     "REF_AURA"
@@ -1841,11 +1754,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_07"
    ],
-   "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas.",
-   "terms": [
-    "give_back",
-    "empresario_consolidado"
-   ]
+   "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas."
   },
   {
    "code": "RES_24",
@@ -1914,10 +1823,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_10"
    ],
-   "rule": "Reportar también la distribución por nivel.",
-   "terms": [
-    "madurez_institucional"
-   ]
+   "rule": "Reportar también la distribución por nivel."
   },
   {
    "code": "IMP_1",
@@ -1941,11 +1847,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "Sin grupo de comparación es seguimiento, no impacto. Una cohorte sola no basta: acumular cohortes.",
-   "terms": [
-    "grupo_comparacion",
-    "ventas_reales",
-    "contribucion"
-   ],
    "refs": [
     "REF_SIEF",
     "REF_ISEN16",
@@ -1974,11 +1875,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_11"
    ],
    "rule": "Reportar el total neto y la diferencia frente a comparación. Nunca empleos brutos ni estimados.",
-   "terms": [
-    "empleo_neto",
-    "empleo_formal",
-    "grupo_comparacion"
-   ],
    "refs": [
     "REF_PILA",
     "REF_SIEF"
@@ -2006,11 +1902,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Es la línea con evaluación prospectiva más viable: la convocatoria tiene más postulantes que cupos. Medir a ambos grupos con la misma fuente.",
    "dim": "EMPL",
-   "terms": [
-    "grupo_comparacion",
-    "empleo_formal",
-    "contribucion"
-   ],
    "refs": [
     "REF_SIEF",
     "REF_PILA"
@@ -2020,7 +1911,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "SUP_1",
    "layer": "SUP",
    "line": "EMP",
-   "statement": "Participan las personas que pueden decidir cambios.",
+   "statement": "Quien decide en la empresa se sienta en la mesa.",
    "name": "Sesiones con decisor presente",
    "definition": "Sesiones decisorias con propietario, gerente o delegado con autoridad registrada.",
    "calculation": "100 × A / B",
@@ -2041,7 +1932,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "SUP_2",
    "layer": "SUP",
    "line": "TAL",
-   "statement": "Los empleadores cumplen las vacantes acordadas.",
+   "statement": "Los empleadores abren las vacantes que prometen.",
    "name": "Vacantes comprometidas habilitadas",
    "definition": "Vacantes comprometidas que el empleador abre dentro del plazo acordado.",
    "calculation": "100 × A / B",
@@ -2063,7 +1954,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "SUP_3",
    "layer": "SUP",
    "line": "ECO",
-   "statement": "Los aliados cumplen sus compromisos.",
+   "statement": "Los aliados cumplen lo que ponen sobre la mesa.",
    "name": "Compromisos de aliados cumplidos",
    "definition": "Compromisos vencidos de aliados cuya entrega o aporte se verifica.",
    "calculation": "100 × A / B",
@@ -2084,7 +1975,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "SUP_4",
    "layer": "SUP",
    "line": "TRF",
-   "statement": "Los socios sostienen el equipo y los recursos acordados.",
+   "statement": "Las organizaciones que adoptan el modelo lo sostienen.",
    "name": "Socios con condiciones de operación vigentes",
    "definition": "Socios con responsable activo y financiación confirmada para el siguiente periodo.",
    "calculation": "100 × A / B",
@@ -2105,7 +1996,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "SUP_5",
    "layer": "SUP",
    "line": "ECO",
-   "statement": "El impacto es resultado de la contribución de múltiples actores.",
+   "statement": "El crecimiento es una tarea compartida.",
    "name": "Programas con aportes de aliados registrados",
    "definition": "Programas activos cuyo registro identifica a los aliados que los cofinancian u operan y el tipo de aporte.",
    "calculation": "100 × A / B",
@@ -2121,9 +2012,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_08"
    ],
    "rule": "Es la base para comunicar contribución y no atribución exclusiva.",
-   "terms": [
-    "contribucion"
-   ],
    "refs": [
     "REF_MAYNE"
    ]
@@ -2149,9 +2037,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "Convención Eurostat y OCDE: excluir nacimientos del año inicial y crecimiento por fusiones.",
-   "terms": [
-    "empresa_escalada"
-   ],
    "refs": [
     "REF_OECD",
     "REF_ISEN16",
@@ -2177,9 +2062,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_12"
    ],
    "rule": "Referente de contexto: no se atribuye a Manizales Más.",
-   "terms": [
-    "contribucion"
-   ],
    "refs": [
     "REF_CNDEP",
     "REF_ABADIE"
@@ -2201,7 +2083,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_9",
     "RES_4"
    ],
-   "avoid": "Crecimiento de ventas sin rentabilidad, caja ni empleo; facturación agregada de la cohorte sin línea base.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2240,7 +2121,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_3",
     "RES_1"
    ],
-   "avoid": "Número de capacitados o talleres en municipios presentado como resultado.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2258,8 +2138,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "IMP_1",
     "IMP_2",
     "SUP_1"
-   ],
-   "note": "Todos sus indicadores se desagregan por municipio."
+   ]
   },
   {
    "id": "PRG_05",
@@ -2274,7 +2153,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_4",
     "RES_6"
    ],
-   "avoid": "Horas de formación comercial o número de asistentes.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2300,7 +2178,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_24",
     "RES_23"
    ],
-   "avoid": "Número de certificados entregados como resultado.",
    "elements": [
     "PRB_4",
     "ACT_8",
@@ -2326,7 +2203,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_22",
     "RES_23"
    ],
-   "avoid": "Número de eventos o de aliados firmantes presentado como mejora del ecosistema.",
    "elements": [
     "PRB_3",
     "ACT_5",
@@ -2357,7 +2233,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_23",
     "RES_1"
    ],
-   "avoid": "Horas de mentoría como único resultado.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2387,7 +2262,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_11",
     "RES_12"
    ],
-   "avoid": "Número de postulantes o asistentes a talleres.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2416,7 +2290,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_11",
     "RES_12"
    ],
-   "avoid": "Número de ideas inscritas o de asistentes. Crear empresas no es el objetivo; que vendan y crezcan, sí.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2441,7 +2314,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_18",
     "RES_13"
    ],
-   "avoid": "Una cifra única que mezcle a quienes consiguen empleo y a quienes emprenden.",
    "elements": [
     "PRB_2",
     "ACT_3",
@@ -2470,7 +2342,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "focus": [
     "RES_21"
    ],
-   "avoid": "Número de retos publicados o de postulaciones.",
    "elements": [
     "PRB_3",
     "ACT_5",
@@ -2493,8 +2364,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "focus": [
     "RES_20"
    ],
-   "avoid": "Montos solicitados o número de rondas de presentación.",
-   "note": "Las empresas de base innovadora pueden vender poco durante años antes de crecer: se siguen con hitos e inversión, no solo con ventas a 12 meses.",
    "elements": [
     "PRB_3",
     "ACT_6",
@@ -2518,7 +2387,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_20",
     "RES_7"
    ],
-   "avoid": "Montos comprometidos sin desembolso.",
    "elements": [
     "PRB_3",
     "ACT_6",
@@ -2542,7 +2410,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_8",
     "RES_24"
    ],
-   "avoid": "Número de docentes inscritos.",
    "elements": [
     "PRB_4",
     "ACT_8",
@@ -2565,7 +2432,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_8",
     "RES_25"
    ],
-   "avoid": "Número de estudiantes inscritos.",
    "elements": [
     "ACT_8",
     "PRD_8",
@@ -2587,7 +2453,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_11",
     "PRD_10"
    ],
-   "avoid": "Número de territorios visitados o de convenios firmados.",
    "elements": [
     "PRB_4",
     "ACT_9",
@@ -2789,375 +2654,110 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   }
  ],
- "glossary": [
-  {
-   "id": "empresa_atendida",
-   "term": "Empresa atendida",
-   "def": "Empresa con registro inicial y al menos una actividad del programa con asistencia documentada.",
-   "yes": "Empresas que iniciaron, aunque luego se retiren (siguen en los denominadores).",
-   "no": "Postulantes no seleccionados; inscritos que nunca asistieron."
-  },
-  {
-   "id": "cohorte",
-   "term": "Cohorte",
-   "def": "Grupo que inicia un programa en la misma convocatoria y comparte calendario de seguimiento.",
-   "yes": "Todas las personas o empresas que iniciaron, incluidas las que se retiran.",
-   "no": "Mezclar participantes de convocatorias distintas en un mismo seguimiento."
-  },
-  {
-   "id": "ventas_reales",
-   "term": "Ventas reales",
-   "def": "Ventas netas de devoluciones e impuestos, deflactadas con el IPC del DANE al mes base de la cohorte y sumadas en doce meses.",
-   "yes": "Ventas facturadas o con soporte contable.",
-   "no": "Ventas proyectadas, pedidos sin facturar, cifras nominales comparadas entre años."
-  },
-  {
-   "id": "empleo_formal",
-   "term": "Empleo formal",
-   "def": "Puesto asalariado con cotización como dependiente en PILA a nombre de la empresa.",
-   "yes": "Contratos laborales a término fijo, indefinido o por obra con aportes.",
-   "no": "Contratistas por prestación de servicios, propietarios sin salario, practicantes sin vínculo laboral.",
-   "say": "«Las empresas acompañadas sumaron N empleos formales netos verificados en PILA a 24 meses.»"
-  },
-  {
-   "id": "empleo_neto",
-   "term": "Empleo formal neto generado",
-   "def": "Cotizantes dependientes al corte menos cotizantes dependientes al ingreso, en las mismas empresas.",
-   "yes": "La diferencia neta: puestos creados menos puestos perdidos.",
-   "no": "Empleos brutos, empleos anunciados, empleos indirectos estimados."
-  },
-  {
-   "id": "empresa_escalada",
-   "term": "Empresa escalada",
-   "def": "Empresa con al menos diez asalariados al inicio y crecimiento anualizado superior al 20 % en empleo o en ventas reales durante tres años (convención Eurostat y OCDE).",
-   "yes": "Crecimiento orgánico verificado en registros.",
-   "no": "Crecimiento por fusiones o adquisiciones; empresas que crecen un solo año.",
-   "say": "«N empresas acompañadas cumplen el criterio internacional de alto crecimiento.»"
-  },
-  {
-   "id": "empresa_alto_potencial",
-   "term": "Empresa de alto potencial",
-   "def": "Empresa existente con ventas, equipo y decisión expresa de crecer, seleccionada con criterios publicados. Es el foco del enfoque de scale-up de Babson.",
-   "yes": "Empresas seleccionadas por convocatoria con criterios registrados.",
-   "no": "Empresas invitadas sin criterios o seleccionadas después de crecer."
-  },
-  {
-   "id": "ide",
-   "term": "Empresa de base innovadora",
-   "def": "Empresa que persigue mercados amplios a partir de una innovación (en MIT REAP, innovation-driven enterprise). Puede tener ventas bajas durante años antes de crecer muy rápido; se diferencia de la pyme tradicional que atiende mercados locales con ideas conocidas.",
-   "yes": "Seguimiento por hitos técnicos, inversión recibida y ventas.",
-   "no": "Juzgarla solo por ventas a 12 meses."
-  },
-  {
-   "id": "nuevo_mercado",
-   "term": "Nuevo mercado",
-   "def": "Departamento o país donde la empresa factura y no había facturado en los doce meses previos al ingreso.",
-   "yes": "Ventas facturadas a clientes ubicados en ese mercado.",
-   "no": "Contactos, ferias o cotizaciones sin venta."
-  },
-  {
-   "id": "canal_nuevo",
-   "term": "Canal comercial nuevo",
-   "def": "Canal de mayor alcance que la empresa no usaba: comercio electrónico con ventas, distribuidores o grandes superficies, compras corporativas o públicas, exportación.",
-   "yes": "Canales con al menos una venta facturada.",
-   "no": "Perfiles en redes sociales o páginas web sin ventas."
-  },
-  {
-   "id": "conversion",
-   "term": "Conversión comercial",
-   "def": "Propuestas o cotizaciones formales que terminan en venta facturada, divididas por las propuestas enviadas en el mismo periodo.",
-   "yes": "Propuestas con cliente, fecha y valor registrados.",
-   "no": "Contactos informales o prospectos sin propuesta."
-  },
-  {
-   "id": "margen_operativo",
-   "term": "Margen operativo",
-   "def": "Utilidad operacional dividida por ventas netas del mismo año.",
-   "yes": "Estados financieros o registro contable del mismo tipo en ambos años.",
-   "no": "Comparar estados auditados con estimaciones del empresario."
-  },
-  {
-   "id": "caja_operativa",
-   "term": "Caja operativa positiva",
-   "def": "Entradas de efectivo de la operación mayores que las salidas de la operación en el trimestre.",
-   "yes": "Flujo de la operación del negocio.",
-   "no": "Entradas por préstamos, aportes de socios o venta de activos."
-  },
-  {
-   "id": "venta_validada",
-   "term": "Validación comercial",
-   "def": "Ventas a al menos tres clientes no relacionados en un periodo de tres meses.",
-   "yes": "Clientes sin vínculo familiar, societario ni con la organización que acompaña.",
-   "no": "Ventas a familiares, socios o aliados del programa; preventas sin entrega."
-  },
-  {
-   "id": "supervivencia",
-   "term": "Supervivencia comercial",
-   "def": "Emprendimiento con ventas en los tres meses previos al seguimiento.",
-   "yes": "Negocios que venden, con o sin cambio de modelo.",
-   "no": "Matrícula mercantil vigente sin ventas."
-  },
-  {
-   "id": "resiliencia",
-   "term": "Resiliencia empresarial",
-   "def": "Recuperación de al menos el 80 % de las ventas previas dentro de los seis meses siguientes a una contingencia registrada.",
-   "yes": "Contingencias externas: caída de demanda, desastre, pérdida de un cliente principal, choque de precios.",
-   "no": "Caídas estacionales previsibles."
-  },
-  {
-   "id": "colocacion_efectiva",
-   "term": "Colocación efectiva (vinculación laboral exitosa)",
-   "def": "Joven de la ruta de empleabilidad con contrato laboral y cotización en PILA iniciada dentro de los seis meses siguientes al cierre.",
-   "yes": "Empleo formal con aportes como dependiente.",
-   "no": "Entrevistas, pasantías no remuneradas, prestación de servicios, trabajo informal (se reportan aparte).",
-   "say": "«N de cada 100 jóvenes de la ruta de empleabilidad tienen empleo formal verificado seis meses después.»"
-  },
-  {
-   "id": "permanencia",
-   "term": "Permanencia a 90 días",
-   "def": "Joven colocado que sigue cotizando 90 días después de su vinculación, con el mismo u otro empleador.",
-   "yes": "Cambios de empleador con interrupción de hasta 30 días.",
-   "no": "Contratos terminados antes del día 90 sin nueva vinculación."
-  },
-  {
-   "id": "pertinencia",
-   "term": "Pertinencia de la colocación",
-   "def": "Cargo cuyas funciones usan las competencias técnicas o de IA de la ruta del joven.",
-   "yes": "Verificación con la descripción del cargo o con el empleador.",
-   "no": "Declaración del joven sin verificación."
-  },
-  {
-   "id": "indice_agencia",
-   "term": "Índice de agencia",
-   "def": "Medición estandarizada de agencia y habilidades socioemocionales aplicada con el mismo instrumento al ingreso y al cierre.",
-   "yes": "Jóvenes con ambas mediciones con la misma versión del instrumento.",
-   "no": "Comparar versiones distintas o mediciones solo de salida."
-  },
-  {
-   "id": "hito_estrategico",
-   "term": "Hito estratégico",
-   "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada. La mentoría por hitos sigue el modelo MIT Venture Mentoring Service.",
-   "yes": "Compromisos con evidencia de cumplimiento hasta su fecha.",
-   "no": "Tareas operativas menores o compromisos sin fecha.",
-   "say": "«Las empresas cumplieron el N % de los hitos estratégicos acordados con sus mentores.»"
-  },
-  {
-   "id": "give_back",
-   "term": "Retribución al ecosistema (give back)",
-   "def": "Tiempo que empresarios consolidados aportan sin pago para formar a nuevas generaciones: mentoría, formación y jurados.",
-   "yes": "Horas verificadas en el registro de mentoría.",
-   "no": "Horas pagadas, horas del equipo de Manizales Más, asistencia como público.",
-   "say": "«N empresarios aportaron H horas voluntarias, equivalentes a $X en consultoría.»"
-  },
-  {
-   "id": "empresario_consolidado",
-   "term": "Empresario consolidado",
-   "def": "Propietario o directivo de una empresa con al menos cinco años de operación y crecimiento demostrado, que participa como mentor o referente.",
-   "yes": "Mentores de la red con trayectoria verificada.",
-   "no": "Consultores que cobran por su tiempo."
-  },
-  {
-   "id": "capital_movilizado",
-   "term": "Capital movilizado",
-   "def": "Inversión, crédito o pago por resultados efectivamente desembolsado a una empresa acompañada.",
-   "yes": "Desembolsos con soporte.",
-   "no": "Montos solicitados, aprobados sin desembolso o en negociación."
-  },
-  {
-   "id": "condiciones_ecosistema",
-   "term": "Condiciones del ecosistema",
-   "def": "Seis dominios del modelo de Babson: políticas y liderazgo, financiación, cultura, apoyos, capital humano y mercados, valorados por los cinco tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Se complementa con las capacidades innovadora (I-Cap) y emprendedora (E-Cap) de la región.",
-   "yes": "Medición anual con cobertura de los cinco tipos de actor.",
-   "no": "Encuestas a un solo tipo de actor o percepciones sin método."
-  },
-  {
-   "id": "apuesta_estrategica",
-   "term": "Apuesta estratégica regional",
-   "def": "Prioridad que los cinco tipos de actor acuerdan sobre la ventaja comparativa de la región; en MIT REAP se llama must-win battle. Ordena las iniciativas del ecosistema.",
-   "yes": "Apuestas con meta, actores responsables y plazo.",
-   "no": "Listas de sectores sin meta ni responsables."
-  },
-  {
-   "id": "iniciativa_multiactor",
-   "term": "Iniciativa multiactor",
-   "def": "Acción conjunta con objetivo, responsables y evidencia, en la que participan al menos tres tipos de actor del ecosistema.",
-   "yes": "Acciones ejecutadas con aportes de cada actor.",
-   "no": "Firmas de convenio o reuniones sin acción ejecutada."
-  },
-  {
-   "id": "territorio_diagnosticado",
-   "term": "Territorio diagnosticado",
-   "def": "Municipio o ecosistema con medición completa de los seis dominios y devolución de resultados a sus actores.",
-   "yes": "Diagnósticos completos y devueltos.",
-   "no": "Visitas, talleres de sensibilización o diagnósticos parciales."
-  },
-  {
-   "id": "toolkit",
-   "term": "Toolkit estandarizado",
-   "def": "Metodología documentada con guía, plantillas, criterios de calidad y versión, aplicable por un tercero sin el equipo original.",
-   "yes": "Toolkits aplicados o revisados por un equipo externo.",
-   "no": "Presentaciones o documentos internos sin versión."
-  },
-  {
-   "id": "madurez_institucional",
-   "term": "Madurez institucional",
-   "def": "Nivel de 1 a 5 de una organización socia para operar un servicio: responsable, equipo formado, protocolo, financiación y medición propios.",
-   "yes": "Diagnóstico con la misma escala al inicio y a los doce meses.",
-   "no": "Autoevaluaciones sin evidencia."
-  },
-  {
-   "id": "grupo_comparacion",
-   "term": "Grupo de comparación",
-   "def": "Empresas similares que no recibieron el programa: postulantes no seleccionados o empresas comparables en RUES y PILA.",
-   "yes": "Grupos con la misma medición y periodo que las empresas atendidas.",
-   "no": "Promedios nacionales o del sector usados como contrafactual."
-  },
-  {
-   "id": "contribucion",
-   "term": "Contribución, no atribución",
-   "def": "El crecimiento regional resulta de muchos actores. Manizales Más reporta lo que su intervención aporta, nombra a los aliados que cofinancian y no presenta el resultado como exclusivo.",
-   "yes": "«Contribuimos», «junto con», efectos estimados frente a comparación.",
-   "no": "«Gracias a Manizales Más la economía creció», sumas de resultados de aliados como propios.",
-   "say": "«Con el apoyo de [aliados], las empresas acompañadas crecieron X puntos más que empresas comparables.»"
-  }
- ],
- "rules": [
-  {
-   "title": "Identificación",
-   "text": "Contar una vez cada persona, empresa, oportunidad o servicio en el periodo. Conservar su identificador entre programas y mediciones."
-  },
-  {
-   "title": "Inicio y seguimiento",
-   "text": "El inicio es la fecha previa al primer acompañamiento. Los meses se cuentan desde esa fecha, salvo que la ficha indique otra."
-  },
-  {
-   "title": "Cobertura",
-   "text": "Acompañar cada indicador con n observado, N elegible y cobertura = 100 × n / N."
-  },
-  {
-   "title": "Ceros y faltantes",
-   "text": "Registrar cero cuando se confirme ausencia de ventas o empleo. Los faltantes son desconocidos, no ceros. Un denominador cero produce «No aplica»."
-  },
-  {
-   "title": "Retiros",
-   "text": "En finalización y en resultados, el denominador incluye a quienes iniciaron, también a los retirados."
-  },
-  {
-   "title": "Precios comparables",
-   "text": "Valor real = valor nominal × IPC del mes base / IPC del mes observado. Usar el mismo mes base dentro de la cohorte y no combinar monedas."
-  },
-  {
-   "title": "Tres C juntas",
-   "text": "El crecimiento de ventas no se reporta solo: va con empleo formal (capacidad) y con margen y caja (caja)."
-  },
-  {
-   "title": "Escala antes que cantidad",
-   "text": "El número de empresas creadas no es un logro del ecosistema por sí solo. Se mide cuántas venden, crecen y escalan."
-  },
-  {
-   "title": "Rutas separadas",
-   "text": "En talento, empleabilidad y emprendimiento se miden, analizan y comunican por separado."
-  },
-  {
-   "title": "Seguimiento no es impacto",
-   "text": "Los cambios entre inicio y seguimiento describen a las mismas empresas o personas. El efecto solo se afirma frente a un grupo de comparación."
-  },
-  {
-   "title": "Desagregación",
-   "text": "Todo indicador se desagrega por programa, cohorte, municipio y sexo de quien dirige, cuando el tamaño lo permite."
-  }
- ],
  "references": [
   {
    "id": "REF_BLOOM",
    "title": "Bloom, Eifert, Mahajan, McKenzie y Roberts, Does Management Matter? Evidence from India (Quarterly Journal of Economics, 2013)",
    "url": "https://doi.org/10.1093/qje/qjs044",
    "type": "Evidencia",
-   "use": "Prácticas de gestión y productividad."
+   "use": "Prácticas de gestión y productividad.",
+   "cite": "Bloom y otros, 2013"
   },
   {
    "id": "REF_BRUHN",
    "title": "Bruhn, Karlan y Schoar, The Impact of Consulting Services on Small and Medium Enterprises: Evidence from a Randomized Trial in Mexico (Journal of Political Economy, 2018)",
    "url": "https://doi.org/10.1086/696154",
    "type": "Evidencia",
-   "use": "Asesoría a pymes, productividad y empleo."
+   "use": "Asesoría a pymes, productividad y empleo.",
+   "cite": "Bruhn, Karlan y Schoar, 2018"
   },
   {
    "id": "REF_BROOKS",
    "title": "Brooks, Donovan y Johnson, Mentors or Teachers? Microenterprise Training in Kenya (AEJ: Applied Economics, 2018)",
    "url": "https://doi.org/10.1257/app.20170042",
    "type": "Evidencia",
-   "use": "Mentoría frente a capacitación tradicional."
+   "use": "Mentoría frente a capacitación tradicional.",
+   "cite": "Brooks, Donovan y Johnson, 2018"
   },
   {
    "id": "REF_ATKIN",
    "title": "Atkin, Khandelwal y Osman, Exporting and Firm Performance: Evidence from a Randomized Experiment (Quarterly Journal of Economics, 2017)",
    "url": "https://doi.org/10.1093/qje/qjx002",
    "type": "Evidencia",
-   "use": "Nuevos mercados y desempeño empresarial."
+   "use": "Nuevos mercados y desempeño empresarial.",
+   "cite": "Atkin, Khandelwal y Osman, 2017"
   },
   {
    "id": "REF_GU",
    "title": "González-Uribe y Leatherbee, The Effects of Business Accelerators on Venture Performance: Evidence from Start-Up Chile (Review of Financial Studies, 2018)",
    "url": "https://doi.org/10.1093/rfs/hhx103",
    "type": "Evidencia",
-   "use": "Aceleración de emprendimientos tempranos."
+   "use": "Aceleración de emprendimientos tempranos.",
+   "cite": "González-Uribe y Leatherbee, 2018"
   },
   {
    "id": "REF_ATT",
    "title": "Attanasio, Kugler y Meghir, Subsidizing Vocational Training for Disadvantaged Youth in Colombia (AEJ: Applied Economics, 2011)",
    "url": "https://doi.org/10.1257/app.3.3.188",
    "type": "Evidencia",
-   "use": "Formación de jóvenes y empleo formal en Colombia."
+   "use": "Formación de jóvenes y empleo formal en Colombia.",
+   "cite": "Attanasio, Kugler y Meghir, 2011"
   },
   {
    "id": "REF_KLUVE",
    "title": "Kluve y otros, Do Youth Employment Programs Improve Labor Market Outcomes? A Quantitative Review (World Development, 2019)",
    "url": "https://doi.org/10.1016/j.worlddev.2018.10.004",
    "type": "Evidencia",
-   "use": "Qué funciona en programas de empleo juvenil."
+   "use": "Qué funciona en programas de empleo juvenil.",
+   "cite": "Kluve y otros, 2019"
   },
   {
    "id": "REF_CARD",
    "title": "Card, Kluve y Weber, What Works? A Meta Analysis of Recent Active Labor Market Program Evaluations (Journal of the European Economic Association, 2018)",
    "url": "https://doi.org/10.1093/jeea/jvx028",
    "type": "Evidencia",
-   "use": "Efectos de corto y largo plazo de la formación."
+   "use": "Efectos de corto y largo plazo de la formación.",
+   "cite": "Card, Kluve y Weber, 2018"
   },
   {
    "id": "REF_CAMPOS",
    "title": "Campos y otros, Teaching Personal Initiative Beats Traditional Training in Boosting Small Business in West Africa (Science, 2017)",
    "url": "https://doi.org/10.1126/science.aan5329",
    "type": "Evidencia",
-   "use": "Agencia e iniciativa personal en emprendimiento."
+   "use": "Agencia e iniciativa personal en emprendimiento.",
+   "cite": "Campos y otros, 2017"
   },
   {
    "id": "REF_ALFARO",
    "title": "Alfaro-Ureña, Manelici y Vasquez, The Effects of Joining Multinational Supply Chains (Quarterly Journal of Economics, 2022)",
    "url": "https://doi.org/10.1093/qje/qjac006",
    "type": "Evidencia",
-   "use": "Proveeduría a empresas ancla y crecimiento."
+   "use": "Proveeduría a empresas ancla y crecimiento.",
+   "cite": "Alfaro-Ureña, Manelici y Vasquez, 2022"
   },
   {
    "id": "REF_MCK",
    "title": "McKenzie, Identifying and Spurring High-Growth Entrepreneurship: Experimental Evidence from a Business Plan Competition (American Economic Review, 2017)",
    "url": "https://doi.org/10.1257/aer.20151404",
    "type": "Evidencia",
-   "use": "Capital para empresas con potencial."
+   "use": "Capital para empresas con potencial.",
+   "cite": "McKenzie, 2017"
   },
   {
    "id": "REF_LAF",
    "title": "Lafortune, Riutort y Tessada, Role Models or Individual Consulting: The Impact of Personalizing Micro-entrepreneurship Training (AEJ: Applied Economics, 2018)",
    "url": "https://doi.org/10.1257/app.20170077",
    "type": "Evidencia",
-   "use": "Referentes empresariales y cultura."
+   "use": "Referentes empresariales y cultura.",
+   "cite": "Lafortune, Riutort y Tessada, 2018"
   },
   {
    "id": "REF_BANERJEE",
    "title": "Banerjee y otros, From Proof of Concept to Scalable Policies: Challenges and Solutions (Journal of Economic Perspectives, 2017)",
    "url": "https://doi.org/10.1257/jep.31.4.73",
    "type": "Evidencia",
-   "use": "Fidelidad al escalar y transferir programas."
+   "use": "Fidelidad al escalar y transferir programas.",
+   "cite": "Banerjee y otros, 2017"
   },
   {
    "id": "REF_ISEN10",
@@ -3178,7 +2778,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "title": "Isenberg y Onyemah, Fostering Scaleup Ecosystems for Regional Economic Growth: Manizales-Mas and Scale Up Milwaukee (Innovations, MIT Press, 2016)",
    "url": "https://ideas.repec.org/a/tpr/inntgg/v11y2016i1-2p60-79.html",
    "type": "Estudio de caso",
-   "use": "Caso de Manizales Más: el foco en empresas existentes con potencial produce efectos de crecimiento en el primer año."
+   "use": "Caso de Manizales Más: el foco en empresas existentes con potencial produce efectos de crecimiento en el primer año.",
+   "cite": "Isenberg y Onyemah, 2016"
   },
   {
    "id": "REF_ISEN13",
@@ -3402,7 +3003,7 @@ const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
 const layerName = id => byLayer.get(id)?.name || id;
 const STAGE = {PRB:'Problemática',ACT:'Actividad',PRD:'Producto',RES:'Resultado',IMP:'Impacto',SUP:'Supuesto',CTX:'Contexto'};
-const VIEWS = ['modelo','teoria','glosario','referencias'];
+const VIEWS = ['modelo','teoria','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
 const S = {view:'', mode:'line', line:'', prog:'', node:''};
 
@@ -3416,13 +3017,20 @@ const nodeLabel = id => id === 'impact' ? M.impact.title : byOut.has(id) ? byOut
 const nodeStage = id => id === 'impact' ? 'Impacto' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
 
 /* ---------- 01 modelo ---------- */
+const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const ICONS = {
+  EMP: svg('<path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20v-8"/><path d="M16 20v-11"/><path d="M14 5h5v5"/><path d="M19 5l-7 7"/>'),
+  TAL: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>'),
+  ECO: svg('<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M8 8l2.2 2.2M16 8l-2.2 2.2M8 16l2.2-2.2M16 16l-2.2-2.2"/>'),
+  TRF: svg('<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.3 10.8l7.4-4M8.3 13.2l7.4 4"/>')};
 function drawModel(){
   $('sideMeta').innerHTML = `Versión <b>${esc(M.meta.version)}</b><br>${esc(DATE)}`;
-  $('intro').innerHTML = M.meta.intro.map(p => `<p>${esc(p)}</p>`).join('');
+  $('heroLead').textContent = M.meta.intro[0];
+  $('nextText').textContent = M.meta.intro[1];
   $('impactHero').innerHTML = `<p class="eyebrow">Hacia dónde vamos</p><h2>${esc(M.impact.title)}</h2><p>${esc(M.impact.story)}</p>`;
   $('lineCards').innerHTML = M.lines.map(l => {
     const ps = M.programs.filter(p => p.line === l.id);
-    return `<article class="card line-card" style="${lineVars(l.id)}"><h3>${esc(l.name)}</h3><p>${esc(l.story)}</p>
+    return `<article class="card line-card" style="${lineVars(l.id)}"><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></div><p>${esc(l.story)}</p>
       <div class="foot"><details><summary>${plural(ps.length,'programa','programas')}</summary><ul>${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></details>
       <button type="button" class="link" data-goline="${l.id}">Ver su cadena</button></div></article>`;
   }).join('');
@@ -3444,10 +3052,9 @@ function drawTheory(){
   const rows = lanes.map(l => {
     const items = layer => M.indicators.filter(x => x.layer === layer && x.line === l.id);
     const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-node="${o.id}"${pressed(o.id)}>${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}</button>`).join('');
-    const sups = M.chains[l.id].assumptions.map(c => `<button type="button" class="node sup${state([c])}" data-node="${c}"${pressed(c)}><b>Supuesto</b>${esc(byCode.get(c).statement)}</button>`).join('');
     return `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><button type="button" class="hyp-btn" data-tip="${l.id}" aria-expanded="false">Hipótesis</button></div>
-      ${cell('Problemática', items('PRB').map(node).join(''))}${cell('Actividades', items('ACT').map(node).join(''))}${cell('Productos', items('PRD').map(node).join(''))}${cell('Resultados', outs + sups)}
+      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
+      ${cell('Problemática', items('PRB').map(node).join(''))}${cell('Actividades', items('ACT').map(node).join(''))}${cell('Productos', items('PRD').map(node).join(''))}${cell('Resultados', outs)}
     </section>`;
   }).join('');
   const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-node="impact"${pressed('impact')}><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
@@ -3478,8 +3085,8 @@ function drawIndicators(){
 /* ---------- tooltip de hipótesis ---------- */
 const tip = $('tip'); let tipFor = null, tipPinned = false;
 function showTip(btn, pin){
-  const l = byLine.get(btn.dataset.tip), ch = M.chains[l.id];
-  tip.innerHTML = `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
+  const [kind, lid] = btn.dataset.tip.split(':'), l = byLine.get(lid), ch = M.chains[l.id];
+  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${ch.assumptions.map(c => { const a = M.assumptions[c]; return `<li><b>${esc(a.title)}</b><br>${esc(a.why)}<span class="t-ind">Lo vigilamos con: ${esc(byCode.get(c).name)}</span></li>`; }).join('')}</ul>` : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
     <div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${ch.evidence.map(e => `<li>${esc(e.text)}${e.refs.length ? ` <cite>(${e.refs.map(r => esc(byRef.get(r).cite)).join('; ')})</cite>` : ''}</li>`).join('')}</ul>
     <p class="t-note">Esta evidencia sustenta el diseño; nuestros indicadores de impacto medirán el efecto en Caldas.</p></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
@@ -3499,14 +3106,8 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape' && tipFor) hid
 addEventListener('scroll', () => { if(tipFor) hideTip(); }, {passive:true, capture:true});
 addEventListener('resize', hideTip);
 
-/* ---------- 03 glosario y 04 referencias ---------- */
-function drawGlossary(){
-  const q = norm($('gq').value.trim());
-  const ts = M.glossary.filter(t => !q || norm(t.term + ' ' + t.def).includes(q));
-  $('glGrid').innerHTML = ts.length ? ts.map(t => `<article class="card term"><h2>${esc(t.term)}</h2><p>${esc(t.def)}</p><p class="no"><b>No incluye:</b> ${esc(t.no)}</p></article>`).join('') : `<p class="card empty">Ningún término coincide.</p>`;
-}
+/* ---------- 03 referencias ---------- */
 function drawStatic(){
-  $('rules').innerHTML = M.rules.map(r => `<dt>${esc(r.title)}</dt><dd>${esc(r.text)}</dd>`).join('');
   const groups = [['Evidencia que sustenta las cadenas', r => r.type === 'Evidencia'], ['Marcos y métodos', r => /Marco|Estudio de caso|metodológ|Estándar/.test(r.type)], ['Fuentes de datos', r => /oficial|Registro|regional|nacional/i.test(r.type)], ['Manizales Más y sus programas', r => /institucional/.test(r.type)]];
   const seen = new Set();
   $('refGroups').innerHTML = groups.map(([t, test]) => { const rs = M.references.filter(r => !seen.has(r.id) && test(r)); rs.forEach(r => seen.add(r.id));
@@ -3522,7 +3123,7 @@ function open(code){
   $('dTitle').textContent = x.name; $('dTag').textContent = `${x.code} · ${STAGE[x.layer]} · ${lineName(x.line)}`;
   $('dHead').style.setProperty('--dh', lineTone(x.line));
   const a = M.assumptions[code];
-  $('dBody').innerHTML = `${a?`<dl class="facts"><dt>Riesgo</dt><dd>${esc(a.risk)}</dd><dt>Señal</dt><dd>${esc(a.signal)}</dd><dt>Respuesta</dt><dd>${esc(a.response)}</dd></dl>`:''}
+  $('dBody').innerHTML = `${a?`<p class="why"><b>${esc(a.title)}</b> ${esc(a.why)}</p>`:''}
     <p class="def">${esc(x.definition)}</p>
     <div class="formula"><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd></dl>`;
@@ -3548,7 +3149,7 @@ function show(view, focus){
 function route(focus = true){
   const [view, id] = decodeURIComponent(location.hash.slice(1)).split('/');
   if(view === 'h-teoria'){ return; }
-  const v = view === 'indicadores' ? 'teoria' : view;
+  const v = view === 'indicadores' ? 'teoria' : view === 'glosario' ? 'modelo' : view;
   if(v !== S.view) show(v, focus);
   if(id && byCode.has(id)) open(id); else if(dlg.open) dlg.close();
 }
@@ -3574,11 +3175,10 @@ document.addEventListener('click', e => {
 $('scopeReset').addEventListener('click', () => { S.node = ''; S.line = ''; S.prog = ''; drawControls(); drawTheory(); });
 $('scopeUp').addEventListener('click', e => { e.preventDefault(); $('h-teoria').scrollIntoView({behavior: reduced ? 'auto' : 'smooth'}); });
 $('fq').addEventListener('input', drawIndicators);
-$('gq').addEventListener('input', drawGlossary);
 addEventListener('beforeprint', () => document.querySelectorAll('.view').forEach(v => v.hidden = false));
 addEventListener('afterprint', () => show(S.view, false));
 
-drawModel(); drawControls(); drawTheory(); drawGlossary(); drawStatic();
+drawModel(); drawControls(); drawTheory(); drawStatic();
 route(false);
 addEventListener('load', () => { if(!dlg.open) scrollTo({top:0, behavior:'instant'}); });
 </script>

@@ -11,15 +11,14 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Qué es Manizales Más, hacia dónde va y sus cuatro frentes de trabajo |
-| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa. Cada línea tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los indicadores, filtrados por lo que se seleccione en la cadena |
-| 03 Referencias | Evidencia, marcos, fuentes de datos y programas |
+| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por línea o por programa. Cada línea tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los 37 indicadores agrupados por etapa, filtrados por lo que se seleccione en la cadena |
+| 03 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.0
 
 - **Impacto:** crecimiento económico de Manizales y Caldas (ventas reales y empleo formal de
   las empresas, empleo formal de los jóvenes, siempre frente a grupo de comparación), en lugar
-  de mejora de ingresos. Cada ficha dice qué permite afirmar su cifra: gestión, seguimiento,
-  efecto o contexto. Contexto regional sin atribución.
+  de mejora de ingresos. Cada ficha dice qué no cuenta.
 - **Ecosistema:** el resultado es mejores condiciones del entorno para crecer (dominios de
   Babson, actores de MIT REAP), no acceso a financiación. Nuevo resultado de cultura de crecimiento.
 - **Empresas:** fórmula de las 3C (clientes, capacidad, caja), apertura de mercados y canales,
@@ -33,8 +32,9 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 - Se reconstruyó la interfaz: navegación con enlaces, diseño adaptable a celular, accesibilidad
   (foco, etiquetas, contraste, movimiento reducido) e impresión de todas las secciones.
 
-Siete actividades con la misma fórmula se miden con un indicador común (`ACT_0`), así que hay
-55 indicadores distintos.
+Las actividades se miden con un indicador común de agenda (`ACT_0`) y las finalizaciones de ruta con
+uno solo (`PRD_0`). La problemática y los supuestos se presentan como enunciados, sin indicador propio.
+En total hay 37 indicadores: 1 de actividades, 9 de productos, 24 de resultados y 3 de impacto.
 
 Los códigos de indicadores se renumeraron; el libro técnico de Excel debe regenerarse con este modelo.
 

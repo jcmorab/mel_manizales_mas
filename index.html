@@ -122,7 +122,9 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .pgroup .chip{font-size:13px;padding:5px 11px;min-height:34px}
 .swim-wrap{overflow-x:auto;padding:4px 2px 8px}
 .swim{display:grid;grid-template-columns:128px repeat(3,minmax(150px,1fr)) minmax(220px,1.35fr) minmax(200px,1fr);gap:0 12px;min-width:1080px}
-.swim-h{font-size:13px;font-weight:700;color:var(--navy);padding:0 4px 10px;border-bottom:2px solid var(--line)}
+.swim-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy);padding:0 4px 12px;border-bottom:2px solid var(--line)}
+.swim-h .sn{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:11.5px}
+.swim-h:last-child .sn{background:var(--lime);color:var(--navy-d)}
 .lane{display:contents}
 .lane-name{padding:16px 4px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 .lane-name h2{font-size:15.5px;color:var(--lt)}
@@ -137,7 +139,8 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .node.out{background:var(--pale);font-weight:600;color:var(--navy-d)}
 .f3c{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 .f3c span{font-size:11.5px;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--navy)}
-.node.sup{border-left-style:dashed;font-size:13px;color:var(--muted);background:transparent}
+.node.prb{background:color-mix(in srgb,var(--lc) 8%,#fff);border-color:transparent;border-left-color:var(--lc);font-weight:500;color:var(--ink);cursor:default}
+.node.prb:hover{box-shadow:none}
 .node.sup b{display:block;font-size:11.5px;color:var(--soft);font-weight:600}
 .node.dim{opacity:.25}
 .node.hit{box-shadow:0 0 0 2px var(--lime)}
@@ -156,7 +159,6 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .tip cite{font-style:normal;color:#A9BFDA}
 .tip .t-sup li{margin-bottom:12px}
 .tip .t-sup b{color:#fff;font-weight:600}
-.tip .t-ind{display:block;margin-top:4px;font-size:12.5px;color:var(--lime)}
 .lane-btns{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 .hyp-btn.sup::before{content:"✓";font-style:normal}
 .tip .t-note{margin-top:10px;font-size:12.5px;color:#A9BFDA}
@@ -172,21 +174,50 @@ input[type="search"]{height:42px;border:1px solid var(--line);border-radius:10px
 .scope strong{color:var(--ink);font-weight:600}
 .table-card{overflow:hidden}
 .table-scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
-th{font-size:12.5px;font-weight:600;color:var(--muted);text-align:left;background:var(--pale);padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-tbody tr:last-child td{border-bottom:0}
-td.c-code{border-left:4px solid var(--lc,var(--navy));white-space:nowrap;width:86px}
-td .sub{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.ind-table{border-collapse:collapse;width:100%;font-size:14px;min-width:620px}
+.ind-table col.w-unit{width:190px}.ind-table col.w-when{width:220px}
+.ind-table thead th{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);text-align:left;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--paper)}
+.ind-table .grp th{text-align:left;padding:22px 20px 10px;font-size:13px;font-weight:700;color:var(--navy);background:linear-gradient(var(--pale),var(--pale));border-bottom:1px solid var(--line)}
+.ind-table .grp th span{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;margin-left:6px;border-radius:999px;background:var(--navy);color:#fff;font-size:11.5px}
+.ind-table td{padding:14px 20px;border-bottom:1px solid var(--line);vertical-align:middle}
+.ind-table tbody:last-child tr:last-child td{border-bottom:0}
+.row{cursor:pointer;transition:background .12s}
+.row:hover td{background:#F8FAFD}
+.c-name{display:flex;gap:14px;align-items:flex-start}
+.c-name .dot{flex:none;width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--lc,var(--navy-d))}
+.row-btn{background:none;border:0;padding:0;font-weight:600;color:var(--navy-d);text-align:left;font-size:14.5px;line-height:1.4}
+.row:hover .row-btn{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.meta{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}
+.meta .code{font-size:11.5px}
+.meta-m{display:none}
+.pill{display:inline-block;background:var(--pale);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:12.5px;color:var(--ink);line-height:1.35}
+.c-when b{display:block;font-weight:600;font-size:13.5px;color:var(--ink)}
+.c-when span{font-size:12.5px;color:var(--muted)}
 .empty{text-align:center;color:var(--muted);padding:34px}
 
 /* ------------------------------------------------ 03 referencias */
-.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px}
-.ref{padding:18px 20px;display:flex;flex-direction:column;gap:8px;font-size:14px}
-.ref a{font-weight:600;line-height:1.4}
-.ref p{color:var(--muted);font-size:13.5px}
-.ref-group+.ref-group{margin-top:30px}
-.ref-group>h2{font-size:1.1rem;margin-bottom:12px}
+.ref-group+.ref-group{margin-top:44px}
+.ref-group>h2{font-size:1.35rem;margin-bottom:16px}
+.ev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ev-card{border-top:5px solid var(--lc);padding:24px 26px}
+.ev-card header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.ev-card h3{font-size:1.2rem;color:var(--lt)}
+.ev-list{list-style:none;margin:0;padding:0}
+.ev-list li{padding:16px 0;border-top:1px solid var(--line)}
+.ev-list li:first-child{border-top:0}
+.ev-path{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:12.5px;margin-bottom:8px}
+.ev-path .step{background:color-mix(in srgb,var(--lc) 12%,#fff);color:var(--lt);font-weight:600;border-radius:8px;padding:3px 9px;line-height:1.35}
+.ev-path .arr{color:var(--soft);font-weight:700}
+.ev-find{font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ev-src{margin-top:6px;font-size:13px;line-height:1.45}
+.ev-src a{color:var(--muted);text-decoration-color:rgba(78,97,122,.35)}
+.ev-src a:hover{color:var(--navy)}
+.ref-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding:24px 26px}
+.ref-col h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.ref-col ul{display:grid;gap:12px}
+.ref-col li{font-size:13.5px;line-height:1.45}
+.ref-col li a{font-weight:600}
+.ref-col li span{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
 
 /* ------------------------------------------------ ficha */
 dialog{width:min(700px,94vw);max-height:min(90dvh,880px);padding:0;border:0;border-radius:18px;box-shadow:0 30px 80px -20px rgba(11,46,92,.5);color:var(--ink)}
@@ -224,7 +255,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .nav a{white-space:nowrap;padding:8px 11px;border-left:0;font-size:14px}
   .nav a span,.side-meta{display:none}
   main{padding:28px 16px 56px}
-  .lines,.hero,.sec-head{grid-template-columns:1fr}
+  .lines,.hero,.sec-head,.ev-grid,.ref-cols{grid-template-columns:1fr}
   .impact{min-height:0}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
@@ -241,6 +272,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 @media (max-width:640px){
   .pgrid,.pgroups{grid-template-columns:1fr 1fr}
   .facts{grid-template-columns:1fr}
+  .ind-table{min-width:0}
+  .ind-table thead,.ind-table colgroup,.row td:not(:first-child){display:none}
+  .ind-table td,.ind-table .grp th{padding-left:16px;padding-right:16px}
+  .meta-m{display:block;font-size:12.5px;color:var(--ink);margin-top:4px}
   .facts dt{border-bottom:0;padding-bottom:0}
   .d-head{padding:16px 18px}.d-body{padding:18px}
   .impact::before{font-size:170px;top:-38px}
@@ -267,7 +302,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
   .measure{break-before:page}
-  .line-card,.ref,tr{break-inside:avoid}
+  .line-card,.ev-card,.ref-col li,tr{break-inside:avoid}
   thead{display:table-header-group}
 }
 </style>
@@ -325,16 +360,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     </div>
     <p class="scope" aria-live="polite"><span id="scopeText"></span><button type="button" class="link" id="scopeReset" hidden>Ver todos</button><a class="link" href="#h-teoria" id="scopeUp" hidden>Volver a la cadena</a></p>
     <div class="card table-card"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores">
-      <table><caption class="sr">Indicadores</caption>
-        <thead><tr><th scope="col">Código</th><th scope="col">Indicador</th><th scope="col">Unidad</th><th scope="col">Medición</th></tr></thead>
-        <tbody id="indRows"></tbody></table>
+      <table class="ind-table" id="indTable"></table>
     </div></div>
   </div>
 </section>
 
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
-  <div class="view-head"><div><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">La teoría de cambio se apoya en la experiencia de Babson College y del MIT, en evaluaciones rigurosas de programas similares en el mundo y en las fuentes oficiales con las que medimos.</p></div></div>
+  <div class="view-head"><div><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">Nuestra teoría de cambio no parte de cero. Se apoya en el método de Babson College y del MIT, y cada cadena descansa en evaluaciones rigurosas de programas parecidos en otras partes del mundo. Aquí está qué encontró cada estudio y qué paso de la cadena sostiene.</p></div></div>
   <div id="refGroups"></div>
 </section>
 </main>
@@ -366,10 +399,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "IMP_2",
    "IMP_3"
   ],
-  "context": [
-   "CTX_1",
-   "CTX_2"
-  ],
+  "context": [],
   "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre."
  },
  "lines": [
@@ -471,7 +501,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "statement": "Empresas que crecen con más clientes, capacidad y caja.",
    "formula": "3C",
    "indicators": [
-    "RES_3",
     "RES_4",
     "RES_5",
     "RES_6",
@@ -501,7 +530,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "statement": "Emprendimientos que validan su mercado, sobreviven y resisten.",
    "indicators": [
     "RES_10",
-    "RES_11",
     "RES_12"
    ],
    "products": [
@@ -580,7 +608,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "statement": "Organizaciones y territorios que operan el modelo por su cuenta.",
    "indicators": [
     "RES_24",
-    "RES_25",
     "RES_26"
    ],
    "products": [
@@ -596,6 +623,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "hypothesis": "Si las empresas con potencial reciben acompañamiento, mentoría y conexiones, y en el proceso participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana y ventas que crecen año tras año.",
    "evidence": [
     {
+     "from": "ACT_1",
+     "to": "OUT_01",
      "text": "Cuando las empresas mejoran su gestión con acompañamiento experto, su productividad sube: así lo mostraron ensayos en India y en México, donde además creció el empleo.",
      "refs": [
       "REF_BLOOM",
@@ -603,18 +632,24 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
      ]
     },
     {
+     "from": "ACT_1",
+     "to": "OUT_02",
      "text": "La mentoría de empresarios con experiencia elevó 20 % las utilidades de pequeños negocios en Kenia, más que la capacitación en aula.",
      "refs": [
       "REF_BROOKS"
      ]
     },
     {
+     "from": "ACT_2",
+     "to": "OUT_02",
      "text": "Llegar a nuevos mercados hace mejores a las empresas: exportadores en Egipto mejoraron su calidad y sus utilidades.",
      "refs": [
       "REF_ATKIN"
      ]
     },
     {
+     "from": "ACT_1",
+     "to": "OUT_03",
      "text": "En emprendimientos tempranos marca la diferencia la formación, no solo el dinero, como mostró Start-Up Chile.",
      "refs": [
       "REF_GU"
@@ -629,12 +664,16 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, consiguen un empleo formal que conservan o un negocio que vende.",
    "evidence": [
     {
+     "from": "ACT_3",
+     "to": "OUT_05",
      "text": "Jóvenes en Acción, en Colombia, combinó formación con práctica en empresas y aumentó el empleo formal y los ingresos de sus participantes.",
      "refs": [
       "REF_ATT"
      ]
     },
     {
+     "from": "ACT_4",
+     "to": "OUT_05",
      "text": "Los programas para jóvenes funcionan mejor cuando combinan formación con conexión directa al empleo, como lo hace Qué Nivel.",
      "refs": [
       "REF_KLUVE",
@@ -642,6 +681,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
      ]
     },
     {
+     "from": "OUT_04",
+     "to": "OUT_06",
      "text": "Entrenar la iniciativa personal aumentó 30 % las utilidades de emprendedores en Togo, más que la capacitación tradicional.",
      "refs": [
       "REF_CAMPOS"
@@ -656,24 +697,32 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "hypothesis": "Si los actores del ecosistema actúan coordinados sobre capital, mercados, apoyos, talento, políticas y cultura, crecer se vuelve más fácil: más empresas encuentran clientes y capital, y crecer se vuelve una aspiración compartida.",
    "evidence": [
     {
+     "from": "PRD_5",
+     "to": "OUT_07",
      "text": "Venderle a una gran empresa transforma a sus proveedores: en Costa Rica, quienes empezaron a venderle a una multinacional tenían 26 % más empleo cuatro años después.",
      "refs": [
       "REF_ALFARO"
      ]
     },
     {
+     "from": "ACT_6",
+     "to": "OUT_07",
      "text": "El capital bien asignado acelera a las empresas con potencial: en Nigeria aumentó su supervivencia, sus ventas y su empleo.",
      "refs": [
       "REF_MCK"
      ]
     },
     {
+     "from": "ACT_7",
+     "to": "OUT_08",
      "text": "Los referentes inspiran: en Chile, conocer a un empresario exitoso elevó los ingresos de microempresarios tanto como una asesoría individual, a menor costo.",
      "refs": [
       "REF_LAF"
      ]
     },
     {
+     "from": "OUT_07",
+     "to": "impact",
      "text": "La experiencia de Manizales Más es un caso de estudio internacional sobre cómo un ecosistema enfocado en crecer acelera a sus empresas.",
      "refs": [
       "REF_ISEN16"
@@ -689,12 +738,16 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "hypothesis": "Si la metodología se documenta y se forma a equipos locales, otras organizaciones la operan y la repiten con calidad, y más empresas reciben acompañamiento para crecer.",
    "evidence": [
     {
+     "from": "PRD_9",
+     "to": "OUT_09",
      "text": "Los programas que se llevan a otros territorios conservan sus resultados cuando se cuida la fidelidad de la implementación; por eso medimos que cada servicio aplique los componentes acordados.",
      "refs": [
       "REF_BANERJEE"
      ]
     },
     {
+     "from": "ACT_9",
+     "to": "OUT_09",
      "text": "La metodología que dio origen a Manizales Más se aplicó también en Scale Up Milwaukee, en Estados Unidos.",
      "refs": [
       "REF_ISEN16"
@@ -733,96 +786,25 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "PRB_1",
    "layer": "PRB",
    "line": "EMP",
-   "statement": "Empresas con potencial que no logran crecer de forma sostenida.",
-   "name": "Empresas sin crecimiento real de ventas al ingreso",
-   "definition": "Empresas cuyas ventas reales del último año no superan las del año anterior.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas cuyas ventas reales del último año no superan las del anterior.",
-    "B": "Empresas con dos años completos de ventas y ventas positivas en el más antiguo."
-   },
-   "unit": "%",
-   "population": "Empresas que ingresan con al menos 24 meses de operación.",
-   "frequency": "Por cohorte",
-   "horizon": "Ingreso",
-   "sources": [
-    "INS_02",
-    "INS_11"
-   ],
-   "rule": "Comparar dos años consecutivos completos de ventas deflactadas.",
-   "refs": [
-    "REF_IPC"
-   ]
+   "statement": "Empresas con potencial que no logran crecer de forma sostenida."
   },
   {
    "code": "PRB_2",
    "layer": "PRB",
    "line": "TAL",
-   "statement": "Jóvenes sin vinculación productiva estable.",
-   "name": "Jóvenes sin vinculación productiva al ingreso",
-   "definition": "Jóvenes sin empleo formal vigente ni negocio con ventas al iniciar la ruta.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes sin empleo formal ni negocio con ventas al inicio.",
-    "B": "Jóvenes con situación inicial conocida."
-   },
-   "unit": "%",
-   "population": "Jóvenes que ingresan a Qué Nivel, por ruta.",
-   "frequency": "Por cohorte",
-   "horizon": "Ingreso",
-   "sources": [
-    "INS_02"
-   ],
-   "rule": "Reportar siempre por separado la ruta de empleabilidad y la de emprendimiento.",
-   "dim": "AMB",
-   "refs": [
-    "REF_GEIH"
-   ]
+   "statement": "Jóvenes sin vinculación productiva estable."
   },
   {
    "code": "PRB_3",
    "layer": "PRB",
    "line": "ECO",
-   "statement": "Un entorno que no facilita crecer.",
-   "name": "Dominios del ecosistema con condiciones débiles",
-   "definition": "Dominios del ecosistema cuyo puntaje en la medición anual de condiciones es inferior a 3 sobre 5.",
-   "calculation": "N(dominios con puntaje < 3)",
-   "variables": {
-    "N": "Número de dominios, de seis, con puntaje promedio inferior a 3."
-   },
-   "unit": "Dominios (0 a 6)",
-   "population": "Ecosistema de Manizales y de cada territorio diagnosticado.",
-   "frequency": "Anual",
-   "horizon": "Línea base y cada año",
-   "sources": [
-    "INS_09"
-   ],
-   "rule": "Usar los seis dominios: políticas, financiación, cultura, apoyos, capital humano y mercados.",
-   "refs": [
-    "REF_ISEN10",
-    "REF_GEM"
-   ]
+   "statement": "Un entorno que no facilita crecer."
   },
   {
    "code": "PRB_4",
    "layer": "PRB",
    "line": "TRF",
-   "statement": "Organizaciones y territorios sin capacidad para operar los servicios.",
-   "name": "Organizaciones con brechas de implementación",
-   "definition": "Organizaciones que carecen de alguna condición de inicio para el servicio que buscan operar.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Organizaciones sin responsable, equipo formado, protocolo o calendario completos.",
-    "B": "Organizaciones con las cuatro condiciones diagnosticadas."
-   },
-   "unit": "%",
-   "population": "Organizaciones interesadas en adoptar un servicio.",
-   "frequency": "Por réplica",
-   "horizon": "Diagnóstico de ingreso",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Evaluar el primer servicio acordado con cada organización."
+   "statement": "Organizaciones y territorios sin capacidad para operar los servicios."
   },
   {
    "code": "ACT_0",
@@ -830,7 +812,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "SIS",
    "statement": "Ejecución de las actividades programadas.",
    "name": "Cumplimiento de la agenda de actividades",
-   "definition": "Sesiones, reuniones y acciones realizadas respecto de las programadas con vencimiento al corte. Un solo indicador mide todas las actividades de formación, mentoría, conexión, preparación para capital y cultura.",
+   "definition": "Sesiones, reuniones, acciones conjuntas e hitos realizados respecto de los programados con vencimiento al corte. Un solo indicador mide todas las actividades de la teoría de cambio.",
    "calculation": "100 × A / B",
    "variables": {
     "A": "Sesiones o acciones realizadas con fecha programada hasta el corte.",
@@ -885,25 +867,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "ACT",
    "line": "ECO",
    "statement": "Articulación multiactor alrededor de apuestas estratégicas regionales.",
-   "name": "Iniciativas multiactor con acción ejecutada",
-   "definition": "Iniciativas de las apuestas estratégicas regionales con acción conjunta ejecutada por al menos tres tipos de actor del ecosistema.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Iniciativas con acción conjunta ejecutada y evidencia al corte.",
-    "B": "Iniciativas priorizadas con acción programada hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agenda anual de iniciativas del ecosistema.",
-   "frequency": "Trimestral",
-   "horizon": "Durante el año",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Cada iniciativa se vincula a una apuesta estratégica.",
-   "refs": [
-    "REF_REAP",
-    "REF_REAP2"
-   ]
+   "measuredBy": "ACT_0"
   },
   {
    "code": "ACT_6",
@@ -934,42 +898,36 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "ACT",
    "line": "TRF",
    "statement": "Sistematización del modelo e instalación de servicios.",
-   "name": "Hitos de transferencia ejecutados",
-   "definition": "Hitos de sistematización o instalación cumplidos respecto de los acordados con vencimiento al corte.",
+   "measuredBy": "ACT_0"
+  },
+  {
+   "code": "PRD_0",
+   "layer": "PRD",
+   "line": "SIS",
+   "statement": "Participantes que completan su ruta.",
+   "name": "Finalización de las rutas",
+   "definition": "Empresas, jóvenes, mentores o docentes que cumplen los requisitos de cierre de su ruta, respecto de quienes la iniciaron.",
    "calculation": "100 × A / B",
    "variables": {
-    "A": "Hitos cumplidos con fecha acordada hasta el corte.",
-    "B": "Hitos acordados con fecha hasta el corte."
+    "A": "Participantes con cierre completo documentado.",
+    "B": "Participantes que iniciaron la cohorte, incluidos los retiros."
    },
    "unit": "%",
-   "population": "Acuerdos de transferencia y plan de sistematización.",
-   "frequency": "Trimestral",
-   "horizon": "Durante la réplica",
+   "population": "Cohortes cerradas de todos los programas.",
+   "frequency": "Por cohorte",
+   "horizon": "Cierre de cohorte",
    "sources": [
-    "INS_10"
+    "INS_03"
    ],
-   "rule": "Usar los hitos, fechas y evidencias del acuerdo."
+   "rule": "Reportar por programa y por ruta.",
+   "excludes": "Inscritos que nunca asistieron o retiros sacados del denominador."
   },
   {
    "code": "PRD_1",
    "layer": "PRD",
    "line": "EMP",
    "statement": "Empresas que completan su ruta de acompañamiento.",
-   "name": "Finalización del acompañamiento empresarial",
-   "definition": "Empresas que cumplen los requisitos de cierre definidos para la ruta del programa.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con cierre completo documentado.",
-    "B": "Empresas atendidas en la cohorte, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas en una cohorte cerrada.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Los requisitos de cierre se fijan al inicio de la cohorte."
+   "measuredBy": "PRD_0"
   },
   {
    "code": "PRD_2",
@@ -997,21 +955,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "PRD",
    "line": "TAL",
    "statement": "Jóvenes que completan su ruta.",
-   "name": "Finalización de la ruta de talento",
-   "definition": "Jóvenes que cumplen los requisitos de cierre de su ruta.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes con cierre completo documentado.",
-    "B": "Jóvenes que iniciaron la cohorte, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Jóvenes de una cohorte cerrada de Qué Nivel.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Reportar por ruta; nunca sumar las dos en una sola cifra.",
+   "measuredBy": "PRD_0",
    "dim": "AMB"
   },
   {
@@ -1084,21 +1028,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "PRD",
    "line": "TRF",
    "statement": "Mentores, docentes y facilitadores formados con práctica.",
-   "name": "Finalización de formación en transferencia",
-   "definition": "Personas que cumplen los requisitos de su curso y entregan el ejercicio aplicado.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Personas con cierre y ejercicio aplicado documentados.",
-    "B": "Personas que iniciaron la cohorte, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Mentores, docentes, facilitadores o estudiantes inscritos.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Separar roles."
+   "measuredBy": "PRD_0"
   },
   {
    "code": "PRD_9",
@@ -1243,42 +1173,18 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "excludes": "Tareas operativas menores o compromisos sin fecha ni evidencia."
   },
   {
-   "code": "RES_3",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CLI",
-   "statement": "Empresas que venden a clientes nuevos.",
-   "name": "Empresas con clientes nuevos",
-   "definition": "Empresas que facturan a un cliente ausente de su registro de ventas de los doce meses previos al ingreso.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con venta a un cliente nuevo entre el ingreso y el mes 12.",
-    "B": "Empresas con registro de clientes comparable antes y después."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas con registro de clientes.",
-   "frequency": "Por cohorte",
-   "horizon": "12 meses",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Comparar contra los doce meses previos al ingreso.",
-   "excludes": "Clientes con los que solo hubo contacto o cotización."
-  },
-  {
    "code": "RES_4",
    "layer": "RES",
    "line": "EMP",
    "outcome": "OUT_02",
    "dim": "CLI",
-   "statement": "Empresas que abren mercados o canales comerciales nuevos.",
-   "name": "Apertura de mercados y canales",
-   "definition": "Empresas que facturan en un departamento o país nuevo, o por un canal de mayor alcance que no usaban antes del ingreso.",
+   "statement": "Empresas que llegan a clientes, mercados o canales nuevos.",
+   "name": "Clientes, mercados y canales nuevos",
+   "definition": "Empresas que facturan a clientes nuevos, en un departamento o país nuevo, o por un canal de mayor alcance que no usaban en los doce meses previos al ingreso.",
    "calculation": "100 × A / B",
    "variables": {
-    "A": "Empresas con al menos un mercado o canal nuevo con ventas facturadas.",
-    "B": "Empresas con registro de mercados y canales al ingreso y al seguimiento."
+    "A": "Empresas con al menos un cliente, mercado o canal nuevo con venta facturada.",
+    "B": "Empresas con registro de clientes, mercados y canales al ingreso y al seguimiento."
    },
    "unit": "%",
    "population": "Empresas atendidas establecidas.",
@@ -1428,9 +1334,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "RES",
    "line": "EMP",
    "outcome": "OUT_03",
-   "statement": "Emprendimientos que validan su mercado con ventas reales.",
-   "name": "Emprendimientos con validación comercial",
-   "definition": "Emprendimientos con ventas a al menos tres clientes no relacionados en los tres meses previos al seguimiento.",
+   "statement": "Emprendimientos que venden y siguen vendiendo.",
+   "name": "Emprendimientos que venden y sobreviven",
+   "definition": "Emprendimientos con ventas a al menos tres clientes no relacionados en los tres meses previos a cada seguimiento.",
    "calculation": "100 × A / B",
    "variables": {
     "A": "Emprendimientos con venta validada.",
@@ -1439,39 +1345,16 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "unit": "%",
    "population": "Emprendimientos de Addventure Más y Lanza Más.",
    "frequency": "Por cohorte",
-   "horizon": "6 y 12 meses",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Nunca reemplazar por número de postulantes o asistentes.",
-   "excludes": "Ventas a familiares, socios o aliados del programa, y preventas sin entrega."
-  },
-  {
-   "code": "RES_11",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_03",
-   "statement": "Emprendimientos que siguen vendiendo.",
-   "name": "Supervivencia comercial temprana",
-   "definition": "Emprendimientos con ventas en los tres meses previos al seguimiento.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Emprendimientos con ventas en el periodo.",
-    "B": "Emprendimientos atendidos con estado verificado, incluidos los cerrados."
-   },
-   "unit": "%",
-   "population": "Emprendimientos de Addventure Más y Lanza Más.",
-   "frequency": "Por cohorte",
-   "horizon": "12 y 24 meses",
+   "horizon": "6, 12 y 24 meses",
    "sources": [
     "INS_04",
     "INS_11"
    ],
-   "rule": "La matrícula mercantil vigente no basta: se exigen ventas.",
+   "rule": "Nunca reemplazar por número de postulantes o asistentes.",
    "refs": [
     "REF_CONF5"
    ],
-   "excludes": "Matrícula mercantil vigente sin ventas."
+   "excludes": "Matrícula mercantil sin ventas, ventas a familiares, socios o aliados del programa, y preventas sin entrega."
   },
   {
    "code": "RES_12",
@@ -1840,28 +1723,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "excludes": "Servicios instalados que aún no cierran su primera cohorte."
   },
   {
-   "code": "RES_25",
-   "layer": "RES",
-   "line": "TRF",
-   "outcome": "OUT_09",
-   "statement": "Servicios transferidos que se repiten.",
-   "name": "Servicios con operación reiterada",
-   "definition": "Servicios que cierran una nueva cohorte local en el año siguiente al cierre de la primera.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Servicios con otra cohorte cerrada en los doce meses siguientes.",
-    "B": "Servicios con doce meses desde su primera cohorte."
-   },
-   "unit": "%",
-   "population": "Servicios con primera cohorte local cerrada.",
-   "frequency": "Por réplica",
-   "horizon": "12 meses desde la primera cohorte",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Cada servicio cuenta una vez."
-  },
-  {
    "code": "RES_26",
    "layer": "RES",
    "line": "TRF",
@@ -1968,166 +1829,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "REF_PILA"
    ],
    "excludes": "Comparaciones contra promedios nacionales y empleos informales."
-  },
-  {
-   "code": "SUP_1",
-   "layer": "SUP",
-   "line": "EMP",
-   "statement": "Quien decide en la empresa se sienta en la mesa.",
-   "name": "Sesiones con decisor presente",
-   "definition": "Sesiones decisorias con propietario, gerente o delegado con autoridad registrada.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones con decisor autorizado presente.",
-    "B": "Sesiones realizadas que requerían decisor."
-   },
-   "unit": "%",
-   "population": "Sesiones empresariales marcadas como decisorias.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Registrar quién asistió y su autoridad para decidir."
-  },
-  {
-   "code": "SUP_2",
-   "layer": "SUP",
-   "line": "TAL",
-   "statement": "Los empleadores abren las vacantes que prometen.",
-   "name": "Vacantes comprometidas habilitadas",
-   "definition": "Vacantes comprometidas que el empleador abre dentro del plazo acordado.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Vacantes abiertas antes de su fecha límite.",
-    "B": "Vacantes comprometidas con fecha límite cumplida."
-   },
-   "unit": "%",
-   "population": "Compromisos de vacantes de la ruta de empleabilidad.",
-   "frequency": "Mensual",
-   "horizon": "Durante la cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Identificar cada plaza y su fecha de apertura.",
-   "dim": "EMPL"
-  },
-  {
-   "code": "SUP_3",
-   "layer": "SUP",
-   "line": "ECO",
-   "statement": "Los aliados cumplen lo que ponen sobre la mesa.",
-   "name": "Compromisos de aliados cumplidos",
-   "definition": "Compromisos vencidos de aliados cuya entrega o aporte se verifica.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Compromisos vencidos con entrega verificada.",
-    "B": "Compromisos con vencimiento hasta el corte."
-   },
-   "unit": "%",
-   "population": "Compromisos de articulación y capital.",
-   "frequency": "Trimestral",
-   "horizon": "Periodo",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Reportar por tipo de aliado y de aporte."
-  },
-  {
-   "code": "SUP_4",
-   "layer": "SUP",
-   "line": "TRF",
-   "statement": "Las organizaciones que adoptan el modelo lo sostienen.",
-   "name": "Socios con condiciones de operación vigentes",
-   "definition": "Socios con responsable activo y financiación confirmada para el siguiente periodo.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Socios con ambas condiciones verificadas.",
-    "B": "Socios cuyo acuerdo prevé operación en el siguiente periodo."
-   },
-   "unit": "%",
-   "population": "Socios con acuerdo vigente.",
-   "frequency": "Trimestral",
-   "horizon": "Periodo",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Verificar responsable y financiación del periodo."
-  },
-  {
-   "code": "SUP_5",
-   "layer": "SUP",
-   "line": "ECO",
-   "statement": "El crecimiento es una tarea compartida.",
-   "name": "Programas con aportes de aliados registrados",
-   "definition": "Programas activos cuyo registro identifica a los aliados que los cofinancian u operan y el tipo de aporte.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Programas con aliados y aportes registrados.",
-    "B": "Programas activos en el año."
-   },
-   "unit": "%",
-   "population": "Portafolio de programas.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Es la base para comunicar contribución y no atribución exclusiva.",
-   "refs": [
-    "REF_MAYNE"
-   ]
-  },
-  {
-   "code": "CTX_1",
-   "layer": "CTX",
-   "line": "SIS",
-   "statement": "Empresas de alto crecimiento en Caldas.",
-   "name": "Empresas de alto crecimiento en Caldas",
-   "definition": "Empresas con al menos diez asalariados iniciales y crecimiento anualizado del empleo superior al 20 % durante tres años.",
-   "calculation": "N(empresas de alto crecimiento)",
-   "variables": {
-    "N": "Empresas con E0 ≥ 10 y (E3 / E0)^(1/3) − 1 > 0,20.",
-    "E0": "Promedio anual de asalariados en el año inicial.",
-    "E3": "Promedio anual de asalariados tres años después."
-   },
-   "unit": "Empresas",
-   "population": "Empresas de Caldas con empleo observable durante tres años.",
-   "frequency": "Anual",
-   "horizon": "Ventana de tres años",
-   "sources": [
-    "INS_12"
-   ],
-   "rule": "Convención Eurostat y OCDE: excluir nacimientos del año inicial y crecimiento por fusiones.",
-   "refs": [
-    "REF_OECD",
-    "REF_ISEN16",
-    "REF_DIN"
-   ]
-  },
-  {
-   "code": "CTX_2",
-   "layer": "CTX",
-   "line": "SIS",
-   "statement": "Crecimiento de la economía de Caldas.",
-   "name": "Crecimiento real del valor agregado de Caldas",
-   "definition": "Variación anual del valor agregado de Caldas a precios constantes.",
-   "calculation": "100 × (VAt − VAt−1) / VAt−1",
-   "variables": {
-    "VAt": "Valor agregado de Caldas a precios constantes en el año t."
-   },
-   "unit": "%",
-   "population": "Departamento de Caldas.",
-   "frequency": "Anual",
-   "horizon": "Según publicación del DANE",
-   "sources": [
-    "INS_12"
-   ],
-   "rule": "Referente de contexto: no se atribuye a Manizales Más.",
-   "refs": [
-    "REF_CNDEP",
-    "REF_ABADIE"
-   ]
   }
  ],
  "programs": [
@@ -2155,7 +1856,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_12",
     "RES_1",
     "RES_2",
-    "RES_3",
     "RES_4",
     "RES_6",
     "RES_7",
@@ -2164,8 +1864,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_27",
     "RES_22",
     "IMP_1",
-    "IMP_2",
-    "SUP_1"
+    "IMP_2"
    ],
    "refs": [
     "REF_EAP",
@@ -2182,7 +1881,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "focus": [
     "RES_6",
     "RES_7",
-    "RES_3",
+    "RES_4",
     "RES_1"
    ],
    "elements": [
@@ -2192,7 +1891,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_1",
     "PRD_2",
     "RES_1",
-    "RES_3",
     "RES_4",
     "RES_6",
     "RES_7",
@@ -2201,8 +1899,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_27",
     "RES_22",
     "IMP_1",
-    "IMP_2",
-    "SUP_1"
+    "IMP_2"
    ]
   },
   {
@@ -2214,7 +1911,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "role": "Fortalece el proceso comercial para convertir más propuestas en ventas y llegar a clientes y mercados nuevos.",
    "focus": [
     "RES_5",
-    "RES_3",
     "RES_4",
     "RES_6"
    ],
@@ -2223,12 +1919,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_1",
     "PRD_1",
     "RES_1",
-    "RES_3",
     "RES_4",
     "RES_5",
     "RES_6",
-    "IMP_1",
-    "SUP_1"
+    "IMP_1"
    ]
   },
   {
@@ -2249,10 +1943,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_8",
     "RES_23",
     "RES_24",
-    "RES_25",
     "RES_6",
-    "IMP_1",
-    "SUP_4"
+    "IMP_1"
    ]
   },
   {
@@ -2276,10 +1968,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_12",
     "RES_19",
     "RES_22",
-    "RES_23",
-    "CTX_1",
-    "SUP_3",
-    "SUP_5"
+    "RES_23"
    ],
    "refs": [
     "REF_ISEN11",
@@ -2308,8 +1997,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_7",
     "RES_23",
     "IMP_1",
-    "IMP_2",
-    "SUP_1"
+    "IMP_2"
    ],
    "refs": [
     "REF_MENT",
@@ -2324,7 +2012,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "role": "Acompaña la validación comercial y la consolidación de negocios jóvenes.",
    "focus": [
     "RES_10",
-    "RES_11",
     "RES_12"
    ],
    "elements": [
@@ -2334,11 +2021,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_1",
     "PRD_2",
     "RES_1",
-    "RES_3",
+    "RES_4",
     "RES_10",
-    "RES_11",
-    "RES_12",
-    "SUP_1"
+    "RES_12"
    ],
    "refs": [
     "REF_ADD"
@@ -2352,7 +2037,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "role": "Acompaña exploración, validación y primeras ventas de negocios universitarios.",
    "focus": [
     "RES_10",
-    "RES_11",
     "RES_12"
    ],
    "elements": [
@@ -2360,9 +2044,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_1",
     "PRD_1",
     "RES_10",
-    "RES_11",
-    "RES_12",
-    "SUP_1"
+    "RES_12"
    ]
   },
   {
@@ -2391,8 +2073,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_16",
     "RES_17",
     "RES_18",
-    "IMP_3",
-    "SUP_2"
+    "IMP_3"
    ],
    "refs": [
     "REF_QN"
@@ -2412,9 +2093,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_5",
     "PRD_5",
     "RES_21",
-    "RES_3",
-    "RES_6",
-    "SUP_3"
+    "RES_4",
+    "RES_6"
    ],
    "refs": [
     "REF_OPEN"
@@ -2435,8 +2115,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_6",
     "RES_20",
     "RES_6",
-    "IMP_1",
-    "SUP_3"
+    "IMP_1"
    ],
    "refs": [
     "REF_NEVADO"
@@ -2458,8 +2137,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_6",
     "RES_20",
     "RES_7",
-    "IMP_2",
-    "SUP_3"
+    "IMP_2"
    ],
    "refs": [
     "REF_AURA"
@@ -2479,9 +2157,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRB_4",
     "ACT_8",
     "PRD_8",
-    "RES_24",
-    "RES_25",
-    "SUP_4"
+    "RES_24"
    ],
    "refs": [
     "REF_PROF"
@@ -2494,15 +2170,12 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "population": "Estudiantes de universidades aliadas.",
    "role": "Formación aplicada en emprendimiento impartida por docentes formados.",
    "focus": [
-    "PRD_8",
-    "RES_25"
+    "PRD_8"
    ],
    "elements": [
     "ACT_8",
     "PRD_8",
-    "RES_24",
-    "RES_25",
-    "SUP_4"
+    "RES_24"
    ]
   },
   {
@@ -2513,7 +2186,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "role": "Diagnostica territorios, instala servicios en organizaciones socias y transfiere los toolkits.",
    "focus": [
     "RES_24",
-    "RES_25",
     "RES_26",
     "PRD_11",
     "PRD_10"
@@ -2525,11 +2197,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_10",
     "PRD_11",
     "RES_24",
-    "RES_25",
     "RES_26",
     "RES_6",
-    "IMP_1",
-    "SUP_4"
+    "IMP_1"
    ],
    "refs": [
     "REF_LLEVA"
@@ -2889,13 +2559,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "use": "Referente de escala y método para la medición anual de condiciones."
   },
   {
-   "id": "REF_MAYNE",
-   "title": "Mayne, Contribution Analysis: Coming of Age? (Evaluation, 2012)",
-   "url": "https://journals.sagepub.com/doi/abs/10.1177/1356389012451663",
-   "type": "Literatura metodológica",
-   "use": "Principio de contribución multiactor."
-  },
-  {
    "id": "REF_SIEF",
    "title": "Impact Evaluation in Practice, Banco Mundial y BID",
    "url": "https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice",
@@ -2917,20 +2580,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "use": "Deflactor de ventas e ingresos."
   },
   {
-   "id": "REF_CNDEP",
-   "title": "DANE, cuentas nacionales departamentales",
-   "url": "https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-departamentales",
-   "type": "Fuente oficial",
-   "use": "Valor agregado de Caldas para el contexto."
-  },
-  {
-   "id": "REF_GEIH",
-   "title": "DANE, Gran Encuesta Integrada de Hogares",
-   "url": "https://microdatos.dane.gov.co/index.php/catalog/900",
-   "type": "Fuente oficial",
-   "use": "Referencia conceptual de ocupación y formalidad."
-  },
-  {
    "id": "REF_RELAB",
    "title": "DANE, Registro Estadístico de Relaciones Laborales",
    "url": "https://www.dane.gov.co/files/operaciones/RELAB/pres-RELAB-abr2025.pdf",
@@ -2945,13 +2594,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "use": "Verificación de empleo formal con autorización de las empresas y personas."
   },
   {
-   "id": "REF_DIN",
-   "title": "Cámara de Comercio de Manizales por Caldas, Dinámica Empresarial de Caldas 2025",
-   "url": "https://estudios.ccmpc.org.co/wp-content/uploads/Din.-Empresarial-Caldas-2025.pdf",
-   "type": "Fuente regional",
-   "use": "Contexto empresarial de Caldas."
-  },
-  {
    "id": "REF_CONF5",
    "title": "Confecámaras, supervivencia empresarial en Colombia",
    "url": "https://confecamaras.org.co/wp-content/uploads/2024/01/estudio-supervivencia-mayo-9.pdf",
@@ -2964,13 +2606,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "url": "https://confecamaras.org.co/wp-content/uploads/2024/01/cartilla17.pdf",
    "type": "Estudio nacional",
    "use": "Referente nacional de crecimiento empresarial."
-  },
-  {
-   "id": "REF_ABADIE",
-   "title": "Abadie, Using Synthetic Controls (Journal of Economic Literature, 2021)",
-   "url": "https://www.aeaweb.org/articles?id=10.1257%2Fjel.20191450",
-   "type": "Literatura metodológica",
-   "use": "Opción para comparar la trayectoria de Caldas con territorios similares."
   },
   {
    "id": "REF_MMAS",
@@ -3061,7 +2696,7 @@ const byLayer = new Map(M.layers.map(l => [l.id, l]));
 const byProg = new Map(M.programs.map(p => [p.id, p]));
 const byIns = new Map(M.instruments.map(i => [i.id, i]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
-const IND = M.indicators.filter(x => !x.measuredBy);
+const IND = M.indicators.filter(x => x.name && !x.measuredBy);
 const outsOf = id => M.outcomes.filter(o => o.line === id);
 const lineName = id => id === 'SIS' ? 'Todas las líneas' : byLine.get(id)?.name || id;
 const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
@@ -3074,7 +2709,7 @@ const S = {view:'', mode:'line', line:'', prog:'', node:''};
 
 /* qué indicadores corresponden a cada elemento de la cadena */
 const codesOf = id => {
-  if(id === 'impact') return [...M.impact.indicators, ...M.impact.context];
+  if(id === 'impact') return M.impact.indicators;
   if(byOut.has(id)) return byOut.get(id).indicators;
   const x = byCode.get(id); return x.measuredBy ? [x.measuredBy] : [id];
 };
@@ -3096,8 +2731,7 @@ function drawModel(){
   $('lineCards').innerHTML = M.lines.map(l => {
     const ps = M.programs.filter(p => p.line === l.id);
     return `<article class="card line-card" style="${lineVars(l.id)}"><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></div><p>${esc(l.story)}</p>
-      <div class="foot"><details><summary>${plural(ps.length,'programa','programas')}</summary><ul>${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></details>
-      <button type="button" class="link" data-goline="${l.id}">Ver su cadena</button></div></article>`;
+      <div class="foot"><details><summary>${plural(ps.length,'programa','programas')}</summary><ul>${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></details></div></article>`;
   }).join('');
 }
 
@@ -3112,8 +2746,8 @@ const pressed = id => ` aria-pressed="${S.node === id}"`;
 function drawTheory(){
   const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
-  const node = x => `<button type="button" class="node${state([x.code])}" data-node="${x.code}"${pressed(x.code)}>${esc(x.statement)}</button>`;
-  const head = `<div class="swim-h" aria-hidden="true">Línea</div>` + ['PRB','ACT','PRD','RES','IMP'].map(id => `<div class="swim-h" aria-hidden="true">${esc(layerName(id))}</div>`).join('');
+  const node = x => x.layer === 'PRB' ? `<p class="node prb${state([x.code])}">${esc(x.statement)}</p>` : `<button type="button" class="node${state([x.code])}" data-node="${x.code}"${pressed(x.code)}>${esc(x.statement)}</button>`;
+  const head = `<div class="swim-h" aria-hidden="true">Línea</div>` + ['PRB','ACT','PRD','RES','IMP'].map((id, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${esc(layerName(id))}</div>`).join('');
   const rows = lanes.map(l => {
     const items = layer => M.indicators.filter(x => x.layer === layer && x.line === l.id);
     const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-node="${o.id}"${pressed(o.id)}>${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}</button>`).join('');
@@ -3138,20 +2772,25 @@ function scope(){
 function drawIndicators(){
   const sc = scope(), q = norm($('fq').value.trim());
   const items = IND.filter(x => (!sc.codes || sc.codes.has(x.code)) && (!q || q.split(/\s+/).every(w => norm([x.code,x.name,x.statement,x.definition].join(' ')).includes(w))));
-  $('scopeText').innerHTML = `${sc.label} · ${plural(items.length,'indicador','indicadores')}`;
+  $('scopeText').innerHTML = sc.codes ? `${sc.label} · ${plural(items.length,'indicador','indicadores')}` : `${plural(items.length,'indicador','indicadores')} en total`;
   $('scopeReset').hidden = !sc.codes;
   $('scopeUp').hidden = !S.node;
-  $('indRows').innerHTML = items.length ? items.map(x => `<tr style="${lineVars(x.line)}"><td class="c-code"><span class="code">${x.code}</span></td>
-    <td><button type="button" class="link" data-open="${x.code}">${esc(x.name)}</button><span class="sub">${esc(STAGE[x.layer])} · ${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span></td>
-    <td>${esc(x.unit)}</td><td>${esc(x.frequency)}<span class="sub">${esc(x.horizon)}</span></td></tr>`).join('')
-    : `<tr><td colspan="4" class="empty">Ningún indicador coincide con la búsqueda.</td></tr>`;
+  const row = x => `<tr class="row" data-row="${x.code}" style="${lineVars(x.line)}">
+      <td><div class="c-name"><span class="dot" aria-hidden="true"></span><div><button type="button" class="row-btn" data-open="${x.code}">${esc(x.name)}</button>
+        <span class="meta"><span class="code">${x.code}</span> · ${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span><span class="meta-m">${esc(x.unit)} · ${esc(x.frequency)}, ${esc(x.horizon.toLowerCase())}</span></div></div></td>
+      <td><span class="pill">${esc(x.unit)}</span></td><td class="c-when"><b>${esc(x.frequency)}</b><span>${esc(x.horizon)}</span></td></tr>`;
+  const groups = [['ACT','Actividades'],['PRD','Productos'],['RES','Resultados'],['IMP','Impacto']].map(([id, name]) => [name, items.filter(x => x.layer === id)]).filter(([, xs]) => xs.length);
+  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col><col class="w-unit"><col class="w-when"></colgroup>
+    <thead><tr><th scope="col">Indicador</th><th scope="col">Unidad</th><th scope="col">Medición</th></tr></thead>` +
+    (groups.length ? groups.map(([name, xs]) => `<tbody><tr class="grp"><th colspan="3" scope="colgroup">${esc(name)} <span>${xs.length}</span></th></tr>${xs.map(row).join('')}</tbody>`).join('')
+      : `<tbody><tr><td colspan="3" class="empty">Ningún indicador coincide con la búsqueda.</td></tr></tbody>`);
 }
 
 /* ---------- tooltip de hipótesis ---------- */
 const tip = $('tip'); let tipFor = null, tipPinned = false;
 function showTip(btn, pin){
   const [kind, lid] = btn.dataset.tip.split(':'), l = byLine.get(lid), ch = M.chains[l.id];
-  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${ch.assumptions.map(c => { const a = M.assumptions[c]; return `<li><b>${esc(a.title)}</b><br>${esc(a.why)}<span class="t-ind">Lo vigilamos con: ${esc(byCode.get(c).name)}</span></li>`; }).join('')}</ul>` : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
+  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${ch.assumptions.map(c => { const a = M.assumptions[c]; return `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`; }).join('')}</ul>` : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
     <div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${ch.evidence.map(e => `<li>${esc(e.text)}${e.refs.length ? ` <cite>(${e.refs.map(r => esc(byRef.get(r).cite)).join('; ')})</cite>` : ''}</li>`).join('')}</ul>
     <p class="t-note">Esta evidencia sustenta el diseño; nuestros indicadores de impacto medirán el efecto en Caldas.</p></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
@@ -3173,23 +2812,25 @@ addEventListener('resize', hideTip);
 
 /* ---------- 03 referencias ---------- */
 function drawStatic(){
-  const groups = [['Evidencia que sustenta las cadenas', r => r.type === 'Evidencia'], ['Marcos y métodos', r => /Marco|Estudio de caso|metodológ|Estándar/.test(r.type)], ['Fuentes de datos', r => /oficial|Registro|regional|nacional/i.test(r.type)], ['Manizales Más y sus programas', r => /institucional/.test(r.type)]];
-  const seen = new Set();
-  $('refGroups').innerHTML = groups.map(([t, test]) => { const rs = M.references.filter(r => !seen.has(r.id) && test(r)); rs.forEach(r => seen.add(r.id));
-    return rs.length ? `<section class="ref-group"><h2>${esc(t)}</h2><div class="refs">${rs.map(r => `<article class="card ref">${r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>`:`<strong>${esc(r.title)}</strong>`}<p>${esc(r.use)}</p></article>`).join('')}</div></section>` : ''; }).join('');
+  const where = c => c === 'impact' ? M.impact.title : byOut.has(c) ? byOut.get(c).statement : byCode.get(c).statement;
+  const link = r => r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>` : `<span>${esc(r.title)}</span>`;
+  const ev = M.lines.map(l => `<article class="card ev-card" style="${lineVars(l.id)}"><header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></header>
+    <ol class="ev-list">${M.chains[l.id].evidence.map(e => `<li><p class="ev-path"><span class="sr">Sustenta el paso de </span><span class="step">${esc(where(e.from))}</span><span class="arr" aria-hidden="true">→</span><span class="sr"> a </span><span class="step">${esc(where(e.to))}</span></p>
+      <p class="ev-find">${esc(e.text)}</p>${e.refs.map(r => `<p class="ev-src">${link(byRef.get(r))}</p>`).join('')}</li>`).join('')}</ol></article>`).join('');
+  const list = (title, test) => { const rs = M.references.filter(test); return rs.length ? `<section class="ref-col"><h3>${esc(title)}</h3><ul>${rs.map(r => `<li>${link(r)}<span>${esc(r.use)}</span></li>`).join('')}</ul></section>` : ''; };
+  $('refGroups').innerHTML = `<section class="ref-group"><h2>La evidencia detrás de cada cadena</h2><div class="ev-grid">${ev}</div></section>
+    <section class="ref-group"><h2>Marcos y fuentes</h2><div class="ref-cols card">${list('Marcos que inspiran el modelo', r => /Marco|Estudio de caso|metodológ|Estándar/.test(r.type))}${list('Fuentes de datos', r => /oficial|Registro|regional|nacional/i.test(r.type))}${list('Manizales Más y sus programas', r => /institucional/.test(r.type))}</div></section>`;
 }
 
 /* ---------- ficha de indicador ---------- */
 const dlg = $('dlg'); let back = null;
 function open(code){
-  const x = byCode.get(code); if(!x || x.measuredBy) return;
+  const x = byCode.get(code); if(!x || !x.name || x.measuredBy) return;
   hideTip();
   if(!dlg.open) back = document.activeElement;
   $('dTitle').textContent = x.name; $('dTag').textContent = `${x.code} · ${STAGE[x.layer]} · ${lineName(x.line)}`;
   $('dHead').style.setProperty('--dh', lineTone(x.line));
-  const a = M.assumptions[code];
-  $('dBody').innerHTML = `${a?`<p class="why"><b>${esc(a.title)}</b> ${esc(a.why)}</p>`:''}
-    <p class="def">${esc(x.definition)}</p>${x.excludes?`<p class="excl"><b>No cuenta:</b> ${esc(x.excludes)}</p>`:''}
+  $('dBody').innerHTML = `<p class="def">${esc(x.definition)}</p>${x.excludes?`<p class="excl"><b>No cuenta:</b> ${esc(x.excludes)}</p>`:''}
     <div class="formula"><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd></dl>`;
   if(!dlg.open) dlg.showModal();
@@ -3240,6 +2881,7 @@ document.addEventListener('click', e => {
 $('scopeReset').addEventListener('click', () => { S.node = ''; S.line = ''; S.prog = ''; drawControls(); drawTheory(); });
 $('scopeUp').addEventListener('click', e => { e.preventDefault(); $('h-teoria').scrollIntoView({behavior: reduced ? 'auto' : 'smooth'}); });
 $('fq').addEventListener('input', drawIndicators);
+$('indTable').addEventListener('click', e => { if(e.target.closest('button')) return; const r = e.target.closest('[data-row]'); if(r) open(r.dataset.row); });
 addEventListener('beforeprint', () => document.querySelectorAll('.view').forEach(v => v.hidden = false));
 addEventListener('afterprint', () => show(S.view, false));
 

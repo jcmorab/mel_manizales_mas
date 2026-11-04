@@ -117,6 +117,19 @@ main{max-width:var(--wrap);margin:0 auto;padding:36px var(--gut) 72px}
 .out-link::before{content:"";flex:none;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--lc)}
 .out-link:hover{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
 .line-card .foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.fw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fw{padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:14px;border-top:4px solid var(--sky)}
+.fw h3{font-size:1rem}
+.fw .lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+.fw .src-link{margin-top:auto;font-size:13px}
+.sub-h{font-size:1.02rem;margin:30px 0 6px}
+.dom-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.dom{padding:16px 18px;display:flex;flex-direction:column;gap:8px;border-left:4px solid var(--lime)}
+.dom h4{font-size:15px;color:var(--navy)}
+.dom p{font-size:13px;color:var(--muted)}
+.dom .ind-list{margin-top:4px}
+.dom .ind-ref{font-size:13px;padding:7px 10px}
+.impact-why{margin-top:14px;font-size:14px;color:#C9D7EA;max-width:70ch}
 .changes{display:grid;gap:8px}
 .change{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14px}
 .change .who-c{font-size:12px;font-weight:600;color:var(--soft)}
@@ -139,8 +152,8 @@ select:hover,input[type="search"]:hover{border-color:#B9C7D8}
 .swim-h small{display:block;font-weight:500;color:var(--soft);font-size:12px}
 .lane{display:contents}
 .lane-name{padding:14px 4px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
-.lane-name h3{font-size:15px;color:var(--lt)}
-.lane-name h3::before{content:"";display:block;width:28px;height:4px;border-radius:2px;background:var(--lc);margin-bottom:8px}
+.lane-name h2{font-size:15px;color:var(--lt)}
+.lane-name h2::before{content:"";display:block;width:28px;height:4px;border-radius:2px;background:var(--lc);margin-bottom:8px}
 .lane-name .link{font-size:13px;font-weight:500}
 .cell{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
 .cell-label{display:none}
@@ -173,7 +186,7 @@ select:hover,input[type="search"]:hover{border-color:#B9C7D8}
 .prog{display:flex;flex-direction:column;gap:12px;padding:20px 22px;border-top:4px solid var(--lc);scroll-margin-top:90px}
 .prog:target,.prog.flash{box-shadow:0 0 0 3px var(--lime),var(--sh)}
 .prog-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.prog h3{font-size:1.1rem;width:100%}
+.prog h2{font-size:1.1rem;width:100%}
 .prog .pop{font-size:13.5px;color:var(--muted)}
 .prog .lbl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
 .avoid{font-size:13.5px;background:var(--warn-s);color:#5A3D00;border-radius:10px;padding:10px 12px}
@@ -213,7 +226,8 @@ td code{font-family:var(--fm);font-size:13px;color:var(--navy-d);overflow-wrap:a
 .gl-tools .field{flex:1 1 320px;max-width:520px}
 .gl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:14px}
 .term{padding:18px 20px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:90px}
-.term h3{font-size:1.02rem}
+.term h2{font-size:1.02rem}
+.d-body .term h3{font-size:1.1rem;text-transform:none;letter-spacing:0;color:var(--navy)}
 .term>p{font-size:14px}
 .yn{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13.5px}
 .yn div{border-radius:10px;padding:9px 11px}
@@ -290,13 +304,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .top-in{flex-wrap:wrap;gap:4px 16px;padding-top:10px;padding-bottom:6px}
   .nav{margin-left:-6px;width:calc(100% + 12px)}
   html{scroll-padding-top:118px}
-  .lines,.hyps{grid-template-columns:1fr}
+  .lines,.hyps,.fw-grid{grid-template-columns:1fr}
+  .dom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
   .lane{display:block;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--lc);border-radius:var(--r);padding:16px;margin-bottom:14px}
   .lane-name,.cell{border-bottom:0;padding:0 0 12px}
   .cell-label{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
-  .lane-name h3::before{display:none}
+  .lane-name h2::before{display:none}
   .imp-cell{padding:16px;border:1px solid var(--line);border-top:4px solid var(--lime);border-radius:var(--r);background:var(--paper)}
   .imp-cell .cell-label{margin-bottom:8px}
   .node.imp{min-height:0}
@@ -307,7 +322,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   body{font-size:15px}
   main{padding-top:24px}
   .brand img{width:112px}
-  .impact-grid,.yn{grid-template-columns:1fr}
+  .impact-grid,.yn,.dom-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .step::after{display:none!important}
   .change{grid-template-columns:1fr;gap:6px}
@@ -369,6 +384,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <p class="lede">Cada línea de trabajo recorre la misma cadena. Los resultados se miden con indicadores; el impacto se estima frente a un grupo de comparación.</p>
     <ol class="steps" id="steps"></ol>
   </div>
+  <div class="block" id="marco">
+    <h2>Marco conceptual</h2>
+    <p class="lede">Tres metodologías del MIT y de Babson dan forma al modelo. Esto es lo que cada una aporta y dónde se ve.</p>
+    <div class="fw-grid" id="frameworks"></div>
+    <h3 class="sub-h">El portafolio en los seis dominios del ecosistema</h3>
+    <p class="lede">Cada dominio de Babson tiene al menos un indicador que lo mide. Abra cualquiera para ver su ficha.</p>
+    <div class="dom-grid" id="domains"></div>
+  </div>
   <div class="block">
     <h2>Cuatro líneas de trabajo</h2>
     <p class="lede">Cada línea parte de un problema propio y contribuye al mismo impacto.</p>
@@ -416,7 +439,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   <div class="card filters">
     <div class="field"><label for="fLine">Línea</label><select id="fLine"></select></div>
     <div class="field"><label for="fProg">Programa</label><select id="fProg"></select></div>
-    <div class="field wide"><label for="fOut">Resultado</label><select id="fOut"></select></div>
+    <div class="field"><label for="fOut">Resultado</label><select id="fOut"></select></div>
+    <div class="field"><label for="fDom">Dominio del ecosistema</label><select id="fDom"></select></div>
     <div class="field wide"><label for="fq">Buscar</label><input id="fq" type="search" placeholder="Código o palabra clave, por ejemplo: empleo formal" autocomplete="off"></div>
     <div class="acts"><button class="btn" id="fClear" type="button">Limpiar filtros</button><button class="btn" id="fCsv" type="button">Descargar CSV</button></div>
   </div>
@@ -476,7 +500,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   "title": "Teoría de cambio de Manizales Más",
   "version": "7.0",
   "date": "2026-11-04",
-  "who": "Manizales Más es una alianza de empresas, universidades, gremios y sector público que trabaja para que más empresas de Manizales y Caldas crezcan. Su enfoque parte del Babson Entrepreneurship Ecosystem Project y del marco MIT REAP."
+  "who": "Manizales Más es una alianza público, privada y académica creada en 2012 con el Babson Entrepreneurship Ecosystem Project para que más empresas de Manizales y Caldas crezcan. Su mentoría sigue el modelo MIT Venture Mentoring Service desde 2013, y Caldas participó en MIT REAP en la cohorte 2021 a 2023."
  },
  "impact": {
   "id": "IMP",
@@ -490,6 +514,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "CTX_1",
    "CTX_2"
   ],
+  "why": "Las empresas que crecen rápido, las scale-ups, generan la mayor parte del empleo, los impuestos y la riqueza de una región. Por eso Manizales Más privilegia la calidad del crecimiento sobre la cantidad de empresas creadas.",
   "contribution": "El crecimiento regional resulta de la acción conjunta de empresarios, universidades, gremios, sector público, financiadores y empresas ancla. Buena parte de los programas se financia con recursos de aliados. Manizales Más reporta su contribución; no se atribuye el resultado en exclusiva."
  },
  "lines": [
@@ -693,7 +718,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_23"
    ],
    "products": [
-    "PRD_7"
+    "PRD_12"
    ]
   },
   {
@@ -965,9 +990,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "ACT_5",
    "layer": "ACT",
    "line": "ECO",
-   "statement": "Articulación multiactor alrededor de iniciativas de crecimiento.",
+   "statement": "Articulación multiactor alrededor de apuestas estratégicas regionales.",
    "name": "Iniciativas multiactor con acción ejecutada",
-   "definition": "Iniciativas priorizadas con acción conjunta ejecutada por al menos tres tipos de actores del ecosistema.",
+   "definition": "Iniciativas de las apuestas estratégicas regionales con acción conjunta ejecutada por al menos tres tipos de actor del ecosistema.",
    "calculation": "100 × A / B",
    "variables": {
     "A": "Iniciativas con acción conjunta ejecutada y evidencia al corte.",
@@ -980,9 +1005,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_08"
    ],
-   "rule": "Tipos de actor: emprendedores, capital, empresas ancla, gobierno y universidades.",
+   "rule": "Tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Cada iniciativa se vincula a una apuesta estratégica.",
    "terms": [
-    "iniciativa_multiactor"
+    "iniciativa_multiactor",
+    "apuesta_estrategica"
    ],
    "refs": [
     "REF_REAP",
@@ -1218,7 +1244,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "ECO",
    "statement": "Medición anual de condiciones del ecosistema publicada.",
    "name": "Medición de condiciones publicada",
-   "definition": "Medición anual de los seis dominios del ecosistema aplicada a los cinco tipos de actor y devuelta a los participantes.",
+   "definition": "Medición anual de los seis dominios del ecosistema y de las capacidades innovadora y emprendedora, aplicada a los cinco tipos de actor y devuelta a los participantes.",
    "calculation": "Sí / No",
    "variables": {
     "Sí": "Medición aplicada, analizada y publicada en el año."
@@ -1331,6 +1357,35 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   {
+   "code": "PRD_12",
+   "layer": "PRD",
+   "line": "ECO",
+   "statement": "Casos de crecimiento documentados y difundidos.",
+   "name": "Casos de crecimiento con cifras verificadas",
+   "definition": "Casos de empresas de la región que crecieron, publicados con cifras verificadas según el glosario y con la contribución de los aliados.",
+   "calculation": "N(casos publicados)",
+   "variables": {
+    "N": "Casos publicados en el año con cifras verificadas."
+   },
+   "unit": "Casos",
+   "population": "Empresas acompañadas que autorizan su caso.",
+   "frequency": "Anual",
+   "horizon": "Año calendario",
+   "sources": [
+    "INS_04",
+    "INS_08"
+   ],
+   "rule": "Cada cifra del caso debe tener definición en el glosario y fuente verificable.",
+   "terms": [
+    "contribucion",
+    "empresa_escalada"
+   ],
+   "refs": [
+    "REF_ISEN10",
+    "REF_ISEN16"
+   ]
+  },
+  {
    "code": "RES_1",
    "layer": "RES",
    "line": "EMP",
@@ -1358,13 +1413,13 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "RES",
    "line": "EMP",
    "outcome": "OUT_01",
-   "statement": "Empresas que cumplen los compromisos estratégicos acordados en mentoría.",
-   "name": "Compromisos estratégicos cumplidos",
-   "definition": "Compromisos estratégicos acordados en mentoría que la empresa cumple con evidencia en la fecha pactada.",
+   "statement": "Empresas que cumplen los hitos estratégicos acordados con sus mentores.",
+   "name": "Hitos estratégicos cumplidos",
+   "definition": "Hitos estratégicos acordados en mentoría que la empresa cumple con evidencia en la fecha pactada.",
    "calculation": "100 × A / B",
    "variables": {
-    "A": "Compromisos con evidencia de cumplimiento hasta su fecha.",
-    "B": "Compromisos con fecha vencida al corte."
+    "A": "Hitos con evidencia de cumplimiento hasta su fecha.",
+    "B": "Hitos con fecha vencida al corte."
    },
    "unit": "%",
    "population": "Empresas en procesos de mentoría.",
@@ -1373,9 +1428,12 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_07"
    ],
-   "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría.",
+   "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría. Modelo de mentoría en equipo por hitos.",
    "terms": [
     "compromiso_estrategico"
+   ],
+   "refs": [
+    "REF_VMS"
    ]
   },
   {
@@ -1827,7 +1885,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "definition": "Promedio de los puntajes de los seis dominios del ecosistema en la medición anual a los cinco tipos de actor.",
    "calculation": "Σ(Dk) / 6",
    "variables": {
-    "Dk": "Puntaje promedio del dominio k, de 1 a 5."
+    "Dk": "Puntaje promedio del dominio k, de 1 a 5: políticas, financiación, cultura, apoyos, capital humano y mercados."
    },
    "unit": "Puntaje de 1 a 5",
    "population": "Actores del ecosistema de Manizales.",
@@ -1836,7 +1894,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_09"
    ],
-   "rule": "Publicar siempre el puntaje de cada dominio junto al índice.",
+   "rule": "Publicar siempre el puntaje de cada dominio y por tipo de actor; reportar aparte las capacidades innovadora y emprendedora.",
    "terms": [
     "condiciones_ecosistema"
    ],
@@ -1844,6 +1902,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "REF_ISEN10",
     "REF_ISEN11",
     "REF_REAP",
+    "REF_REAP2",
     "REF_GEM"
    ]
   },
@@ -2232,6 +2291,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "refs": [
     "REF_OECD",
+    "REF_ISEN16",
     "REF_DIN"
    ]
   },
@@ -2285,6 +2345,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_2",
     "PRD_1",
     "PRD_2",
+    "PRD_12",
     "RES_1",
     "RES_2",
     "RES_3",
@@ -2299,7 +2360,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "SUP_1"
    ],
    "refs": [
-    "REF_EAP"
+    "REF_EAP",
+    "REF_ISEN16"
    ]
   },
   {
@@ -2395,7 +2457,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "portfolio": true,
    "draft": true,
    "population": "Actores del ecosistema de Manizales y de los territorios que se diagnostican.",
-   "role": "Mide las condiciones del entorno, articula a los cinco tipos de actor alrededor de iniciativas y mueve la cultura hacia el crecimiento.",
+   "role": "Mide las condiciones del entorno, articula a los cinco tipos de actor de MIT REAP alrededor de apuestas estratégicas regionales y mueve la cultura hacia el crecimiento.",
    "focus": [
     "RES_19",
     "RES_22",
@@ -2408,6 +2470,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_7",
     "PRD_7",
     "PRD_11",
+    "PRD_12",
     "RES_19",
     "RES_22",
     "RES_23",
@@ -2417,7 +2480,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "refs": [
     "REF_ISEN11",
-    "REF_REAP"
+    "REF_REAP",
+    "REF_REAP_CAL"
    ]
   },
   {
@@ -2425,7 +2489,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Mentoría Empresarial",
    "line": "EMP",
    "population": "Empresas en procesos de mentoría con empresarios consolidados.",
-   "role": "Acompaña decisiones de crecimiento con empresarios que retribuyen su experiencia.",
+   "role": "Mentoría en equipo, por hitos, con empresarios consolidados que retribuyen su experiencia. Sigue el modelo MIT Venture Mentoring Service.",
    "focus": [
     "RES_2",
     "RES_23",
@@ -2446,7 +2510,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "SUP_1"
    ],
    "refs": [
-    "REF_MENT"
+    "REF_MENT",
+    "REF_VMS"
    ]
   },
   {
@@ -2489,7 +2554,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_11",
     "RES_12"
    ],
-   "avoid": "Número de ideas inscritas o de asistentes.",
+   "avoid": "Número de ideas inscritas o de asistentes. Crear empresas no es el objetivo; que vendan y crezcan, sí.",
    "elements": [
     "PRB_1",
     "ACT_1",
@@ -2565,6 +2630,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_20"
    ],
    "avoid": "Montos solicitados o número de rondas de presentación.",
+   "note": "Las empresas de base innovadora pueden vender poco durante años antes de crecer: se siguen con hitos e inversión, no solo con ventas a 12 meses.",
    "elements": [
     "PRB_3",
     "ACT_6",
@@ -2902,6 +2968,20 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "say": "«N empresas acompañadas cumplen el criterio internacional de alto crecimiento.»"
   },
   {
+   "id": "empresa_alto_potencial",
+   "term": "Empresa de alto potencial",
+   "def": "Empresa existente con ventas, equipo y decisión expresa de crecer, seleccionada con criterios publicados. Es el foco del enfoque de scale-up de Babson.",
+   "yes": "Empresas seleccionadas por convocatoria con criterios registrados.",
+   "no": "Empresas invitadas sin criterios o seleccionadas después de crecer."
+  },
+  {
+   "id": "ide",
+   "term": "Empresa de base innovadora",
+   "def": "Empresa que persigue mercados amplios a partir de una innovación (en MIT REAP, innovation-driven enterprise). Puede tener ventas bajas durante años antes de crecer muy rápido; se diferencia de la pyme tradicional que atiende mercados locales con ideas conocidas.",
+   "yes": "Seguimiento por hitos técnicos, inversión recibida y ventas.",
+   "no": "Juzgarla solo por ventas a 12 meses."
+  },
+  {
    "id": "nuevo_mercado",
    "term": "Nuevo mercado",
    "def": "Departamento o país donde la empresa factura y no había facturado en los doce meses previos al ingreso.",
@@ -2988,11 +3068,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "id": "compromiso_estrategico",
-   "term": "Compromiso estratégico",
-   "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada.",
+   "term": "Hito estratégico",
+   "def": "Decisión de crecimiento acordada en mentoría con responsable, fecha y evidencia esperada. La mentoría por hitos sigue el modelo MIT Venture Mentoring Service.",
    "yes": "Compromisos con evidencia de cumplimiento hasta su fecha.",
    "no": "Tareas operativas menores o compromisos sin fecha.",
-   "say": "«Las empresas cumplieron el N % de las decisiones estratégicas acordadas con sus mentores.»"
+   "say": "«Las empresas cumplieron el N % de los hitos estratégicos acordados con sus mentores.»"
   },
   {
    "id": "give_back",
@@ -3019,9 +3099,16 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "condiciones_ecosistema",
    "term": "Condiciones del ecosistema",
-   "def": "Seis dominios del modelo de Babson: políticas, financiación, cultura, apoyos, capital humano y mercados, valorados por los cinco tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades.",
+   "def": "Seis dominios del modelo de Babson: políticas y liderazgo, financiación, cultura, apoyos, capital humano y mercados, valorados por los cinco tipos de actor de MIT REAP: emprendedores, capital de riesgo, empresas ancla, gobierno y universidades. Se complementa con las capacidades innovadora (I-Cap) y emprendedora (E-Cap) de la región.",
    "yes": "Medición anual con cobertura de los cinco tipos de actor.",
    "no": "Encuestas a un solo tipo de actor o percepciones sin método."
+  },
+  {
+   "id": "apuesta_estrategica",
+   "term": "Apuesta estratégica regional",
+   "def": "Prioridad que los cinco tipos de actor acuerdan sobre la ventaja comparativa de la región; en MIT REAP se llama must-win battle. Ordena las iniciativas del ecosistema.",
+   "yes": "Apuestas con meta, actores responsables y plazo.",
+   "no": "Listas de sectores sin meta ni responsables."
   },
   {
    "id": "iniciativa_multiactor",
@@ -3067,6 +3154,98 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "say": "«Con el apoyo de [aliados], las empresas acompañadas crecieron X puntos más que empresas comparables.»"
   }
  ],
+ "frameworks": [
+  {
+   "id": "BABSON",
+   "name": "Babson Entrepreneurship Ecosystem Project",
+   "ref": "REF_ISEN10",
+   "idea": "El ecosistema se construye alrededor de empresas que escalan, con el sector privado al frente y atacando de frente la cultura.",
+   "inModel": "Impacto de crecimiento, foco en empresas existentes de alto potencial, seis dominios en la medición anual, resultado de cultura."
+  },
+  {
+   "id": "REAP",
+   "name": "MIT REAP",
+   "ref": "REF_REAP",
+   "idea": "La capacidad de una región depende de su capacidad innovadora (I-Cap) y emprendedora (E-Cap), y de que cinco tipos de actor trabajen juntos sobre su ventaja comparativa.",
+   "inModel": "Cinco tipos de actor en la medición y en las iniciativas, apuestas estratégicas regionales, distinción entre pymes y empresas de base innovadora."
+  },
+  {
+   "id": "VMS",
+   "name": "MIT Venture Mentoring Service",
+   "ref": "REF_VMS",
+   "idea": "Mentoría en equipo, con varios mentores voluntarios por empresa, orientada a hitos.",
+   "inModel": "Hitos estratégicos cumplidos como resultado de la mentoría y retribución de empresarios consolidados."
+  }
+ ],
+ "domains": [
+  {
+   "id": "POL",
+   "name": "Políticas y liderazgo",
+   "elements": "Liderazgo, gobierno, marcos legales",
+   "codes": [
+    "ACT_5",
+    "PRD_7",
+    "RES_19",
+    "SUP_5"
+   ]
+  },
+  {
+   "id": "FIN",
+   "name": "Financiación",
+   "elements": "Capital de riesgo, crédito, pago por resultados",
+   "codes": [
+    "ACT_6",
+    "PRD_6",
+    "RES_20"
+   ]
+  },
+  {
+   "id": "CUL",
+   "name": "Cultura",
+   "elements": "Casos de éxito, normas sociales, ambición",
+   "codes": [
+    "ACT_7",
+    "PRD_12",
+    "RES_22",
+    "RES_23"
+   ]
+  },
+  {
+   "id": "APO",
+   "name": "Apoyos",
+   "elements": "Mentores, servicios de acompañamiento, organizaciones",
+   "codes": [
+    "RES_2",
+    "PRD_8",
+    "PRD_10",
+    "RES_24",
+    "RES_26"
+   ]
+  },
+  {
+   "id": "CHU",
+   "name": "Capital humano",
+   "elements": "Instituciones educativas, talento para empresas que crecen",
+   "codes": [
+    "RES_13",
+    "RES_14",
+    "RES_15",
+    "RES_16"
+   ]
+  },
+  {
+   "id": "MER",
+   "name": "Mercados",
+   "elements": "Clientes, empresas ancla, redes, exportación",
+   "codes": [
+    "PRD_5",
+    "RES_21",
+    "RES_3",
+    "RES_4",
+    "RES_5"
+   ]
+  }
+ ],
  "rules": [
   {
    "title": "Identificación",
@@ -3095,6 +3274,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "title": "Tres C juntas",
    "text": "El crecimiento de ventas no se reporta solo: va con empleo formal (capacidad) y con margen y caja (caja)."
+  },
+  {
+   "title": "Escala antes que cantidad",
+   "text": "El número de empresas creadas no es un logro del ecosistema por sí solo. Se mide cuántas venden, crecen y escalan."
   },
   {
    "title": "Rutas separadas",
@@ -3126,10 +3309,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "id": "REF_ISEN16",
-   "title": "Isenberg y Onyemah, Fostering Scaleup Ecosystems for Regional Economic Growth (Innovations, MIT Press, 2016)",
-   "url": "",
+   "title": "Isenberg y Onyemah, Fostering Scaleup Ecosystems for Regional Economic Growth: Manizales-Mas and Scale Up Milwaukee (Innovations, MIT Press, 2016)",
+   "url": "https://ideas.repec.org/a/tpr/inntgg/v11y2016i1-2p60-79.html",
    "type": "Estudio de caso",
-   "use": "Documenta el caso de Manizales Más: el objetivo es el crecimiento de empresas existentes, no solo la creación de nuevas."
+   "use": "Caso de Manizales Más: el foco en empresas existentes con potencial produce efectos de crecimiento en el primer año."
   },
   {
    "id": "REF_ISEN13",
@@ -3141,16 +3324,30 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "REF_REAP",
    "title": "MIT REAP, marco de capacidad innovadora y emprendedora",
-   "url": "https://reap.mit.edu/assets/MITREAP_Overview_06052020.pdf",
+   "url": "https://reap.mit.edu/assets/MITREAP_Overview_05202020.pdf",
    "type": "Marco metodológico",
    "use": "Cinco tipos de actor del ecosistema y diagnóstico de capacidades."
   },
   {
    "id": "REF_REAP2",
-   "title": "Budden y Murray, An MIT Approach to Innovation: eco/systems, capacity and stakeholders (MIT, 2019)",
-   "url": "",
+   "title": "Budden y Murray, Assessing iEcosystems (MIT REAP, versión 3.0, 2024)",
+   "url": "https://reap.mit.edu/assets/Assessing-iEcosystems.pdf",
    "type": "Marco metodológico",
-   "use": "Definición de iniciativa multiactor y del modelo de actores."
+   "use": "Capacidades innovadora y emprendedora, ventaja comparativa y diferencia entre pymes y empresas de base innovadora."
+  },
+  {
+   "id": "REF_REAP_CAL",
+   "title": "MIT REAP, equipo Caldas, Colombia (cohorte 8)",
+   "url": "https://reap.mit.edu/cohort/caldas-colombia",
+   "type": "Fuente institucional",
+   "use": "Participación de Caldas y de Manizales Más en MIT REAP."
+  },
+  {
+   "id": "REF_VMS",
+   "title": "MIT Venture Mentoring Service, caso Manizales Más",
+   "url": "https://vms.mit.edu/adopt-vms-model/case-histories/manizales-mas",
+   "type": "Fuente institucional",
+   "use": "Modelo de mentoría en equipo y por hitos que sigue el programa de mentoría."
   },
   {
    "id": "REF_GEM",
@@ -3361,6 +3558,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "go": "SUP_5"
   },
   {
+   "who": "Marco Babson y MIT",
+   "text": "Los seis dominios de Babson se usan para leer el portafolio completo, las iniciativas se ordenan por apuestas estratégicas (MIT REAP) y la mentoría se mide por hitos (MIT VMS).",
+   "go": "marco"
+  },
+  {
    "who": "Evaluación 2",
    "text": "Glosario con definiciones operativas: qué cuenta, qué no cuenta y cómo comunicarlo.",
    "go": "view:glosario"
@@ -3401,7 +3603,8 @@ const measure = x => `${x.frequency} · ${x.horizon}`;
 const VIEWS = ['modelo','teoria','programas','indicadores','glosario','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
 
-const S = {view:'modelo', line:'', prog:'', progLine:'', layer:'', fLine:'', fProg:'', fOut:''};
+const S = {view:'modelo', line:'', prog:'', progLine:'', layer:'', fLine:'', fProg:'', fOut:'', fDom:''};
+const domainOf = code => M.domains.find(d => d.codes.includes(code));
 
 /* ---------- 01 modelo ---------- */
 function drawModel(){
@@ -3411,8 +3614,11 @@ function drawModel(){
   const g = M.impact;
   $('impactHero').innerHTML = `<p class="eyebrow">Impacto</p><h2>${esc(g.title)}</h2><p>${esc(g.statement)}</p>
     <div class="impact-grid">${g.indicators.map(c => { const x = byCode.get(c); return `<button type="button" class="impact-ind" data-open="${c}"><span class="code">${c}</span><strong>${esc(x.name)}</strong></button>`; }).join('')}</div>
+    <p class="impact-why">${esc(g.why)}</p>
     <p class="impact-ctx">Contexto regional, sin atribución: ${g.context.map(c => `<button type="button" data-open="${c}">${esc(byCode.get(c).name.replace(/^./, ch => ch.toLowerCase()))}</button>`).join(' y ')}.</p>
     <div class="principle"><span class="pi" aria-hidden="true">+</span><b>Principio de contribución multiactor</b><span>${esc(g.contribution)}</span></div>`;
+  $('frameworks').innerHTML = M.frameworks.map(f => { const r = byRef.get(f.ref); return `<article class="card fw"><h3>${esc(f.name)}</h3><p>${esc(f.idea)}</p><div><p class="lbl">En este modelo</p><p>${esc(f.inModel)}</p></div>${r.url?`<a class="src-link" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>`:''}</article>`; }).join('');
+  $('domains').innerHTML = M.domains.map(d => `<article class="card dom"><h4>${esc(d.name)}</h4><p>${esc(d.elements)}</p><div class="ind-list">${d.codes.map(c => `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span>${esc(byCode.get(c).name)}</button>`).join('')}</div></article>`).join('');
   const flow = ['PRB','ACT','PRD','RES','IMP'];
   $('steps').innerHTML = flow.map(id => `<li class="step${id==='IMP'?' imp':''}"><b>${esc(layerName(id))}</b><span>${esc(byLayer.get(id).short)}</span></li>`).join('');
   $('lineCards').innerHTML = M.lines.map(l => {
@@ -3451,7 +3657,7 @@ function drawTheory(){
     }).join('');
     const sups = M.chains[l.id].assumptions.map(c => `<button type="button" class="node sup${nodeState([c])}" data-open="${c}"><span class="code">Supuesto</span>${esc(byCode.get(c).statement)}</button>`).join('');
     return `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h3 id="lane-${l.id}">${esc(l.name)}</h3><button type="button" class="link" data-hyp="${l.id}">Hipótesis</button></div>
+      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><button type="button" class="link" data-hyp="${l.id}">Hipótesis</button></div>
       ${cell('Problemática', items('PRB').map(ind).join(''))}
       ${cell('Actividades', items('ACT').map(ind).join(''))}
       ${cell('Productos', items('PRD').map(ind).join(''))}
@@ -3482,7 +3688,7 @@ function drawPrograms(){
   const ps = [...M.programs].filter(p => !S.progLine || p.line === S.progLine)
     .sort((a, b) => M.lines.findIndex(l => l.id === a.line) - M.lines.findIndex(l => l.id === b.line) || (b.portfolio?1:0) - (a.portfolio?1:0));
   $('progGrid').innerHTML = ps.map(p => `<article class="card prog" id="p-${p.id}" style="${lineVars(p.line)}">
-      <div class="prog-head"><span class="tag">${esc(lineName(p.line))}</span>${p.portfolio?'<span class="badge">Portafolio</span>':''}${p.draft?'<span class="badge draft">Alcance propuesto</span>':''}<h3>${esc(p.name)}</h3></div>
+      <div class="prog-head"><span class="tag">${esc(lineName(p.line))}</span>${p.portfolio?'<span class="badge">Portafolio</span>':''}${p.draft?'<span class="badge draft">Alcance propuesto</span>':''}<h2>${esc(p.name)}</h2></div>
       <p>${esc(p.role)}</p><p class="pop">${esc(p.population)}</p>
       <div><p class="lbl">Responde por</p><div class="ind-list">${p.focus.map(c => `<button type="button" class="ind-ref" data-open="${c}"><span class="code">${c}</span>${esc(byCode.get(c).name)}</button>`).join('')}</div></div>
       ${p.note?`<p class="note">${esc(p.note)}</p>`:''}
@@ -3497,6 +3703,7 @@ function drawIndicatorControls(){
   $('layerChips').innerHTML = [{id:'',name:'Todas'}, ...M.layers].map(l => `<button type="button" class="chip" data-layer="${l.id}" aria-pressed="${S.layer===l.id}">${esc(l.name)} <b>${l.id ? M.indicators.filter(x => x.layer === l.id).length : M.indicators.length}</b></button>`).join('');
   $('fLine').innerHTML = opt('','Todas las líneas',S.fLine) + [...M.lines,{id:'SIS',name:'Sistema (impacto y contexto)'}].map(l => opt(l.id,l.name,S.fLine)).join('');
   $('fProg').innerHTML = opt('','Todos los programas',S.fProg) + M.lines.map(l => `<optgroup label="${esc(l.name)}">${M.programs.filter(p => p.line === l.id).map(p => opt(p.id,p.name,S.fProg)).join('')}</optgroup>`).join('');
+  $('fDom').innerHTML = opt('','Todos los dominios',S.fDom) + M.domains.map(d => opt(d.id,d.name,S.fDom)).join('');
   $('fOut').innerHTML = opt('','Todos los resultados',S.fOut) + M.lines.map(l => `<optgroup label="${esc(l.name)}">${outcomesOfLine(l.id).map(o => opt(o.id,o.statement,S.fOut)).join('')}</optgroup>`).join('');
 }
 function filteredIndicators(){
@@ -3506,6 +3713,7 @@ function filteredIndicators(){
     if(S.fLine && x.line !== S.fLine) return false;
     if(p && !p.elements.includes(x.code)) return false;
     if(S.fOut && x.outcome !== S.fOut) return false;
+    if(S.fDom && domainOf(x.code)?.id !== S.fDom) return false;
     if(q){ const hay = norm([x.code,x.name,x.statement,x.definition,x.population,(x.terms||[]).map(t => byTerm.get(t).term).join(' ')].join(' ')); if(!q.split(/\s+/).every(w => hay.includes(w))) return false; }
     return true;
   });
@@ -3520,7 +3728,7 @@ function drawIndicators(){
   $('insGrid').innerHTML = M.instruments.map(i => `<button type="button" class="card ins" data-open="${i.id}"><span class="code">${i.id}</span><b>${esc(i.name)}</b><span>${esc(i.purpose)}</span></button>`).join('');
 }
 function downloadCsv(){
-  const cols = [['Código','code'],['Etapa',x => layerName(x.layer)],['Línea',x => lineName(x.line)],['Resultado',x => byOut.get(x.outcome)?.statement || ''],['Dimensión',x => M.dims[x.dim] || ''],['Enunciado','statement'],['Indicador','name'],['Definición','definition'],['Fórmula','calculation'],['Variables',x => Object.entries(x.variables).map(([k,v]) => `${k}: ${v}`).join(' | ')],['Unidad','unit'],['Población','population'],['Frecuencia','frequency'],['Momento','horizon'],['Fuentes',x => x.sources.map(s => byIns.get(s).name).join(' | ')],['Criterio','rule'],['Programas',x => progsOf(x.code).map(p => p.name).join(' | ')]];
+  const cols = [['Código','code'],['Etapa',x => layerName(x.layer)],['Línea',x => lineName(x.line)],['Resultado',x => byOut.get(x.outcome)?.statement || ''],['Dimensión',x => M.dims[x.dim] || ''],['Dominio del ecosistema',x => domainOf(x.code)?.name || ''],['Enunciado','statement'],['Indicador','name'],['Definición','definition'],['Fórmula','calculation'],['Variables',x => Object.entries(x.variables).map(([k,v]) => `${k}: ${v}`).join(' | ')],['Unidad','unit'],['Población','population'],['Frecuencia','frequency'],['Momento','horizon'],['Fuentes',x => x.sources.map(s => byIns.get(s).name).join(' | ')],['Criterio','rule'],['Programas',x => progsOf(x.code).map(p => p.name).join(' | ')]];
   const cellv = v => `"${String(v ?? '').replace(/"/g,'""')}"`;
   const rows = [cols.map(c => cellv(c[0])).join(';'), ...filteredIndicators().map(x => cols.map(([,f]) => cellv(typeof f === 'function' ? f(x) : x[f])).join(';'))];
   const a = document.createElement('a');
@@ -3540,7 +3748,8 @@ function drawGlossary(){
 }
 function termCard(t, tag){
   const uses = termUses(t.id);
-  const body = `<h3>${esc(t.term)}</h3><p>${esc(t.def)}</p>
+  const hx = tag === 'article' ? 'h2' : 'h3';
+  const body = `<${hx}>${esc(t.term)}</${hx}><p>${esc(t.def)}</p>
     <div class="yn"><div class="y"><b>Cuenta</b>${esc(t.yes)}</div><div class="n"><b>No cuenta</b>${esc(t.no)}</div></div>
     ${t.say?`<p class="say"><b>Cómo comunicarlo</b>${esc(t.say)}</p>`:''}
     ${uses.length?`<div class="uses">Se usa en ${uses.map(x => `<button type="button" data-open="${x.code}" title="${esc(x.name)}">${x.code}</button>`).join('')}</div>`:''}`;
@@ -3583,7 +3792,7 @@ const indRef = (c, mark) => { const x = byCode.get(c); return `<button type="but
 function renderInd(code){
   const x = byCode.get(code), o = byOut.get(x.outcome), ps = progsOf(code);
   head(x.name, `${x.code} · ${layerLabel(x)} · ${lineName(x.line)}`, x.line);
-  $('dBody').innerHTML = `${o?`<div class="parent"><span>Resultado</span><button type="button" class="link" data-open="${o.id}">${esc(o.statement)}</button>${x.dim?` · ${esc(M.dims[x.dim])}`:''}</div>`:''}
+  $('dBody').innerHTML = `${o?`<div class="parent"><span>Resultado</span><button type="button" class="link" data-open="${o.id}">${esc(o.statement)}</button>${x.dim?` · ${esc(M.dims[x.dim])}`:''}</div>`:''}${domainOf(code)?`<p class="d-note">Dominio del ecosistema (Babson): ${esc(domainOf(code).name)}</p>`:''}
     <div><p class="def">${esc(x.definition)}</p><p class="stmt">En la teoría de cambio: ${esc(x.statement)}</p></div>
     <div class="formula"><h3>Fórmula</h3><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
     <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Población</dt><dd>${esc(x.population)}</dd><dt>Frecuencia</dt><dd>${esc(x.frequency)}</dd><dt>Momento</dt><dd>${esc(x.horizon)}</dd>
@@ -3672,11 +3881,12 @@ document.addEventListener('click', e => {
   if('clearprog' in d){ S.prog = ''; drawTheoryControls(); drawTheory(); $('progSelect').focus(); return; }
   if(d.goprog){ goProgram(d.goprog); return; }
   if(d.pline !== undefined){ S.progLine = d.pline; drawPrograms(); return; }
-  if(d.fprog){ S.fProg = d.fprog; S.layer = ''; S.fLine = ''; S.fOut = ''; $('fq').value = ''; drawIndicatorControls(); drawIndicators(); go('indicadores'); return; }
+  if(d.fprog){ S.fProg = d.fprog; S.layer = ''; S.fLine = ''; S.fOut = ''; S.fDom = ''; $('fq').value = ''; drawIndicatorControls(); drawIndicators(); go('indicadores'); return; }
   if(d.layer !== undefined){ S.layer = d.layer; drawIndicatorControls(); drawIndicators(); return; }
   if(d.go){
     const g = d.go;
-    if(g.startsWith('view:')) go(g.slice(5));
+    if(g === 'marco'){ $('marco').scrollIntoView({block:'start'}); $('marco').querySelector('h2').setAttribute('tabindex','-1'); $('marco').querySelector('h2').focus({preventScroll:true}); }
+    else if(g.startsWith('view:')) go(g.slice(5));
     else if(g.startsWith('prog:')) goProgram(g.slice(5));
     else open(g);
   }
@@ -3685,9 +3895,10 @@ $('progSelect').addEventListener('change', e => { S.prog = e.target.value; drawT
 $('fLine').addEventListener('change', e => { S.fLine = e.target.value; drawIndicators(); });
 $('fProg').addEventListener('change', e => { S.fProg = e.target.value; drawIndicators(); });
 $('fOut').addEventListener('change', e => { S.fOut = e.target.value; drawIndicators(); });
+$('fDom').addEventListener('change', e => { S.fDom = e.target.value; drawIndicators(); });
 $('fq').addEventListener('input', drawIndicators);
 $('gq').addEventListener('input', drawGlossary);
-$('fClear').addEventListener('click', () => { Object.assign(S, {layer:'', fLine:'', fProg:'', fOut:''}); $('fq').value = ''; drawIndicatorControls(); drawIndicators(); });
+$('fClear').addEventListener('click', () => { Object.assign(S, {layer:'', fLine:'', fProg:'', fOut:'', fDom:''}); $('fq').value = ''; drawIndicatorControls(); drawIndicators(); });
 $('fCsv').addEventListener('click', downloadCsv);
 let printState = null;
 window.addEventListener('beforeprint', () => { printState = {line:S.line, prog:S.prog}; S.line = ''; S.prog = ''; drawTheory(); document.querySelectorAll('.view').forEach(v => v.hidden = false); });

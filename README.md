@@ -1,6 +1,6 @@
 # Teoría de cambio de Manizales Más
 
-Documento web interactivo de un solo archivo. **Versión 7.0** · noviembre de 2026.
+Documento web interactivo de un solo archivo. **Versión 7.1** · noviembre de 2026.
 
 `index.html` es autocontenido: CSS, JavaScript, logo, tipografía Poppins y el modelo
 completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
@@ -10,9 +10,24 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 
 | Sección | Contenido |
 |---|---|
-| 01 Modelo | Qué es Manizales Más, hacia dónde va y sus cuatro frentes de trabajo |
-| 02 Teoría de cambio | La cadena de cada frente, de la problemática al impacto, por frente o por programa. Cada frente tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los 37 indicadores agrupados por etapa, filtrados por lo que se seleccione en la cadena |
+| 01 Modelo | Qué es Manizales Más, hacia dónde va, sus tres frentes de trabajo y la base de sostenibilidad que los sostiene |
+| 02 Teoría de cambio | La cadena de cada frente (empresas, talento y ecosistema), de la problemática al impacto, por frente o por programa, con la base de sostenibilidad debajo. Cada frente tiene su hipótesis con la evidencia que la sustenta y sus supuestos: lo que tiene que pasar para que funcione. Debajo, «Cómo lo medimos»: los 45 indicadores agrupados por etapa, filtrados por lo que se seleccione en la cadena |
 | 03 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
+
+## Cambios de la versión 7.1 (observaciones de la gerencia)
+
+- **Impacto:** las empresas se miden por ventas, supervivencia a 24 meses y empleo formal con masa salarial;
+  los jóvenes, por sus ingresos (por empleo o por negocio propio) a 12 y 24 meses.
+- **Empresas:** nuevas actividades de entrenamiento con expertos (metodología de Babson College) y de
+  aprendizaje entre pares; «conversión comercial» pasa a «propuestas comerciales que terminan en venta».
+- **Talento:** la problemática es la falta de ingresos estables; se miden los empleos que generan los
+  negocios de los jóvenes, formales e informales por separado.
+- **Ecosistema:** organizado en las seis dimensiones del modelo adaptado a Manizales (mercados, política,
+  finanzas, cultura, soporte, y trabajo y talento), con un indicador por dimensión y el índice como síntesis.
+  Entrenamiento a mentores, Profesores de Alto Potencial y La ruta del emprendimiento pasan a este frente.
+- **Sostenibilidad:** reemplaza a Transferencia como la base que sostiene los tres frentes, con cuatro
+  componentes: transferencia a otros ecosistemas, proceso comercial, pago por resultados y comunidad.
+  Queda marcada como propuesta para validar.
 
 ## Cambios de la versión 7.0
 
@@ -34,7 +49,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 
 Las actividades se miden con un indicador común de agenda (`ACT_0`) y las finalizaciones de ruta con
 uno solo (`PRD_0`). La problemática y los supuestos se presentan como enunciados, sin indicador propio.
-En total hay 37 indicadores: 1 de actividades, 9 de productos, 24 de resultados y 3 de impacto.
+En total hay 45 indicadores: 1 de actividades, 9 de productos, 31 de resultados y 4 de impacto.
 
 Los códigos de indicadores se renumeraron; el libro técnico de Excel debe regenerarse con este modelo.
 

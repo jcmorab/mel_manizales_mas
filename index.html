@@ -100,7 +100,7 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .sec-head{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:12px 40px;align-items:end;margin-bottom:24px}
 .sec-head h2{font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.15}
 .sec-head>p{color:var(--muted);font-size:1rem;line-height:1.7}
-.lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .line-card{position:relative;overflow:hidden;padding:28px 30px;display:flex;flex-direction:column;gap:16px;border-radius:22px;transition:box-shadow .2s,transform .2s}
 .line-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--lc)}
 .line-card:hover{box-shadow:0 22px 44px -26px rgba(11,46,92,.45);transform:translateY(-3px)}
@@ -113,6 +113,33 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .line-card .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lt);margin-bottom:10px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags li{font-size:13px;font-weight:500;color:var(--ink);background:color-mix(in srgb,var(--lc) 9%,#fff);border:1px solid color-mix(in srgb,var(--lc) 22%,#fff);border-radius:999px;padding:3px 11px}
+.base-card{position:relative;overflow:hidden;margin-top:18px;padding:30px 32px;border-radius:22px;background:linear-gradient(135deg,#fff 40%,color-mix(in srgb,var(--lc) 10%,#fff))}
+.base-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--sky),var(--lime))}
+.base-head{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.base-head .kicker{margin-bottom:2px}
+.base-head h3{font-size:1.35rem;color:var(--lt)}
+.base-card>p{margin-top:16px;max-width:82ch;font-size:15px;line-height:1.7}
+.base-comps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}
+.base-comps li{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--sh)}
+.base-comps b{display:block;color:var(--lt);font-size:14.5px;margin-bottom:6px}
+.base-comps span{font-size:13.5px;color:var(--muted);line-height:1.55}
+.base-card .foot{border-top:1px dashed var(--line);padding-top:16px}
+.base-card .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lt);margin-bottom:10px}
+.base-band{position:relative;overflow:hidden;margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:20px 22px}
+.base-band::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--sky),var(--lime))}
+.bb-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.bb-title{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.bb-title .kicker{margin-bottom:2px;font-size:11px}
+.bb-title h2{font-size:16px;color:var(--lt)}
+.lane-btns.row{flex-direction:row}
+.bb-comps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.comp{display:flex;flex-direction:column;gap:4px;text-align:left;background:color-mix(in srgb,var(--lc) 7%,#fff);border:1px solid color-mix(in srgb,var(--lc) 22%,#fff);border-radius:12px;padding:12px 14px;transition:box-shadow .15s,opacity .15s}
+.comp strong{color:var(--lt);font-size:13.5px}
+.comp span{font-size:12.5px;color:var(--muted);line-height:1.45}
+.comp:hover{box-shadow:var(--sh)}
+.comp[aria-pressed="true"]{box-shadow:0 0 0 3px var(--navy)}
+.comp.dim{opacity:.25;filter:saturate(.4)}
+.comp.hit{box-shadow:0 8px 20px -14px rgba(11,46,92,.55)}
 .next{position:relative;overflow:hidden;margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;padding:34px 38px;border-radius:24px;color:#fff;background:radial-gradient(500px 220px at 100% 100%,rgba(205,221,0,.22),transparent 70%),linear-gradient(120deg,var(--navy-d),var(--navy));box-shadow:0 24px 50px -30px rgba(11,46,92,.7)}
 .next p{flex:1 1 380px;font-size:1.08rem;line-height:1.65;color:#E4ECF7}
 
@@ -277,7 +304,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .facts dt{font-weight:600;color:var(--soft)}
 
 /* ------------------------------------------------ responsive */
-@media (max-width:1100px){.pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:1fr}.base-comps,.bb-comps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
   .shell{display:block;background:var(--bg)}
   .side{position:sticky;top:0;z-index:20;height:auto;flex-direction:row;align-items:center;gap:14px;padding:12px 16px;overflow:visible}
@@ -302,7 +329,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .measure{scroll-margin-top:80px}
 }
 @media (max-width:640px){
-  .pick{grid-template-columns:1fr}
+  .pick,.base-comps,.bb-comps{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
   .ind-table{min-width:0}
   .ind-table thead,.ind-table colgroup,.row td:not(:first-child){display:none}
@@ -340,6 +367,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
   .measure{break-before:page}
+  .base-band,.base-card{break-inside:avoid;box-shadow:none}
+  .base-band::before,.base-card::before,.comp{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .line-card,.ev-card,.ref-col li,tr{break-inside:avoid}
   thead{display:table-header-group}
 }
@@ -387,8 +416,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   </div>
 
   <div class="sec">
-    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Cuatro frentes, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en cuatro frentes que se refuerzan entre sí: las empresas que pueden crecer, el talento que necesitan, el entorno que las rodea y la capacidad de llevar el modelo a otros territorios.</p></div>
+    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Tres frentes y una base, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en tres frentes que se refuerzan entre sí: las empresas que pueden crecer, el talento que necesitan y el entorno que las rodea. Los sostiene una base: un modelo sostenible que se puede llevar a otros territorios.</p></div>
     <div class="lines" id="lineCards"></div>
+    <div id="baseCard"></div>
   </div>
   <div class="next"><p id="nextText"></p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
 </section>
@@ -396,7 +426,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en los jóvenes y en el territorio. Sumados, esos cambios mueven la economía de la región. Elija un frente o un programa para seguir su recorrido; «Hipótesis» explica por qué debería funcionar y «Supuestos», qué tiene que pasar para que funcione.</p></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en los jóvenes y en el territorio. Sumados, esos cambios mueven la economía de la región. Debajo de los tres frentes está la base que los sostiene. Elija un frente o un programa para seguir su recorrido; «Hipótesis» explica por qué debería funcionar y «Supuestos», qué tiene que pasar para que funcione.</p></div>
     <div class="mode" role="group" aria-label="Ver la cadena"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
@@ -406,10 +436,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
   <div class="swim-wrap" tabindex="0" role="region" aria-label="Cadena de resultados por frente"><div class="swim" id="swim"></div></div>
+  <section class="base-band" id="baseBand" aria-labelledby="lane-SOS"></section>
 
   <div class="measure" id="medicion">
     <div class="measure-head">
-      <div><p class="kicker">Indicadores</p><h2>Cómo lo medimos</h2><p class="lede">Cada eslabón de la cadena tiene indicadores con definición, fórmula y fuente, para que una cifra signifique lo mismo en un informe, en un boletín o ante un cooperante. Haga clic en una actividad, un producto, un resultado o el impacto, y aquí verá solo sus indicadores.</p></div>
+      <div><p class="kicker">Indicadores</p><h2>Cómo lo medimos</h2><p class="lede">Cada eslabón de la cadena tiene indicadores con definición, fórmula y fuente, para que una cifra signifique lo mismo en un informe, en un boletín o ante un cooperante. Haga clic en una actividad, un producto, un resultado, el impacto o un componente de la base, y aquí verá solo sus indicadores.</p></div>
       <div class="field"><label for="fq">Buscar indicador</label><input id="fq" type="search" placeholder="Por ejemplo: empleo, ventas" autocomplete="off"></div>
     </div>
     <p class="scope" aria-live="polite"><span id="scopeText"></span><button type="button" class="link" id="scopeReset" hidden>Ver todos</button><a class="link" href="#h-teoria" id="scopeUp" hidden>Volver a la cadena</a></p>
@@ -437,8 +468,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 {
  "meta": {
   "title": "Teoría de cambio de Manizales Más",
-  "version": "7.0",
-  "date": "2026-11-04",
+  "version": "7.1",
+  "date": "2026-11-10",
   "intro": [
    "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, empresarios, universidades, gremios y gobierno trabajan juntos, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
    "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en los jóvenes y en el entorno, y cómo vamos a saber si lo estamos logrando."
@@ -447,28 +478,29 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  "impact": {
   "id": "IMP",
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen en ventas y empleo formal, y más jóvenes con empleo formal.",
+  "statement": "Más empresas que crecen y siguen en pie, más empleo formal y mejor pagado, y más jóvenes con ingresos estables.",
   "indicators": [
    "IMP_1",
    "IMP_2",
-   "IMP_3"
+   "IMP_3",
+   "IMP_4"
   ],
   "context": [],
   "pillars": [
    {
     "icon": "grow",
     "title": "Empresas que crecen",
-    "text": "Ventas que aumentan año tras año, más que las de empresas comparables."
+    "text": "Crecen en ventas, capacidad y caja, y siguen en pie dos años después."
    },
    {
     "icon": "job",
     "title": "Empleo formal",
-    "text": "Puestos nuevos con seguridad social en las empresas que acompañamos."
+    "text": "Más empleo formal y mejor pagado, que crece con las empresas que acompañamos."
    },
    {
     "icon": "youth",
     "title": "Jóvenes con futuro",
-    "text": "Un empleo formal estable o un negocio propio que vende."
+    "text": "Ingresos estables, sea con un empleo formal o con un negocio propio."
    }
   ],
   "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre."
@@ -479,28 +511,67 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Empresas",
    "color": "#104380",
    "tone": "#104380",
-   "story": "Muchas empresas de la región tienen con qué crecer, pero se estancan: les falta método, clientes nuevos o acceso a quienes deciden. Las acompañamos con formación, mentoría de empresarios que ya recorrieron el camino y conexiones comerciales, para que crezcan en clientes, en capacidad y en caja."
+   "story": "Muchas empresas de la región tienen con qué crecer, pero se estancan: les falta método, clientes nuevos o acceso a quienes deciden. Las entrenamos con expertos y la metodología de Babson College, las ponemos a aprender entre pares y las acompañamos con mentores que ya recorrieron el camino y con conexiones comerciales, para que crezcan en clientes, en capacidad y en caja."
   },
   {
    "id": "TAL",
    "name": "Talento",
    "color": "#27B9E1",
    "tone": "#0B6E8C",
-   "story": "Muchos jóvenes terminan su formación sin un empleo formal ni un negocio que les dé ingresos. Qué Nivel les abre dos caminos claros, empleo o emprendimiento, con formación técnica, en inteligencia artificial y en habilidades para la vida, y los conecta con empleadores y clientes reales."
+   "story": "Muchos jóvenes terminan su formación sin ingresos estables. Qué Nivel les abre dos caminos claros, empleo o emprendimiento, con formación técnica, en inteligencia artificial y en habilidades para la vida, y los conecta con empleadores y clientes reales. La meta es la misma en las dos rutas: un ingreso que dure."
   },
   {
    "id": "ECO",
    "name": "Ecosistema",
    "color": "#A8B800",
    "tone": "#5C6500",
-   "story": "Una empresa crece más fácil cuando a su alrededor hay capital, clientes exigentes, aliados y una cultura que celebra crecer. Reunimos a empresarios, inversionistas, empresas ancla, gobierno y universidades alrededor de apuestas comunes, y hacemos visibles a quienes crecen para que su ejemplo se multiplique."
+   "story": "Una empresa crece más fácil cuando a su alrededor hay mercados, política pública, financiación, cultura, entidades de soporte y talento que empujan en la misma dirección. Trabajamos con empresarios, inversionistas, empresas ancla, gobierno y universidades en esas seis dimensiones, y formamos a los mentores y docentes que acompañan a las empresas."
   },
   {
-   "id": "TRF",
-   "name": "Transferencia",
+   "id": "SOS",
+   "name": "Sostenibilidad",
    "color": "#5BB7E7",
    "tone": "#17608F",
-   "story": "Lo que funciona en Manizales puede funcionar en otros lugares si se enseña bien. Formamos mentores y docentes, documentamos la metodología y la instalamos en organizaciones de otros municipios y regiones, para que sigan acompañando empresas por su cuenta."
+   "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, fortalecemos la venta de nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que sostiene el modelo.",
+   "base": true,
+   "draft": true,
+   "components": [
+    {
+     "id": "TRA",
+     "name": "Transferencia a otros ecosistemas",
+     "text": "Municipios de Caldas y ecosistemas de Latinoamérica que adoptan el modelo, con aliados como Argidius.",
+     "codes": [
+      "PRD_10",
+      "PRD_9",
+      "RES_24",
+      "RES_26"
+     ]
+    },
+    {
+     "id": "COM",
+     "name": "Proceso comercial",
+     "text": "Venta de servicios y metodologías para financiar la operación.",
+     "codes": [
+      "RES_32"
+     ]
+    },
+    {
+     "id": "PXR",
+     "name": "Pago por resultados",
+     "text": "Financiación contra resultados verificados y aprendizajes para todos los programas.",
+     "codes": [
+      "RES_33"
+     ]
+    },
+    {
+     "id": "CMD",
+     "name": "Desarrollo de comunidad",
+     "text": "Empresarios, mentores y egresados que sostienen el modelo.",
+     "codes": [
+      "RES_34"
+     ]
+    }
+   ]
   }
  ],
  "layers": [
@@ -549,8 +620,13 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   "EMPL": "Ruta de empleabilidad",
   "EMPR": "Ruta de emprendimiento",
   "AMB": "Ambas rutas",
-  "CON": "Condiciones del entorno",
-  "CUL": "Cultura de crecimiento"
+  "CUL": "Cultura",
+  "SIN": "Síntesis",
+  "MER": "Mercados",
+  "POL": "Política",
+  "FIN": "Finanzas",
+  "SOP": "Soporte",
+  "TYT": "Trabajo y talento"
  },
  "outcomes": [
   {
@@ -583,16 +659,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "products": [
     "PRD_1",
     "PRD_2"
-   ],
-   "via": [
-    {
-     "line": "TRF",
-     "products": [
-      "PRD_8",
-      "PRD_9"
-     ],
-     "through": "OUT_09"
-    }
    ]
   },
   {
@@ -636,10 +702,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_06",
    "line": "TAL",
-   "statement": "Ruta de emprendimiento: jóvenes con negocios que venden.",
+   "statement": "Ruta de emprendimiento: jóvenes con negocios que generan ingresos y empleo.",
    "indicators": [
     "RES_17",
-    "RES_18"
+    "RES_18",
+    "RES_28"
    ],
    "products": [
     "PRD_3",
@@ -649,49 +716,30 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_07",
    "line": "ECO",
-   "statement": "Un entorno con mejores condiciones para crecer.",
+   "statement": "Un ecosistema más fuerte en sus seis dimensiones.",
    "indicators": [
     "RES_19",
+    "RES_21",
+    "RES_29",
     "RES_20",
-    "RES_21"
+    "RES_22",
+    "RES_23",
+    "RES_30",
+    "RES_31"
    ],
    "products": [
     "PRD_5",
     "PRD_6",
-    "PRD_11"
-   ]
-  },
-  {
-   "id": "OUT_08",
-   "line": "ECO",
-   "statement": "Una cultura que valora y busca el crecimiento.",
-   "indicators": [
-    "RES_22",
-    "RES_23"
-   ],
-   "products": [
-    "PRD_12"
-   ]
-  },
-  {
-   "id": "OUT_09",
-   "line": "TRF",
-   "statement": "Organizaciones y territorios que operan el modelo por su cuenta.",
-   "indicators": [
-    "RES_24",
-    "RES_26"
-   ],
-   "products": [
     "PRD_8",
-    "PRD_9",
-    "PRD_10",
-    "PRD_11"
-   ]
+    "PRD_11",
+    "PRD_12"
+   ],
+   "formula": "6D"
   }
  ],
  "chains": {
   "EMP": {
-   "hypothesis": "Si las empresas con potencial reciben acompañamiento, mentoría y conexiones, y en el proceso participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana y ventas que crecen año tras año.",
+   "hypothesis": "Si las empresas con potencial se entrenan con expertos, aprenden de sus pares, reciben mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana, ventas que crecen y empresas que siguen en pie.",
    "evidence": [
     {
      "from": "ACT_1",
@@ -703,7 +751,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
      ]
     },
     {
-     "from": "ACT_1",
+     "from": "ACT_10",
      "to": "OUT_02",
      "text": "La mentoría de empresarios con experiencia elevó 20 % las utilidades de pequeños negocios en Kenia, más que la capacitación en aula.",
      "refs": [
@@ -732,7 +780,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   "TAL": {
-   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, consiguen un empleo formal que conservan o un negocio que vende.",
+   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, logran ingresos estables: un empleo formal que conservan o un negocio que vende y que incluso genera empleo.",
    "evidence": [
     {
      "from": "ACT_3",
@@ -765,7 +813,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ]
   },
   "ECO": {
-   "hypothesis": "Si los actores del ecosistema actúan coordinados sobre capital, mercados, apoyos, talento, políticas y cultura, crecer se vuelve más fácil: más empresas encuentran clientes y capital, y crecer se vuelve una aspiración compartida.",
+   "hypothesis": "Si los actores del ecosistema avanzan juntos en sus seis dimensiones, crecer se vuelve más fácil: más empresas encuentran clientes y capital, hay mentores y docentes que las acompañan, y crecer se vuelve una aspiración compartida.",
    "evidence": [
     {
      "from": "PRD_5",
@@ -785,7 +833,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     },
     {
      "from": "ACT_7",
-     "to": "OUT_08",
+     "to": "OUT_07",
      "text": "Los referentes inspiran: en Chile, conocer a un empresario exitoso elevó los ingresos de microempresarios tanto como una asesoría individual, a menor costo.",
      "refs": [
       "REF_LAF"
@@ -805,20 +853,20 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "SUP_5"
    ]
   },
-  "TRF": {
-   "hypothesis": "Si la metodología se documenta y se forma a equipos locales, otras organizaciones la operan y la repiten con calidad, y más empresas reciben acompañamiento para crecer.",
+  "SOS": {
+   "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hace.",
    "evidence": [
     {
      "from": "PRD_9",
-     "to": "OUT_09",
+     "to": "RES_24",
      "text": "Los programas que se llevan a otros territorios conservan sus resultados cuando se cuida la fidelidad de la implementación; por eso medimos que cada servicio aplique los componentes acordados.",
      "refs": [
       "REF_BANERJEE"
      ]
     },
     {
-     "from": "ACT_9",
-     "to": "OUT_09",
+     "from": "PRD_10",
+     "to": "RES_24",
      "text": "La metodología que dio origen a Manizales Más se aplicó también en Scale Up Milwaukee, en Estados Unidos.",
      "refs": [
       "REF_ISEN16"
@@ -863,19 +911,13 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "PRB_2",
    "layer": "PRB",
    "line": "TAL",
-   "statement": "Jóvenes sin vinculación productiva estable."
+   "statement": "Jóvenes sin ingresos estables."
   },
   {
    "code": "PRB_3",
    "layer": "PRB",
    "line": "ECO",
    "statement": "Un entorno que no facilita crecer."
-  },
-  {
-   "code": "PRB_4",
-   "layer": "PRB",
-   "line": "TRF",
-   "statement": "Organizaciones y territorios sin capacidad para operar los servicios."
   },
   {
    "code": "ACT_0",
@@ -903,9 +945,23 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "ACT_1",
    "layer": "ACT",
    "line": "EMP",
-   "statement": "Acompañamiento y mentoría para decisiones de crecimiento.",
+   "statement": "Entrenamiento con expertos, con la metodología de Babson College.",
    "measuredBy": "ACT_0",
    "detail": "Separar formación y mentoría. Usar la agenda aprobada antes del vencimiento."
+  },
+  {
+   "code": "ACT_10",
+   "layer": "ACT",
+   "line": "EMP",
+   "statement": "Mentoría con empresarios que ya recorrieron el camino.",
+   "measuredBy": "ACT_0"
+  },
+  {
+   "code": "ACT_11",
+   "layer": "ACT",
+   "line": "EMP",
+   "statement": "Aprendizaje entre pares de distintos sectores (peer-to-peer).",
+   "measuredBy": "ACT_0"
   },
   {
    "code": "ACT_2",
@@ -959,17 +1015,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "code": "ACT_8",
    "layer": "ACT",
-   "line": "TRF",
+   "line": "ECO",
    "statement": "Formación de mentores, docentes y facilitadores.",
    "measuredBy": "ACT_0",
    "detail": "Separar programa y rol."
-  },
-  {
-   "code": "ACT_9",
-   "layer": "ACT",
-   "line": "TRF",
-   "statement": "Sistematización del modelo e instalación de servicios.",
-   "measuredBy": "ACT_0"
   },
   {
    "code": "PRD_0",
@@ -1097,14 +1146,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "code": "PRD_8",
    "layer": "PRD",
-   "line": "TRF",
+   "line": "ECO",
    "statement": "Mentores, docentes y facilitadores formados con práctica.",
    "measuredBy": "PRD_0"
   },
   {
    "code": "PRD_9",
    "layer": "PRD",
-   "line": "TRF",
+   "line": "SOS",
    "statement": "Servicios transferidos listos para operar.",
    "name": "Servicios con condiciones de inicio completas",
    "definition": "Servicios con responsable local, equipo formado, protocolo y calendario de primera cohorte.",
@@ -1124,7 +1173,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "code": "PRD_10",
    "layer": "PRD",
-   "line": "TRF",
+   "line": "SOS",
    "statement": "Metodologías estandarizadas en herramientas transferibles.",
    "name": "Metodologías con toolkit estandarizado",
    "definition": "Metodologías de Manizales Más documentadas en un toolkit versionado que un tercero puede aplicar sin el equipo original.",
@@ -1145,7 +1194,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "code": "PRD_11",
    "layer": "PRD",
-   "line": "TRF",
+   "line": "ECO",
    "statement": "Territorios y ecosistemas diagnosticados.",
    "name": "Territorios con diagnóstico de ecosistema",
    "definition": "Municipios o ecosistemas, incluido Manizales cada año, con medición completa de los seis dominios y de las capacidades innovadora y emprendedora, y devolución de resultados a sus actores.",
@@ -1273,9 +1322,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "EMP",
    "outcome": "OUT_02",
    "dim": "CLI",
-   "statement": "Empresas que convierten más propuestas en ventas.",
-   "name": "Cambio en la conversión comercial",
-   "definition": "Diferencia mediana entre la tasa de conversión de propuestas a ventas al seguimiento y la del ingreso.",
+   "statement": "Empresas que cierran más ventas de las propuestas que hacen.",
+   "name": "Propuestas comerciales que terminan en venta",
+   "definition": "Cambio en el porcentaje de propuestas o cotizaciones formales que terminan en venta facturada, entre los seis meses previos al ingreso y los seis siguientes.",
    "calculation": "mediana(Ci,6 − Ci,0)",
    "variables": {
     "Ci,0": "Conversión de la empresa i en los seis meses previos al ingreso.",
@@ -1632,17 +1681,41 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "excludes": "Ventas sin soporte o cifras sin deflactar."
   },
   {
+   "code": "RES_28",
+   "layer": "RES",
+   "line": "TAL",
+   "outcome": "OUT_06",
+   "dim": "EMPR",
+   "statement": "Empleos que generan los negocios de los jóvenes.",
+   "name": "Empleos generados por los negocios juveniles",
+   "definition": "Personas, además del joven, que trabajan con pago en los negocios de la ruta de emprendimiento, contadas por separado como empleos formales e informales.",
+   "calculation": "Σ empleos formales + Σ empleos informales",
+   "variables": {
+    "Formales": "Trabajadores con cotización en PILA.",
+    "Informales": "Trabajadores con pago y sin cotización."
+   },
+   "unit": "Empleos",
+   "population": "Negocios de la ruta de emprendimiento con seguimiento.",
+   "frequency": "Por cohorte",
+   "horizon": "6 y 12 meses desde el cierre",
+   "sources": [
+    "INS_05"
+   ],
+   "rule": "Reportar siempre formales e informales por separado.",
+   "excludes": "Familiares que ayudan sin pago y socios del negocio."
+  },
+  {
    "code": "RES_19",
    "layer": "RES",
    "line": "ECO",
    "outcome": "OUT_07",
-   "dim": "CON",
-   "statement": "Mejores condiciones del ecosistema para crecer.",
-   "name": "Índice de condiciones para crecer",
-   "definition": "Promedio de los puntajes de los seis dominios del ecosistema en la medición anual a los cinco tipos de actor.",
+   "dim": "SIN",
+   "statement": "Un ecosistema más fuerte en sus seis dimensiones.",
+   "name": "Índice del ecosistema",
+   "definition": "Promedio de los puntajes de las seis dimensiones del ecosistema (mercados, política, finanzas, cultura, soporte, y trabajo y talento) en la medición anual a los cinco tipos de actor.",
    "calculation": "Σ(Dk) / 6",
    "variables": {
-    "Dk": "Puntaje promedio del dominio k, de 1 a 5: políticas, financiación, cultura, apoyos, capital humano y mercados."
+    "Dk": "Puntaje promedio de la dimensión k, de 1 a 5."
    },
    "unit": "Puntaje de 1 a 5",
    "population": "Actores del ecosistema de Manizales.",
@@ -1665,7 +1738,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "RES",
    "line": "ECO",
    "outcome": "OUT_07",
-   "dim": "CON",
+   "dim": "FIN",
    "statement": "Capital movilizado hacia empresas en crecimiento.",
    "name": "Capital desembolsado a empresas acompañadas",
    "definition": "Monto de inversión, crédito o pago por resultados efectivamente desembolsado a empresas acompañadas.",
@@ -1681,7 +1754,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_08",
     "INS_12"
    ],
-   "rule": "No se cuentan montos solicitados ni aprobados sin desembolso. Separar tipo de capital y si la empresa es de base innovadora.",
+   "rule": "Separar micropréstamos, inversión ángel, financiamiento de etapa cero, crédito y pago por resultados. No se cuentan montos sin desembolso.",
    "refs": [
     "REF_NEVADO",
     "REF_AURA"
@@ -1693,7 +1766,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "layer": "RES",
    "line": "ECO",
    "outcome": "OUT_07",
-   "dim": "CON",
+   "dim": "MER",
    "statement": "Empresas que concretan negocios con empresas ancla.",
    "name": "Contratos de innovación abierta",
    "definition": "Empresas con contrato firmado dentro de doce meses desde su postulación a un reto acompañado.",
@@ -1719,7 +1792,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "RES_22",
    "layer": "RES",
    "line": "ECO",
-   "outcome": "OUT_08",
+   "outcome": "OUT_07",
    "dim": "CUL",
    "statement": "Empresarios con aspiración de crecimiento explícita.",
    "name": "Empresarios con meta de crecimiento a tres años",
@@ -1747,7 +1820,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "RES_23",
    "layer": "RES",
    "line": "ECO",
-   "outcome": "OUT_08",
+   "outcome": "OUT_07",
    "dim": "CUL",
    "statement": "Empresarios consolidados que retribuyen al ecosistema.",
    "name": "Retribución al ecosistema (give back)",
@@ -1768,10 +1841,82 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "excludes": "Horas pagadas, horas del equipo de Manizales Más y asistencia como público."
   },
   {
+   "code": "RES_29",
+   "layer": "RES",
+   "line": "ECO",
+   "outcome": "OUT_07",
+   "dim": "POL",
+   "statement": "Políticas públicas que impulsan el crecimiento.",
+   "name": "Políticas y programas públicos para el crecimiento",
+   "definition": "Políticas, programas o regulaciones que adoptan el gobierno local o departamental con aporte documentado del ecosistema.",
+   "calculation": "N(políticas o programas adoptados)",
+   "variables": {
+    "N": "Instrumentos públicos adoptados en el año con aporte documentado."
+   },
+   "unit": "Políticas o programas",
+   "population": "Gobierno municipal de Manizales y departamental de Caldas.",
+   "frequency": "Anual",
+   "horizon": "Año calendario",
+   "sources": [
+    "INS_08"
+   ],
+   "rule": "Cuenta la adopción formal: acto administrativo, ordenanza, acuerdo o programa con presupuesto.",
+   "excludes": "Mesas de trabajo, declaraciones o propuestas que no se adoptan."
+  },
+  {
+   "code": "RES_30",
+   "layer": "RES",
+   "line": "ECO",
+   "outcome": "OUT_07",
+   "dim": "SOP",
+   "statement": "Mentores formados que acompañan empresas.",
+   "name": "Mentores activos en el ecosistema",
+   "definition": "Mentores y facilitadores formados por Manizales Más que, doce meses después, acompañan empresas desde sus organizaciones.",
+   "calculation": "100 × A / B",
+   "variables": {
+    "A": "Mentores formados con al menos un acompañamiento activo a los doce meses.",
+    "B": "Mentores que completaron la formación hace doce meses."
+   },
+   "unit": "%",
+   "population": "Mentores y facilitadores formados.",
+   "frequency": "Anual",
+   "horizon": "12 meses desde la formación",
+   "sources": [
+    "INS_07",
+    "INS_10"
+   ],
+   "rule": "Separar por organización de soporte.",
+   "excludes": "Mentores que solo asisten a eventos o que cobran por su tiempo."
+  },
+  {
+   "code": "RES_31",
+   "layer": "RES",
+   "line": "ECO",
+   "outcome": "OUT_07",
+   "dim": "TYT",
+   "statement": "Docentes que enseñan emprendimiento orientado al crecimiento.",
+   "name": "Docentes que aplican la metodología",
+   "definition": "Docentes formados que, en el año siguiente, enseñan emprendimiento con la metodología en sus cursos.",
+   "calculation": "100 × A / B",
+   "variables": {
+    "A": "Docentes formados con al menos un curso dictado con la metodología.",
+    "B": "Docentes que completaron la formación hace un año."
+   },
+   "unit": "%",
+   "population": "Docentes de universidades aliadas formados.",
+   "frequency": "Anual",
+   "horizon": "12 meses desde la formación",
+   "sources": [
+    "INS_03",
+    "INS_10"
+   ],
+   "rule": "Verificar con el programa del curso o la institución.",
+   "excludes": "Charlas sueltas o cursos sin la metodología."
+  },
+  {
    "code": "RES_24",
    "layer": "RES",
-   "line": "TRF",
-   "outcome": "OUT_09",
+   "line": "SOS",
    "statement": "Organizaciones locales que operan los servicios transferidos.",
    "name": "Servicios con primera operación local",
    "definition": "Servicios que completan su primera cohorte local y aplican los componentes acordados dentro de doce meses.",
@@ -1796,8 +1941,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "code": "RES_26",
    "layer": "RES",
-   "line": "TRF",
-   "outcome": "OUT_09",
+   "line": "SOS",
    "statement": "Organizaciones socias que avanzan en madurez institucional.",
    "name": "Avance en madurez institucional",
    "definition": "Organizaciones socias que suben al menos un nivel en la escala de madurez entre el diagnóstico y los doce meses.",
@@ -1815,6 +1959,73 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    ],
    "rule": "Reportar también la distribución por nivel.",
    "excludes": "Autoevaluaciones sin evidencia."
+  },
+  {
+   "code": "RES_32",
+   "layer": "RES",
+   "line": "SOS",
+   "statement": "Ingresos propios por venta de servicios.",
+   "name": "Ingresos propios por venta de servicios",
+   "definition": "Porcentaje del presupuesto operativo anual de Manizales Más que se financia con la venta de servicios y metodologías.",
+   "calculation": "100 × A / B",
+   "variables": {
+    "A": "Ingresos por venta de servicios y metodologías en el año.",
+    "B": "Presupuesto operativo ejecutado en el año."
+   },
+   "unit": "%",
+   "population": "Manizales Más.",
+   "frequency": "Anual",
+   "horizon": "Año calendario",
+   "sources": [
+    "INS_08"
+   ],
+   "rule": "No incluye donaciones ni recursos de cooperación.",
+   "excludes": "Donaciones, cooperación internacional y aportes de aliados."
+  },
+  {
+   "code": "RES_33",
+   "layer": "RES",
+   "line": "SOS",
+   "statement": "Acuerdos de pago por resultados con resultados verificados.",
+   "name": "Pago por resultados verificado",
+   "definition": "Acuerdos de pago por resultados cuyos resultados pactados se verifican y se pagan en el periodo, y aprendizajes que se incorporan a otros programas.",
+   "calculation": "100 × A / B y N aprendizajes",
+   "variables": {
+    "A": "Acuerdos con resultados verificados y pagados.",
+    "B": "Acuerdos con fecha de verificación en el periodo.",
+    "N": "Cambios de diseño adoptados en otros programas a partir de lo aprendido."
+   },
+   "unit": "% y cambios adoptados",
+   "population": "Acuerdos de pago por resultados.",
+   "frequency": "Anual",
+   "horizon": "Año calendario",
+   "sources": [
+    "INS_08"
+   ],
+   "rule": "Cada aprendizaje se documenta con el programa que lo adopta.",
+   "excludes": "Acuerdos firmados que no llegan a verificación."
+  },
+  {
+   "code": "RES_34",
+   "layer": "RES",
+   "line": "SOS",
+   "statement": "Una comunidad activa que sostiene el modelo.",
+   "name": "Comunidad activa",
+   "definition": "Empresarios, mentores y egresados que participan al menos dos veces al año en actividades de la comunidad de Manizales Más.",
+   "calculation": "N(miembros activos)",
+   "variables": {
+    "N": "Personas con dos o más participaciones registradas en el año."
+   },
+   "unit": "Personas",
+   "population": "Comunidad de empresarios, mentores y egresados.",
+   "frequency": "Anual",
+   "horizon": "Año calendario",
+   "sources": [
+    "INS_03",
+    "INS_07"
+   ],
+   "rule": "Contar una vez cada persona.",
+   "excludes": "Inscritos en listas o bases de datos sin participación."
   },
   {
    "code": "IMP_1",
@@ -1849,15 +2060,15 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "code": "IMP_2",
    "layer": "IMP",
    "line": "SIS",
-   "statement": "Las empresas acompañadas generan más empleo formal neto que empresas comparables.",
-   "name": "Empleo formal neto generado a 24 meses",
-   "definition": "Puestos formales netos creados por las empresas atendidas a 24 meses, frente al cambio en el grupo de comparación.",
-   "calculation": "Σ(Ei,24 − Ei,0) y diferencia frente a comparación",
+   "statement": "Las empresas acompañadas generan más empleo formal y mejor pagado que empresas comparables.",
+   "name": "Efecto sobre el empleo formal y la masa salarial a 24 meses",
+   "definition": "Diferencia entre las empresas atendidas y un grupo de comparación en el crecimiento de su masa salarial formal a 24 meses, reportada junto con los puestos formales netos.",
+   "calculation": "ΔMS(atendidas) − ΔMS(comparación)",
    "variables": {
-    "Ei,0": "Cotizantes dependientes de la empresa i al ingreso.",
-    "Ei,24": "Cotizantes dependientes a los 24 meses."
+    "ΔMS": "Crecimiento real de la suma de salarios cotizados en PILA entre el ingreso y los 24 meses.",
+    "Puestos netos": "Cotizantes dependientes a los 24 meses menos los del ingreso, en las mismas empresas."
    },
-   "unit": "Puestos",
+   "unit": "Puntos porcentuales y puestos",
    "population": "Empresas atendidas, directamente o por socios, y grupo de comparación.",
    "frequency": "Anual",
    "horizon": "24 meses desde el ingreso",
@@ -1871,35 +2082,63 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "REF_PILA",
     "REF_SIEF"
    ],
-   "excludes": "Empleos brutos, anunciados o estimados, y contratistas."
+   "excludes": "Empleos brutos, anunciados o estimados, contratistas y salarios sin cotización."
   },
   {
    "code": "IMP_3",
    "layer": "IMP",
    "line": "SIS",
-   "statement": "Los jóvenes de la ruta de empleabilidad consiguen más empleo formal que jóvenes comparables.",
-   "name": "Efecto sobre el empleo formal de los jóvenes a 12 meses",
-   "definition": "Diferencia en el porcentaje con empleo formal a 12 meses del cierre entre los jóvenes atendidos y un grupo de comparación.",
-   "calculation": "P(atendidos) − P(comparación)",
+   "statement": "Los jóvenes atendidos logran más ingresos estables que jóvenes comparables.",
+   "name": "Efecto sobre los ingresos de los jóvenes a 12 y 24 meses",
+   "definition": "Diferencia en el ingreso laboral mensual real, por salario o por utilidad del negocio propio, entre los jóvenes de ambas rutas y un grupo de comparación.",
+   "calculation": "Y(atendidos) − Y(comparación)",
    "variables": {
-    "P": "Porcentaje de cada grupo con cotización en PILA como dependiente doce meses después del cierre."
+    "Y": "Mediana del ingreso laboral mensual real de cada grupo, promedio de los tres meses previos al seguimiento."
    },
-   "unit": "Puntos porcentuales",
-   "population": "Ruta de empleabilidad de Qué Nivel y postulantes elegibles no seleccionados o en lista de espera.",
+   "unit": "Pesos constantes por mes",
+   "population": "Jóvenes de ambas rutas de Qué Nivel y postulantes elegibles no seleccionados o en lista de espera.",
    "frequency": "Anual",
-   "horizon": "12 meses desde el cierre",
+   "horizon": "12 y 24 meses desde el cierre",
    "sources": [
     "INS_01",
     "INS_05",
-    "INS_11"
+    "INS_11",
+    "INS_12"
    ],
-   "rule": "Es la línea con evaluación prospectiva más viable: la convocatoria tiene más postulantes que cupos. Medir a ambos grupos con la misma fuente.",
-   "dim": "EMPL",
+   "rule": "Utilidad del negocio = ventas menos costos del negocio. Deflactar con el IPC al mes base de la cohorte.",
+   "dim": "AMB",
    "refs": [
     "REF_SIEF",
     "REF_PILA"
    ],
-   "excludes": "Comparaciones contra promedios nacionales y empleos informales."
+   "excludes": "Transferencias, subsidios, préstamos y ventas del negocio sin descontar costos."
+  },
+  {
+   "code": "IMP_4",
+   "layer": "IMP",
+   "line": "SIS",
+   "statement": "Las empresas acompañadas sobreviven más que empresas comparables.",
+   "name": "Efecto sobre la supervivencia empresarial a 24 meses",
+   "definition": "Diferencia en el porcentaje de empresas activas a los 24 meses entre las empresas atendidas y un grupo de comparación.",
+   "calculation": "S(atendidas) − S(comparación)",
+   "variables": {
+    "S": "Porcentaje de empresas de cada grupo con matrícula renovada y ventas o cotizantes en PILA a los 24 meses."
+   },
+   "unit": "Puntos porcentuales",
+   "population": "Empresas atendidas y postulantes no seleccionados o empresas comparables en RUES.",
+   "frequency": "Anual",
+   "horizon": "24 meses desde el ingreso",
+   "sources": [
+    "INS_01",
+    "INS_04",
+    "INS_11"
+   ],
+   "rule": "Se reporta siempre junto al efecto sobre ventas, para no medir solo a las que sobrevivieron.",
+   "refs": [
+    "REF_CONF5",
+    "REF_SIEF"
+   ],
+   "excludes": "Empresas con matrícula vigente pero sin ventas ni empleados."
   }
  ],
  "programs": [
@@ -1935,7 +2174,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_27",
     "RES_22",
     "IMP_1",
-    "IMP_2"
+    "IMP_2",
+    "ACT_10",
+    "ACT_11",
+    "IMP_4"
    ],
    "refs": [
     "REF_EAP",
@@ -1970,7 +2212,10 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_27",
     "RES_22",
     "IMP_1",
-    "IMP_2"
+    "IMP_2",
+    "ACT_10",
+    "ACT_11",
+    "IMP_4"
    ]
   },
   {
@@ -1993,29 +2238,28 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_4",
     "RES_5",
     "RES_6",
-    "IMP_1"
+    "IMP_1",
+    "ACT_11"
    ]
   },
   {
    "id": "PRG_15",
    "name": "Entrenamiento a mentores",
-   "line": "TRF",
+   "line": "ECO",
    "portfolio": true,
    "population": "Mentores y facilitadores de organizaciones aliadas.",
-   "role": "Forma personas para acompañar empresas desde sus propias organizaciones.",
+   "role": "Forma mentores y facilitadores para que acompañen empresas desde sus organizaciones y fortalezcan el soporte del ecosistema.",
    "focus": [
     "PRD_0",
-    "RES_24",
+    "RES_30",
     "RES_23"
    ],
    "elements": [
-    "PRB_4",
+    "PRB_3",
     "ACT_8",
     "PRD_8",
-    "RES_23",
-    "RES_24",
-    "RES_6",
-    "IMP_1"
+    "RES_30",
+    "RES_23"
    ]
   },
   {
@@ -2028,8 +2272,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "role": "Mide las condiciones del entorno, articula a los cinco tipos de actor de MIT REAP alrededor de apuestas estratégicas regionales y mueve la cultura hacia el crecimiento.",
    "focus": [
     "RES_19",
-    "RES_22",
-    "RES_23"
+    "RES_29",
+    "RES_22"
    ],
    "elements": [
     "PRB_3",
@@ -2038,6 +2282,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_11",
     "PRD_12",
     "RES_19",
+    "RES_29",
     "RES_22",
     "RES_23"
    ],
@@ -2068,7 +2313,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_7",
     "RES_23",
     "IMP_1",
-    "IMP_2"
+    "IMP_2",
+    "ACT_10",
+    "IMP_4"
    ],
    "refs": [
     "REF_MENT",
@@ -2094,7 +2341,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_1",
     "RES_4",
     "RES_10",
-    "RES_12"
+    "RES_12",
+    "ACT_10",
+    "IMP_4"
    ],
    "refs": [
     "REF_ADD"
@@ -2115,7 +2364,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "ACT_1",
     "PRD_1",
     "RES_10",
-    "RES_12"
+    "RES_12",
+    "IMP_4"
    ]
   },
   {
@@ -2127,9 +2377,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "focus": [
     "RES_14",
     "RES_15",
-    "RES_16",
     "RES_17",
     "RES_18",
+    "RES_28",
     "RES_13"
    ],
    "elements": [
@@ -2144,7 +2394,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_16",
     "RES_17",
     "RES_18",
-    "IMP_3"
+    "IMP_3",
+    "RES_28"
    ],
    "refs": [
     "REF_QN"
@@ -2186,7 +2437,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "PRD_6",
     "RES_20",
     "RES_6",
-    "IMP_1"
+    "IMP_1",
+    "IMP_4"
    ],
    "refs": [
     "REF_NEVADO"
@@ -2195,18 +2447,18 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "PRG_12",
    "name": "AuRA y pago por resultados",
-   "line": "ECO",
+   "line": "SOS",
    "population": "Empresas vinculadas a financiación por resultados.",
-   "role": "Estructura financiación que se paga contra resultados verificados.",
+   "role": "Estructura financiación que se paga contra resultados verificados y convierte lo aprendido en mejores programas.",
    "focus": [
-    "RES_20",
-    "RES_7"
+    "RES_33",
+    "RES_20"
    ],
    "elements": [
-    "PRB_3",
     "ACT_6",
     "PRD_6",
     "RES_20",
+    "RES_33",
     "RES_7",
     "IMP_2"
    ],
@@ -2217,18 +2469,18 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "PRG_07",
    "name": "Profesores de Alto Potencial",
-   "line": "TRF",
+   "line": "ECO",
    "population": "Docentes de universidades aliadas.",
    "role": "Forma docentes para enseñar emprendimiento orientado al crecimiento.",
    "focus": [
     "PRD_0",
-    "RES_24"
+    "RES_31"
    ],
    "elements": [
-    "PRB_4",
+    "PRB_3",
     "ACT_8",
     "PRD_8",
-    "RES_24"
+    "RES_31"
    ],
    "refs": [
     "REF_PROF"
@@ -2237,34 +2489,32 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "PRG_08",
    "name": "La ruta del emprendimiento",
-   "line": "TRF",
+   "line": "ECO",
    "population": "Estudiantes de universidades aliadas.",
    "role": "Formación aplicada en emprendimiento impartida por docentes formados.",
    "focus": [
     "PRD_0",
-    "RES_24"
+    "RES_31"
    ],
    "elements": [
+    "PRB_3",
     "ACT_8",
     "PRD_8",
-    "RES_24"
+    "RES_31"
    ]
   },
   {
    "id": "PRG_13",
    "name": "Lleva el crecimiento a tu región",
-   "line": "TRF",
+   "line": "SOS",
    "population": "Organizaciones y territorios que adoptan el modelo.",
-   "role": "Diagnostica territorios, instala servicios en organizaciones socias y transfiere los toolkits.",
+   "role": "Lleva el modelo a municipios de Caldas y a otros ecosistemas, con diagnóstico, instalación de servicios y herramientas estandarizadas.",
    "focus": [
     "RES_24",
     "RES_26",
-    "PRD_11",
     "PRD_10"
    ],
    "elements": [
-    "PRB_4",
-    "ACT_9",
     "PRD_9",
     "PRD_10",
     "PRD_11",
@@ -2770,6 +3020,8 @@ const byIns = new Map(M.instruments.map(i => [i.id, i]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
 const IND = M.indicators.filter(x => x.name && !x.measuredBy);
 const outsOf = id => M.outcomes.filter(o => o.line === id);
+const FRONTS = M.lines.filter(l => !l.base), BASE = M.lines.find(l => l.base);
+const compOf = id => BASE.components.find(c => 'sos:' + c.id === id);
 const lineName = id => id === 'SIS' ? 'Todos los frentes' : byLine.get(id)?.name || id;
 const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
@@ -2782,11 +3034,12 @@ const S = {view:'', mode:'line', line:'', prog:'', node:''};
 /* qué indicadores corresponden a cada elemento de la cadena */
 const codesOf = id => {
   if(id === 'impact') return M.impact.indicators;
+  if(compOf(id)) return compOf(id).codes;
   if(byOut.has(id)) return byOut.get(id).indicators;
   const x = byCode.get(id); return x.measuredBy ? [x.measuredBy] : [id];
 };
-const nodeLabel = id => id === 'impact' ? M.impact.title : byOut.has(id) ? byOut.get(id).statement : byCode.get(id).statement;
-const nodeStage = id => id === 'impact' ? 'Impacto' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
+const nodeLabel = id => id === 'impact' ? M.impact.title : compOf(id) ? compOf(id).name : byOut.has(id) ? byOut.get(id).statement : byCode.get(id).statement;
+const nodeStage = id => id === 'impact' ? 'Impacto' : compOf(id) ? 'Sostenibilidad' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
 
 /* ---------- 01 modelo ---------- */
 const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
@@ -2798,7 +3051,7 @@ const ICONS = {
   EMP: svg('<path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20v-8"/><path d="M16 20v-11"/><path d="M14 5h5v5"/><path d="M19 5l-7 7"/>'),
   TAL: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>'),
   ECO: svg('<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M8 8l2.2 2.2M16 8l-2.2 2.2M8 16l2.2-2.2M16 16l-2.2-2.2"/>'),
-  TRF: svg('<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.3 10.8l7.4-4M8.3 13.2l7.4 4"/>')};
+  SOS: svg('<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.3 10.8l7.4-4M8.3 13.2l7.4 4"/>')};
 function drawModel(){
   $('sideMeta').innerHTML = `Versión <b>${esc(M.meta.version)}</b><br>${esc(DATE)}`;
   $('heroLead').textContent = M.meta.intro[0];
@@ -2806,16 +3059,22 @@ function drawModel(){
   $('goalTitle').textContent = M.impact.title;
   $('goalStory').textContent = M.impact.story;
   $('pillars').innerHTML = M.impact.pillars.map(p => `<li><span class="pi" aria-hidden="true">${PILLAR_ICONS[p.icon]}</span><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></li>`).join('');
-  $('lineCards').innerHTML = M.lines.map((l, i) => {
+  $('lineCards').innerHTML = FRONTS.map((l, i) => {
     const ps = M.programs.filter(p => p.line === l.id);
     return `<article class="card line-card" style="${lineVars(l.id)}"><span class="num" aria-hidden="true">0${i + 1}</span><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></div><p>${esc(l.story)}</p>
       <div class="foot"><p class="lbl">${plural(ps.length,'programa','programas')}</p><ul class="tags">${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`;
   }).join('');
+  const bps = M.programs.filter(p => p.line === BASE.id);
+  $('baseCard').innerHTML = `<article class="card base-card" style="${lineVars(BASE.id)}">
+    <div class="base-head"><span class="ico" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h3>${esc(BASE.name)}</h3></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
+    <p>${esc(BASE.story)}</p>
+    <ul class="base-comps">${BASE.components.map(c => `<li><b>${esc(c.name)}</b><span>${esc(c.text)}</span></li>`).join('')}</ul>
+    <div class="foot"><p class="lbl">${plural(bps.length,'programa','programas')}</p><ul class="tags">${bps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`;
 }
 
 /* ---------- 02 teoría ---------- */
 function drawControls(){
-  $('lineChips').innerHTML = [{id:'',name:'Todas'}, ...M.lines].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
+  $('lineChips').innerHTML = [{id:'',name:'Todos'}, ...FRONTS].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
   const bySize = [...M.lines].sort((a, b) => M.programs.filter(p => p.line === b.id).length - M.programs.filter(p => p.line === a.id).length);
   $('pick').innerHTML = bySize.map(l => {
     const ps = M.programs.filter(p => p.line === l.id).sort((a, b) => (b.portfolio ? 1 : 0) - (a.portfolio ? 1 : 0));
@@ -2831,13 +3090,13 @@ function drawControls(){
 function state(codes){ const p = byProg.get(S.prog); if(S.mode !== 'program' || !p) return ''; return codes.some(c => p.elements.includes(c)) ? ' hit' : ' dim'; }
 const pressed = id => ` aria-pressed="${S.node === id}"`;
 function drawTheory(){
-  const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
+  const lanes = FRONTS.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
   const node = x => x.layer === 'PRB' ? `<p class="node prb${state([x.code])}">${esc(x.statement)}</p>` : `<button type="button" class="node${state([x.code])}" data-node="${x.code}"${pressed(x.code)}>${esc(x.statement)}</button>`;
   const head = `<div class="swim-h" aria-hidden="true"></div>` + ['PRB','ACT','PRD','RES','IMP'].map((id, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${esc(layerName(id))}</div>`).join('');
   const rows = lanes.map(l => {
     const items = layer => M.indicators.filter(x => x.layer === layer && x.line === l.id);
-    const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-node="${o.id}"${pressed(o.id)}>${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}</button>`).join('');
+    const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-node="${o.id}"${pressed(o.id)}>${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}${o.formula==='6D'?'<span class="f3c">'+['Mercados','Política','Finanzas','Cultura','Soporte','Talento'].map(d => `<span>${d}</span>`).join('')+'</span>':''}</button>`).join('');
     return `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
       <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
       ${cell('Problemática', items('PRB').map(node).join(''))}${cell('Actividades', items('ACT').map(node).join(''))}${cell('Productos', items('PRD').map(node).join(''))}${cell('Resultados', outs)}
@@ -2845,6 +3104,10 @@ function drawTheory(){
   }).join('');
   const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-node="impact"${pressed('impact')}><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
   $('swim').innerHTML = head + rows + imp;
+  const bb = $('baseBand'); bb.style.cssText = lineVars(BASE.id);
+  bb.innerHTML = `<div class="bb-head"><div class="bb-title"><span class="ico sm" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h2 id="lane-${BASE.id}">${esc(BASE.name)}</h2></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
+    <div class="lane-btns row"><button type="button" class="hyp-btn" data-tip="hyp:${BASE.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${BASE.id}" aria-expanded="false">Supuestos</button></div></div>
+    <div class="bb-comps">${BASE.components.map(c => `<button type="button" class="comp${state(c.codes)}" data-node="sos:${c.id}"${pressed('sos:' + c.id)}><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span></button>`).join('')}</div>`;
   drawIndicators();
 }
 

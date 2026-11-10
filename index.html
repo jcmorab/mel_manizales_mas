@@ -534,7 +534,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "tone": "#17608F",
    "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, fortalecemos la venta de nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que sostiene el modelo.",
    "base": true,
-   "draft": true,
    "components": [
     {
      "id": "TRA",
@@ -632,14 +631,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_01",
    "line": "EMP",
-   "statement": "Empresas que toman y ejecutan decisiones de crecimiento.",
+   "statement": "Empresas que ejecutan sus decisiones de crecimiento.",
    "indicators": [
     "RES_1",
     "RES_2"
    ],
    "products": [
-    "PRD_1",
-    "PRD_2"
+    "PRD_13",
+    "PRD_1"
    ]
   },
   {
@@ -664,7 +663,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   {
    "id": "OUT_03",
    "line": "EMP",
-   "statement": "Emprendimientos que validan su mercado, sobreviven y resisten.",
+   "statement": "Supervivencia empresarial: emprendimientos que venden y resisten.",
    "indicators": [
     "RES_10",
     "RES_12"
@@ -1069,6 +1068,28 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_03"
    ],
    "rule": "Registrar contraparte, propósito, fecha y siguiente paso."
+  },
+  {
+   "code": "PRD_13",
+   "layer": "PRD",
+   "line": "EMP",
+   "statement": "Empresas con plan de crecimiento e hitos acordados.",
+   "name": "Empresas con plan de crecimiento",
+   "definition": "Empresas que cierran su ruta con un plan de crecimiento a tres años, con metas de ventas y empleo e hitos con responsable y fecha, aprobado por quien decide.",
+   "calculation": "100 × A / B",
+   "variables": {
+    "A": "Empresas con plan completo y aprobado al cierre.",
+    "B": "Empresas que iniciaron la cohorte, incluidos los retiros."
+   },
+   "unit": "%",
+   "population": "Empresas atendidas en una cohorte cerrada.",
+   "frequency": "Por cohorte",
+   "horizon": "Cierre de cohorte",
+   "sources": [
+    "INS_03"
+   ],
+   "rule": "El plan es la base de los hitos que se siguen en mentoría.",
+   "excludes": "Planes sin metas cuantificadas, sin hitos con fecha o sin aprobación de quien decide."
   },
   {
    "code": "PRD_3",
@@ -1794,13 +1815,13 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "line": "ECO",
    "outcome": "OUT_07",
    "dim": "CUL",
-   "statement": "Empresarios con aspiración de crecimiento explícita.",
-   "name": "Empresarios con meta de crecimiento a tres años",
-   "definition": "Empresarios atendidos que al cierre tienen una meta cuantificada de ventas y empleo a tres años, aprobada por quien decide.",
+   "statement": "Empresarios que elevan su ambición de crecimiento.",
+   "name": "Cambio en la ambición de crecimiento",
+   "definition": "Empresarios cuya meta de crecimiento a tres años al cierre es mayor que la que declararon al ingreso.",
    "calculation": "100 × A / B",
    "variables": {
-    "A": "Empresarios con meta cuantificada al cierre.",
-    "B": "Empresarios con cierre documentado."
+    "A": "Empresarios con meta de ventas o empleo a tres años mayor al cierre que al ingreso.",
+    "B": "Empresarios con meta registrada al ingreso y al cierre."
    },
    "unit": "%",
    "population": "Empresas que completan su ruta.",
@@ -1814,7 +1835,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "refs": [
     "REF_ISEN13"
    ],
-   "excludes": "Metas sin cifra de ventas y empleo o sin aprobación de quien decide."
+   "excludes": "Metas sin cifra de ventas y empleo, o registradas solo al cierre."
   },
   {
    "code": "RES_23",
@@ -2177,7 +2198,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "IMP_2",
     "ACT_10",
     "ACT_11",
-    "IMP_4"
+    "IMP_4",
+    "PRD_13"
    ],
    "refs": [
     "REF_EAP",
@@ -2215,7 +2237,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "IMP_2",
     "ACT_10",
     "ACT_11",
-    "IMP_4"
+    "IMP_4",
+    "PRD_13"
    ]
   },
   {
@@ -2267,9 +2290,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Desarrollo de ecosistema",
    "line": "ECO",
    "portfolio": true,
-   "draft": true,
    "population": "Actores del ecosistema de Manizales y de los territorios que se diagnostican.",
-   "role": "Mide las condiciones del entorno, articula a los cinco tipos de actor de MIT REAP alrededor de apuestas estratégicas regionales y mueve la cultura hacia el crecimiento.",
+   "role": "Fortalece el ecosistema en sus seis dimensiones: mide cada año sus condiciones, articula a sus actores alrededor de apuestas regionales y mueve la cultura hacia el crecimiento.",
    "focus": [
     "RES_19",
     "RES_29",
@@ -2315,7 +2337,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "IMP_1",
     "IMP_2",
     "ACT_10",
-    "IMP_4"
+    "IMP_4",
+    "PRD_13"
    ],
    "refs": [
     "REF_MENT",
@@ -2343,7 +2366,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "RES_10",
     "RES_12",
     "ACT_10",
-    "IMP_4"
+    "IMP_4",
+    "PRD_13"
    ],
    "refs": [
     "REF_ADD"
@@ -2825,8 +2849,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "id": "REF_ISEN11",
-   "title": "Isenberg, The Entrepreneurship Ecosystem Strategy as a New Paradigm for Economic Policy (Babson Entrepreneurship Ecosystem Project, 2011)",
-   "url": "",
+   "title": "Isenberg, The Entrepreneurship Ecosystem Strategy for Economic Growth Policy: Principles for Cultivating Entrepreneurship (Babson Entrepreneurship Ecosystem Project, 2011)",
+   "url": "https://archive.org/details/Isenberg-entrepreneurship-ecosystem-strategy-for-economic-growth",
    "type": "Marco conceptual",
    "use": "Seis dominios del ecosistema usados en la medición anual de condiciones."
   },
@@ -2840,8 +2864,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "id": "REF_ISEN13",
-   "title": "Isenberg, Worthless, Impossible and Stupid (Harvard Business Review Press, 2013)",
-   "url": "",
+   "title": "Isenberg, Worthless, Impossible and Stupid: How Contrarian Entrepreneurs Create and Capture Extraordinary Value (Harvard Business Review Press, 2013)",
+   "url": "https://www.oreilly.com/library/view/worthless-impossible-and/9781422186992/",
    "type": "Marco conceptual",
    "use": "Cultura de crecimiento y papel de los referentes empresariales."
   },
@@ -2910,8 +2934,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   },
   {
    "id": "REF_PILA",
-   "title": "Planilla Integrada de Liquidación de Aportes (PILA), Ministerio de Salud y Protección Social",
-   "url": "",
+   "title": "Ministerio de Salud y Protección Social, ABC de la Planilla Integrada de Liquidación de Aportes (PILA), 2017",
+   "url": "https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/OT/pila-abece-2017.pdf",
    "type": "Registro administrativo",
    "use": "Verificación de empleo formal con autorización de las empresas y personas."
   },

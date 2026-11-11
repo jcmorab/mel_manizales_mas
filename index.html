@@ -50,7 +50,7 @@ a{color:var(--navy);text-underline-offset:3px}
 .nav a[aria-current="page"] span{color:var(--lime)}
 .side-meta{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px}
 .side-meta b{color:var(--lime)}
-main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
+main{padding:48px var(--pad) 80px;max-width:1840px;min-width:0}
 .view{animation:enter .28s ease-out both}
 @keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -496,7 +496,7 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .tip li{position:static;padding:0;margin:0}
 .tip li::before{display:none}
 .t-evs li{display:grid;gap:1px;background:color-mix(in srgb,var(--lc) 9%,#fff);border-left:3px solid var(--lc);border-radius:8px;padding:8px 12px}
-.t-evs b{color:var(--lt);font-size:14px}
+.t-evs b{color:var(--navy-d);font-size:13.5px;font-weight:600;line-height:1.4}
 .t-evs span{font-size:12px;color:var(--muted)}
 .t-sups li{display:grid;gap:3px;background:var(--pale);border-radius:10px;padding:10px 12px}
 .t-sups b,.t-inds b{color:var(--navy-d);font-size:14px}
@@ -524,12 +524,11 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .cbox.imp .cb-l{color:#C9D7EA}.cbox.imp .cb-h b{color:#fff}
 .cbox.imp li{color:#fff;font-weight:600;font-size:15px;border-left-color:var(--lime)}
 .cbox.imp .cm{color:#C9D7EA}
-.c-foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
-.c-foot section{padding:20px 24px}
+.c-foot{padding:20px 24px}
 .c-foot h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
 .c-foot li{font-size:14px;line-height:1.55;color:var(--muted)}
 .c-foot li b{color:var(--navy-d)}
-.c-foot ul{display:grid;gap:8px;margin-bottom:12px}
+.c-foot ul{display:grid;gap:8px}
 .c-evs li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
 .c-evs span{font-size:12.5px;color:var(--soft)}
 /* indicadores */
@@ -542,7 +541,23 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .icard{display:flex;flex-direction:column;gap:8px;padding:20px 22px;border-top:4px solid var(--lc,var(--navy));border-radius:18px}
 .i-g{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lt,var(--navy))}
 .i-g .dot{width:8px;height:8px;border-radius:50%;background:var(--lc,var(--navy))}
-.icard h2{font-size:1.08rem;line-height:1.3;color:var(--navy-d)}
+.icard h3{font-size:1.08rem;line-height:1.3;color:var(--navy-d)}
+.istages{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.istage{position:relative}
+.istage>*{display:flex;align-items:center;gap:10px;height:100%;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:12px 14px;text-decoration:none;color:var(--navy)}
+.istage:not(:last-child)::after{content:"→";position:absolute;right:-20px;top:50%;margin-top:-12px;width:18px;text-align:center;color:var(--soft);font-weight:700}
+.istage b{display:block;font-size:14.5px}
+.istage small{font-size:12px;color:var(--muted)}
+.istage a:hover{border-color:var(--navy)}
+.istage.off>*{background:transparent;box-shadow:none;border-style:dashed}
+.istage.off .sn{background:var(--soft)}
+.sn{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700}
+.istage.imp .sn,.isec.imp .sn{background:var(--lime);color:var(--navy-d)}
+.isec{margin-top:30px;scroll-margin-top:20px}
+.isec>header{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--line)}
+.isec h2{font-size:1.25rem}
+.isec h2:focus{outline:none}
+.isec>header p{color:var(--muted);font-size:14px}
 .i-c{font-size:14px;line-height:1.55;color:var(--ink)}
 .icard dl{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:grid;gap:8px}
 .icard dt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
@@ -555,7 +570,16 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .fwc h3{color:#fff;font-size:1.25rem}
 .fwc p:not(.fw-sub){font-size:14px;line-height:1.6;color:#DCE6F3}
 .fwc a{margin-top:auto;padding-top:8px;color:var(--lime);font-weight:600;font-size:14px}
-.ev-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ev-table{padding:8px 28px 12px;border-left:6px solid var(--lc);border-radius:20px;margin-bottom:16px}
+.ev-table h3{font-size:1.2rem;color:var(--lt);padding:16px 0 4px}
+.ev-table ol{list-style:none;margin:0;padding:0}
+.ev-table li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:8px 36px;padding:18px 0;border-top:1px solid var(--line)}
+.ev-claim{font-weight:600;font-size:15.5px;line-height:1.45;color:var(--navy-d)}
+.ev-table .ev-text{font-size:14.5px;line-height:1.6;color:var(--ink)}
+.ev-table .ev-text b{font-weight:600;color:var(--soft)}
+.ev-table .ev-src{margin-top:8px;font-size:13px;line-height:1.5}
+.ev-table .ev-src a{color:var(--navy)}
+@media (max-width:900px){.ev-table li{grid-template-columns:1fr}}
 .evc{display:flex;flex-direction:column;gap:10px;padding:22px 24px;border-left:6px solid var(--lc);border-radius:20px}
 .ev-place{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .evc h3{font-size:1.45rem;line-height:1.15;color:var(--lt)}
@@ -568,9 +592,9 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .ref-cols.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .ctab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
 .ctab[aria-pressed="true"] .ico{background:var(--lime);color:var(--navy-d)}
-@media (max-width:1100px){.cflow{grid-template-columns:1fr;gap:26px}.cbox:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-25px;margin-left:-9px}.fw-cards,.ev-cards,.c-foot,.ref-cols.two{grid-template-columns:1fr}}
-@media (max-width:900px){button.node.imp{min-height:0}.node.imp strong,.node.imp span,.node.imp em{position:static}.imp-cell{margin-bottom:14px}.isel{margin-left:0;flex-basis:100%}.c-head{padding:20px;flex-direction:column}}
-@media print{.ifilters,.ctabs{display:none!important}.cbox,.icard,.evc,.fwc,.c-head{break-inside:avoid;box-shadow:none}.cflow{grid-template-columns:repeat(5,1fr);gap:10px}.cbox{padding:10px}.cbox li{font-size:8.5pt}.cbox.imp,.fwc,.lev,.cb-n{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+@media (max-width:1100px){.cflow{grid-template-columns:1fr;gap:26px}.cbox:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-25px;margin-left:-9px}.fw-cards,.ref-cols.two{grid-template-columns:1fr}}
+@media (max-width:900px){.istages{grid-template-columns:1fr 1fr;gap:10px}.istage::after{display:none}button.node.imp{min-height:0}.node.imp strong,.node.imp span,.node.imp em{position:static}.imp-cell{margin-bottom:14px}.isel{margin-left:0;flex-basis:100%}.c-head{padding:20px;flex-direction:column}}
+@media print{.ifilters,.ctabs,.istages{display:none!important}.cbox,.icard,.ev-table li,.fwc,.c-head{break-inside:avoid;box-shadow:none}.cflow{grid-template-columns:repeat(5,1fr);gap:10px}.cbox{padding:10px}.cbox li{font-size:8.5pt}.cbox.imp,.fwc,.lev,.cb-n{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 button.node.out{cursor:pointer}
 button.node.out:hover,button.node.out[aria-expanded="true"]{box-shadow:var(--sh);border-color:var(--lc)}
 .dim-card p{font-size:13.5px;color:var(--ink);line-height:1.45;margin:2px 0 4px}
@@ -702,13 +726,14 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 
 <section class="view" id="indicadores" aria-labelledby="h-indicadores" hidden>
   <div class="view-head"><div><p class="kicker">Cómo lo medimos</p><h1 id="h-indicadores" tabindex="-1">Indicadores</h1>
-    <p class="lede">Pocas medidas, con nombres que se entienden solos. De cada una decimos cómo se calcula, si exige levantar información o ya se registra en la operación, y cada cuánto se mide.</p></div></div>
+    <p class="lede">Los indicadores siguen la misma cadena de la teoría de cambio: unos miden lo que hacemos, otros lo que entregamos, otros lo que cambia y otros el impacto. De cada uno decimos cómo se calcula, si exige levantar información y cada cuánto se mide.</p></div></div>
   <div class="card ifilters">
     <div class="field"><span class="flabel" id="lblIL">Frente</span><div class="chips" id="iLineChips" role="group" aria-labelledby="lblIL"></div></div>
     <div class="field isel"><label for="iProg">Programa</label><select id="iProg"></select></div>
   </div>
+  <ol class="istages" id="iStages" aria-label="Etapas de la cadena"></ol>
   <p class="scope" aria-live="polite" id="iCount"></p>
-  <div class="igrid" id="iGrid"></div>
+  <div id="iGrid"></div>
 </section>
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
@@ -818,6 +843,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   ]
  },
  "common": [
+  "actividades",
   "participantes",
   "finalizacion"
  ],
@@ -850,9 +876,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     {
      "text": "Empresas que crecen en clientes, capacidad y caja.",
      "ind": [
-      "ventas",
       "clientes",
-      "empleo",
       "utilidades"
      ]
     },
@@ -884,8 +908,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
       "REF_BLOOM",
       "REF_BRUHN"
      ],
-     "stat": "Más productividad y empleo",
-     "place": "India y México"
+     "claim": "El entrenamiento con expertos mejora la gestión y los resultados de las empresas."
     },
     {
      "from": "a1",
@@ -894,8 +917,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_BROOKS"
      ],
-     "stat": "+20 % en utilidades",
-     "place": "Kenia"
+     "claim": "La mentoría de empresarios con experiencia mejora los resultados del negocio."
     },
     {
      "from": "a3",
@@ -904,8 +926,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_ATKIN"
      ],
-     "stat": "Mejor calidad y utilidades",
-     "place": "Egipto"
+     "claim": "Llegar a nuevos mercados fortalece a las empresas."
     },
     {
      "from": "a0",
@@ -914,8 +935,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_GU"
      ],
-     "stat": "La formación marca la diferencia",
-     "place": "Chile"
+     "claim": "En los emprendimientos tempranos, la formación pesa más que el dinero."
     }
    ]
   },
@@ -983,8 +1003,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_ALFARO"
      ],
-     "stat": "+26 % de empleo",
-     "place": "Costa Rica"
+     "claim": "Venderle a una empresa ancla hace crecer a sus proveedores."
     },
     {
      "from": "a2",
@@ -993,8 +1012,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_MCK"
      ],
-     "stat": "Más ventas y empleo",
-     "place": "Nigeria"
+     "claim": "El capital acelera a las empresas con potencial."
     },
     {
      "from": "a4",
@@ -1003,8 +1021,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_LAF"
      ],
-     "stat": "Más ingresos, a menor costo",
-     "place": "Chile"
+     "claim": "Los referentes empresariales mueven la cultura hacia el crecimiento."
     },
     {
      "from": "o0",
@@ -1013,8 +1030,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_ISEN16"
      ],
-     "stat": "Caso de estudio internacional",
-     "place": "Manizales"
+     "claim": "Un ecosistema enfocado en crecer acelera a sus empresas."
     }
    ]
   },
@@ -1073,8 +1089,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_ATT"
      ],
-     "stat": "Más empleo formal e ingresos",
-     "place": "Colombia"
+     "claim": "La formación con práctica en empresas aumenta el empleo formal de los jóvenes."
     },
     {
      "from": "a1",
@@ -1084,8 +1099,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
       "REF_KLUVE",
       "REF_CARD"
      ],
-     "stat": "Formar y conectar funciona mejor",
-     "place": "Revisión mundial"
+     "claim": "Combinar formación con conexión a empleadores funciona mejor que solo formar."
     },
     {
      "from": "o0",
@@ -1094,8 +1108,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_CAMPOS"
      ],
-     "stat": "+30 % en utilidades",
-     "place": "Togo"
+     "claim": "Fortalecer la iniciativa personal mejora los resultados de los negocios."
     }
    ]
   },
@@ -1154,8 +1167,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_BANERJEE"
      ],
-     "stat": "La fidelidad conserva los resultados",
-     "place": "Revisión mundial"
+     "claim": "Un modelo se puede llevar a otros territorios sin perder resultados si se cuida cómo se aplica."
     },
     {
      "from": "p0",
@@ -1164,8 +1176,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_ISEN16"
      ],
-     "stat": "El modelo ya se replicó",
-     "place": "Estados Unidos"
+     "claim": "La metodología de Manizales Más ya se aplicó en otro ecosistema."
     }
    ]
   }
@@ -1386,7 +1397,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Hitos cumplidos, divididos por los hitos del plan que ya vencieron.",
    "lev": false,
    "info": "Se registra en las sesiones de mentoría.",
-   "freq": "Trimestral"
+   "freq": "Trimestral",
+   "stage": "RES"
   },
   {
    "id": "ventas",
@@ -1395,7 +1407,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Variación de las ventas del año frente a las del año anterior al ingreso, descontando la inflación. Se reporta la mediana de las empresas.",
    "lev": true,
    "info": "Reporte anual de ventas de cada empresa.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "IMP"
   },
   {
    "id": "clientes",
@@ -1404,7 +1417,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empresas con al menos una venta a un cliente, ciudad, país o canal nuevo, divididas por las empresas acompañadas.",
    "lev": true,
    "info": "Reporte anual de cada empresa.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "RES"
   },
   {
    "id": "empleo",
@@ -1413,7 +1427,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empleados con contrato laboral al cierre del año, menos los que había al ingreso.",
    "lev": true,
    "info": "Reporte anual de cada empresa, con su planilla de aportes como soporte.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "IMP"
   },
   {
    "id": "utilidades",
@@ -1422,7 +1437,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empresas cuya utilidad operativa del año es igual o mayor que la del año anterior al ingreso, divididas por las empresas acompañadas.",
    "lev": true,
    "info": "Estados financieros anuales de cada empresa.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "RES"
   },
   {
    "id": "supervivencia",
@@ -1431,7 +1447,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empresas que siguen operando dos años después de ingresar, divididas por las que ingresaron.",
    "lev": false,
    "info": "Se consulta el registro mercantil y el contacto con la empresa.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "emprend_ventas",
@@ -1440,7 +1457,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Emprendimientos con ventas en los últimos tres meses, divididos por los emprendimientos acompañados.",
    "lev": true,
    "info": "Seguimiento anual a cada emprendimiento.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "RES"
   },
   {
    "id": "indice_eco",
@@ -1449,7 +1467,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Promedio del puntaje, de 1 a 5, que los actores del ecosistema dan a cada una de las seis dimensiones.",
    "lev": true,
    "info": "Encuesta anual a empresarios, capital, empresas ancla, gobierno y universidades.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "capital",
@@ -1458,7 +1477,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Suma de la inversión y el crédito desembolsados a las empresas acompañadas en el año.",
    "lev": false,
    "info": "Se registra en los programas de financiación.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "negocios_ancla",
@@ -1467,7 +1487,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Número y valor de los contratos firmados en el año a partir de retos de empresas ancla.",
    "lev": false,
    "info": "Se registra en Open Más.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "mentoria_vol",
@@ -1476,7 +1497,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Mentores voluntarios activos y horas que aportan en el año.",
    "lev": false,
    "info": "Se registra en las sesiones de mentoría.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "agencia",
@@ -1485,7 +1507,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Jóvenes cuyo puntaje en la prueba de agencia sube entre el inicio y el cierre, divididos por los jóvenes con ambas pruebas.",
    "lev": true,
    "info": "Prueba al inicio y al cierre de cada cohorte.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "RES"
   },
   {
    "id": "empleo_jov",
@@ -1494,7 +1517,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Jóvenes de la ruta de empleo con contrato laboral seis meses después del cierre, divididos por los que iniciaron la ruta.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "RES"
   },
   {
    "id": "permanencia",
@@ -1503,7 +1527,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Jóvenes que siguen empleados 90 días después de vincularse, divididos por los vinculados.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "RES"
   },
   {
    "id": "negocio_jov",
@@ -1512,7 +1537,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Jóvenes de la ruta de emprendimiento con ventas en los últimos tres meses, divididos por los que iniciaron la ruta.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "RES"
   },
   {
    "id": "empleos_neg",
@@ -1521,7 +1547,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Personas con pago en los negocios de los jóvenes, contando por separado formales e informales.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "RES"
   },
   {
    "id": "ingresos",
@@ -1530,7 +1557,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Ingreso mensual promedio de los jóvenes un año después del cierre, frente al que tenían al ingresar.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
-   "freq": "Anual, durante dos años por cohorte"
+   "freq": "Anual, durante dos años por cohorte",
+   "stage": "IMP"
   },
   {
    "id": "territorios",
@@ -1539,7 +1567,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Territorios donde un equipo local acompañó al menos un grupo de empresas en el año.",
    "lev": false,
    "info": "Se registra en los acuerdos de transferencia.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "ingresos_propios",
@@ -1548,7 +1577,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Ingresos por venta de servicios, divididos por el presupuesto ejecutado del año.",
    "lev": false,
    "info": "Sale de la contabilidad de Manizales Más.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "pago_resultados",
@@ -1557,7 +1587,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Acuerdos con resultados verificados y pagados, divididos por los acuerdos con verificación en el año.",
    "lev": false,
    "info": "Se registra en los acuerdos de financiación.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
   },
   {
    "id": "comunidad",
@@ -1566,7 +1597,18 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empresarios, mentores y egresados con dos o más participaciones en el año.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
-   "freq": "Anual"
+   "freq": "Anual",
+   "stage": "RES"
+  },
+  {
+   "id": "actividades",
+   "line": "ALL",
+   "name": "Actividades realizadas frente a las programadas",
+   "calc": "Actividades realizadas, divididas por las actividades programadas a la fecha.",
+   "lev": false,
+   "info": "Se registra en la agenda de cada programa.",
+   "freq": "Mensual",
+   "stage": "ACT"
   },
   {
    "id": "participantes",
@@ -1575,7 +1617,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Empresas y personas con al menos una actividad con asistencia, por programa y municipio.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "PRD"
   },
   {
    "id": "finalizacion",
@@ -1584,7 +1627,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "calc": "Participantes que terminan el programa, divididos por los que lo iniciaron.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
-   "freq": "Por cohorte"
+   "freq": "Por cohorte",
+   "stage": "PRD"
   }
  ],
  "frameworks": [
@@ -1966,7 +2010,7 @@ function showTip(btn, pin){
   tip.innerHTML = kind === 'imp' ? headT('Impacto · Se mide con', M.impact.title, PILLAR_ICONS.grow) + `<div class="t-body">${indList(M.impact.indicators)}</div>`
     : kind === 'out' ? headT('Resultado · Se mide con', l.outs[+oi].text, ICONS[l.id]) + `<div class="t-body">${indList(l.outs[+oi].ind)}</div>`
     : kind === 'sup' ? headT('Supuestos · ' + esc(l.name), 'Lo que tiene que pasar', ICONS[l.id]) + `<div class="t-body"><ul class="t-sups">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><span>${esc(a.why)}</span></li>`).join('')}</ul></div>`
-    : headT('Hipótesis · ' + esc(l.name), 'Por qué debería funcionar', ICONS[l.id]) + `<div class="t-body"><p class="t-hyp">${esc(l.hypothesis)}</p><p class="t-lbl">Lo respalda</p><ul class="t-evs">${l.evidence.map(e => `<li><b>${esc(e.stat)}</b><span>${esc(e.place)} · ${e.refs.map(r => esc(cite(r))).join('; ')}</span></li>`).join('')}</ul></div>`;
+    : headT('Hipótesis · ' + esc(l.name), 'Por qué debería funcionar', ICONS[l.id]) + `<div class="t-body"><p class="t-hyp">${esc(l.hypothesis)}</p><p class="t-lbl">Se respalda en</p><ul class="t-evs">${l.evidence.map(e => `<li><b>${esc(e.claim)}</b><span>${e.refs.map(r => esc(cite(r))).join('; ')}</span></li>`).join('')}</ul></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
   tip.hidden = false; tipFor = btn; tipPinned = !!pin;
   btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-describedby','tip');
@@ -2000,8 +2044,7 @@ function chainCard(l){
     <header class="card c-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><h2 id="chain-h-${l.id}">${esc(l.name)}</h2><p>${esc(l.hypothesis)}</p>
       <ul class="tags" aria-label="Programas">${progsOf(l.id).map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></header>
     <ol class="cflow">${steps.map(([link, title, body], i) => `<li class="cbox${i === 4 ? ' imp' : ''}${i === 3 ? ' res' : ''}"><div class="cb-h"><span class="cb-n">${i + 1}</span><div><span class="cb-l">${link}</span><b>${title}</b></div></div><ul>${body}</ul></li>`).join('')}</ol>
-    <footer class="c-foot"><section class="card"><h3>Siempre que</h3><ul>${l.assumptions.map(a => `<li><b>${esc(a.title)}</b> ${esc(a.why)}</li>`).join('')}</ul></section>
-      <section class="card"><h3>Lo respalda</h3><ul class="c-evs">${l.evidence.map(e => `<li><b>${esc(e.stat)}</b><span>${esc(e.place)}</span></li>`).join('')}</ul><a class="link" href="#referencias" data-toref="${l.id}">Ver la evidencia</a></section></footer></article>`;
+    <footer class="c-foot card"><h3>Siempre que</h3><ul>${l.assumptions.map(a => `<li><b>${esc(a.title)}</b> ${esc(a.why)}</li>`).join('')}</ul></footer></article>`;
 }
 function drawChains(){
   $('cTabs').innerHTML = M.lines.map(l => `<button type="button" class="ctab" role="tab" id="ctab-${l.id}" data-chain="${l.id}" aria-selected="${S.chain === l.id}" tabindex="${S.chain === l.id ? 0 : -1}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}</span></button>`).join('');
@@ -2013,25 +2056,27 @@ $('cTabs').addEventListener('keydown', e => {
   const i = M.lines.findIndex(l => l.id === S.chain), n = M.lines.length;
   S.chain = M.lines[(i + (e.key === 'ArrowRight' ? 1 : n - 1)) % n].id; drawChains(); $('ctab-' + S.chain).focus();
 });
-const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...M.common]);
+const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...byLine.get(p.line).impact, ...M.common]);
 function drawIndicators(){
   const opt = (v, n) => `<option value="${v}"${S.iProg === v ? ' selected' : ''}>${esc(n)}</option>`;
   $('iLineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-iline="${l.id}" aria-pressed="${!S.iProg && S.iLine===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
   $('iProg').innerHTML = opt('', 'Todos los programas') + M.lines.map(l => `<optgroup label="${esc(l.name)}">${progsOf(l.id).map(p => opt(p.id, p.name)).join('')}</optgroup>`).join('');
   const p = byProg.get(S.iProg), set = p ? progInds(p) : null;
-  const xs = S.printAll ? M.indicators : M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || x.line === 'ALL');
+  const xs = S.printAll ? M.indicators : M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || x.line === 'ALL' || byLine.get(S.iLine).impact.includes(x.id));
+  const STG = [['PRB','Problemática','Se describe en la teoría de cambio; no se mide.'],['ACT','Actividades','Lo que hacemos'],['PRD','Productos','Lo que entregamos'],['RES','Resultados','Lo que cambia'],['IMP','Impacto','A lo que contribuimos']];
+  $('iStages').innerHTML = STG.map(([id, name, sub], i) => { const n = xs.filter(x => x.stage === id).length; return `<li class="istage${n ? '' : ' off'}${id === 'IMP' ? ' imp' : ''}">${n ? `<a href="#st-${id}" data-stage="${id}">` : '<div>'}<span class="sn">${i + 1}</span><span><b>${name}</b><small>${id === 'PRB' ? 'No se mide' : plural(n, 'indicador', 'indicadores')}</small></span>${n ? '</a>' : '</div>'}</li>`; }).join('');
   $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${p ? ` de <strong>${esc(p.name)}</strong>` : S.iLine ? ` del frente <strong>${esc(byLine.get(S.iLine).name)}</strong>` : ' en total'} · ${xs.filter(x => x.lev).length} requieren levantar información`;
-  $('iGrid').innerHTML = xs.map(x => `<article class="card icard" style="${lineVars(lineOfInd(x.id))}"><p class="i-g"><span class="dot" aria-hidden="true"></span>${esc(groupOf(x.id))}</p><h2>${esc(x.name)}</h2><p class="i-c">${esc(x.calc)}</p>
-    <dl><div><dt>Información</dt><dd><span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span>${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`).join('');
+  const card = x => `<article class="card icard" style="${lineVars(lineOfInd(x.id))}"><p class="i-g"><span class="dot" aria-hidden="true"></span>${esc(groupOf(x.id))}</p><h3>${esc(x.name)}</h3><p class="i-c">${esc(x.calc)}</p>
+    <dl><div><dt>Información</dt><dd><span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span>${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`;
+  $('iGrid').innerHTML = STG.slice(1).map(([id, name, sub], i) => { const g = xs.filter(x => x.stage === id); return g.length ? `<section class="isec${id === 'IMP' ? ' imp' : ''}" id="st-${id}" aria-labelledby="sth-${id}"><header><span class="sn">${i + 2}</span><h2 id="sth-${id}">${name}</h2><p>${sub}</p></header><div class="igrid">${g.map(card).join('')}</div></section>` : ''; }).join('');
 }
 
 /* ---------- 04 referencias ---------- */
 function drawRefs(){
   const where = (l, k) => k === 'imp' ? M.impact.title : k[0] === 'o' ? l.outs[+k.slice(1)].text : l[k[0] === 'a' ? 'acts' : 'prods'][+k.slice(1)];
   const a = (r, inner) => r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${inner}<span class="sr"> (abre en otra pestaña)</span></a>` : `<span>${inner}</span>`;
-  const ev = l => `<div class="ev-cards" style="${lineVars(l.id)}">${l.evidence.map(e => `<article class="card evc"><p class="ev-place">${esc(e.place)}</p><h3>${esc(e.stat)}</h3><p class="ev-text">${esc(e.text)}</p>
-      <p class="ev-path"><span>${esc(clean(where(l, e.from)))}</span><i aria-hidden="true">→</i><span class="sr"> lleva a </span><span>${esc(clean(where(l, e.to)))}</span></p>
-      <p class="ev-src">${e.refs.map(r => a(byRef.get(r), esc(byRef.get(r).title))).join('<br>')}</p></article>`).join('')}</div>`;
+  const ev = l => `<div class="card ev-table" style="${lineVars(l.id)}"><h3>${esc(l.name)}</h3><ol>${l.evidence.map(e => `<li><p class="ev-claim">${esc(e.claim)}</p>
+      <div><p class="ev-text"><b>Se respalda en hallazgos como:</b> ${esc(e.text)}</p><p class="ev-src">${e.refs.map(r => a(byRef.get(r), esc(byRef.get(r).title))).join('<br>')}</p></div></li>`).join('')}</ol></div>`;
   const fw = new Set(M.frameworks.map(f => f.ref));
   const list = (title, test) => { const rs = M.references.filter(r => !fw.has(r.id) && test(r)); return rs.length ? `<section class="ref-col"><h3>${esc(title)}</h3><ul>${rs.map(r => `<li>${a(r, esc(r.title))}<span>${esc(r.use)}</span></li>`).join('')}</ul></section>` : ''; };
   const shown = S.printAll ? M.lines : [byLine.get(S.ref)];
@@ -2075,7 +2120,7 @@ document.addEventListener('click', e => {
   if('clear' in d){ S.prog = ''; drawControls(); drawTheory(); return; }
 });
 $('iProg').addEventListener('change', e => { S.iProg = e.target.value; S.iLine = ''; drawIndicators(); $('iProg').focus(); });
-document.addEventListener('click', e => { const l = e.target.closest('[data-toref]'); if(l){ S.ref = l.dataset.toref; drawRefs(); } });
+document.addEventListener('click', e => { const a = e.target.closest('[data-stage]'); if(a){ e.preventDefault(); const el = $('st-' + a.dataset.stage); el.scrollIntoView({behavior:'smooth', block:'start'}); el.querySelector('h2').setAttribute('tabindex','-1'); el.querySelector('h2').focus({preventScroll:true}); } });
 addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); S.printAll = true; drawChains(); drawIndicators(); drawRefs(); });
 addEventListener('afterprint', () => { S.printAll = false; drawChains(); drawIndicators(); drawRefs(); show(S.view, false); });
 

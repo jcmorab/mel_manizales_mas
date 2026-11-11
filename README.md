@@ -13,15 +13,15 @@ carpeta `/ (root)`).
 | 01 Modelo | Qué es Manizales Más, hacia dónde va, el ecosistema en seis dimensiones y los cuatro frentes de trabajo |
 | 02 Teoría de cambio | El diagrama de los cuatro frentes, de la problemática al impacto, por frente o por programa. Hipótesis, supuestos e indicadores aparecen al pasar el cursor |
 | 03 Cadenas causales | Una cadena por frente, de izquierda a derecha: problema, lo que se hace, lo que se entrega, lo que cambia e impacto, con sus supuestos y su respaldo |
-| 04 Indicadores | Los 23 indicadores, filtrables por frente y por programa: cómo se calcula cada uno, si requiere levantamiento de información y con qué frecuencia se mide |
-| 05 Referencias | Los marcos que guían el modelo, la evidencia de cada cadena por frente y las demás fuentes |
+| 04 Indicadores | Los 24 indicadores, ordenados por etapa de la cadena (actividades, productos, resultados e impacto) y filtrables por frente y por programa: cómo se calcula cada uno, si requiere levantamiento de información y con qué frecuencia se mide |
+| 05 Referencias | Los marcos que guían el modelo; por frente, cada enunciado de la cadena con el hallazgo y la fuente que lo respaldan; y las demás fuentes |
 
 ## El modelo
 
 - **Impacto:** crecimiento económico de Manizales y Caldas, al que contribuyen los cuatro frentes.
 - **Cuatro frentes:** Empresas, Ecosistema, Talento y Sostenibilidad, que es transversal.
 - **Ecosistema:** seis dimensiones adaptadas a Manizales a partir del modelo de Babson College.
-- **23 indicadores:** 7 de empresas, 4 de ecosistema, 6 de talento, 4 de sostenibilidad y 2 comunes.
+- **24 indicadores:** 1 de actividades, 2 de productos, 18 de resultados y 3 de impacto.
 
 ## Editar el modelo
 

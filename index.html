@@ -1865,6 +1865,7 @@ function showTip(btn, pin){
   const r = btn.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
   let x = r.right + 12, y = r.top - 8;
   if(x + w > innerWidth - 16){ x = Math.max(16, Math.min(r.left, innerWidth - w - 16)); y = r.bottom + 8; }
+  if(r.width > 500){ x = r.left; y = r.top - h - 10; if(y < 16) y = r.bottom + 10; }
   if(y + h > innerHeight - 16) y = Math.max(16, innerHeight - h - 16);
   tip.style.left = x + 'px'; tip.style.top = y + 'px';
 }

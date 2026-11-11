@@ -472,16 +472,105 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   thead{display:table-header-group}
 }
 
-/* ------------------------------------------------ versión 7.3 */
-.swim{grid-template-columns:136px repeat(3,minmax(150px,1fr)) minmax(220px,1.3fr);min-width:940px}
-.lane{grid-column:1 / -1}
-.swim-h:last-child .sn{background:var(--navy);color:#fff}
-.imp-band{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:center;margin-top:4px}
-.imp-band .swim-h{grid-column:1 / 3;justify-self:start;visibility:visible}
-.imp-band .swim-h .sn{background:var(--lime)!important;color:var(--navy-d)!important}
-.imp-band .node.imp{grid-column:1 / -1;min-height:0;height:auto;margin-top:10px;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:20px 24px;border-radius:18px;cursor:pointer}
-.imp-band .node.imp strong{font-size:1.2rem}
-.imp-band .node.imp span{font-size:14.5px}
+/* ------------------------------------------------ versión 8.0 */
+.swim{grid-template-columns:136px repeat(3,minmax(150px,1fr)) minmax(210px,1.25fr) minmax(190px,.95fr)}
+button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height:260px;border-radius:18px;justify-content:flex-start;background:radial-gradient(300px 200px at 100% 0%,rgba(91,183,231,.35),transparent 70%),linear-gradient(170deg,var(--navy-d),var(--navy))}
+.imp-cell{display:flex;flex-direction:column}
+.node.imp strong,.node.imp span,.node.imp em{position:sticky;top:24px}
+.node.imp span{top:130px}.node.imp em{top:250px}
+.node.imp em{margin-top:14px;align-self:flex-start;background:var(--lime);color:var(--navy-d);border-radius:999px;padding:4px 12px;font-size:12.5px}
+/* tooltips */
+.tip{width:min(440px,calc(100vw - 32px));padding:0;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 60px -22px rgba(11,46,92,.55),0 2px 6px rgba(11,46,92,.08);animation:tipin .16s ease-out both}
+@keyframes tipin{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+.tip::before{content:"";position:absolute;top:var(--ay,24px);width:14px;height:14px;margin-top:-7px;background:var(--paper);border-left:1px solid var(--line);border-bottom:1px solid var(--line);display:none}
+.tip[data-side="r"]::before{display:block;left:-8px;transform:rotate(45deg)}
+.tip[data-side="l"]::before{display:block;right:-8px;transform:rotate(225deg)}
+.tip header{display:flex;gap:12px;align-items:center;padding:16px 18px;border-radius:17px 17px 0 0;color:#fff;background:linear-gradient(120deg,var(--navy-d),var(--lt))}
+.tip .t-ico{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.16);color:var(--lime)}
+.tip header p{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.tip header h3{color:#fff;font-size:15px;line-height:1.3;margin:2px 0 0}
+.t-body{padding:16px 18px 18px;font-size:13.5px;line-height:1.55}
+.t-hyp{font-size:14px;color:var(--ink)}
+.t-lbl{margin:14px 0 8px;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.tip ul{display:grid;gap:8px}
+.tip li{position:static;padding:0;margin:0}
+.tip li::before{display:none}
+.t-evs li{display:grid;gap:1px;background:color-mix(in srgb,var(--lc) 9%,#fff);border-left:3px solid var(--lc);border-radius:8px;padding:8px 12px}
+.t-evs b{color:var(--lt);font-size:14px}
+.t-evs span{font-size:12px;color:var(--muted)}
+.t-sups li{display:grid;gap:3px;background:var(--pale);border-radius:10px;padding:10px 12px}
+.t-sups b,.t-inds b{color:var(--navy-d);font-size:14px}
+.t-sups span,.t-inds span{color:var(--muted);font-size:13px}
+.t-inds li{display:grid;gap:4px;justify-items:start;border:1px solid var(--line);border-left:3px solid var(--lc);border-radius:10px;padding:10px 12px}
+.t-inds .lev{font-style:normal;margin:2px 0 0}
+/* cadenas */
+.chain2{display:grid;gap:16px}
+.c-head{display:flex;gap:18px;align-items:flex-start;padding:24px 28px;border-left:6px solid var(--lc);border-radius:22px}
+.c-head h2{font-size:1.4rem;color:var(--lt)}
+.c-head p{margin:8px 0 14px;font-size:1.02rem;line-height:1.65;max-width:none}
+.cflow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.cbox{position:relative;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--lc);border-radius:18px;box-shadow:var(--sh);padding:18px 18px 20px}
+.cbox:not(:last-child)::after{content:"→";position:absolute;right:-20px;top:34px;width:18px;text-align:center;color:var(--lt);font-weight:700;font-size:18px}
+.cb-h{display:flex;gap:10px;align-items:center;margin-bottom:14px;min-height:46px}
+.cb-n{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--lt);color:#fff;font-weight:700;font-size:13.5px}
+.cb-l{display:block;font-size:12px;font-style:italic;color:var(--soft)}
+.cb-h b{font-size:15px;color:var(--lt)}
+.cbox ul{display:grid;gap:10px}
+.cbox li{font-size:14px;line-height:1.5;color:var(--ink);padding-left:12px;border-left:2px solid color-mix(in srgb,var(--lc) 40%,#fff)}
+.cbox.res li{font-weight:600;color:var(--navy-d)}
+.cm{display:block;margin-top:4px;font-size:12.5px;font-weight:500;color:var(--muted);line-height:1.45}
+.cbox.imp{background:radial-gradient(260px 160px at 100% 0%,rgba(91,183,231,.35),transparent 70%),linear-gradient(170deg,var(--navy-d),var(--navy));border-color:var(--navy-d);border-top-color:var(--lime)}
+.cbox.imp .cb-n{background:var(--lime);color:var(--navy-d)}
+.cbox.imp .cb-l{color:#C9D7EA}.cbox.imp .cb-h b{color:#fff}
+.cbox.imp li{color:#fff;font-weight:600;font-size:15px;border-left-color:var(--lime)}
+.cbox.imp .cm{color:#C9D7EA}
+.c-foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
+.c-foot section{padding:20px 24px}
+.c-foot h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+.c-foot li{font-size:14px;line-height:1.55;color:var(--muted)}
+.c-foot li b{color:var(--navy-d)}
+.c-foot ul{display:grid;gap:8px;margin-bottom:12px}
+.c-evs li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.c-evs span{font-size:12.5px;color:var(--soft)}
+/* indicadores */
+.ifilters{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;padding:18px 20px;margin-bottom:14px}
+.ifilters .flabel,.ifilters label{font-size:13px;font-weight:600;color:var(--muted)}
+.ifilters .field{min-width:0}
+.isel{flex:0 1 320px;margin-left:auto}
+#iCount{margin:0 2px 14px}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:14px}
+.icard{display:flex;flex-direction:column;gap:8px;padding:20px 22px;border-top:4px solid var(--lc,var(--navy));border-radius:18px}
+.i-g{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lt,var(--navy))}
+.i-g .dot{width:8px;height:8px;border-radius:50%;background:var(--lc,var(--navy))}
+.icard h2{font-size:1.08rem;line-height:1.3;color:var(--navy-d)}
+.i-c{font-size:14px;line-height:1.55;color:var(--ink)}
+.icard dl{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:grid;gap:8px}
+.icard dt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.icard dd{font-size:13px;color:var(--muted);line-height:1.5}
+.icard .lev{margin:2px 8px 2px 0}
+/* referencias */
+.fw-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fwc{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;padding:24px 26px;border-radius:20px;color:#fff;background:radial-gradient(260px 160px at 100% 0%,rgba(205,221,0,.22),transparent 70%),linear-gradient(150deg,var(--navy-d),var(--navy));border:0}
+.fwc .fw-sub{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.fwc h3{color:#fff;font-size:1.25rem}
+.fwc p:not(.fw-sub){font-size:14px;line-height:1.6;color:#DCE6F3}
+.fwc a{margin-top:auto;padding-top:8px;color:var(--lime);font-weight:600;font-size:14px}
+.ev-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.evc{display:flex;flex-direction:column;gap:10px;padding:22px 24px;border-left:6px solid var(--lc);border-radius:20px}
+.ev-place{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.evc h3{font-size:1.45rem;line-height:1.15;color:var(--lt)}
+.ev-text{font-size:14.5px;line-height:1.6}
+.evc .ev-path{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;font-size:12.5px}
+.evc .ev-path span:not(.sr){background:color-mix(in srgb,var(--lc) 11%,#fff);color:var(--lt);font-weight:600;border-radius:8px;padding:3px 10px;line-height:1.4}
+.evc .ev-path i{font-style:normal;color:var(--soft);font-weight:700}
+.evc .ev-src{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;line-height:1.5}
+.evc .ev-src a{color:var(--muted)}
+.ref-cols.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ctab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ctab[aria-pressed="true"] .ico{background:var(--lime);color:var(--navy-d)}
+@media (max-width:1100px){.cflow{grid-template-columns:1fr;gap:26px}.cbox:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-25px;margin-left:-9px}.fw-cards,.ev-cards,.c-foot,.ref-cols.two{grid-template-columns:1fr}}
+@media (max-width:900px){button.node.imp{min-height:0}.node.imp strong,.node.imp span,.node.imp em{position:static}.imp-cell{margin-bottom:14px}.isel{margin-left:0;flex-basis:100%}.c-head{padding:20px;flex-direction:column}}
+@media print{.ifilters,.ctabs{display:none!important}.cbox,.icard,.evc,.fwc,.c-head{break-inside:avoid;box-shadow:none}.cflow{grid-template-columns:repeat(5,1fr);gap:10px}.cbox{padding:10px}.cbox li{font-size:8.5pt}.cbox.imp,.fwc,.lev,.cb-n{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 button.node.out{cursor:pointer}
 button.node.out:hover,button.node.out[aria-expanded="true"]{box-shadow:var(--sh);border-color:var(--lc)}
 .dim-card p{font-size:13.5px;color:var(--ink);line-height:1.45;margin:2px 0 4px}
@@ -543,7 +632,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <a href="#modelo"><span>01</span>Modelo</a>
     <a href="#teoria"><span>02</span>Teoría de cambio</a>
     <a href="#cadenas"><span>03</span>Cadenas causales</a>
-    <a href="#referencias"><span>04</span>Referencias</a>
+    <a href="#indicadores"><span>04</span>Indicadores</a>
+    <a href="#referencias"><span>05</span>Referencias</a>
   </nav>
   <p class="side-meta" id="sideMeta"></p>
 </aside>
@@ -590,7 +680,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. «Hipótesis» explica por qué debería funcionar cada frente y «Supuestos», qué tiene que pasar para que funcione. Pase el cursor por un resultado o por el impacto para ver con qué se mide.</p></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. Los cuatro desembocan en el mismo impacto. «Hipótesis» y «Supuestos» explican por qué debería funcionar cada frente; al pasar por un resultado o por el impacto se ve con qué se mide.</p></div>
     <div class="mode" role="group" aria-label="Ver el diagrama"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
@@ -600,37 +690,40 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
   <div class="swim-wrap" tabindex="0" role="region" aria-label="Diagrama de la teoría de cambio"><div class="swim" id="swim"></div></div>
-  <div class="next to-chains"><p>Cada frente tiene su cadena causal: la secuencia completa, paso a paso, con los indicadores con que se mide.</p><a class="btn primary" href="#cadenas">Ver las cadenas causales <span aria-hidden="true">→</span></a></div>
+  <div class="next to-chains"><p>Cada frente tiene su cadena causal: la secuencia completa, paso a paso, del problema al impacto.</p><a class="btn primary" href="#cadenas">Ver las cadenas causales <span aria-hidden="true">→</span></a></div>
 </section>
 
 <section class="view" id="cadenas" aria-labelledby="h-cadenas" hidden>
   <div class="view-head"><div><p class="kicker">Cómo ocurre el cambio</p><h1 id="h-cadenas" tabindex="-1">Cadenas causales</h1>
-    <p class="lede">Cada frente es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija un frente para ver su cadena, con los indicadores de cada paso, lo que tiene que cumplirse y los estudios que la respaldan.</p></div></div>
+    <p class="lede">Cada frente es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija un frente y siga su cadena de izquierda a derecha, del problema al impacto.</p></div></div>
   <div class="ctabs" role="tablist" aria-label="Frente" id="cTabs"></div>
   <div class="chains" id="chains" role="tabpanel"></div>
-  <details class="card all-ind" id="allInd">
-    <summary><span>Todos los indicadores</span><span class="cnt" id="indTotal"></span></summary>
-    <div class="all-ind-body"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores"><table class="ind-table" id="indTable"></table></div></div>
-  </details>
+</section>
+
+<section class="view" id="indicadores" aria-labelledby="h-indicadores" hidden>
+  <div class="view-head"><div><p class="kicker">Cómo lo medimos</p><h1 id="h-indicadores" tabindex="-1">Indicadores</h1>
+    <p class="lede">Pocas medidas, con nombres que se entienden solos. De cada una decimos cómo se calcula, si exige levantar información o ya se registra en la operación, y cada cuánto se mide.</p></div></div>
+  <div class="card ifilters">
+    <div class="field"><span class="flabel" id="lblIL">Frente</span><div class="chips" id="iLineChips" role="group" aria-labelledby="lblIL"></div></div>
+    <div class="field isel"><label for="iProg">Programa</label><select id="iProg"></select></div>
+  </div>
+  <p class="scope" aria-live="polite" id="iCount"></p>
+  <div class="igrid" id="iGrid"></div>
 </section>
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
-  <div class="view-head"><div><p class="kicker">En qué nos apoyamos</p><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">Nuestra teoría de cambio no parte de cero. Se apoya en el método de Babson College y del MIT, y cada cadena descansa en evaluaciones rigurosas de programas parecidos en otras partes del mundo. Aquí está qué encontró cada estudio y qué paso de la cadena sostiene.</p></div></div>
+  <div class="view-head"><div><p class="kicker">En qué nos apoyamos</p><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">Esta teoría de cambio no parte de cero. Se apoya en el método de Babson College y del MIT, y cada cadena descansa en evaluaciones rigurosas de programas parecidos en otras partes del mundo.</p></div></div>
   <div id="refGroups"></div>
 </section>
 </main>
 </div>
 
 <div class="tip" id="tip" role="tooltip" hidden></div>
-<dialog id="dlg" aria-labelledby="dTitle">
-  <div class="d-head" id="dHead"><div><p class="d-tag" id="dTag"></p><h2 id="dTitle" tabindex="-1"></h2></div><button type="button" class="x" id="dClose" aria-label="Cerrar">×</button></div>
-  <div class="d-body" id="dBody"></div>
-</dialog>
 
 <script type="application/json" id="model">
 {
  "meta": {
-  "version": "7.3",
+  "version": "8.0",
   "date": "2026-11-11",
   "intro": [
    "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, Manizales Más trabaja junto a empresarios, universidades, gremios y gobierno, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
@@ -790,7 +883,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_BLOOM",
       "REF_BRUHN"
-     ]
+     ],
+     "stat": "Más productividad y empleo",
+     "place": "India y México"
     },
     {
      "from": "a1",
@@ -798,7 +893,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "La mentoría de empresarios con experiencia elevó 20 % las utilidades de pequeños negocios en Kenia, más que la capacitación en aula.",
      "refs": [
       "REF_BROOKS"
-     ]
+     ],
+     "stat": "+20 % en utilidades",
+     "place": "Kenia"
     },
     {
      "from": "a3",
@@ -806,7 +903,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Llegar a nuevos mercados hace mejores a las empresas: exportadores en Egipto mejoraron su calidad y sus utilidades.",
      "refs": [
       "REF_ATKIN"
-     ]
+     ],
+     "stat": "Mejor calidad y utilidades",
+     "place": "Egipto"
     },
     {
      "from": "a0",
@@ -814,7 +913,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "En emprendimientos tempranos marca la diferencia la formación, no solo el dinero, como mostró Start-Up Chile.",
      "refs": [
       "REF_GU"
-     ]
+     ],
+     "stat": "La formación marca la diferencia",
+     "place": "Chile"
     }
    ]
   },
@@ -881,7 +982,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Venderle a una gran empresa transforma a sus proveedores: en Costa Rica, quienes empezaron a venderle a una multinacional tenían 26 % más empleo cuatro años después.",
      "refs": [
       "REF_ALFARO"
-     ]
+     ],
+     "stat": "+26 % de empleo",
+     "place": "Costa Rica"
     },
     {
      "from": "a2",
@@ -889,7 +992,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "El capital bien asignado acelera a las empresas con potencial: en Nigeria aumentó su supervivencia, sus ventas y su empleo.",
      "refs": [
       "REF_MCK"
-     ]
+     ],
+     "stat": "Más ventas y empleo",
+     "place": "Nigeria"
     },
     {
      "from": "a4",
@@ -897,7 +1002,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Los referentes inspiran: en Chile, conocer a un empresario exitoso elevó los ingresos de microempresarios tanto como una asesoría individual, a menor costo.",
      "refs": [
       "REF_LAF"
-     ]
+     ],
+     "stat": "Más ingresos, a menor costo",
+     "place": "Chile"
     },
     {
      "from": "o0",
@@ -905,7 +1012,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "La experiencia de Manizales Más es un caso de estudio internacional sobre cómo un ecosistema enfocado en crecer acelera a sus empresas.",
      "refs": [
       "REF_ISEN16"
-     ]
+     ],
+     "stat": "Caso de estudio internacional",
+     "place": "Manizales"
     }
    ]
   },
@@ -963,7 +1072,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Jóvenes en Acción, en Colombia, combinó formación con práctica en empresas y aumentó el empleo formal y los ingresos de sus participantes.",
      "refs": [
       "REF_ATT"
-     ]
+     ],
+     "stat": "Más empleo formal e ingresos",
+     "place": "Colombia"
     },
     {
      "from": "a1",
@@ -972,7 +1083,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "refs": [
       "REF_KLUVE",
       "REF_CARD"
-     ]
+     ],
+     "stat": "Formar y conectar funciona mejor",
+     "place": "Revisión mundial"
     },
     {
      "from": "o0",
@@ -980,7 +1093,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Entrenar la iniciativa personal aumentó 30 % las utilidades de emprendedores en Togo, más que la capacitación tradicional.",
      "refs": [
       "REF_CAMPOS"
-     ]
+     ],
+     "stat": "+30 % en utilidades",
+     "place": "Togo"
     }
    ]
   },
@@ -1038,7 +1153,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "Los programas que se llevan a otros territorios conservan sus resultados cuando se cuida la fidelidad de la implementación.",
      "refs": [
       "REF_BANERJEE"
-     ]
+     ],
+     "stat": "La fidelidad conserva los resultados",
+     "place": "Revisión mundial"
     },
     {
      "from": "p0",
@@ -1046,7 +1163,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "text": "La metodología que dio origen a Manizales Más se aplicó también en Scale Up Milwaukee, en Estados Unidos.",
      "refs": [
       "REF_ISEN16"
-     ]
+     ],
+     "stat": "El modelo ya se replicó",
+     "place": "Estados Unidos"
     }
    ]
   }
@@ -1263,7 +1382,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "plan",
    "line": "EMP",
-   "name": "Avance del plan de crecimiento",
+   "name": "Hitos cumplidos del plan de crecimiento",
    "calc": "Hitos cumplidos, divididos por los hitos del plan que ya vencieron.",
    "lev": false,
    "info": "Se registra en las sesiones de mentoría.",
@@ -1272,7 +1391,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "ventas",
    "line": "EMP",
-   "name": "Ventas",
+   "name": "Crecimiento de las ventas",
    "calc": "Variación de las ventas del año frente a las del año anterior al ingreso, descontando la inflación. Se reporta la mediana de las empresas.",
    "lev": true,
    "info": "Reporte anual de ventas de cada empresa.",
@@ -1281,7 +1400,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "clientes",
    "line": "EMP",
-   "name": "Clientes y mercados nuevos",
+   "name": "Empresas con clientes o mercados nuevos",
    "calc": "Empresas con al menos una venta a un cliente, ciudad, país o canal nuevo, divididas por las empresas acompañadas.",
    "lev": true,
    "info": "Reporte anual de cada empresa.",
@@ -1290,7 +1409,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "empleo",
    "line": "EMP",
-   "name": "Empleo formal",
+   "name": "Empleos formales creados",
    "calc": "Empleados con contrato laboral al cierre del año, menos los que había al ingreso.",
    "lev": true,
    "info": "Reporte anual de cada empresa, con su planilla de aportes como soporte.",
@@ -1299,7 +1418,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "utilidades",
    "line": "EMP",
-   "name": "Utilidades",
+   "name": "Empresas que mejoran sus utilidades",
    "calc": "Empresas cuya utilidad operativa del año es igual o mayor que la del año anterior al ingreso, divididas por las empresas acompañadas.",
    "lev": true,
    "info": "Estados financieros anuales de cada empresa.",
@@ -1308,7 +1427,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "supervivencia",
    "line": "EMP",
-   "name": "Supervivencia",
+   "name": "Empresas activas a dos años",
    "calc": "Empresas que siguen operando dos años después de ingresar, divididas por las que ingresaron.",
    "lev": false,
    "info": "Se consulta el registro mercantil y el contacto con la empresa.",
@@ -1317,7 +1436,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "emprend_ventas",
    "line": "EMP",
-   "name": "Emprendimientos con ventas",
+   "name": "Emprendimientos que venden",
    "calc": "Emprendimientos con ventas en los últimos tres meses, divididos por los emprendimientos acompañados.",
    "lev": true,
    "info": "Seguimiento anual a cada emprendimiento.",
@@ -1335,7 +1454,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "capital",
    "line": "ECO",
-   "name": "Capital movilizado",
+   "name": "Capital movilizado hacia las empresas",
    "calc": "Suma de la inversión y el crédito desembolsados a las empresas acompañadas en el año.",
    "lev": false,
    "info": "Se registra en los programas de financiación.",
@@ -1344,7 +1463,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "negocios_ancla",
    "line": "ECO",
-   "name": "Negocios con empresas ancla",
+   "name": "Contratos con empresas ancla",
    "calc": "Número y valor de los contratos firmados en el año a partir de retos de empresas ancla.",
    "lev": false,
    "info": "Se registra en Open Más.",
@@ -1353,7 +1472,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "mentoria_vol",
    "line": "ECO",
-   "name": "Mentoría voluntaria",
+   "name": "Horas de mentoría voluntaria",
    "calc": "Mentores voluntarios activos y horas que aportan en el año.",
    "lev": false,
    "info": "Se registra en las sesiones de mentoría.",
@@ -1362,7 +1481,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "agencia",
    "line": "TAL",
-   "name": "Agencia",
+   "name": "Jóvenes que fortalecen su agencia",
    "calc": "Jóvenes cuyo puntaje en la prueba de agencia sube entre el inicio y el cierre, divididos por los jóvenes con ambas pruebas.",
    "lev": true,
    "info": "Prueba al inicio y al cierre de cada cohorte.",
@@ -1371,7 +1490,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "empleo_jov",
    "line": "TAL",
-   "name": "Empleo de los jóvenes",
+   "name": "Jóvenes con empleo formal",
    "calc": "Jóvenes de la ruta de empleo con contrato laboral seis meses después del cierre, divididos por los que iniciaron la ruta.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
@@ -1380,7 +1499,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "permanencia",
    "line": "TAL",
-   "name": "Permanencia en el empleo",
+   "name": "Jóvenes que conservan su empleo",
    "calc": "Jóvenes que siguen empleados 90 días después de vincularse, divididos por los vinculados.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
@@ -1389,7 +1508,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "negocio_jov",
    "line": "TAL",
-   "name": "Negocios activos",
+   "name": "Jóvenes con negocio en marcha",
    "calc": "Jóvenes de la ruta de emprendimiento con ventas en los últimos tres meses, divididos por los que iniciaron la ruta.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
@@ -1398,7 +1517,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "empleos_neg",
    "line": "TAL",
-   "name": "Empleos de los negocios",
+   "name": "Empleos creados por los negocios de los jóvenes",
    "calc": "Personas con pago en los negocios de los jóvenes, contando por separado formales e informales.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
@@ -1407,7 +1526,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "ingresos",
    "line": "TAL",
-   "name": "Ingresos de los jóvenes",
+   "name": "Aumento de los ingresos de los jóvenes",
    "calc": "Ingreso mensual promedio de los jóvenes un año después del cierre, frente al que tenían al ingresar.",
    "lev": true,
    "info": "Seguimiento a cada joven.",
@@ -1416,7 +1535,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "territorios",
    "line": "SOS",
-   "name": "Territorios con el modelo",
+   "name": "Territorios que operan el modelo",
    "calc": "Territorios donde un equipo local acompañó al menos un grupo de empresas en el año.",
    "lev": false,
    "info": "Se registra en los acuerdos de transferencia.",
@@ -1425,7 +1544,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "ingresos_propios",
    "line": "SOS",
-   "name": "Ingresos propios",
+   "name": "Ingresos propios de Manizales Más",
    "calc": "Ingresos por venta de servicios, divididos por el presupuesto ejecutado del año.",
    "lev": false,
    "info": "Sale de la contabilidad de Manizales Más.",
@@ -1434,7 +1553,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "pago_resultados",
    "line": "SOS",
-   "name": "Pago por resultados",
+   "name": "Acuerdos de pago por resultados cumplidos",
    "calc": "Acuerdos con resultados verificados y pagados, divididos por los acuerdos con verificación en el año.",
    "lev": false,
    "info": "Se registra en los acuerdos de financiación.",
@@ -1443,7 +1562,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "comunidad",
    "line": "SOS",
-   "name": "Comunidad activa",
+   "name": "Miembros activos de la comunidad",
    "calc": "Empresarios, mentores y egresados con dos o más participaciones en el año.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
@@ -1452,7 +1571,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "participantes",
    "line": "ALL",
-   "name": "Participantes",
+   "name": "Empresas y personas atendidas",
    "calc": "Empresas y personas con al menos una actividad con asistencia, por programa y municipio.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
@@ -1461,11 +1580,31 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   {
    "id": "finalizacion",
    "line": "ALL",
-   "name": "Finalización",
+   "name": "Participantes que terminan el programa",
    "calc": "Participantes que terminan el programa, divididos por los que lo iniciaron.",
    "lev": false,
    "info": "Se registra en la asistencia a actividades.",
    "freq": "Por cohorte"
+  }
+ ],
+ "frameworks": [
+  {
+   "name": "Babson College",
+   "sub": "Entrepreneurship Ecosystem Project",
+   "ref": "REF_ISEN10",
+   "text": "Aporta el enfoque: un ecosistema se construye alrededor de las empresas que crecen, y se entiende en seis dimensiones."
+  },
+  {
+   "name": "MIT REAP",
+   "sub": "Regional Entrepreneurship Acceleration Program",
+   "ref": "REF_REAP",
+   "text": "Aporta la mirada de actores: empresarios, capital, empresas ancla, gobierno y universidades trabajando sobre apuestas comunes."
+  },
+  {
+   "name": "MIT Venture Mentoring Service",
+   "sub": "Modelo de mentoría",
+   "ref": "REF_VMS",
+   "text": "Aporta el modelo de mentoría en equipo, con empresarios voluntarios que acompañan por hitos."
   }
  ],
  "references": [
@@ -1638,20 +1777,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "use": "Referente de escala y método para la medición anual de condiciones."
   },
   {
-   "id": "REF_SIEF",
-   "title": "Impact Evaluation in Practice, Banco Mundial y BID",
-   "url": "https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice",
-   "type": "Guía metodológica",
-   "use": "Diferencia entre seguimiento y evaluación de impacto con grupo de comparación."
-  },
-  {
-   "id": "REF_OECD",
-   "title": "Manual Eurostat y OCDE de demografía empresarial",
-   "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2008/01/eurostat-oecd-manual-on-business-demography-statistics_g1gh8b54/9789264041882-en.pdf",
-   "type": "Estándar estadístico",
-   "use": "Definición de empresa de alto crecimiento."
-  },
-  {
    "id": "REF_IPC",
    "title": "DANE, Índice de Precios al Consumidor",
    "url": "https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc",
@@ -1659,32 +1784,11 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "use": "Deflactor de ventas e ingresos."
   },
   {
-   "id": "REF_RELAB",
-   "title": "DANE, Registro Estadístico de Relaciones Laborales",
-   "url": "https://www.dane.gov.co/files/operaciones/RELAB/pres-RELAB-abr2025.pdf",
-   "type": "Fuente oficial",
-   "use": "Antecedente de uso de registros laborales."
-  },
-  {
-   "id": "REF_PILA",
-   "title": "Ministerio de Salud y Protección Social, ABC de la Planilla Integrada de Liquidación de Aportes (PILA), 2017",
-   "url": "https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/OT/pila-abece-2017.pdf",
-   "type": "Registro administrativo",
-   "use": "Verificación de empleo formal con autorización de las empresas y personas."
-  },
-  {
    "id": "REF_CONF5",
    "title": "Confecámaras, supervivencia empresarial en Colombia",
    "url": "https://confecamaras.org.co/wp-content/uploads/2024/01/estudio-supervivencia-mayo-9.pdf",
    "type": "Estudio nacional",
    "use": "Referente de supervivencia; su horizonte de cinco años no es comparable directamente."
-  },
-  {
-   "id": "REF_CONF17",
-   "title": "Confecámaras, supervivencia y crecimiento de las empresas",
-   "url": "https://confecamaras.org.co/wp-content/uploads/2024/01/cartilla17.pdf",
-   "type": "Estudio nacional",
-   "use": "Referente nacional de crecimiento empresarial."
   },
   {
    "id": "REF_MMAS",
@@ -1775,9 +1879,9 @@ const progsOf = id => M.programs.filter(p => p.line === id);
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
 const lineOfInd = id => byLine.has(byInd.get(id).line) ? byInd.get(id).line : '';
 const groupOf = id => byLine.get(lineOfInd(id))?.name || 'Todos los frentes';
-const VIEWS = ['modelo','teoria','cadenas','referencias'];
+const VIEWS = ['modelo','teoria','cadenas','indicadores','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
-const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, printAll:false};
+const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, iLine:'', iProg:'', ref:M.lines[0].id, printAll:false};
 
 const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 const PILLAR_ICONS = {
@@ -1838,7 +1942,7 @@ function drawTheory(){
   const st = (l, k) => !p ? '' : (p.line === l.id && (k === 'prb' || p.nodes.includes(k))) ? ' hit' : ' dim';
   const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
-  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
+  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados','Impacto'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
   const rows = lanes.map(l => `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
       <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
       ${cell('Problemática', `<p class="node prb${st(l,'prb')}">${esc(l.problem)}</p>`)}
@@ -1846,8 +1950,8 @@ function drawTheory(){
       ${cell('Productos', l.prods.map((t, i) => `<p class="node${st(l,'p'+i)}">${esc(t)}</p>`).join(''))}
       ${cell('Resultados', l.outs.map((o, i) => `<button type="button" class="node out${st(l,'o'+i)}" data-tip="out:${l.id}:${i}" aria-expanded="false">${esc(o.text)}</button>`).join(''))}
     </section>`).join('');
-  const imp = `<div class="imp-band" role="group" aria-label="Impacto"><div class="swim-h last" aria-hidden="true"><span class="sn">5</span>Impacto</div>
-    <button type="button" class="node imp" data-tip="imp" aria-expanded="false"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
+  const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span>
+    <button type="button" class="node imp" data-tip="imp" aria-expanded="false"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span><em>Con qué se mide</em></button></div>`;
   $('swim').innerHTML = head + rows + imp;
 }
 
@@ -1856,17 +1960,22 @@ const tip = $('tip'); let tipFor = null, tipPinned = false;
 const cite = r => byRef.get(r).cite;
 function showTip(btn, pin){
   const [kind, lid, oi] = btn.dataset.tip.split(':'), l = byLine.get(lid);
-  const inds = (title, ids) => `<h3>${esc(title)}</h3><div class="t-ev" style="margin-top:10px"><h4>Se mide con</h4><ul class="t-sup">${ids.map(id => `<li><b>${esc(byInd.get(id).name)}</b><br>${esc(byInd.get(id).calc)}</li>`).join('')}</ul></div>`;
-  tip.innerHTML = kind === 'imp' ? inds(M.impact.title, M.impact.indicators) : kind === 'out' ? inds(l.outs[+oi].text, l.outs[+oi].ind) : kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`).join('')}</ul>`
-    : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(l.hypothesis)}</p><div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${l.evidence.map(e => `<li>${esc(e.text)} <cite>(${e.refs.map(r => esc(cite(r))).join('; ')})</cite></li>`).join('')}</ul></div>`;
+  const headT = (k, title, icon) => `<header><span class="t-ico" aria-hidden="true">${icon}</span><div><p>${k}</p><h3>${esc(title)}</h3></div></header>`;
+  const indList = ids => `<ul class="t-inds">${ids.map(id => { const x = byInd.get(id); return `<li><b>${esc(x.name)}</b><span>${esc(x.calc)}</span><i class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</i></li>`; }).join('')}</ul>`;
+  tip.style.cssText = l ? lineVars(l.id) : '--lc:#CDDD00;--lt:#0B2E5C';
+  tip.innerHTML = kind === 'imp' ? headT('Impacto · Se mide con', M.impact.title, PILLAR_ICONS.grow) + `<div class="t-body">${indList(M.impact.indicators)}</div>`
+    : kind === 'out' ? headT('Resultado · Se mide con', l.outs[+oi].text, ICONS[l.id]) + `<div class="t-body">${indList(l.outs[+oi].ind)}</div>`
+    : kind === 'sup' ? headT('Supuestos · ' + esc(l.name), 'Lo que tiene que pasar', ICONS[l.id]) + `<div class="t-body"><ul class="t-sups">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><span>${esc(a.why)}</span></li>`).join('')}</ul></div>`
+    : headT('Hipótesis · ' + esc(l.name), 'Por qué debería funcionar', ICONS[l.id]) + `<div class="t-body"><p class="t-hyp">${esc(l.hypothesis)}</p><p class="t-lbl">Lo respalda</p><ul class="t-evs">${l.evidence.map(e => `<li><b>${esc(e.stat)}</b><span>${esc(e.place)} · ${e.refs.map(r => esc(cite(r))).join('; ')}</span></li>`).join('')}</ul></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
   tip.hidden = false; tipFor = btn; tipPinned = !!pin;
   btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-describedby','tip');
   const r = btn.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
-  let x = r.right + 12, y = r.top - 8;
-  if(x + w > innerWidth - 16){ x = Math.max(16, Math.min(r.left, innerWidth - w - 16)); y = r.bottom + 8; }
-  if(r.width > 500){ x = r.left; y = r.top - h - 10; if(y < 16) y = r.bottom + 10; }
+  let x = r.right + 14, y = r.top - 10, side = 'r';
+  if(x + w > innerWidth - 16){ x = r.left - w - 14; side = 'l'; }
+  if(x < 16){ x = Math.max(16, Math.min(r.left, innerWidth - w - 16)); y = r.bottom + 10; side = ''; }
   if(y + h > innerHeight - 16) y = Math.max(16, innerHeight - h - 16);
+  tip.dataset.side = side; tip.style.setProperty('--ay', Math.max(18, Math.min(h - 18, r.top + r.height / 2 - y)) + 'px');
   tip.style.left = x + 'px'; tip.style.top = y + 'px';
 }
 function hideTip(){ if(!tipFor) return; tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); tip.hidden = true; tipFor = null; tipPinned = false; }
@@ -1878,24 +1987,21 @@ addEventListener('scroll', () => { if(tipFor) hideTip(); }, {passive:true, captu
 addEventListener('resize', hideTip);
 
 /* ---------- 03 cadenas causales ---------- */
-const chip = id => `<button type="button" class="ichip" data-open="${id}">${esc(byInd.get(id).name)}</button>`;
-const chips = ids => ids.length ? `<span class="ichips">${ids.map(chip).join('')}</span>` : '';
 function chainCard(l){
-  const li = (t, ids) => `<li><span class="it">${esc(t)}</span>${chips(ids || [])}</li>`;
+  const names = ids => ids.length ? `<span class="cm">Se mide con: ${ids.map(id => esc(byInd.get(id).name)).join(' · ')}</span>` : '';
+  const li = (t, ids) => `<li>${esc(t)}${names(ids || [])}</li>`;
   const steps = [
-    ['PRB','Partimos de','El problema', li(l.problem)],
-    ['ACT','Si hacemos','Lo que hacemos', l.acts.map(t => li(t)).join('')],
-    ['PRD','entregamos','Lo que entregamos', l.prods.map(t => li(t)).join('') + `<li class="meas">${chips(M.common)}</li>`],
-    ['RES','y entonces cambia','Lo que cambia', l.outs.map(o => li(o.text, o.ind)).join('')],
-    ['IMP','para contribuir a','El impacto', li(M.impact.title, l.impact)]];
-  const cites = [...new Set(l.evidence.flatMap(e => e.refs))].map(cite);
-  return `<article class="card chain" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
-    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">Frente</p><h2 id="chain-h-${l.id}">${esc(l.name)}</h2></div></header>
-    <p class="clead">${esc(l.hypothesis)}</p>
-    <div class="cprogs-l"><span>Programas:</span><ul class="tags">${progsOf(l.id).map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div>
-    <ol class="csteps">${steps.map(([id, link, title, body]) => `<li class="cstep s-${id}"><div class="clabel"><span class="clink">${link}</span><b>${title}</b></div><ul class="citems">${body}</ul></li>`).join('')}</ol>
-    <footer><div><h3>Siempre que</h3><ul>${l.assumptions.map(a => `<li><b>${esc(a.title)}</b> ${esc(a.why)}</li>`).join('')}</ul></div>
-      <div><h3>Respaldo</h3><p>${esc(cites.join(' · '))}. <a class="link" href="#referencias">Ver la evidencia</a></p></div></footer></article>`;
+    ['Partimos de','El problema', li(l.problem)],
+    ['Si hacemos','Lo que hacemos', l.acts.map(t => li(t)).join('')],
+    ['entregamos','Lo que entregamos', l.prods.map(t => li(t)).join('')],
+    ['y entonces cambia','Lo que cambia', l.outs.map(o => li(o.text, o.ind)).join('')],
+    ['para contribuir a','El impacto', li(M.impact.title, l.impact) ]];
+  return `<article class="chain2" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
+    <header class="card c-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><h2 id="chain-h-${l.id}">${esc(l.name)}</h2><p>${esc(l.hypothesis)}</p>
+      <ul class="tags" aria-label="Programas">${progsOf(l.id).map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></header>
+    <ol class="cflow">${steps.map(([link, title, body], i) => `<li class="cbox${i === 4 ? ' imp' : ''}${i === 3 ? ' res' : ''}"><div class="cb-h"><span class="cb-n">${i + 1}</span><div><span class="cb-l">${link}</span><b>${title}</b></div></div><ul>${body}</ul></li>`).join('')}</ol>
+    <footer class="c-foot"><section class="card"><h3>Siempre que</h3><ul>${l.assumptions.map(a => `<li><b>${esc(a.title)}</b> ${esc(a.why)}</li>`).join('')}</ul></section>
+      <section class="card"><h3>Lo respalda</h3><ul class="c-evs">${l.evidence.map(e => `<li><b>${esc(e.stat)}</b><span>${esc(e.place)}</span></li>`).join('')}</ul><a class="link" href="#referencias" data-toref="${l.id}">Ver la evidencia</a></section></footer></article>`;
 }
 function drawChains(){
   $('cTabs').innerHTML = M.lines.map(l => `<button type="button" class="ctab" role="tab" id="ctab-${l.id}" data-chain="${l.id}" aria-selected="${S.chain === l.id}" tabindex="${S.chain === l.id ? 0 : -1}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}</span></button>`).join('');
@@ -1907,50 +2013,39 @@ $('cTabs').addEventListener('keydown', e => {
   const i = M.lines.findIndex(l => l.id === S.chain), n = M.lines.length;
   S.chain = M.lines[(i + (e.key === 'ArrowRight' ? 1 : n - 1)) % n].id; drawChains(); $('ctab-' + S.chain).focus();
 });
+const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...M.common]);
 function drawIndicators(){
-  $('indTotal').textContent = M.indicators.length;
-  const order = [...M.lines.map(l => l.name), 'Todos los frentes'];
-  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col class="w-name"><col><col class="w-info"><col class="w-freq"></colgroup><thead><tr><th scope="col">Indicador</th><th scope="col">Cómo se calcula</th><th scope="col">Información</th><th scope="col">Frecuencia</th></tr></thead>` +
-    order.map(g => { const xs = M.indicators.filter(x => groupOf(x.id) === g);
-      return `<tbody><tr class="grp"><th colspan="4" scope="colgroup">${esc(g)} <span>${xs.length}</span></th></tr>${xs.map(x => `<tr style="${lineVars(lineOfInd(x.id))}"><th scope="row" class="i-name"><span class="dot" aria-hidden="true"></span>${esc(x.name)}</th><td>${esc(x.calc)}</td><td>${lev(x)}</td><td>${esc(x.freq)}</td></tr>`).join('')}</tbody>`; }).join('');
+  const opt = (v, n) => `<option value="${v}"${S.iProg === v ? ' selected' : ''}>${esc(n)}</option>`;
+  $('iLineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-iline="${l.id}" aria-pressed="${!S.iProg && S.iLine===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
+  $('iProg').innerHTML = opt('', 'Todos los programas') + M.lines.map(l => `<optgroup label="${esc(l.name)}">${progsOf(l.id).map(p => opt(p.id, p.name)).join('')}</optgroup>`).join('');
+  const p = byProg.get(S.iProg), set = p ? progInds(p) : null;
+  const xs = S.printAll ? M.indicators : M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || x.line === 'ALL');
+  $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${p ? ` de <strong>${esc(p.name)}</strong>` : S.iLine ? ` del frente <strong>${esc(byLine.get(S.iLine).name)}</strong>` : ' en total'} · ${xs.filter(x => x.lev).length} requieren levantar información`;
+  $('iGrid').innerHTML = xs.map(x => `<article class="card icard" style="${lineVars(lineOfInd(x.id))}"><p class="i-g"><span class="dot" aria-hidden="true"></span>${esc(groupOf(x.id))}</p><h2>${esc(x.name)}</h2><p class="i-c">${esc(x.calc)}</p>
+    <dl><div><dt>Información</dt><dd><span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span>${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`).join('');
 }
-const lev = x => `<span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span><span class="lev-t">${esc(x.info)}</span>`;
 
 /* ---------- 04 referencias ---------- */
 function drawRefs(){
   const where = (l, k) => k === 'imp' ? M.impact.title : k[0] === 'o' ? l.outs[+k.slice(1)].text : l[k[0] === 'a' ? 'acts' : 'prods'][+k.slice(1)];
-  const link = r => r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>` : `<span>${esc(r.title)}</span>`;
-  const short = r => { const j = (r.title.match(/\(([^()]*),\s*\d{4}\)\s*$/) || [, ''])[1]; return `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" title="${esc(r.title)}"><b>${esc(r.cite)}</b>${j ? ` <span>${esc(j)}</span>` : ''}<span class="sr"> (abre en otra pestaña)</span></a>`; };
-  const ev = M.lines.map(l => `<article class="card ev-card" style="${lineVars(l.id)}"><header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></header>
-    <ol class="ev-list">${l.evidence.map(e => `<li><div class="ev-path"><span class="ev-lbl">Sostiene el paso de</span><span class="step">${esc(clean(where(l, e.from)))}</span><span class="step to"><span class="sr">a </span>${esc(clean(where(l, e.to)))}</span></div>
-      <p class="ev-find">${esc(e.text)}</p><p class="ev-src">${e.refs.map(r => short(byRef.get(r))).join('<span aria-hidden="true"> · </span>')}</p></li>`).join('')}</ol></article>`).join('');
-  const list = (title, test) => { const rs = M.references.filter(test); return rs.length ? `<section class="ref-col"><h3>${esc(title)}</h3><ul>${rs.map(r => `<li>${link(r)}<span>${esc(r.use)}</span></li>`).join('')}</ul></section>` : ''; };
-  $('refGroups').innerHTML = `<section class="ref-group"><h2>La evidencia detrás de cada cadena</h2><div class="ev-grid">${ev}</div></section>
-    <section class="ref-group"><h2>Marcos y fuentes</h2><div class="ref-cols card">${list('Marcos que inspiran el modelo', r => /Marco|Estudio de caso|metodológ|Estándar/.test(r.type))}${list('Fuentes de datos', r => /oficial|Registro|regional|nacional/i.test(r.type))}${list('Manizales Más y sus programas', r => /institucional/.test(r.type))}</div></section>`;
+  const a = (r, inner) => r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${inner}<span class="sr"> (abre en otra pestaña)</span></a>` : `<span>${inner}</span>`;
+  const ev = l => `<div class="ev-cards" style="${lineVars(l.id)}">${l.evidence.map(e => `<article class="card evc"><p class="ev-place">${esc(e.place)}</p><h3>${esc(e.stat)}</h3><p class="ev-text">${esc(e.text)}</p>
+      <p class="ev-path"><span>${esc(clean(where(l, e.from)))}</span><i aria-hidden="true">→</i><span class="sr"> lleva a </span><span>${esc(clean(where(l, e.to)))}</span></p>
+      <p class="ev-src">${e.refs.map(r => a(byRef.get(r), esc(byRef.get(r).title))).join('<br>')}</p></article>`).join('')}</div>`;
+  const fw = new Set(M.frameworks.map(f => f.ref));
+  const list = (title, test) => { const rs = M.references.filter(r => !fw.has(r.id) && test(r)); return rs.length ? `<section class="ref-col"><h3>${esc(title)}</h3><ul>${rs.map(r => `<li>${a(r, esc(r.title))}<span>${esc(r.use)}</span></li>`).join('')}</ul></section>` : ''; };
+  const shown = S.printAll ? M.lines : [byLine.get(S.ref)];
+  $('refGroups').innerHTML = `<section class="ref-group"><h2>Los marcos que nos guían</h2><div class="fw-cards">${M.frameworks.map(f => `<article class="card fwc"><p class="fw-sub">${esc(f.sub)}</p><h3>${esc(f.name)}</h3><p>${esc(f.text)}</p>${a(byRef.get(f.ref), 'Ver la fuente')}</article>`).join('')}</div></section>
+    <section class="ref-group"><h2>La evidencia detrás de cada cadena</h2>
+      <div class="ctabs" role="group" aria-label="Frente">${M.lines.map(l => `<button type="button" class="ctab" data-ref="${l.id}" aria-pressed="${S.ref === l.id}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}</span></button>`).join('')}</div>
+      ${shown.map(ev).join('')}</section>
+    <section class="ref-group"><h2>Otras fuentes</h2><div class="ref-cols two card">${list('Métodos y datos', r => !/institucional|Evidencia/.test(r.type))}${list('Manizales Más y sus programas', r => /institucional/.test(r.type))}</div></section>`;
 }
-
-/* ---------- ficha de indicador ---------- */
-const dlg = $('dlg'); let back = null;
-function open(id){
-  const x = byInd.get(id); if(!x) return;
-  hideTip(); if(!dlg.open) back = document.activeElement;
-  $('dTitle').textContent = x.name; $('dTag').textContent = `Indicador · ${groupOf(id)}`;
-  $('dHead').style.setProperty('--dh', byLine.get(lineOfInd(id))?.tone || '#104380');
-  $('dBody').innerHTML = `<div class="ficha">
-    <div class="row first"><b>Cómo se calcula</b><span>${esc(x.calc)}</span></div>
-    <div class="row"><b>Información</b><span>${lev(x)}</span></div>
-    <div class="row"><b>Frecuencia</b><span>${esc(x.freq)}</span></div></div>`;
-  if(!dlg.open) dlg.showModal();
-  $('dBody').scrollTop = 0; $('dTitle').focus({preventScroll:true});
-}
-dlg.addEventListener('close', () => { if(back?.isConnected) back.focus({preventScroll:true}); });
-dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
-$('dClose').addEventListener('click', () => dlg.close());
 
 /* ---------- navegación ---------- */
 function show(view, focus){
   if(!VIEWS.includes(view)) view = 'modelo';
-  S.view = view; hideTip(); if(dlg.open) dlg.close();
+  S.view = view; hideTip();
   document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== view);
   document.querySelectorAll('.nav a').forEach(a => a.getAttribute('href') === `#${view}` ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
   document.title = `${$('h-' + view).textContent} · Manizales Más`;
@@ -1960,7 +2055,7 @@ function show(view, focus){
 }
 function route(focus = true){
   let view = decodeURIComponent(location.hash.slice(1)).split('/')[0];
-  if(view === 'indicadores') view = 'cadenas'; if(view === 'glosario') view = 'modelo';
+  if(view === 'glosario') view = 'modelo';
   if(view !== S.view) show(view, focus);
 }
 addEventListener('hashchange', () => route());
@@ -1969,7 +2064,8 @@ document.addEventListener('click', e => {
   if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); return; }
   const d = b.dataset;
   if(d.tip){ if(tipFor === b && tipPinned) hideTip(); else showTip(b, true); return; }
-  if(d.open){ open(d.open); return; }
+  if(d.iline !== undefined){ S.iLine = d.iline; S.iProg = ''; drawIndicators(); document.querySelector(`[data-iline="${d.iline}"]`)?.focus({preventScroll:true}); return; }
+  if(d.ref){ S.ref = d.ref; drawRefs(); document.querySelector(`[data-ref="${d.ref}"]`)?.focus({preventScroll:true}); return; }
   if(d.chain){ S.chain = d.chain; drawChains(); $('ctab-' + S.chain).focus({preventScroll:true}); return; }
   if(d.mode){ S.mode = d.mode; S.line = ''; S.prog = '';
     document.querySelectorAll('[data-mode]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.mode === S.mode)));
@@ -1978,8 +2074,10 @@ document.addEventListener('click', e => {
   if(d.prog){ S.prog = S.prog === d.prog ? '' : d.prog; drawControls(); drawTheory(); document.querySelector(`[data-prog="${d.prog}"]`)?.focus({preventScroll:true}); return; }
   if('clear' in d){ S.prog = ''; drawControls(); drawTheory(); return; }
 });
-addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); $('allInd').open = true; S.printAll = true; drawChains(); });
-addEventListener('afterprint', () => { S.printAll = false; drawChains(); show(S.view, false); });
+$('iProg').addEventListener('change', e => { S.iProg = e.target.value; S.iLine = ''; drawIndicators(); $('iProg').focus(); });
+document.addEventListener('click', e => { const l = e.target.closest('[data-toref]'); if(l){ S.ref = l.dataset.toref; drawRefs(); } });
+addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); S.printAll = true; drawChains(); drawIndicators(); drawRefs(); });
+addEventListener('afterprint', () => { S.printAll = false; drawChains(); drawIndicators(); drawRefs(); show(S.view, false); });
 
 drawModel(); drawControls(); drawTheory(); drawChains(); drawIndicators(); drawRefs();
 route(false);

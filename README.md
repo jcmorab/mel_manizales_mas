@@ -28,6 +28,7 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 - **Ecosistema:** organizado en las seis dimensiones del modelo adaptado a Manizales (mercados, política,
   finanzas, cultura, soporte, y trabajo y talento), con un indicador por dimensión y el índice como síntesis.
   Entrenamiento a mentores, Profesores de Alto Potencial y La ruta del emprendimiento pasan a este frente.
+  Una rueda interactiva muestra las seis dimensiones, sus elementos y con qué se mide cada una.
 - **Sostenibilidad:** reemplaza a Transferencia como la base que sostiene los tres frentes, con cuatro
   componentes: transferencia a otros ecosistemas, proceso comercial, pago por resultados y comunidad.
 

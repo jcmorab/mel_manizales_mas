@@ -125,6 +125,30 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .base-comps span{font-size:13.5px;color:var(--muted);line-height:1.55}
 .base-card .foot{border-top:1px dashed var(--line);padding-top:16px}
 .base-card .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lt);margin-bottom:10px}
+.eco-band{position:relative;overflow:hidden;margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:24px 26px}
+.eco-band::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--lc)}
+.eco-head h2{font-size:clamp(1.25rem,2vw,1.55rem);color:var(--lt)}
+.eco-head .lede{font-size:15px;margin-top:8px}
+.eco-body{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:28px;align-items:center;margin-top:18px}
+.eco-wheel svg{display:block;width:100%;height:auto;max-width:340px;margin:0 auto}
+.seg{cursor:pointer;transition:opacity .15s,transform .15s;transform-origin:170px 170px}
+.seg path{stroke:#fff;stroke-width:3}
+.seg text{font-family:var(--ff);font-size:14px;font-weight:700;pointer-events:none}
+.seg:hover,.seg.hl{transform:scale(1.035)}
+.seg.on path{stroke:var(--navy-d);stroke-width:4}
+.seg.dim{opacity:.25}
+.eco-wheel .ctr{font-family:var(--ff);font-size:12px;font-weight:700;fill:#104380}
+.eco-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dim-item{width:100%;height:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;background:var(--pale);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:background .15s,box-shadow .15s,opacity .15s}
+.dim-item:hover,.dim-item.hl{background:#fff;box-shadow:var(--sh)}
+.dim-item[aria-pressed="true"]{background:#fff;box-shadow:0 0 0 3px var(--navy)}
+.dim-item.dim{opacity:.25}
+.dim-item .sw{flex:none;width:14px;height:14px;margin-top:3px;border-radius:5px;background:var(--dc);box-shadow:inset 0 0 0 1px rgba(11,46,92,.15)}
+.dim-item .dt{display:flex;flex-direction:column;gap:3px}
+.dim-item strong{font-size:14.5px;color:var(--navy-d)}
+.dim-item .de{font-size:13px;color:var(--muted);line-height:1.45}
+.dim-item .dm{font-size:12.5px;color:var(--lt);font-weight:600;line-height:1.45;margin-top:2px}
+.eco-foot{margin-top:16px;font-size:14px;color:var(--muted)}
 .base-band{position:relative;overflow:hidden;margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:20px 22px}
 .base-band::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--sky),var(--lime))}
 .bb-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
@@ -304,7 +328,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .facts dt{font-weight:600;color:var(--soft)}
 
 /* ------------------------------------------------ responsive */
-@media (max-width:1100px){.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:1fr}.base-comps,.bb-comps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.eco-body{grid-template-columns:1fr}.eco-wheel svg{max-width:300px}.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:1fr}.base-comps,.bb-comps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
   .shell{display:block;background:var(--bg)}
   .side{position:sticky;top:0;z-index:20;height:auto;flex-direction:row;align-items:center;gap:14px;padding:12px 16px;overflow:visible}
@@ -329,7 +353,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .measure{scroll-margin-top:80px}
 }
 @media (max-width:640px){
-  .pick,.base-comps,.bb-comps{grid-template-columns:1fr}
+  .pick,.base-comps,.bb-comps,.eco-list{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
   .ind-table{min-width:0}
   .ind-table thead,.ind-table colgroup,.row td:not(:first-child){display:none}
@@ -367,7 +391,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
   .measure{break-before:page}
-  .base-band,.base-card{break-inside:avoid;box-shadow:none}
+  .base-band,.base-card,.eco-band{break-inside:avoid;box-shadow:none}
+  .eco-band::before,.seg path,.dim-item .sw{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .base-band::before,.base-card::before,.comp{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .line-card,.ev-card,.ref-col li,tr{break-inside:avoid}
   thead{display:table-header-group}
@@ -436,6 +461,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
   <div class="swim-wrap" tabindex="0" role="region" aria-label="Cadena de resultados por frente"><div class="swim" id="swim"></div></div>
+  <section class="eco-band" id="ecoBand" aria-labelledby="eco-h"></section>
   <section class="base-band" id="baseBand" aria-labelledby="lane-SOS"></section>
 
   <div class="measure" id="medicion">
@@ -525,7 +551,57 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Ecosistema",
    "color": "#A8B800",
    "tone": "#5C6500",
-   "story": "Una empresa crece más fácil cuando a su alrededor hay mercados, política pública, financiación, cultura, entidades de soporte y talento que empujan en la misma dirección. Trabajamos con empresarios, inversionistas, empresas ancla, gobierno y universidades en esas seis dimensiones, y formamos a los mentores y docentes que acompañan a las empresas."
+   "story": "Una empresa crece más fácil cuando a su alrededor hay mercados, política pública, financiación, cultura, entidades de soporte y talento que empujan en la misma dirección. Trabajamos con empresarios, inversionistas, empresas ancla, gobierno y universidades en esas seis dimensiones, y formamos a los mentores y docentes que acompañan a las empresas.",
+   "dimensions": [
+    {
+     "id": "POL",
+     "name": "Política",
+     "short": "Política",
+     "color": "#104380",
+     "ink": "#FFFFFF",
+     "elements": "Liderazgo, gobierno y regulaciones."
+    },
+    {
+     "id": "FIN",
+     "name": "Finanzas",
+     "short": "Finanzas",
+     "color": "#CDDD00",
+     "ink": "#0B2E5C",
+     "elements": "Micropréstamos, inversionistas ángeles y financiamiento de etapa cero."
+    },
+    {
+     "id": "CUL",
+     "name": "Cultura",
+     "short": "Cultura",
+     "color": "#4E617A",
+     "ink": "#FFFFFF",
+     "elements": "Mentalidad emprendedora, apertura a la innovación y ambición de crecimiento."
+    },
+    {
+     "id": "SOP",
+     "name": "Soporte",
+     "short": "Soporte",
+     "color": "#A8B800",
+     "ink": "#0B2E5C",
+     "elements": "Red de emprendimiento de Caldas e instituciones de apoyo: legal, contable y no gubernamental."
+    },
+    {
+     "id": "TYT",
+     "name": "Trabajo y talento",
+     "short": "Talento",
+     "color": "#27B9E1",
+     "ink": "#0B2E5C",
+     "elements": "Mano de obra calificada y no calificada, e instituciones educativas."
+    },
+    {
+     "id": "MER",
+     "name": "Mercados",
+     "short": "Mercados",
+     "color": "#DCE6F2",
+     "ink": "#104380",
+     "elements": "Redes de negocios, redes de la diáspora, corporaciones y multinacionales."
+    }
+   ]
   },
   {
    "id": "SOS",
@@ -3046,6 +3122,9 @@ const IND = M.indicators.filter(x => x.name && !x.measuredBy);
 const outsOf = id => M.outcomes.filter(o => o.line === id);
 const FRONTS = M.lines.filter(l => !l.base), BASE = M.lines.find(l => l.base);
 const compOf = id => BASE.components.find(c => 'sos:' + c.id === id);
+const ECO = byLine.get('ECO'), ECO_OUT = M.outcomes.find(o => o.formula === '6D');
+const dimOf = id => ECO.dimensions.find(d => 'dim:' + d.id === id);
+const dimCodes = d => ECO_OUT.indicators.filter(c => byCode.get(c).dim === d.id);
 const lineName = id => id === 'SIS' ? 'Todos los frentes' : byLine.get(id)?.name || id;
 const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
@@ -3059,11 +3138,12 @@ const S = {view:'', mode:'line', line:'', prog:'', node:''};
 const codesOf = id => {
   if(id === 'impact') return M.impact.indicators;
   if(compOf(id)) return compOf(id).codes;
+  if(dimOf(id)) return dimCodes(dimOf(id));
   if(byOut.has(id)) return byOut.get(id).indicators;
   const x = byCode.get(id); return x.measuredBy ? [x.measuredBy] : [id];
 };
-const nodeLabel = id => id === 'impact' ? M.impact.title : compOf(id) ? compOf(id).name : byOut.has(id) ? byOut.get(id).statement : byCode.get(id).statement;
-const nodeStage = id => id === 'impact' ? 'Impacto' : compOf(id) ? 'Sostenibilidad' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
+const nodeLabel = id => id === 'impact' ? M.impact.title : compOf(id) ? compOf(id).name : dimOf(id) ? dimOf(id).name : byOut.has(id) ? byOut.get(id).statement : byCode.get(id).statement;
+const nodeStage = id => id === 'impact' ? 'Impacto' : compOf(id) ? 'Sostenibilidad' : dimOf(id) ? 'Dimensión del ecosistema' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
 
 /* ---------- 01 modelo ---------- */
 const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
@@ -3128,12 +3208,52 @@ function drawTheory(){
   }).join('');
   const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-node="impact"${pressed('impact')}><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
   $('swim').innerHTML = head + rows + imp;
+  drawEco();
   const bb = $('baseBand'); bb.style.cssText = lineVars(BASE.id);
   bb.innerHTML = `<div class="bb-head"><div class="bb-title"><span class="ico sm" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h2 id="lane-${BASE.id}">${esc(BASE.name)}</h2></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
     <div class="lane-btns row"><button type="button" class="hyp-btn" data-tip="hyp:${BASE.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${BASE.id}" aria-expanded="false">Supuestos</button></div></div>
     <div class="bb-comps">${BASE.components.map(c => `<button type="button" class="comp${state(c.codes)}" data-node="sos:${c.id}"${pressed('sos:' + c.id)}><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span></button>`).join('')}</div>`;
   drawIndicators();
 }
+
+/* ---------- rueda del ecosistema ---------- */
+function wheel(){
+  const cx = 170, cy = 170, R = 158, r = 62, rad = a => a * Math.PI / 180, P = (a, d) => [(cx + d * Math.cos(rad(a))).toFixed(1), (cy + d * Math.sin(rad(a))).toFixed(1)];
+  const segs = ECO.dimensions.map((d, i) => {
+    const a0 = -90 + i * 60, a1 = a0 + 60, am = a0 + 30;
+    const [x0, y0] = P(a0, R), [x1, y1] = P(a1, R), [x2, y2] = P(a1, r), [x3, y3] = P(a0, r), [lx, ly] = P(am, (R + r) / 2 + 4);
+    const words = d.short.split(' ');
+    return `<g class="seg${state(dimCodes(d))}${S.node === 'dim:' + d.id ? ' on' : ''}" data-seg="dim:${d.id}">
+      <path d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${r} ${r} 0 0 0 ${x3} ${y3}Z" fill="${d.color}"/>
+      <text x="${lx}" y="${ly}" fill="${d.ink}" text-anchor="middle" dominant-baseline="middle">${esc(words.join(' '))}</text></g>`;
+  }).join('');
+  return `<svg viewBox="0 0 340 340" aria-hidden="true" focusable="false">${segs}
+    <circle cx="${cx}" cy="${cy}" r="${r - 8}" fill="#fff" stroke="#DFE6EF" stroke-width="2"/>
+    <g transform="translate(${cx - 18} ${cy - 30}) scale(1.5)" fill="none" stroke="#104380" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></g>
+    <text x="${cx}" y="${cy + 24}" text-anchor="middle" class="ctr">Empresario</text></svg>`;
+}
+function drawEco(){
+  const band = $('ecoBand');
+  band.hidden = S.mode === 'line' && S.line && S.line !== 'ECO';
+  if(band.hidden) return;
+  band.style.cssText = lineVars('ECO');
+  band.innerHTML = `<div class="eco-head"><div><p class="kicker">Frente Ecosistema</p><h2 id="eco-h">El ecosistema en seis dimensiones</h2>
+      <p class="lede">Así entendemos el entorno que rodea a las empresas, adaptado a Manizales a partir del modelo de Babson College. Cada dimensión avanza a su propio ritmo y tiene su propia medida. Elija una para ver sus indicadores.</p></div></div>
+    <div class="eco-body"><div class="eco-wheel">${wheel()}</div>
+      <ul class="eco-list">${ECO.dimensions.map(d => { const cs = dimCodes(d); return `<li><button type="button" class="dim-item${state(cs)}" data-node="dim:${d.id}"${pressed('dim:' + d.id)} style="--dc:${d.color}">
+        <span class="sw" aria-hidden="true"></span><span class="dt"><strong>${esc(d.name)}</strong><span class="de">${esc(d.elements)}</span><span class="dm">Se mide con: ${cs.map(c => esc(byCode.get(c).name)).join(' · ')}</span></span></button></li>`; }).join('')}</ul></div>
+    <p class="eco-foot">Las seis se resumen cada año en el <button type="button" class="link" data-node="RES_19"${pressed('RES_19')}>Índice del ecosistema</button>, medido con los cinco tipos de actor: empresarios, capital, empresas ancla, gobierno y universidades.</p>`;
+}
+document.addEventListener('click', e => {
+  const g = e.target.closest('[data-seg]'); if(!g) return;
+  const id = g.dataset.seg; S.node = S.node === id ? '' : id; drawTheory();
+  if(S.node) $('medicion').scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+});
+document.addEventListener('mouseover', e => {
+  const it = e.target.closest('.dim-item, [data-seg]'); document.querySelectorAll('.seg.hl,.dim-item.hl').forEach(x => x.classList.remove('hl'));
+  if(!it) return; const id = it.dataset.node || it.dataset.seg;
+  document.querySelectorAll(`[data-seg="${id}"],.dim-item[data-node="${id}"]`).forEach(x => x.classList.add('hl'));
+});
 
 /* ---------- indicadores filtrados por la cadena ---------- */
 function scope(){

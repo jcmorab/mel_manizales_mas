@@ -1,6 +1,6 @@
 # Teoría de cambio de Manizales Más
 
-Documento web interactivo de un solo archivo. **Versión 7.2** · noviembre de 2026.
+Documento web interactivo de un solo archivo. **Versión 7.3** · noviembre de 2026.
 
 `index.html` es autocontenido: estilos, lógica, logo, tipografía Poppins y el modelo completo van
 embebidos. Se abre con doble clic o se publica en GitHub Pages (Settings → Pages → rama `main`,
@@ -11,21 +11,28 @@ carpeta `/ (root)`).
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Qué es Manizales Más, hacia dónde va, el ecosistema en seis dimensiones y los cuatro frentes de trabajo |
-| 02 Teoría de cambio | El diagrama de cada frente, de la problemática al impacto, por frente o por programa, con su hipótesis, su evidencia y sus supuestos |
-| 03 Cadenas causales | Una cadena por frente: problema, lo que se hace, lo que se entrega, lo que cambia e impacto, con los indicadores de cada paso. Al final, la lista de los 25 indicadores |
+| 02 Teoría de cambio | El diagrama de cada frente, de la problemática al impacto, por frente o por programa, con su hipótesis, su evidencia y sus supuestos. Al pasar por un resultado o por el impacto se ve con qué se mide |
+| 03 Cadenas causales | Una cadena por frente: problema, lo que se hace, lo que se entrega, lo que cambia e impacto, con los indicadores de cada paso. Al final, la lista de los 23 indicadores |
 | 04 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
 
 ## El modelo
 
-- **Impacto:** crecimiento económico de Manizales y Caldas. Se mide con ventas y empleo formal de las
-  empresas, y con los ingresos de los jóvenes, siempre frente a un grupo comparable.
-- **Cuatro frentes:** Empresas, Ecosistema y Talento, más Sostenibilidad como frente transversal que
-  sostiene a los otros tres.
+- **Impacto:** crecimiento económico de Manizales y Caldas, al que contribuyen los cuatro frentes. Se
+  mide con las ventas y el empleo formal de las empresas y con los ingresos de los jóvenes.
+- **Cuatro frentes:** Empresas, Ecosistema, Talento y Sostenibilidad, que es transversal.
 - **Ecosistema:** seis dimensiones adaptadas a Manizales a partir del modelo de Babson College:
-  mercados, política, finanzas, cultura, soporte, y trabajo y talento.
-- **25 indicadores**, sin códigos y con nombres reconocibles: 3 de impacto, 7 de empresas, 4 de
-  ecosistema, 5 de talento, 4 de sostenibilidad y 2 comunes a todos los frentes. Cada ficha dice qué
-  mide, cómo se calcula, qué no cuenta, de dónde sale y cuándo se mide.
+  política, finanzas, cultura, soporte, trabajo y talento, y mercados.
+- **23 indicadores** con nombres cortos: 7 de empresas, 4 de ecosistema, 6 de talento, 4 de
+  sostenibilidad y 2 comunes. De cada uno se dice cómo se calcula, si requiere levantamiento de
+  información o ya se registra, y con qué frecuencia se mide.
+
+## Cambios de la versión 7.3
+
+- El impacto es una franja al final del diagrama y abarca los cuatro frentes.
+- Indicadores renombrados y simplificados; ya no dependen de grupos de comparación ni de registros
+  administrativos externos.
+- El ecosistema tiene una definición por dimensión y colores distintos.
+- Se retiran las etiquetas particulares (portafolio, transversal y similares).
 
 ## Cambios de la versión 7.2
 

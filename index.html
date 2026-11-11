@@ -403,6 +403,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .hero-art{display:none}
   .swim{display:block;min-width:0}
   .swim-h{display:none}
+  .imp-band{display:block}
+  .imp-band .swim-h{display:inline-flex}
   .lane{display:block;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--lc);border-radius:var(--r);padding:16px;margin-bottom:14px}
   .lane-name,.cell{border-bottom:0;padding:0 0 12px}
   .lane::before{width:4px}
@@ -470,6 +472,29 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   thead{display:table-header-group}
 }
 
+/* ------------------------------------------------ versión 7.3 */
+.swim{grid-template-columns:136px repeat(3,minmax(150px,1fr)) minmax(220px,1.3fr);min-width:940px}
+.lane{grid-column:1 / -1}
+.swim-h:last-child .sn{background:var(--navy);color:#fff}
+.imp-band{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:center;margin-top:4px}
+.imp-band .swim-h{grid-column:1 / 3;justify-self:start;visibility:visible}
+.imp-band .swim-h .sn{background:var(--lime)!important;color:var(--navy-d)!important}
+.imp-band .node.imp{grid-column:1 / -1;min-height:0;height:auto;margin-top:10px;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:20px 24px;border-radius:18px;cursor:pointer}
+.imp-band .node.imp strong{font-size:1.2rem}
+.imp-band .node.imp span{font-size:14.5px}
+button.node.out{cursor:pointer}
+button.node.out:hover,button.node.out[aria-expanded="true"]{box-shadow:var(--sh);border-color:var(--lc)}
+.dim-card p{font-size:13.5px;color:var(--ink);line-height:1.45;margin:2px 0 4px}
+.dim-card span b{font-weight:600;color:var(--soft)}
+.ind-table col.w-name{width:210px}.ind-table col.w-info{width:250px}.ind-table col.w-freq{width:150px}
+.ind-table .i-name{text-align:left;font-weight:600;color:var(--navy-d);font-size:14.5px;padding:14px 20px;border-bottom:1px solid var(--line);vertical-align:top;background:none}
+.ind-table .i-name .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc,var(--navy-d));margin-right:10px}
+.ind-table td{vertical-align:top;font-size:13.5px;color:var(--ink);line-height:1.5}
+.lev{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 9px;margin-bottom:4px}
+.lev.yes{background:#FFF0CF;color:#6B4700}
+.lev.no{background:#E4F3E8;color:#17502B}
+.lev-t{display:block;font-size:13px;color:var(--muted);line-height:1.45}
+.ficha .row.first{border-top:0;padding-top:0}
 /* ------------------------------------------------ versión 7.2 */
 .lines{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tr-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-d);background:var(--lime);border-radius:999px;padding:2px 9px}
@@ -505,7 +530,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 .ficha .row.no b{color:#8A2A1E}
 @media (max-width:1100px){.ctabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){.trans-cell{margin-bottom:14px}.lines{grid-template-columns:1fr}}
-@media (max-width:640px){.ficha .row{grid-template-columns:1fr}.ctab small{display:none}}
+@media (max-width:640px){.ficha .row{grid-template-columns:1fr}.ind-table{min-width:0}.ind-table thead,.ind-table colgroup{display:none}.ind-table tr:not(.grp){display:block;padding:12px 16px;border-bottom:1px solid var(--line)}.ind-table .i-name,.ind-table tr:not(.grp) td{display:block;padding:2px 0;border:0}}
 @media print{.ctabs{display:none!important}.eco-model,.trans-cell{break-inside:avoid;box-shadow:none}.seg path,.dim-card .sw,.tr-tag{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
@@ -556,7 +581,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   </div>
 
   <div class="sec">
-    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Cuatro frentes, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en las empresas que pueden crecer, en el entorno que las rodea y en el talento que necesitan. Un cuarto frente, transversal, hace que todo esto dure: la sostenibilidad del modelo.</p></div>
+    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Cuatro frentes, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en las empresas que pueden crecer, en el entorno que las rodea y en el talento que necesitan. El cuarto frente es transversal y hace que todo esto dure: la sostenibilidad del modelo.</p></div>
     <div class="lines" id="lineCards"></div>
   </div>
   <div class="next"><p id="nextText"></p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
@@ -565,7 +590,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. «Hipótesis» explica por qué debería funcionar cada frente y «Supuestos», qué tiene que pasar para que funcione.</p></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. «Hipótesis» explica por qué debería funcionar cada frente y «Supuestos», qué tiene que pasar para que funcione. Pase el cursor por un resultado o por el impacto para ver con qué se mide.</p></div>
     <div class="mode" role="group" aria-label="Ver el diagrama"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
@@ -605,10 +630,10 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 <script type="application/json" id="model">
 {
  "meta": {
-  "version": "7.2",
+  "version": "7.3",
   "date": "2026-11-11",
   "intro": [
-   "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, empresarios, universidades, gremios y gobierno trabajan juntos, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
+   "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, Manizales Más trabaja junto a empresarios, universidades, gremios y gobierno, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
    "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en el entorno y en los jóvenes, y cómo vamos a saber si lo estamos logrando."
   ]
  },
@@ -634,9 +659,9 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    }
   ],
   "indicators": [
-   "ventas_comp",
-   "empleo_comp",
-   "ingresos_jov"
+   "ventas",
+   "empleo",
+   "ingresos"
   ]
  },
  "ecosystem": {
@@ -649,6 +674,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     "short": "Política",
     "color": "#104380",
     "ink": "#FFFFFF",
+    "def": "Las reglas y el liderazgo público que facilitan crear empresas y hacerlas crecer.",
     "elements": "Liderazgo, gobierno y regulaciones."
    },
    {
@@ -657,6 +683,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     "short": "Finanzas",
     "color": "#CDDD00",
     "ink": "#0B2E5C",
+    "def": "El capital disponible para cada etapa de una empresa.",
     "elements": "Micropréstamos, inversionistas ángeles y financiamiento de etapa cero."
    },
    {
@@ -665,22 +692,25 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     "short": "Cultura",
     "color": "#4E617A",
     "ink": "#FFFFFF",
+    "def": "Lo que la sociedad piensa y valora sobre emprender y crecer.",
     "elements": "Mentalidad emprendedora, apertura a la innovación y ambición de crecimiento."
    },
    {
     "id": "SOP",
     "name": "Soporte",
     "short": "Soporte",
-    "color": "#A8B800",
-    "ink": "#0B2E5C",
-    "elements": "Red de emprendimiento de Caldas e instituciones de apoyo: legal, contable y no gubernamental."
+    "color": "#0B6E8C",
+    "ink": "#FFFFFF",
+    "def": "Las organizaciones y servicios que acompañan a las empresas.",
+    "elements": "Red de emprendimiento de Caldas e instituciones de apoyo legal, contable y no gubernamental."
    },
    {
     "id": "TYT",
     "name": "Trabajo y talento",
     "short": "Talento",
-    "color": "#27B9E1",
+    "color": "#5BB7E7",
     "ink": "#0B2E5C",
+    "def": "Las personas formadas que las empresas necesitan para crecer.",
     "elements": "Mano de obra calificada y no calificada, e instituciones educativas."
    },
    {
@@ -689,12 +719,13 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     "short": "Mercados",
     "color": "#DCE6F2",
     "ink": "#104380",
+    "def": "Los clientes y las redes que abren oportunidades de venta.",
     "elements": "Redes de negocios, redes de la diáspora, corporaciones y multinacionales."
    }
   ]
  },
  "common": [
-  "atendidos",
+  "participantes",
   "finalizacion"
  ],
  "lines": [
@@ -725,11 +756,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     },
     {
      "text": "Empresas que crecen en clientes, capacidad y caja.",
-     "tags": [
-      "Clientes",
-      "Capacidad",
-      "Caja"
-     ],
      "ind": [
       "ventas",
       "clientes",
@@ -746,8 +772,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     }
    ],
    "impact": [
-    "ventas_comp",
-    "empleo_comp"
+    "ventas",
+    "empleo"
    ],
    "hypothesis": "Si las empresas con potencial se entrenan con expertos, aprenden de sus pares, reciben mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana, ventas que crecen y empresas que siguen en pie.",
    "assumptions": [
@@ -815,14 +841,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "outs": [
     {
      "text": "Un ecosistema más fuerte en sus seis dimensiones.",
-     "tags": [
-      "Mercados",
-      "Política",
-      "Finanzas",
-      "Cultura",
-      "Soporte",
-      "Talento"
-     ],
      "ind": [
       "indice_eco"
      ]
@@ -842,8 +860,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     }
    ],
    "impact": [
-    "ventas_comp",
-    "empleo_comp"
+    "ventas",
+    "empleo"
    ],
    "hypothesis": "Si los actores del ecosistema avanzan juntos en sus seis dimensiones, crecer se vuelve más fácil: más empresas encuentran clientes y capital, hay mentores y docentes que las acompañan, y crecer se vuelve una aspiración compartida.",
    "assumptions": [
@@ -929,7 +947,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     }
    ],
    "impact": [
-    "ingresos_jov"
+    "ingresos"
    ],
    "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, logran ingresos estables: un empleo formal que conservan o un negocio que vende y que incluso genera empleo.",
    "assumptions": [
@@ -972,7 +990,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "color": "#5BB7E7",
    "tone": "#17608F",
    "transversal": true,
-   "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, vendemos nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que respalda el modelo. Es el frente que sostiene a los otros tres.",
+   "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, vendemos nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que respalda el modelo. Es un frente transversal: sostiene a los otros tres.",
    "problem": "Un modelo que depende de pocas fuentes de financiación.",
    "acts": [
     "Transferencia del modelo a otros territorios y ecosistemas.",
@@ -1006,7 +1024,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     }
    ],
    "impact": [],
-   "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hacen los otros tres frentes.",
+   "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hacen los otros tres frentes, y con ello su aporte al crecimiento de la región.",
    "assumptions": [
     {
      "title": "Las organizaciones que adoptan el modelo lo sostienen.",
@@ -1243,229 +1261,211 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
  ],
  "indicators": [
   {
-   "id": "ventas_comp",
-   "name": "Crecimiento en ventas frente a empresas comparables",
-   "def": "Cuánto más crecen las ventas de las empresas acompañadas que las de empresas parecidas que no participaron.",
-   "calc": "Crecimiento de ventas reales a 24 meses de las empresas acompañadas, menos el de un grupo de comparación.",
-   "no": "Comparaciones contra promedios nacionales o del sector.",
-   "src": "Registro de postulantes, seguimiento a empresas y RUES",
-   "when": "Cada año, a 24 meses del ingreso"
-  },
-  {
-   "id": "empleo_comp",
-   "name": "Empleo formal frente a empresas comparables",
-   "def": "Cuánto más empleo formal, y mejor pagado, generan las empresas acompañadas que empresas parecidas.",
-   "calc": "Cambio en empleados y en salarios cotizados en PILA a 24 meses, menos el del grupo de comparación.",
-   "no": "Contratistas, empleos anunciados o estimados.",
-   "src": "PILA, con autorización de las empresas",
-   "when": "Cada año, a 24 meses del ingreso"
-  },
-  {
-   "id": "ingresos_jov",
-   "name": "Ingresos de los jóvenes frente a jóvenes comparables",
-   "def": "Cuánto más ganan los jóvenes de Qué Nivel, por salario o por su negocio, que jóvenes parecidos que no participaron.",
-   "calc": "Ingreso mensual de los jóvenes atendidos menos el de postulantes no seleccionados, en pesos constantes.",
-   "no": "Subsidios, préstamos y ventas del negocio sin descontar costos.",
-   "src": "Seguimiento a jóvenes y registro de postulantes",
-   "when": "A 12 y 24 meses del cierre"
-  },
-  {
    "id": "plan",
-   "name": "Cumplimiento del plan de crecimiento",
-   "def": "Qué parte de los hitos que la empresa acordó en su plan de crecimiento se cumple en la fecha pactada.",
-   "calc": "Hitos cumplidos con evidencia, divididos por los hitos que ya vencieron.",
-   "no": "Tareas menores o hitos sin fecha ni evidencia.",
-   "src": "Registro de mentoría",
-   "when": "Cada trimestre"
+   "line": "EMP",
+   "name": "Avance del plan de crecimiento",
+   "calc": "Hitos cumplidos, divididos por los hitos del plan que ya vencieron.",
+   "lev": false,
+   "info": "Se registra en las sesiones de mentoría.",
+   "freq": "Trimestral"
   },
   {
    "id": "ventas",
-   "name": "Crecimiento de ventas",
-   "def": "Cuánto crecen las ventas de las empresas acompañadas, descontando la inflación.",
-   "calc": "Cambio en las ventas de los 12 meses previos al seguimiento frente a los 12 previos al ingreso. Se reporta la mediana.",
-   "no": "Ventas proyectadas o pedidos sin facturar.",
-   "src": "Seguimiento a empresas",
-   "when": "A 12 y 24 meses, por cohorte"
+   "line": "EMP",
+   "name": "Ventas",
+   "calc": "Variación de las ventas del año frente a las del año anterior al ingreso, descontando la inflación. Se reporta la mediana de las empresas.",
+   "lev": true,
+   "info": "Reporte anual de ventas de cada empresa.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "clientes",
-   "name": "Empresas con clientes o mercados nuevos",
-   "def": "Empresas que le venden a clientes nuevos o entran a otro departamento, país o canal de ventas.",
-   "calc": "Empresas con al menos una venta facturada a un cliente, mercado o canal nuevo, sobre el total acompañado.",
-   "no": "Contactos, ferias o cotizaciones sin venta.",
-   "src": "Seguimiento a empresas",
-   "when": "A 12 y 24 meses, por cohorte"
+   "line": "EMP",
+   "name": "Clientes y mercados nuevos",
+   "calc": "Empresas con al menos una venta a un cliente, ciudad, país o canal nuevo, divididas por las empresas acompañadas.",
+   "lev": true,
+   "info": "Reporte anual de cada empresa.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "empleo",
-   "name": "Empleos formales nuevos",
-   "def": "Cuántos empleos formales suman las empresas acompañadas.",
-   "calc": "Empleados cotizando en PILA al seguimiento, menos los que había al ingreso.",
-   "no": "Contratistas y propietarios sin salario.",
-   "src": "PILA, con autorización de las empresas",
-   "when": "A 12 y 24 meses, por cohorte"
+   "line": "EMP",
+   "name": "Empleo formal",
+   "calc": "Empleados con contrato laboral al cierre del año, menos los que había al ingreso.",
+   "lev": true,
+   "info": "Reporte anual de cada empresa, con su planilla de aportes como soporte.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "utilidades",
-   "name": "Crecimiento de utilidades",
-   "def": "Empresas que crecen sin sacrificar rentabilidad.",
-   "calc": "Empresas cuya utilidad operativa es igual o mayor que la del año anterior al ingreso, sobre el total acompañado.",
-   "no": "Entradas por préstamos, aportes de socios o venta de activos.",
-   "src": "Estados financieros de las empresas",
-   "when": "Cada año"
+   "line": "EMP",
+   "name": "Utilidades",
+   "calc": "Empresas cuya utilidad operativa del año es igual o mayor que la del año anterior al ingreso, divididas por las empresas acompañadas.",
+   "lev": true,
+   "info": "Estados financieros anuales de cada empresa.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "supervivencia",
-   "name": "Empresas activas a 24 meses",
-   "def": "Empresas acompañadas que siguen operando dos años después.",
-   "calc": "Empresas con ventas o empleados a los 24 meses, sobre las que iniciaron.",
-   "no": "Matrícula mercantil vigente sin ventas ni empleados.",
-   "src": "Seguimiento a empresas y RUES",
-   "when": "A 24 meses, por cohorte"
+   "line": "EMP",
+   "name": "Supervivencia",
+   "calc": "Empresas que siguen operando dos años después de ingresar, divididas por las que ingresaron.",
+   "lev": false,
+   "info": "Se consulta el registro mercantil y el contacto con la empresa.",
+   "freq": "Anual"
   },
   {
    "id": "emprend_ventas",
-   "name": "Emprendimientos que venden",
-   "def": "Emprendimientos tempranos que ya tienen clientes reales y los conservan.",
-   "calc": "Emprendimientos con ventas a tres o más clientes en los últimos tres meses, sobre los que iniciaron.",
-   "no": "Ventas a familiares o socios, y preventas sin entrega.",
-   "src": "Seguimiento a emprendimientos",
-   "when": "A 12 y 24 meses, por cohorte"
+   "line": "EMP",
+   "name": "Emprendimientos con ventas",
+   "calc": "Emprendimientos con ventas en los últimos tres meses, divididos por los emprendimientos acompañados.",
+   "lev": true,
+   "info": "Seguimiento anual a cada emprendimiento.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "indice_eco",
+   "line": "ECO",
    "name": "Índice del ecosistema",
-   "def": "Qué tan fuerte está el ecosistema en cada una de sus seis dimensiones, según sus propios actores.",
-   "calc": "Puntaje de 1 a 5 por dimensión, dado por empresarios, capital, empresas ancla, gobierno y universidades. Se publica cada dimensión y el promedio.",
-   "no": "Encuestas a un solo tipo de actor.",
-   "src": "Medición anual del ecosistema",
-   "when": "Cada año"
+   "calc": "Promedio del puntaje, de 1 a 5, que los actores del ecosistema dan a cada una de las seis dimensiones.",
+   "lev": true,
+   "info": "Encuesta anual a empresarios, capital, empresas ancla, gobierno y universidades.",
+   "freq": "Anual"
   },
   {
    "id": "capital",
+   "line": "ECO",
    "name": "Capital movilizado",
-   "def": "Dinero de inversión, crédito o pago por resultados que efectivamente llega a las empresas acompañadas.",
-   "calc": "Suma de los desembolsos verificados en el año.",
-   "no": "Montos solicitados o aprobados sin desembolso.",
-   "src": "Registro de financiación",
-   "when": "Cada año"
+   "calc": "Suma de la inversión y el crédito desembolsados a las empresas acompañadas en el año.",
+   "lev": false,
+   "info": "Se registra en los programas de financiación.",
+   "freq": "Anual"
   },
   {
    "id": "negocios_ancla",
+   "line": "ECO",
    "name": "Negocios con empresas ancla",
-   "def": "Empresas de la región que logran un contrato con una empresa ancla a partir de un reto.",
-   "calc": "Contratos firmados en el año y su valor.",
-   "no": "Postulaciones o pilotos sin contrato.",
-   "src": "Registro de Open Más",
-   "when": "Cada año"
+   "calc": "Número y valor de los contratos firmados en el año a partir de retos de empresas ancla.",
+   "lev": false,
+   "info": "Se registra en Open Más.",
+   "freq": "Anual"
   },
   {
    "id": "mentoria_vol",
+   "line": "ECO",
    "name": "Mentoría voluntaria",
-   "def": "Empresarios que devuelven al ecosistema su tiempo y experiencia.",
    "calc": "Mentores voluntarios activos y horas que aportan en el año.",
-   "no": "Horas pagadas y horas del equipo de Manizales Más.",
-   "src": "Registro de mentoría",
-   "when": "Cada año"
+   "lev": false,
+   "info": "Se registra en las sesiones de mentoría.",
+   "freq": "Anual"
   },
   {
    "id": "agencia",
-   "name": "Índice de agencia",
-   "def": "Jóvenes que salen con más confianza, iniciativa y habilidades socioemocionales de las que traían.",
-   "calc": "Jóvenes cuyo puntaje al cierre supera el del ingreso, sobre los que tienen ambas mediciones.",
-   "no": "Mediciones solo de salida.",
-   "src": "Evaluación de entrada y salida",
-   "when": "Por cohorte"
+   "line": "TAL",
+   "name": "Agencia",
+   "calc": "Jóvenes cuyo puntaje en la prueba de agencia sube entre el inicio y el cierre, divididos por los jóvenes con ambas pruebas.",
+   "lev": true,
+   "info": "Prueba al inicio y al cierre de cada cohorte.",
+   "freq": "Por cohorte"
   },
   {
    "id": "empleo_jov",
-   "name": "Jóvenes con empleo formal",
-   "def": "Jóvenes de la ruta de empleo que consiguen un trabajo formal.",
-   "calc": "Jóvenes con contrato y cotización en PILA a los seis meses, sobre los que iniciaron la ruta.",
-   "no": "Entrevistas, pasantías sin pago, prestación de servicios y trabajo informal.",
-   "src": "Seguimiento a jóvenes y PILA",
-   "when": "A 6 meses del cierre, por cohorte"
+   "line": "TAL",
+   "name": "Empleo de los jóvenes",
+   "calc": "Jóvenes de la ruta de empleo con contrato laboral seis meses después del cierre, divididos por los que iniciaron la ruta.",
+   "lev": true,
+   "info": "Seguimiento a cada joven.",
+   "freq": "Por cohorte"
   },
   {
    "id": "permanencia",
-   "name": "Permanencia a 90 días",
-   "def": "Jóvenes que conservan su empleo.",
-   "calc": "Jóvenes que siguen cotizando 90 días después de vincularse, sobre los vinculados.",
-   "no": "Contratos terminados antes de 90 días sin nuevo empleo.",
-   "src": "PILA",
-   "when": "A 90 días de la vinculación"
+   "line": "TAL",
+   "name": "Permanencia en el empleo",
+   "calc": "Jóvenes que siguen empleados 90 días después de vincularse, divididos por los vinculados.",
+   "lev": true,
+   "info": "Seguimiento a cada joven.",
+   "freq": "Por cohorte"
   },
   {
    "id": "negocio_jov",
-   "name": "Jóvenes con negocio que vende",
-   "def": "Jóvenes de la ruta de emprendimiento con un negocio que ya tiene clientes.",
-   "calc": "Jóvenes con ventas a tres o más clientes en los últimos tres meses, sobre los que iniciaron la ruta.",
-   "no": "Ventas a familiares o socios.",
-   "src": "Seguimiento a jóvenes",
-   "when": "A 6 y 12 meses del cierre, por cohorte"
+   "line": "TAL",
+   "name": "Negocios activos",
+   "calc": "Jóvenes de la ruta de emprendimiento con ventas en los últimos tres meses, divididos por los que iniciaron la ruta.",
+   "lev": true,
+   "info": "Seguimiento a cada joven.",
+   "freq": "Por cohorte"
   },
   {
    "id": "empleos_neg",
-   "name": "Empleos que generan los negocios de los jóvenes",
-   "def": "Personas a las que los negocios de los jóvenes les dan trabajo.",
-   "calc": "Personas con pago en esos negocios, contando por separado formales e informales.",
-   "no": "Familiares que ayudan sin pago y socios.",
-   "src": "Seguimiento a jóvenes",
-   "when": "A 6 y 12 meses del cierre, por cohorte"
+   "line": "TAL",
+   "name": "Empleos de los negocios",
+   "calc": "Personas con pago en los negocios de los jóvenes, contando por separado formales e informales.",
+   "lev": true,
+   "info": "Seguimiento a cada joven.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "ingresos",
+   "line": "TAL",
+   "name": "Ingresos de los jóvenes",
+   "calc": "Ingreso mensual promedio de los jóvenes un año después del cierre, frente al que tenían al ingresar.",
+   "lev": true,
+   "info": "Seguimiento a cada joven.",
+   "freq": "Anual, durante dos años por cohorte"
   },
   {
    "id": "territorios",
-   "name": "Territorios que operan el modelo",
-   "def": "Municipios, regiones o ecosistemas que aplican la metodología con su propio equipo.",
-   "calc": "Territorios con al menos una cohorte propia cerrada en el año.",
-   "no": "Convenios firmados o visitas sin cohorte.",
-   "src": "Registro de transferencia",
-   "when": "Cada año"
+   "line": "SOS",
+   "name": "Territorios con el modelo",
+   "calc": "Territorios donde un equipo local acompañó al menos un grupo de empresas en el año.",
+   "lev": false,
+   "info": "Se registra en los acuerdos de transferencia.",
+   "freq": "Anual"
   },
   {
    "id": "ingresos_propios",
+   "line": "SOS",
    "name": "Ingresos propios",
-   "def": "Qué parte de la operación de Manizales Más se paga con la venta de sus servicios.",
-   "calc": "Ingresos por servicios y metodologías, divididos por el presupuesto ejecutado del año.",
-   "no": "Donaciones y recursos de cooperación.",
-   "src": "Información financiera de Manizales Más",
-   "when": "Cada año"
+   "calc": "Ingresos por venta de servicios, divididos por el presupuesto ejecutado del año.",
+   "lev": false,
+   "info": "Sale de la contabilidad de Manizales Más.",
+   "freq": "Anual"
   },
   {
    "id": "pago_resultados",
-   "name": "Pago por resultados verificado",
-   "def": "Acuerdos de pago por resultados que cumplen lo pactado.",
-   "calc": "Acuerdos con resultados verificados y pagados, sobre los que tenían verificación en el año.",
-   "no": "Acuerdos firmados que no llegan a verificación.",
-   "src": "Registro de financiación",
-   "when": "Cada año"
+   "line": "SOS",
+   "name": "Pago por resultados",
+   "calc": "Acuerdos con resultados verificados y pagados, divididos por los acuerdos con verificación en el año.",
+   "lev": false,
+   "info": "Se registra en los acuerdos de financiación.",
+   "freq": "Anual"
   },
   {
    "id": "comunidad",
+   "line": "SOS",
    "name": "Comunidad activa",
-   "def": "Empresarios, mentores y egresados que siguen vinculados a Manizales Más.",
-   "calc": "Personas con dos o más participaciones en el año.",
-   "no": "Inscritos en bases de datos sin participación.",
-   "src": "Registro de actividades",
-   "when": "Cada año"
+   "calc": "Empresarios, mentores y egresados con dos o más participaciones en el año.",
+   "lev": false,
+   "info": "Se registra en la asistencia a actividades.",
+   "freq": "Anual"
   },
   {
-   "id": "atendidos",
-   "name": "Participantes atendidos",
-   "def": "Empresas, jóvenes, mentores o docentes que efectivamente reciben un programa.",
-   "calc": "Participantes con registro inicial y al menos una actividad con asistencia. Se reporta por programa y municipio.",
-   "no": "Inscritos que nunca asistieron y postulantes no seleccionados.",
-   "src": "Registro de actividades",
-   "when": "Por cohorte"
+   "id": "participantes",
+   "line": "ALL",
+   "name": "Participantes",
+   "calc": "Empresas y personas con al menos una actividad con asistencia, por programa y municipio.",
+   "lev": false,
+   "info": "Se registra en la asistencia a actividades.",
+   "freq": "Por cohorte"
   },
   {
    "id": "finalizacion",
+   "line": "ALL",
    "name": "Finalización",
-   "def": "Participantes que terminan el programa que empezaron.",
-   "calc": "Participantes que cumplen los requisitos de cierre, sobre todos los que iniciaron, incluidos los retiros.",
-   "no": "Sacar a los retirados de la cuenta.",
-   "src": "Registro de actividades",
-   "when": "Por cohorte"
+   "calc": "Participantes que terminan el programa, divididos por los que lo iniciaron.",
+   "lev": false,
+   "info": "Se registra en la asistencia a actividades.",
+   "freq": "Por cohorte"
   }
  ],
  "references": [
@@ -1773,8 +1773,8 @@ const byInd = new Map(M.indicators.map(x => [x.id, x]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
 const progsOf = id => M.programs.filter(p => p.line === id);
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
-const groupOf = id => M.impact.indicators.includes(id) ? 'Impacto' : M.common.includes(id) ? 'Todos los frentes' : M.lines.find(l => l.outs.some(o => o.ind.includes(id))).name;
-const lineOfInd = id => M.lines.find(l => l.outs.some(o => o.ind.includes(id)))?.id || '';
+const lineOfInd = id => byLine.has(byInd.get(id).line) ? byInd.get(id).line : '';
+const groupOf = id => byLine.get(lineOfInd(id))?.name || 'Todos los frentes';
 const VIEWS = ['modelo','teoria','cadenas','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
 const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, printAll:false};
@@ -1812,9 +1812,9 @@ function drawModel(){
   $('ecoTitle').textContent = M.ecosystem.title;
   $('ecoText').textContent = M.ecosystem.text;
   $('ecoWheel').innerHTML = wheel();
-  $('ecoList').innerHTML = M.ecosystem.dimensions.map(d => `<li class="dim-card" data-dim="${d.id}" style="--dc:${d.color}"><span class="sw" aria-hidden="true"></span><div><strong>${esc(d.name)}</strong><span>${esc(d.elements)}</span></div></li>`).join('');
+  $('ecoList').innerHTML = M.ecosystem.dimensions.map(d => `<li class="dim-card" data-dim="${d.id}" style="--dc:${d.color}"><span class="sw" aria-hidden="true"></span><div><strong>${esc(d.name)}</strong><p>${esc(d.def)}</p><span><b>Incluye:</b> ${esc(d.elements)}</span></div></li>`).join('');
   $('lineCards').innerHTML = M.lines.map((l, i) => { const ps = progsOf(l.id);
-    return `<article class="card line-card" style="${lineVars(l.id)}"><span class="num" aria-hidden="true">0${i + 1}</span><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><h3>${esc(l.name)}</h3>${l.transversal ? '<span class="tr-tag">Frente transversal</span>' : ''}</div></div><p>${esc(l.story)}</p>
+    return `<article class="card line-card" style="${lineVars(l.id)}"><span class="num" aria-hidden="true">0${i + 1}</span><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></div><p>${esc(l.story)}</p>
       <div class="foot"><p class="lbl">${plural(ps.length,'programa','programas')}</p><ul class="tags">${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`; }).join('');
 }
 document.addEventListener('mouseover', e => {
@@ -1826,9 +1826,9 @@ document.addEventListener('mouseover', e => {
 function drawControls(){
   $('lineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
   const bySize = [...M.lines].sort((a, b) => progsOf(b.id).length - progsOf(a.id).length);
-  $('pick').innerHTML = bySize.map(l => { const ps = progsOf(l.id).sort((a, b) => (b.portfolio ? 1 : 0) - (a.portfolio ? 1 : 0));
+  $('pick').innerHTML = bySize.map(l => { const ps = progsOf(l.id);
     return `<section class="pick-col" style="${lineVars(l.id)}" aria-labelledby="pk-${l.id}"><header><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><h3 id="pk-${l.id}">${esc(l.name)}</h3><span class="cnt">${ps.length}</span></header>
-      <ul>${ps.map(p => `<li><button type="button" class="pick-item" data-prog="${p.id}" aria-pressed="${S.prog===p.id}"><span class="pn">${esc(p.name)}</span>${p.portfolio ? '<span class="pb"><span class="pf">Portafolio</span></span>' : ''}</button></li>`).join('')}</ul></section>`; }).join('');
+      <ul>${ps.map(p => `<li><button type="button" class="pick-item" data-prog="${p.id}" aria-pressed="${S.prog===p.id}"><span class="pn">${esc(p.name)}</span></button></li>`).join('')}</ul></section>`; }).join('');
   const sel = byProg.get(S.prog);
   $('pickSel').hidden = !sel;
   if(sel) $('pickSel').innerHTML = `<span class="ps-dot" style="${lineVars(sel.line)}"></span><p><strong>${esc(sel.name)}</strong> ${esc(sel.role)}</p><button type="button" class="btn" data-clear>Quitar selección</button>`;
@@ -1836,29 +1836,28 @@ function drawControls(){
 function drawTheory(){
   const p = S.mode === 'program' ? byProg.get(S.prog) : null;
   const st = (l, k) => !p ? '' : (p.line === l.id && (k === 'prb' || p.nodes.includes(k))) ? ' hit' : ' dim';
-  const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line), fronts = lanes.filter(l => !l.transversal);
+  const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
-  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados','Impacto'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
-  const rows = lanes.map(l => `<section class="lane${l.transversal ? ' trans' : ''}" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2>${l.transversal ? '<span class="tr-tag">Transversal</span>' : ''}<div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
+  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
+  const rows = lanes.map(l => `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
+      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
       ${cell('Problemática', `<p class="node prb${st(l,'prb')}">${esc(l.problem)}</p>`)}
       ${cell('Actividades', l.acts.map((t, i) => `<p class="node${st(l,'a'+i)}">${esc(t)}</p>`).join(''))}
       ${cell('Productos', l.prods.map((t, i) => `<p class="node${st(l,'p'+i)}">${esc(t)}</p>`).join(''))}
-      ${cell('Resultados', l.outs.map((o, i) => `<p class="node out${st(l,'o'+i)}">${esc(o.text)}${o.tags ? `<span class="f3c">${o.tags.map(t => `<span>${esc(t)}</span>`).join('')}</span>` : ''}</p>`).join(''))}
+      ${cell('Resultados', l.outs.map((o, i) => `<button type="button" class="node out${st(l,'o'+i)}" data-tip="out:${l.id}:${i}" aria-expanded="false">${esc(o.text)}</button>`).join(''))}
     </section>`).join('');
-  const hitImp = !p || !byLine.get(p.line).transversal;
-  const imp = fronts.length ? `<div class="imp-cell" style="grid-row:2 / span ${fronts.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><div class="node imp${p ? (hitImp ? ' hit' : ' dim') : ''}"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></div></div>` : '';
-  const tl = lanes.find(l => l.transversal);
-  const trans = tl ? `<div class="trans-cell" style="${lineVars(tl.id)};grid-row:${fronts.length + 2}"><strong>Sostiene los otros tres frentes</strong>Un modelo sostenible es lo que permite que los cambios en empresas, ecosistema y talento duren y lleguen a más territorios.</div>` : '';
-  $('swim').innerHTML = head + rows + imp + trans;
+  const imp = `<div class="imp-band" role="group" aria-label="Impacto"><div class="swim-h last" aria-hidden="true"><span class="sn">5</span>Impacto</div>
+    <button type="button" class="node imp" data-tip="imp" aria-expanded="false"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
+  $('swim').innerHTML = head + rows + imp;
 }
 
 /* ---------- tooltip de hipótesis y supuestos ---------- */
 const tip = $('tip'); let tipFor = null, tipPinned = false;
 const cite = r => byRef.get(r).cite;
 function showTip(btn, pin){
-  const [kind, lid] = btn.dataset.tip.split(':'), l = byLine.get(lid);
-  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`).join('')}</ul>`
+  const [kind, lid, oi] = btn.dataset.tip.split(':'), l = byLine.get(lid);
+  const inds = (title, ids) => `<h3>${esc(title)}</h3><div class="t-ev" style="margin-top:10px"><h4>Se mide con</h4><ul class="t-sup">${ids.map(id => `<li><b>${esc(byInd.get(id).name)}</b><br>${esc(byInd.get(id).calc)}</li>`).join('')}</ul></div>`;
+  tip.innerHTML = kind === 'imp' ? inds(M.impact.title, M.impact.indicators) : kind === 'out' ? inds(l.outs[+oi].text, l.outs[+oi].ind) : kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`).join('')}</ul>`
     : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(l.hypothesis)}</p><div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${l.evidence.map(e => `<li>${esc(e.text)} <cite>(${e.refs.map(r => esc(cite(r))).join('; ')})</cite></li>`).join('')}</ul></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
   tip.hidden = false; tipFor = btn; tipPinned = !!pin;
@@ -1887,10 +1886,10 @@ function chainCard(l){
     ['ACT','Si hacemos','Lo que hacemos', l.acts.map(t => li(t)).join('')],
     ['PRD','entregamos','Lo que entregamos', l.prods.map(t => li(t)).join('') + `<li class="meas">${chips(M.common)}</li>`],
     ['RES','y entonces cambia','Lo que cambia', l.outs.map(o => li(o.text, o.ind)).join('')],
-    l.transversal ? ['IMP','y así','Lo que sostiene', li('Los otros tres frentes pueden mantenerse y crecer en el tiempo.')] : ['IMP','para contribuir a','El impacto', li(M.impact.title, l.impact)]];
+    ['IMP','para contribuir a','El impacto', li(M.impact.title, l.impact)]];
   const cites = [...new Set(l.evidence.flatMap(e => e.refs))].map(cite);
   return `<article class="card chain" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
-    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">${l.transversal ? 'Frente transversal' : 'Frente'}</p><h2 id="chain-h-${l.id}">${esc(l.name)}</h2></div></header>
+    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">Frente</p><h2 id="chain-h-${l.id}">${esc(l.name)}</h2></div></header>
     <p class="clead">${esc(l.hypothesis)}</p>
     <div class="cprogs-l"><span>Programas:</span><ul class="tags">${progsOf(l.id).map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div>
     <ol class="csteps">${steps.map(([id, link, title, body]) => `<li class="cstep s-${id}"><div class="clabel"><span class="clink">${link}</span><b>${title}</b></div><ul class="citems">${body}</ul></li>`).join('')}</ol>
@@ -1898,7 +1897,7 @@ function chainCard(l){
       <div><h3>Respaldo</h3><p>${esc(cites.join(' · '))}. <a class="link" href="#referencias">Ver la evidencia</a></p></div></footer></article>`;
 }
 function drawChains(){
-  $('cTabs').innerHTML = M.lines.map(l => `<button type="button" class="ctab" role="tab" id="ctab-${l.id}" data-chain="${l.id}" aria-selected="${S.chain === l.id}" tabindex="${S.chain === l.id ? 0 : -1}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}${l.transversal ? '<small>Transversal</small>' : ''}</span></button>`).join('');
+  $('cTabs').innerHTML = M.lines.map(l => `<button type="button" class="ctab" role="tab" id="ctab-${l.id}" data-chain="${l.id}" aria-selected="${S.chain === l.id}" tabindex="${S.chain === l.id ? 0 : -1}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}</span></button>`).join('');
   $('chains').setAttribute('aria-labelledby', 'ctab-' + S.chain);
   $('chains').innerHTML = S.printAll ? M.lines.map(chainCard).join('') : chainCard(byLine.get(S.chain));
 }
@@ -1909,11 +1908,12 @@ $('cTabs').addEventListener('keydown', e => {
 });
 function drawIndicators(){
   $('indTotal').textContent = M.indicators.length;
-  const order = ['Impacto', ...M.lines.map(l => l.name), 'Todos los frentes'];
-  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col><col class="w-when"></colgroup><thead><tr><th scope="col">Indicador</th><th scope="col">Cuándo se mide</th></tr></thead>` +
+  const order = [...M.lines.map(l => l.name), 'Todos los frentes'];
+  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col class="w-name"><col><col class="w-info"><col class="w-freq"></colgroup><thead><tr><th scope="col">Indicador</th><th scope="col">Cómo se calcula</th><th scope="col">Información</th><th scope="col">Frecuencia</th></tr></thead>` +
     order.map(g => { const xs = M.indicators.filter(x => groupOf(x.id) === g);
-      return `<tbody><tr class="grp"><th colspan="2" scope="colgroup">${esc(g)} <span>${xs.length}</span></th></tr>${xs.map(x => `<tr class="row" data-row="${x.id}" style="${lineVars(lineOfInd(x.id))}"><td><div class="c-name"><span class="dot" aria-hidden="true"></span><div><button type="button" class="row-btn" data-open="${x.id}">${esc(x.name)}</button><span class="meta">${esc(x.def)}</span><span class="meta-m">${esc(x.when)}</span></div></div></td><td class="c-when"><span>${esc(x.when)}</span></td></tr>`).join('')}</tbody>`; }).join('');
+      return `<tbody><tr class="grp"><th colspan="4" scope="colgroup">${esc(g)} <span>${xs.length}</span></th></tr>${xs.map(x => `<tr style="${lineVars(lineOfInd(x.id))}"><th scope="row" class="i-name"><span class="dot" aria-hidden="true"></span>${esc(x.name)}</th><td>${esc(x.calc)}</td><td>${lev(x)}</td><td>${esc(x.freq)}</td></tr>`).join('')}</tbody>`; }).join('');
 }
+const lev = x => `<span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span><span class="lev-t">${esc(x.info)}</span>`;
 
 /* ---------- 04 referencias ---------- */
 function drawRefs(){
@@ -1935,11 +1935,10 @@ function open(id){
   hideTip(); if(!dlg.open) back = document.activeElement;
   $('dTitle').textContent = x.name; $('dTag').textContent = `Indicador · ${groupOf(id)}`;
   $('dHead').style.setProperty('--dh', byLine.get(lineOfInd(id))?.tone || '#104380');
-  $('dBody').innerHTML = `<div class="ficha"><p class="def">${esc(x.def)}</p>
-    <div class="row"><b>Cómo se calcula</b><span>${esc(x.calc)}</span></div>
-    <div class="row no"><b>No cuenta</b><span>${esc(x.no)}</span></div>
-    <div class="row"><b>De dónde sale</b><span>${esc(x.src)}</span></div>
-    <div class="row"><b>Cuándo se mide</b><span>${esc(x.when)}</span></div></div>`;
+  $('dBody').innerHTML = `<div class="ficha">
+    <div class="row first"><b>Cómo se calcula</b><span>${esc(x.calc)}</span></div>
+    <div class="row"><b>Información</b><span>${lev(x)}</span></div>
+    <div class="row"><b>Frecuencia</b><span>${esc(x.freq)}</span></div></div>`;
   if(!dlg.open) dlg.showModal();
   $('dBody').scrollTop = 0; $('dTitle').focus({preventScroll:true});
 }
@@ -1966,7 +1965,7 @@ function route(focus = true){
 addEventListener('hashchange', () => route());
 document.addEventListener('click', e => {
   const b = e.target.closest('button');
-  if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); const r = e.target.closest('[data-row]'); if(r) open(r.dataset.row); return; }
+  if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); return; }
   const d = b.dataset;
   if(d.tip){ if(tipFor === b && tipPinned) hideTip(); else showTip(b, true); return; }
   if(d.open){ open(d.open); return; }

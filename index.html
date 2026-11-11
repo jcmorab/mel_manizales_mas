@@ -249,6 +249,58 @@ main{padding:48px var(--pad) 80px;max-width:1360px;min-width:0}
 .field{display:flex;flex-direction:column;gap:6px;min-width:min(100%,280px)}
 .field label{font-size:13px;font-weight:600;color:var(--muted)}
 input[type="search"]{height:42px;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:0 12px;width:100%}
+.chains{display:grid;gap:18px}
+.chain{position:relative;overflow:hidden;padding:26px 28px 0;border-radius:22px;scroll-margin-top:16px}
+.chain::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--lc)}
+.chain header{display:flex;align-items:center;gap:14px}
+.chain .ck{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.chain h3{font-size:1.3rem;color:var(--lt)}
+.cprogs{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.cprog{border:1px solid color-mix(in srgb,var(--lc) 26%,#fff);background:color-mix(in srgb,var(--lc) 7%,#fff);color:var(--ink);border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;min-height:34px;transition:background .15s}
+.cprog:hover{background:color-mix(in srgb,var(--lc) 16%,#fff)}
+.cprog[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.clead{margin-top:16px;font-size:1.02rem;line-height:1.7;max-width:86ch;color:var(--ink)}
+.csteps{list-style:none;margin:22px 0 0;padding:0}
+.cstep{position:relative;display:grid;grid-template-columns:190px minmax(0,1fr);gap:8px 24px;padding:0 0 22px 34px}
+.cstep::before{content:"";position:absolute;left:6px;top:5px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--lc);z-index:1}
+.cstep::after{content:"";position:absolute;left:12px;top:14px;bottom:-5px;width:2px;background:color-mix(in srgb,var(--lc) 35%,#fff)}
+.cstep:last-child::after{display:none}
+.cstep:last-child::before{background:var(--lime);border-color:var(--navy-d)}
+.clabel{display:flex;flex-direction:column;gap:1px}
+.clink{font-size:12.5px;font-style:italic;color:var(--soft)}
+.clabel b{font-size:15px;color:var(--lt)}
+.citems{display:grid;gap:10px}
+.citems>li{display:flex;flex-direction:column;gap:6px;border-radius:10px;transition:background .2s,box-shadow .2s}
+.citems .it{font-size:14.5px;line-height:1.5;color:var(--ink)}
+.s-PRD .it,.s-RES .it,.s-IMP .it{font-weight:600;color:var(--navy-d)}
+.citems>li.hot,.ccomps>li.hot{background:#FBFDE6;box-shadow:0 0 0 6px #FBFDE6,0 0 0 8px var(--lime)}
+.ichips{display:flex;flex-wrap:wrap;gap:6px}
+.ichip{display:inline-flex;align-items:center;gap:6px;text-align:left;border:1px solid var(--line);background:var(--pale);border-radius:8px;padding:4px 10px;font-size:12.5px;font-weight:500;color:var(--navy);line-height:1.35;transition:border-color .15s,background .15s}
+.ichip::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--lc)}
+button.ichip:hover{border-color:var(--navy);background:#fff}
+.ichip.key{background:#F4F8CC;border-color:#D9E36A;color:var(--navy-d);font-weight:600}
+.ichip.key::before{content:"★";width:auto;height:auto;background:none;color:#5C6500;font-size:11px}
+.ichip.hot{box-shadow:0 0 0 2px var(--lime);background:#fff}
+.ccomps{list-style:none;margin:22px 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ccomps>li{display:flex;flex-direction:column;gap:8px;background:var(--pale);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.ccomps strong{color:var(--lt);font-size:14.5px}
+.ccomps>li>span:not(.ichips){font-size:13.5px;color:var(--muted);line-height:1.5}
+.ccomps .ichips{margin-top:auto;padding-top:4px}
+.ckey{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin:0 0 20px 34px}
+.chain footer{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px 36px;margin:0 -28px;padding:20px 28px 24px 34px;background:var(--pale);border-top:1px solid var(--line)}
+.chain footer h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
+.chain footer ul{display:grid;gap:8px}
+.chain footer li,.chain footer p{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.chain footer li b{color:var(--navy-d);font-weight:600}
+.all-ind{margin-top:22px;overflow:hidden}
+.all-ind summary{display:flex;align-items:center;gap:10px;cursor:pointer;padding:18px 24px;font-weight:600;color:var(--navy);list-style:none}
+.all-ind summary::-webkit-details-marker{display:none}
+.all-ind summary::before{content:"+";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:17px;line-height:1}
+.all-ind[open] summary::before{content:"−"}
+.all-ind .cnt{min-width:26px;height:24px;display:grid;place-items:center;padding:0 8px;border-radius:999px;background:var(--pale);border:1px solid var(--line);font-size:12.5px;color:var(--navy)}
+.all-ind-body{border-top:1px solid var(--line)}
+.all-ind-body .field{padding:18px 24px 0;max-width:420px}
+.all-ind-body .scope{margin:10px 24px 4px;min-height:0}
 .scope{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:0 2px 12px;font-size:14px;color:var(--muted)}
 .scope strong{color:var(--ink);font-weight:600}
 .table-card{overflow:hidden}
@@ -328,7 +380,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 .facts dt{font-weight:600;color:var(--soft)}
 
 /* ------------------------------------------------ responsive */
-@media (max-width:1100px){.eco-body{grid-template-columns:1fr}.eco-wheel svg{max-width:300px}.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:1fr}.base-comps,.bb-comps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1100px){.ccomps{grid-template-columns:repeat(2,minmax(0,1fr))}.eco-body{grid-template-columns:1fr}.eco-wheel svg{max-width:300px}.pick{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:1fr}.base-comps,.bb-comps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
   .shell{display:block;background:var(--bg)}
   .side{position:sticky;top:0;z-index:20;height:auto;flex-direction:row;align-items:center;gap:14px;padding:12px 16px;overflow:visible}
@@ -353,7 +405,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .measure{scroll-margin-top:80px}
 }
 @media (max-width:640px){
-  .pick,.base-comps,.bb-comps,.eco-list{grid-template-columns:1fr}
+  .pick,.base-comps,.bb-comps,.eco-list,.ccomps,.chain footer{grid-template-columns:1fr}
+  .cstep{grid-template-columns:1fr;padding-left:30px}
+  .chain{padding:22px 18px 0 22px}
+  .chain footer{margin:0 -18px 0 -22px;padding:18px 18px 22px 22px}
+  .ckey{margin-left:30px}
   .facts{grid-template-columns:1fr}
   .ind-table{min-width:0}
   .ind-table thead,.ind-table colgroup,.row td:not(:first-child){display:none}
@@ -391,6 +447,9 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .imp-cell{display:block;break-before:page;border:0}
   .node{padding:6px 8px;font-size:8.5pt}.node.dim{opacity:1}.node.imp{min-height:0}
   .measure{break-before:page}
+  .chain{break-inside:avoid;box-shadow:none}
+  .cprogs,#focusBar,.all-ind summary::before,.all-ind-body .field{display:none!important}
+  .chain::before,.cstep::before,.ichip.key,.chain footer{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .base-band,.base-card,.eco-band{break-inside:avoid;box-shadow:none}
   .eco-band::before,.seg path,.dim-item .sw{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .base-band::before,.base-card::before,.comp{print-color-adjust:exact;-webkit-print-color-adjust:exact}
@@ -465,14 +524,18 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   <section class="base-band" id="baseBand" aria-labelledby="lane-SOS"></section>
 
   <div class="measure" id="medicion">
-    <div class="measure-head">
-      <div><p class="kicker">Indicadores</p><h2>Cómo lo medimos</h2><p class="lede">Cada eslabón de la cadena tiene indicadores con definición, fórmula y fuente, para que una cifra signifique lo mismo en un informe, en un boletín o ante un cooperante. Haga clic en una actividad, un producto, un resultado, el impacto o un componente de la base, y aquí verá solo sus indicadores.</p></div>
-      <div class="field"><label for="fq">Buscar indicador</label><input id="fq" type="search" placeholder="Por ejemplo: empleo, ventas" autocomplete="off"></div>
-    </div>
-    <p class="scope" aria-live="polite"><span id="scopeText"></span><button type="button" class="link" id="scopeReset" hidden>Ver todos</button><a class="link" href="#h-teoria" id="scopeUp" hidden>Volver a la cadena</a></p>
-    <div class="card table-card"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores">
-      <table class="ind-table" id="indTable"></table>
-    </div></div>
+    <div class="measure-head"><div><p class="kicker">Cómo ocurre el cambio</p><h2>Cadenas causales</h2>
+      <p class="lede">Cada frente, y cada programa dentro de él, es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Aquí está esa secuencia paso a paso, con la medida de cada eslabón, lo que tiene que cumplirse y los estudios que la respaldan.</p></div></div>
+    <p class="scope" id="focusBar" aria-live="polite" hidden><span id="focusText"></span><button type="button" class="link" id="scopeReset">Quitar resaltado</button><a class="link" href="#h-teoria" id="scopeUp">Volver al diagrama</a></p>
+    <div class="chains" id="chains"></div>
+    <details class="card all-ind" id="allInd">
+      <summary><span>Lista completa de indicadores</span><span class="cnt" id="indTotal"></span></summary>
+      <div class="all-ind-body">
+        <div class="field"><label for="fq">Buscar indicador</label><input id="fq" type="search" placeholder="Por ejemplo: empleo, ventas" autocomplete="off"></div>
+        <p class="scope" aria-live="polite"><span id="scopeText"></span></p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores"><table class="ind-table" id="indTable"></table></div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -495,7 +558,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
  "meta": {
   "title": "Teoría de cambio de Manizales Más",
   "version": "7.1",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "intro": [
    "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, empresarios, universidades, gremios y gobierno trabajan juntos, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
    "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en los jóvenes y en el entorno, y cómo vamos a saber si lo estamos logrando."
@@ -1821,7 +1884,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "sources": [
     "INS_09"
    ],
-   "rule": "Publicar siempre el puntaje de cada dominio y por tipo de actor; reportar aparte las capacidades innovadora y emprendedora.",
+   "rule": "Publicar siempre el puntaje de cada dimensión y por tipo de actor junto al índice.",
    "refs": [
     "REF_ISEN10",
     "REF_ISEN11",
@@ -1907,7 +1970,7 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "INS_02",
     "INS_03"
    ],
-   "rule": "Reportar junto al porcentaje con meta al ingreso para mostrar el cambio.",
+   "rule": "Comparar la meta de cada empresario al ingreso y al cierre.",
    "refs": [
     "REF_ISEN13"
    ],
@@ -3213,6 +3276,7 @@ function drawTheory(){
   bb.innerHTML = `<div class="bb-head"><div class="bb-title"><span class="ico sm" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h2 id="lane-${BASE.id}">${esc(BASE.name)}</h2></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
     <div class="lane-btns row"><button type="button" class="hyp-btn" data-tip="hyp:${BASE.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${BASE.id}" aria-expanded="false">Supuestos</button></div></div>
     <div class="bb-comps">${BASE.components.map(c => `<button type="button" class="comp${state(c.codes)}" data-node="sos:${c.id}"${pressed('sos:' + c.id)}><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span></button>`).join('')}</div>`;
+  drawChains();
   drawIndicators();
 }
 
@@ -3247,7 +3311,7 @@ function drawEco(){
 document.addEventListener('click', e => {
   const g = e.target.closest('[data-seg]'); if(!g) return;
   const id = g.dataset.seg; S.node = S.node === id ? '' : id; drawTheory();
-  if(S.node) $('medicion').scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+  if(S.node) toFocus();
 });
 document.addEventListener('mouseover', e => {
   const it = e.target.closest('.dim-item, [data-seg]'); document.querySelectorAll('.seg.hl,.dim-item.hl').forEach(x => x.classList.remove('hl'));
@@ -3255,20 +3319,60 @@ document.addEventListener('mouseover', e => {
   document.querySelectorAll(`[data-seg="${id}"],.dim-item[data-node="${id}"]`).forEach(x => x.classList.add('hl'));
 });
 
-/* ---------- indicadores filtrados por la cadena ---------- */
-function scope(){
-  const p = S.mode === 'program' ? byProg.get(S.prog) : null;
-  if(S.node) return {codes:new Set(codesOf(S.node)), label:`${nodeStage(S.node)}: <strong>${esc(nodeLabel(S.node))}</strong>`};
-  if(p){ const cs = new Set(p.elements.map(c => byCode.get(c)?.measuredBy || c)); return {codes:cs, label:`<strong>${esc(p.name)}</strong>. ${esc(p.role)}`}; }
-  if(S.mode === 'line' && S.line){ const cs = new Set(M.indicators.filter(x => x.line === S.line).map(x => x.measuredBy || x.code)); return {codes:cs, label:`Frente <strong>${esc(lineName(S.line))}</strong>`}; }
-  return {codes:null, label:'Todos los indicadores'};
+/* ---------- cadenas causales ---------- */
+const STEPS = [['PRB','Partimos de','El problema'],['ACT','Si hacemos','Lo que hacemos'],['PRD','entregamos','Lo que entregamos'],['RES','y entonces cambia','Lo que cambia'],['IMP','para contribuir a','El impacto']];
+function chainCard(l, pr){
+  const hot = S.node ? new Set(codesOf(S.node)) : new Set();
+  const codes = pr ? pr.elements : [...M.indicators.filter(x => x.line === l.id).map(x => x.code), ...new Set(M.programs.filter(p => p.line === l.id).flatMap(p => p.elements.filter(c => c.startsWith('IMP'))))].sort((a, b) => M.indicators.findIndex(x => x.code === a) - M.indicators.findIndex(x => x.code === b));
+  const E = new Set(codes), of = layer => codes.map(c => byCode.get(c)).filter(x => x && x.layer === layer);
+  const chip = c => { const x = byCode.get(c); return `<button type="button" class="ichip${pr && pr.focus.includes(c) ? ' key' : ''}${hot.has(c) ? ' hot' : ''}" data-open="${c}">${esc(x.name)}</button>`; };
+  const chips = cs => cs.length ? `<span class="ichips">${[...new Set(cs)].map(chip).join('')}</span>` : '';
+  const item = (k, text, cs) => `<li class="${S.node === k ? 'hot' : ''}"><span class="it">${esc(text)}</span>${chips(cs)}</li>`;
+  const body = {
+    PRB: of('PRB').map(x => `<li><span class="it">${esc(x.statement)}</span></li>`).join(''),
+    ACT: of('ACT').filter(x => x.measuredBy).map(x => item(x.code, x.statement, [])).join('') + (of('ACT').length ? `<li class="meas">${chips([...new Set(of('ACT').map(x => x.measuredBy || x.code))])}</li>` : ''),
+    PRD: of('PRD').map(x => item(x.code, x.statement, [x.measuredBy || x.code])).join(''),
+    RES: M.outcomes.filter(o => o.indicators.some(c => E.has(c))).map(o => item(o.id, o.statement, o.indicators.filter(c => E.has(c)))).join('')
+       + (l.base && !pr ? '' : of('RES').filter(x => !x.outcome).map(x => item(x.code, x.statement, [x.code])).join('')),
+    IMP: of('IMP').length ? `<li class="${S.node === 'impact' ? 'hot' : ''}"><span class="it">${esc(M.impact.title)}</span>${chips(of('IMP').map(x => x.code))}</li>` : ''
+  };
+  const steps = l.base && !pr
+    ? `<ul class="ccomps">${l.components.map(c => `<li class="${S.node === 'sos:' + c.id ? 'hot' : ''}"><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span>${chips(c.codes)}</li>`).join('')}</ul>`
+    : `<ol class="csteps">${STEPS.filter(([id]) => body[id]).map(([id, link, title], i) => `<li class="cstep s-${id}"><div class="clabel"><span class="clink">${i ? link : id === 'PRB' ? link : 'Primero'}</span><b>${title}</b></div><ul class="citems">${body[id]}</ul></li>`).join('')}</ol>`;
+  const ch = M.chains[l.id], ps = M.programs.filter(p => p.line === l.id);
+  const cites = [...new Set(ch.evidence.flatMap(e => e.refs))].map(r => byRef.get(r).cite);
+  return `<article class="card chain" id="chain-${l.id}" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
+    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">${l.base ? 'La base' : 'Cadena causal'}</p><h3 id="chain-h-${l.id}">${esc(pr ? pr.name : l.name)}</h3></div></header>
+    <div class="cprogs" role="group" aria-label="Ver la cadena de"><button type="button" class="cprog" data-cline="${l.id}" data-cprog="" aria-pressed="${!pr}">${l.base ? 'Toda la base' : 'Todo el frente'}</button>${ps.map(p => `<button type="button" class="cprog" data-cline="${l.id}" data-cprog="${p.id}" aria-pressed="${pr === p}">${esc(p.name)}</button>`).join('')}</div>
+    <p class="clead">${esc(pr ? pr.role : ch.hypothesis)}</p>
+    ${steps}
+    ${pr && pr.focus.length ? '<p class="ckey"><span class="ichip key demo" aria-hidden="true">Indicador</span> Indicadores por los que responde este programa.</p>' : ''}
+    <footer><div><h4>Siempre que</h4><ul>${ch.assumptions.map(c => `<li><b>${esc(M.assumptions[c].title)}</b> ${esc(M.assumptions[c].why)}</li>`).join('')}</ul></div>
+      <div><h4>Respaldo</h4><p>${cites.length ? esc(cites.join(' · ')) + '.' : 'En construcción con nuestros propios datos.'} <a class="link" href="#referencias">Ver la evidencia</a></p></div></footer>
+  </article>`;
 }
+function drawChains(){
+  const p = S.mode === 'program' ? byProg.get(S.prog) : null;
+  const ls = p ? [byLine.get(p.line)] : S.mode === 'line' && S.line ? [byLine.get(S.line)] : M.lines;
+  $('chains').innerHTML = ls.map(l => chainCard(l, p && p.line === l.id ? p : null)).join('');
+  $('focusBar').hidden = !S.node;
+  if(S.node) $('focusText').innerHTML = `Resaltado: ${esc(nodeStage(S.node).toLowerCase())} <strong>${esc(nodeLabel(S.node))}</strong>`;
+}
+function syncMode(){
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === S.mode)));
+  $('byLine').hidden = S.mode !== 'line'; $('byProgram').hidden = S.mode !== 'program';
+}
+function toFocus(){
+  const el = document.querySelector('#chains .hot') || $('medicion');
+  el.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block: el.id === 'medicion' ? 'start' : 'center'});
+}
+
+/* ---------- lista completa de indicadores ---------- */
 function drawIndicators(){
-  const sc = scope(), q = norm($('fq').value.trim());
-  const items = IND.filter(x => (!sc.codes || sc.codes.has(x.code)) && (!q || q.split(/\s+/).every(w => norm([x.code,x.name,x.statement,x.definition].join(' ')).includes(w))));
-  $('scopeText').innerHTML = sc.codes ? `${sc.label} · ${plural(items.length,'indicador','indicadores')}` : `${plural(items.length,'indicador','indicadores')} en total`;
-  $('scopeReset').hidden = !sc.codes;
-  $('scopeUp').hidden = !S.node;
+  const q = norm($('fq').value.trim());
+  const items = IND.filter(x => !q || q.split(/\s+/).every(w => norm([x.code,x.name,x.statement,x.definition].join(' ')).includes(w)));
+  $('indTotal').textContent = IND.length;
+  $('scopeText').textContent = q ? `${plural(items.length,'indicador coincide','indicadores coinciden')} con la búsqueda` : '';
   const row = x => `<tr class="row" data-row="${x.code}" style="${lineVars(x.line)}">
       <td><div class="c-name"><span class="dot" aria-hidden="true"></span><div><button type="button" class="row-btn" data-open="${x.code}">${esc(x.name)}</button>
         <span class="meta"><span class="code">${x.code}</span> · ${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span><span class="meta-m">${esc(x.unit)} · ${esc(x.frequency)}, ${esc(x.horizon.toLowerCase())}</span></div></div></td>
@@ -3328,7 +3432,7 @@ function open(code){
   $('dHead').style.setProperty('--dh', lineTone(x.line));
   $('dBody').innerHTML = `<p class="def">${esc(x.definition)}</p>${x.excludes?`<p class="excl"><b>No cuenta:</b> ${esc(x.excludes)}</p>`:''}
     <div class="formula"><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
-    <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd></dl>`;
+    <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd>${x.rule ? `<dt>Reporte</dt><dd>${esc(x.rule)}</dd>` : ''}</dl>`;
   if(!dlg.open) dlg.showModal();
   $('dBody').scrollTop = 0; $('dTitle').focus({preventScroll:true});
   history.replaceState(null, '', `#${S.view}/${code}`);
@@ -3368,18 +3472,23 @@ document.addEventListener('click', e => {
   const d = b.dataset;
   if(d.tip){ if(tipFor === b && tipPinned) hideTip(); else showTip(b, true); return; }
   if(d.open){ open(d.open); return; }
-  if(d.node){ S.node = S.node === d.node ? '' : d.node; drawTheory(); if(S.node) $('medicion').scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'}); return; }
+  if(d.node){ S.node = S.node === d.node ? '' : d.node; drawTheory(); if(S.node) toFocus(); return; }
+  if(d.cprog !== undefined){
+    S.node = ''; S.prog = d.cprog; if(d.cprog) S.mode = 'program'; else if(S.mode === 'line') S.line = '';
+    syncMode(); drawControls(); drawTheory();
+    $('chain-' + d.cline)?.scrollIntoView({block:'start', behavior:'instant'}); document.querySelector(`#chain-${d.cline} .cprog[aria-pressed="true"]`)?.focus({preventScroll:true}); return;
+  }
   if('clear' in d){ S.prog = ''; S.node = ''; drawControls(); drawTheory(); return; }
   if(d.mode){ setMode(d.mode); return; }
   if(d.line !== undefined){ S.line = d.line; S.node = ''; drawControls(); drawTheory(); return; }
   if(d.prog){ S.prog = S.prog === d.prog ? '' : d.prog; S.node = ''; drawControls(); drawTheory(); return; }
   if(d.goline){ setMode('line'); S.line = d.goline; drawControls(); drawTheory(); location.hash = 'teoria'; return; }
 });
-$('scopeReset').addEventListener('click', () => { S.node = ''; S.line = ''; S.prog = ''; drawControls(); drawTheory(); });
+$('scopeReset').addEventListener('click', () => { S.node = ''; drawTheory(); });
 $('scopeUp').addEventListener('click', e => { e.preventDefault(); $('h-teoria').scrollIntoView({behavior: reduced ? 'auto' : 'smooth'}); });
 $('fq').addEventListener('input', drawIndicators);
 $('indTable').addEventListener('click', e => { if(e.target.closest('button')) return; const r = e.target.closest('[data-row]'); if(r) open(r.dataset.row); });
-addEventListener('beforeprint', () => document.querySelectorAll('.view').forEach(v => v.hidden = false));
+addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); $('allInd').open = true; });
 addEventListener('afterprint', () => show(S.view, false));
 
 drawModel(); drawControls(); drawTheory(); drawStatic();

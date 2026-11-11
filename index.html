@@ -469,6 +469,44 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
   .line-card,.ev-card,.ref-col li,tr{break-inside:avoid}
   thead{display:table-header-group}
 }
+
+/* ------------------------------------------------ versión 7.2 */
+.lines{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tr-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-d);background:var(--lime);border-radius:999px;padding:2px 9px}
+.eco-model{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);padding:clamp(24px,3.4vw,40px)}
+.eco-model .sec-head{margin-bottom:8px}
+.dim-card{display:flex;gap:12px;align-items:flex-start;background:var(--pale);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:background .15s,box-shadow .15s}
+.dim-card.hl{background:#fff;box-shadow:var(--sh)}
+.dim-card .sw{flex:none;width:14px;height:14px;margin-top:4px;border-radius:5px;background:var(--dc);box-shadow:inset 0 0 0 1px rgba(11,46,92,.15)}
+.dim-card strong{display:block;font-size:14.5px;color:var(--navy-d)}
+.dim-card span{font-size:13px;color:var(--muted);line-height:1.45}
+.seg{cursor:default}
+p.node{margin:0;cursor:default}
+p.node:hover{box-shadow:none;border-color:var(--line);border-left-color:var(--lc)}
+p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
+.lane.trans{background:linear-gradient(135deg,#fff 55%,color-mix(in srgb,var(--lc) 10%,#fff))}
+.trans-cell{grid-column:6;display:flex;flex-direction:column;justify-content:center;gap:8px;border:2px dashed color-mix(in srgb,var(--lc) 55%,#fff);border-radius:18px;padding:16px;font-size:13px;line-height:1.5;color:var(--muted)}
+.trans-cell strong{color:var(--lt);font-size:14.5px}
+.lane-name .tr-tag{margin-top:-4px}
+.ctabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.ctab{display:flex;align-items:center;gap:12px;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--sh);font-weight:700;font-size:15px;color:var(--lt);transition:transform .15s,box-shadow .15s}
+.ctab small{display:block;font-size:12px;font-weight:500;color:var(--soft)}
+.ctab:hover{transform:translateY(-2px)}
+.ctab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ctab[aria-selected="true"] small{color:#C9D7EA}
+.ctab[aria-selected="true"] .ico{background:var(--lime);color:var(--navy-d)}
+.cprogs-l{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;font-size:13px;color:var(--soft)}
+.cprogs-l .tags li{font-size:12.5px}
+.ind-table col.w-when{width:260px}
+.ficha{display:grid;gap:14px}
+.ficha .row{display:grid;grid-template-columns:150px 1fr;gap:6px 16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px}
+.ficha .row b{color:var(--soft);font-weight:600;font-size:13.5px}
+.ficha .row.no{background:#FBEDEC;border:0;border-radius:10px;padding:12px 14px}
+.ficha .row.no b{color:#8A2A1E}
+@media (max-width:1100px){.ctabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.trans-cell{margin-bottom:14px}.lines{grid-template-columns:1fr}}
+@media (max-width:640px){.ficha .row{grid-template-columns:1fr}.ctab small{display:none}}
+@media print{.ctabs{display:none!important}.eco-model,.trans-cell{break-inside:avoid;box-shadow:none}.seg path,.dim-card .sw,.tr-tag{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
 <body>
@@ -487,7 +525,6 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 
 <main id="main">
 <noscript><p class="card" style="padding:20px">Este documento necesita JavaScript.</p></noscript>
-
 
 <section class="view" id="modelo" aria-labelledby="h-modelo">
   <div class="hero">
@@ -513,10 +550,14 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <ul class="pillars" id="pillars"></ul>
   </div>
 
+  <div class="eco-model">
+    <div class="sec-head"><div><p class="kicker">Cómo entendemos el entorno</p><h2 id="ecoTitle"></h2></div><p id="ecoText"></p></div>
+    <div class="eco-body"><div class="eco-wheel" id="ecoWheel"></div><ul class="eco-list" id="ecoList"></ul></div>
+  </div>
+
   <div class="sec">
-    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Tres frentes y una base, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en tres frentes que se refuerzan entre sí: las empresas que pueden crecer, el talento que necesitan y el entorno que las rodea. Los sostiene una base: un modelo sostenible que se puede llevar a otros territorios.</p></div>
+    <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Cuatro frentes, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en las empresas que pueden crecer, en el entorno que las rodea y en el talento que necesitan. Un cuarto frente, transversal, hace que todo esto dure: la sostenibilidad del modelo.</p></div>
     <div class="lines" id="lineCards"></div>
-    <div id="baseCard"></div>
   </div>
   <div class="next"><p id="nextText"></p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
 </section>
@@ -524,8 +565,8 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en los jóvenes y en el territorio. Sumados, esos cambios mueven la economía de la región. Debajo de los tres frentes está la base que los sostiene. Elija un frente o un programa para seguir su recorrido; «Hipótesis» explica por qué debería funcionar y «Supuestos», qué tiene que pasar para que funcione. Al hacer clic en cualquier elemento se abre su cadena causal.</p></div>
-    <div class="mode" role="group" aria-label="Ver la cadena"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. «Hipótesis» explica por qué debería funcionar cada frente y «Supuestos», qué tiene que pasar para que funcione.</p></div>
+    <div class="mode" role="group" aria-label="Ver el diagrama"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
   <div class="flt" id="byProgram" hidden>
@@ -533,34 +574,20 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     <div class="pick" id="pick"></div>
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
-  <div class="swim-wrap" tabindex="0" role="region" aria-label="Cadena de resultados por frente"><div class="swim" id="swim"></div></div>
-  <section class="eco-band" id="ecoBand" aria-labelledby="eco-h"></section>
-  <section class="base-band" id="baseBand" aria-labelledby="lane-SOS"></section>
-
-  <div class="next to-chains"><p>Cada frente y cada programa tiene su cadena causal: la secuencia completa, paso a paso, con la medida de cada eslabón.</p><a class="btn primary" href="#cadenas">Ver las cadenas causales <span aria-hidden="true">→</span></a></div>
+  <div class="swim-wrap" tabindex="0" role="region" aria-label="Diagrama de la teoría de cambio"><div class="swim" id="swim"></div></div>
+  <div class="next to-chains"><p>Cada frente tiene su cadena causal: la secuencia completa, paso a paso, con los indicadores con que se mide.</p><a class="btn primary" href="#cadenas">Ver las cadenas causales <span aria-hidden="true">→</span></a></div>
 </section>
 
 <section class="view" id="cadenas" aria-labelledby="h-cadenas" hidden>
   <div class="view-head"><div><p class="kicker">Cómo ocurre el cambio</p><h1 id="h-cadenas" tabindex="-1">Cadenas causales</h1>
-    <p class="lede">Cada frente, y cada programa dentro de él, es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija en el menú un frente o un programa para ver su cadena, con la medida de cada eslabón, lo que tiene que cumplirse y los estudios que la respaldan.</p></div></div>
-  <div class="cc">
-    <nav class="cmenu card" id="cMenu" aria-label="Elegir cadena causal"></nav>
-    <div class="cmain">
-      <div class="field cselect"><label for="cSel">Cadena causal</label><select id="cSel"></select></div>
-      <p class="scope" id="focusBar" aria-live="polite" hidden><span id="focusText"></span><button type="button" class="link" id="scopeReset">Quitar resaltado</button><a class="link" href="#teoria">Volver al diagrama</a></p>
-      <div class="chains" id="chains" aria-live="polite"></div>
-    </div>
-  </div>
+    <p class="lede">Cada frente es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija un frente para ver su cadena, con los indicadores de cada paso, lo que tiene que cumplirse y los estudios que la respaldan.</p></div></div>
+  <div class="ctabs" role="tablist" aria-label="Frente" id="cTabs"></div>
+  <div class="chains" id="chains" role="tabpanel"></div>
   <details class="card all-ind" id="allInd">
-    <summary><span>Lista completa de indicadores</span><span class="cnt" id="indTotal"></span></summary>
-    <div class="all-ind-body">
-      <div class="field"><label for="fq">Buscar indicador</label><input id="fq" type="search" placeholder="Por ejemplo: empleo, ventas" autocomplete="off"></div>
-      <p class="scope" aria-live="polite"><span id="scopeText"></span></p>
-      <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores"><table class="ind-table" id="indTable"></table></div>
-    </div>
+    <summary><span>Todos los indicadores</span><span class="cnt" id="indTotal"></span></summary>
+    <div class="all-ind-body"><div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de indicadores"><table class="ind-table" id="indTable"></table></div></div>
   </details>
 </section>
-
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
   <div class="view-head"><div><p class="kicker">En qué nos apoyamos</p><h1 id="h-referencias" tabindex="-1">Referencias</h1><p class="lede">Nuestra teoría de cambio no parte de cero. Se apoya en el método de Babson College y del MIT, y cada cadena descansa en evaluaciones rigurosas de programas parecidos en otras partes del mundo. Aquí está qué encontró cada estudio y qué paso de la cadena sostiene.</p></div></div>
@@ -578,25 +605,17 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 <script type="application/json" id="model">
 {
  "meta": {
-  "title": "Teoría de cambio de Manizales Más",
-  "version": "7.1",
+  "version": "7.2",
   "date": "2026-11-11",
   "intro": [
    "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, empresarios, universidades, gremios y gobierno trabajan juntos, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
-   "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en los jóvenes y en el entorno, y cómo vamos a saber si lo estamos logrando."
+   "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en el entorno y en los jóvenes, y cómo vamos a saber si lo estamos logrando."
   ]
  },
  "impact": {
-  "id": "IMP",
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen y siguen en pie, más empleo formal y mejor pagado, y más jóvenes con ingresos estables.",
-  "indicators": [
-   "IMP_1",
-   "IMP_2",
-   "IMP_3",
-   "IMP_4"
-  ],
-  "context": [],
+  "statement": "Más empresas que crecen y siguen en pie, más empleo formal y más jóvenes con ingresos estables.",
+  "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre.",
   "pillars": [
    {
     "icon": "grow",
@@ -614,22 +633,164 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
     "text": "Ingresos estables, sea con un empleo formal o con un negocio propio."
    }
   ],
-  "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre."
+  "indicators": [
+   "ventas_comp",
+   "empleo_comp",
+   "ingresos_jov"
+  ]
  },
+ "ecosystem": {
+  "title": "El ecosistema que rodea al empresario",
+  "text": "Una empresa no crece sola. Así entendemos el entorno que la rodea, en seis dimensiones adaptadas a Manizales a partir del modelo de Babson College. Cada una avanza a su propio ritmo; todas se miden cada año.",
+  "dimensions": [
+   {
+    "id": "POL",
+    "name": "Política",
+    "short": "Política",
+    "color": "#104380",
+    "ink": "#FFFFFF",
+    "elements": "Liderazgo, gobierno y regulaciones."
+   },
+   {
+    "id": "FIN",
+    "name": "Finanzas",
+    "short": "Finanzas",
+    "color": "#CDDD00",
+    "ink": "#0B2E5C",
+    "elements": "Micropréstamos, inversionistas ángeles y financiamiento de etapa cero."
+   },
+   {
+    "id": "CUL",
+    "name": "Cultura",
+    "short": "Cultura",
+    "color": "#4E617A",
+    "ink": "#FFFFFF",
+    "elements": "Mentalidad emprendedora, apertura a la innovación y ambición de crecimiento."
+   },
+   {
+    "id": "SOP",
+    "name": "Soporte",
+    "short": "Soporte",
+    "color": "#A8B800",
+    "ink": "#0B2E5C",
+    "elements": "Red de emprendimiento de Caldas e instituciones de apoyo: legal, contable y no gubernamental."
+   },
+   {
+    "id": "TYT",
+    "name": "Trabajo y talento",
+    "short": "Talento",
+    "color": "#27B9E1",
+    "ink": "#0B2E5C",
+    "elements": "Mano de obra calificada y no calificada, e instituciones educativas."
+   },
+   {
+    "id": "MER",
+    "name": "Mercados",
+    "short": "Mercados",
+    "color": "#DCE6F2",
+    "ink": "#104380",
+    "elements": "Redes de negocios, redes de la diáspora, corporaciones y multinacionales."
+   }
+  ]
+ },
+ "common": [
+  "atendidos",
+  "finalizacion"
+ ],
  "lines": [
   {
    "id": "EMP",
    "name": "Empresas",
    "color": "#104380",
    "tone": "#104380",
-   "story": "Muchas empresas de la región tienen con qué crecer, pero se estancan: les falta método, clientes nuevos o acceso a quienes deciden. Las entrenamos con expertos y la metodología de Babson College, las ponemos a aprender entre pares y las acompañamos con mentores que ya recorrieron el camino y con conexiones comerciales, para que crezcan en clientes, en capacidad y en caja."
-  },
-  {
-   "id": "TAL",
-   "name": "Talento",
-   "color": "#27B9E1",
-   "tone": "#0B6E8C",
-   "story": "Muchos jóvenes terminan su formación sin ingresos estables. Qué Nivel les abre dos caminos claros, empleo o emprendimiento, con formación técnica, en inteligencia artificial y en habilidades para la vida, y los conecta con empleadores y clientes reales. La meta es la misma en las dos rutas: un ingreso que dure."
+   "story": "Muchas empresas de la región tienen con qué crecer, pero se estancan: les falta método, clientes nuevos o acceso a quienes deciden. Las entrenamos con expertos y la metodología de Babson College, las ponemos a aprender entre pares y las acompañamos con mentores que ya recorrieron el camino y con conexiones comerciales, para que crezcan en clientes, en capacidad y en caja.",
+   "problem": "Empresas con potencial que no logran crecer de forma sostenida.",
+   "acts": [
+    "Entrenamiento con expertos, con la metodología de Babson College.",
+    "Mentoría con empresarios que ya recorrieron el camino.",
+    "Aprendizaje entre pares de distintos sectores.",
+    "Conexión con clientes, mercados y financiación."
+   ],
+   "prods": [
+    "Empresas que completan su entrenamiento.",
+    "Empresas con plan de crecimiento e hitos acordados.",
+    "Empresas con oportunidades comerciales o de financiación abiertas."
+   ],
+   "outs": [
+    {
+     "text": "Empresas que ejecutan sus decisiones de crecimiento.",
+     "ind": [
+      "plan"
+     ]
+    },
+    {
+     "text": "Empresas que crecen en clientes, capacidad y caja.",
+     "tags": [
+      "Clientes",
+      "Capacidad",
+      "Caja"
+     ],
+     "ind": [
+      "ventas",
+      "clientes",
+      "empleo",
+      "utilidades"
+     ]
+    },
+    {
+     "text": "Empresas y emprendimientos que siguen en pie.",
+     "ind": [
+      "supervivencia",
+      "emprend_ventas"
+     ]
+    }
+   ],
+   "impact": [
+    "ventas_comp",
+    "empleo_comp"
+   ],
+   "hypothesis": "Si las empresas con potencial se entrenan con expertos, aprenden de sus pares, reciben mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana, ventas que crecen y empresas que siguen en pie.",
+   "assumptions": [
+    {
+     "title": "Quien decide en la empresa se sienta en la mesa.",
+     "why": "Si el dueño o el gerente no participa, las decisiones de crecimiento no pasan del papel."
+    }
+   ],
+   "evidence": [
+    {
+     "from": "a0",
+     "to": "o0",
+     "text": "Cuando las empresas mejoran su gestión con acompañamiento experto, su productividad sube: así lo mostraron ensayos en India y en México, donde además creció el empleo.",
+     "refs": [
+      "REF_BLOOM",
+      "REF_BRUHN"
+     ]
+    },
+    {
+     "from": "a1",
+     "to": "o1",
+     "text": "La mentoría de empresarios con experiencia elevó 20 % las utilidades de pequeños negocios en Kenia, más que la capacitación en aula.",
+     "refs": [
+      "REF_BROOKS"
+     ]
+    },
+    {
+     "from": "a3",
+     "to": "o1",
+     "text": "Llegar a nuevos mercados hace mejores a las empresas: exportadores en Egipto mejoraron su calidad y sus utilidades.",
+     "refs": [
+      "REF_ATKIN"
+     ]
+    },
+    {
+     "from": "a0",
+     "to": "o2",
+     "text": "En emprendimientos tempranos marca la diferencia la formación, no solo el dinero, como mostró Start-Up Chile.",
+     "refs": [
+      "REF_GU"
+     ]
+    }
+   ]
   },
   {
    "id": "ECO",
@@ -637,54 +798,171 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "color": "#A8B800",
    "tone": "#5C6500",
    "story": "Una empresa crece más fácil cuando a su alrededor hay mercados, política pública, financiación, cultura, entidades de soporte y talento que empujan en la misma dirección. Trabajamos con empresarios, inversionistas, empresas ancla, gobierno y universidades en esas seis dimensiones, y formamos a los mentores y docentes que acompañan a las empresas.",
-   "dimensions": [
+   "problem": "Un entorno que no facilita crecer.",
+   "acts": [
+    "Medición anual del ecosistema en sus seis dimensiones.",
+    "Articulación de empresarios, capital, empresas ancla, gobierno y universidades.",
+    "Preparación de empresas y conexión con capital.",
+    "Formación de mentores y docentes.",
+    "Difusión de casos y referentes de crecimiento."
+   ],
+   "prods": [
+    "Retos de empresas ancla abiertos a las empresas de la región.",
+    "Empresas listas para recibir capital.",
+    "Mentores y docentes formados.",
+    "Casos de crecimiento publicados."
+   ],
+   "outs": [
     {
-     "id": "POL",
-     "name": "Política",
-     "short": "Política",
-     "color": "#104380",
-     "ink": "#FFFFFF",
-     "elements": "Liderazgo, gobierno y regulaciones."
+     "text": "Un ecosistema más fuerte en sus seis dimensiones.",
+     "tags": [
+      "Mercados",
+      "Política",
+      "Finanzas",
+      "Cultura",
+      "Soporte",
+      "Talento"
+     ],
+     "ind": [
+      "indice_eco"
+     ]
     },
     {
-     "id": "FIN",
-     "name": "Finanzas",
-     "short": "Finanzas",
-     "color": "#CDDD00",
-     "ink": "#0B2E5C",
-     "elements": "Micropréstamos, inversionistas ángeles y financiamiento de etapa cero."
+     "text": "Más capital y más mercado para las empresas.",
+     "ind": [
+      "capital",
+      "negocios_ancla"
+     ]
     },
     {
-     "id": "CUL",
-     "name": "Cultura",
-     "short": "Cultura",
-     "color": "#4E617A",
-     "ink": "#FFFFFF",
-     "elements": "Mentalidad emprendedora, apertura a la innovación y ambición de crecimiento."
+     "text": "Una cultura que valora crecer y retribuye.",
+     "ind": [
+      "mentoria_vol"
+     ]
+    }
+   ],
+   "impact": [
+    "ventas_comp",
+    "empleo_comp"
+   ],
+   "hypothesis": "Si los actores del ecosistema avanzan juntos en sus seis dimensiones, crecer se vuelve más fácil: más empresas encuentran clientes y capital, hay mentores y docentes que las acompañan, y crecer se vuelve una aspiración compartida.",
+   "assumptions": [
+    {
+     "title": "Los aliados cumplen lo que ponen sobre la mesa.",
+     "why": "Las apuestas del ecosistema se sostienen con aportes de muchos actores; si uno falla, la iniciativa pierde fuerza."
     },
     {
-     "id": "SOP",
-     "name": "Soporte",
-     "short": "Soporte",
-     "color": "#A8B800",
-     "ink": "#0B2E5C",
-     "elements": "Red de emprendimiento de Caldas e instituciones de apoyo: legal, contable y no gubernamental."
+     "title": "El crecimiento es una tarea compartida.",
+     "why": "Ninguna organización mueve sola la economía de una región. Los resultados se construyen con universidades, gremios, gobierno, empresas ancla y financiadores, que además cofinancian buena parte de los programas."
+    }
+   ],
+   "evidence": [
+    {
+     "from": "p0",
+     "to": "o1",
+     "text": "Venderle a una gran empresa transforma a sus proveedores: en Costa Rica, quienes empezaron a venderle a una multinacional tenían 26 % más empleo cuatro años después.",
+     "refs": [
+      "REF_ALFARO"
+     ]
     },
     {
-     "id": "TYT",
-     "name": "Trabajo y talento",
-     "short": "Talento",
-     "color": "#27B9E1",
-     "ink": "#0B2E5C",
-     "elements": "Mano de obra calificada y no calificada, e instituciones educativas."
+     "from": "a2",
+     "to": "o1",
+     "text": "El capital bien asignado acelera a las empresas con potencial: en Nigeria aumentó su supervivencia, sus ventas y su empleo.",
+     "refs": [
+      "REF_MCK"
+     ]
     },
     {
-     "id": "MER",
-     "name": "Mercados",
-     "short": "Mercados",
-     "color": "#DCE6F2",
-     "ink": "#104380",
-     "elements": "Redes de negocios, redes de la diáspora, corporaciones y multinacionales."
+     "from": "a4",
+     "to": "o2",
+     "text": "Los referentes inspiran: en Chile, conocer a un empresario exitoso elevó los ingresos de microempresarios tanto como una asesoría individual, a menor costo.",
+     "refs": [
+      "REF_LAF"
+     ]
+    },
+    {
+     "from": "o0",
+     "to": "imp",
+     "text": "La experiencia de Manizales Más es un caso de estudio internacional sobre cómo un ecosistema enfocado en crecer acelera a sus empresas.",
+     "refs": [
+      "REF_ISEN16"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TAL",
+   "name": "Talento",
+   "color": "#27B9E1",
+   "tone": "#0B6E8C",
+   "story": "Muchos jóvenes terminan su formación sin ingresos estables. Qué Nivel les abre dos caminos claros, empleo o emprendimiento, con formación técnica, en inteligencia artificial y en habilidades para la vida, y los conecta con empleadores y clientes reales. La meta es la misma en las dos rutas: un ingreso que dure.",
+   "problem": "Jóvenes sin ingresos estables.",
+   "acts": [
+    "Formación técnica, en IA y socioemocional, por ruta.",
+    "Conexión con empleadores y con clientes."
+   ],
+   "prods": [
+    "Jóvenes que completan su ruta.",
+    "Jóvenes con una oportunidad concreta: una entrevista o un primer cliente."
+   ],
+   "outs": [
+    {
+     "text": "Jóvenes con mayor agencia y habilidades socioemocionales.",
+     "ind": [
+      "agencia"
+     ]
+    },
+    {
+     "text": "Ruta de empleo: jóvenes con empleo formal y estable.",
+     "ind": [
+      "empleo_jov",
+      "permanencia"
+     ]
+    },
+    {
+     "text": "Ruta de emprendimiento: negocios que venden y generan empleo.",
+     "ind": [
+      "negocio_jov",
+      "empleos_neg"
+     ]
+    }
+   ],
+   "impact": [
+    "ingresos_jov"
+   ],
+   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, logran ingresos estables: un empleo formal que conservan o un negocio que vende y que incluso genera empleo.",
+   "assumptions": [
+    {
+     "title": "Los empleadores abren las vacantes que prometen.",
+     "why": "La formación solo se convierte en empleo si hay puestos reales esperando a los jóvenes."
+    }
+   ],
+   "evidence": [
+    {
+     "from": "a0",
+     "to": "o1",
+     "text": "Jóvenes en Acción, en Colombia, combinó formación con práctica en empresas y aumentó el empleo formal y los ingresos de sus participantes.",
+     "refs": [
+      "REF_ATT"
+     ]
+    },
+    {
+     "from": "a1",
+     "to": "o1",
+     "text": "Los programas para jóvenes funcionan mejor cuando combinan formación con conexión directa al empleo, como lo hace Qué Nivel.",
+     "refs": [
+      "REF_KLUVE",
+      "REF_CARD"
+     ]
+    },
+    {
+     "from": "o0",
+     "to": "o2",
+     "text": "Entrenar la iniciativa personal aumentó 30 % las utilidades de emprendedores en Togo, más que la capacitación tradicional.",
+     "refs": [
+      "REF_CAMPOS"
+     ]
     }
    ]
   },
@@ -693,2207 +971,501 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
    "name": "Sostenibilidad",
    "color": "#5BB7E7",
    "tone": "#17608F",
-   "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, fortalecemos la venta de nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que sostiene el modelo.",
-   "base": true,
-   "components": [
+   "transversal": true,
+   "story": "Para que el modelo dure, Manizales Más tiene que ser sostenible financiera y operativamente. Por eso llevamos la metodología a otros territorios y ecosistemas de Latinoamérica, vendemos nuestros servicios, aprendemos del pago por resultados y cuidamos la comunidad que respalda el modelo. Es el frente que sostiene a los otros tres.",
+   "problem": "Un modelo que depende de pocas fuentes de financiación.",
+   "acts": [
+    "Transferencia del modelo a otros territorios y ecosistemas.",
+    "Venta de servicios y metodologías.",
+    "Estructuración de financiación de pago por resultados.",
+    "Desarrollo de la comunidad de empresarios, mentores y egresados."
+   ],
+   "prods": [
+    "Metodologías documentadas y listas para transferir.",
+    "Acuerdos con territorios, clientes y financiadores."
+   ],
+   "outs": [
     {
-     "id": "TRA",
-     "name": "Transferencia a otros ecosistemas",
-     "text": "Municipios de Caldas y ecosistemas de Latinoamérica que adoptan el modelo, con aliados como Argidius.",
-     "codes": [
-      "PRD_10",
-      "PRD_9",
-      "RES_24",
-      "RES_26"
+     "text": "Otros territorios operan el modelo por su cuenta.",
+     "ind": [
+      "territorios"
      ]
     },
     {
-     "id": "COM",
-     "name": "Proceso comercial",
-     "text": "Venta de servicios y metodologías para financiar la operación.",
-     "codes": [
-      "RES_32"
+     "text": "Manizales Más se sostiene con ingresos diversos.",
+     "ind": [
+      "ingresos_propios",
+      "pago_resultados"
      ]
     },
     {
-     "id": "PXR",
-     "name": "Pago por resultados",
-     "text": "Financiación contra resultados verificados y aprendizajes para todos los programas.",
-     "codes": [
-      "RES_33"
-     ]
-    },
-    {
-     "id": "CMD",
-     "name": "Desarrollo de comunidad",
-     "text": "Empresarios, mentores y egresados que sostienen el modelo.",
-     "codes": [
-      "RES_34"
-     ]
-    }
-   ]
-  }
- ],
- "layers": [
-  {
-   "id": "PRB",
-   "name": "Problemática",
-   "short": "Lo que se quiere cambiar."
-  },
-  {
-   "id": "ACT",
-   "name": "Actividades",
-   "short": "Lo que hacen los programas."
-  },
-  {
-   "id": "PRD",
-   "name": "Productos",
-   "short": "Lo que entregan, bajo control directo."
-  },
-  {
-   "id": "RES",
-   "name": "Resultados",
-   "short": "Los cambios en empresas, personas y entorno."
-  },
-  {
-   "id": "IMP",
-   "name": "Impacto",
-   "short": "El cambio de largo plazo al que se contribuye."
-  },
-  {
-   "id": "SUP",
-   "name": "Supuestos",
-   "short": "Condiciones externas que deben cumplirse."
-  },
-  {
-   "id": "CTX",
-   "name": "Contexto",
-   "short": "Referentes territoriales, no atribuibles."
-  }
- ],
- "dims": {
-  "CLI": "Clientes",
-  "CAP": "Capacidad",
-  "CAJ": "Caja",
-  "VEN": "Ventas",
-  "ESC": "Escala",
-  "EMPL": "Ruta de empleabilidad",
-  "EMPR": "Ruta de emprendimiento",
-  "AMB": "Ambas rutas",
-  "CUL": "Cultura",
-  "SIN": "Síntesis",
-  "MER": "Mercados",
-  "POL": "Política",
-  "FIN": "Finanzas",
-  "SOP": "Soporte",
-  "TYT": "Trabajo y talento"
- },
- "outcomes": [
-  {
-   "id": "OUT_01",
-   "line": "EMP",
-   "statement": "Empresas que ejecutan sus decisiones de crecimiento.",
-   "indicators": [
-    "RES_1",
-    "RES_2"
-   ],
-   "products": [
-    "PRD_13",
-    "PRD_1"
-   ]
-  },
-  {
-   "id": "OUT_02",
-   "line": "EMP",
-   "statement": "Empresas que crecen con más clientes, capacidad y caja.",
-   "formula": "3C",
-   "indicators": [
-    "RES_4",
-    "RES_5",
-    "RES_6",
-    "RES_7",
-    "RES_8",
-    "RES_9",
-    "RES_27"
-   ],
-   "products": [
-    "PRD_1",
-    "PRD_2"
-   ]
-  },
-  {
-   "id": "OUT_03",
-   "line": "EMP",
-   "statement": "Supervivencia empresarial: emprendimientos que venden y resisten.",
-   "indicators": [
-    "RES_10",
-    "RES_12"
-   ],
-   "products": [
-    "PRD_1",
-    "PRD_2"
-   ]
-  },
-  {
-   "id": "OUT_04",
-   "line": "TAL",
-   "statement": "Jóvenes con mayor agencia y habilidades socioemocionales.",
-   "indicators": [
-    "RES_13"
-   ],
-   "products": [
-    "PRD_3"
-   ]
-  },
-  {
-   "id": "OUT_05",
-   "line": "TAL",
-   "statement": "Ruta de empleo: jóvenes con empleo formal y estable.",
-   "indicators": [
-    "RES_14",
-    "RES_15",
-    "RES_16"
-   ],
-   "products": [
-    "PRD_3",
-    "PRD_4"
-   ]
-  },
-  {
-   "id": "OUT_06",
-   "line": "TAL",
-   "statement": "Ruta de emprendimiento: jóvenes con negocios que generan ingresos y empleo.",
-   "indicators": [
-    "RES_17",
-    "RES_18",
-    "RES_28"
-   ],
-   "products": [
-    "PRD_3",
-    "PRD_4"
-   ]
-  },
-  {
-   "id": "OUT_07",
-   "line": "ECO",
-   "statement": "Un ecosistema más fuerte en sus seis dimensiones.",
-   "indicators": [
-    "RES_19",
-    "RES_21",
-    "RES_29",
-    "RES_20",
-    "RES_22",
-    "RES_23",
-    "RES_30",
-    "RES_31"
-   ],
-   "products": [
-    "PRD_5",
-    "PRD_6",
-    "PRD_8",
-    "PRD_11",
-    "PRD_12"
-   ],
-   "formula": "6D"
-  }
- ],
- "chains": {
-  "EMP": {
-   "hypothesis": "Si las empresas con potencial se entrenan con expertos, aprenden de sus pares, reciben mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana, ventas que crecen y empresas que siguen en pie.",
-   "evidence": [
-    {
-     "from": "ACT_1",
-     "to": "OUT_01",
-     "text": "Cuando las empresas mejoran su gestión con acompañamiento experto, su productividad sube: así lo mostraron ensayos en India y en México, donde además creció el empleo.",
-     "refs": [
-      "REF_BLOOM",
-      "REF_BRUHN"
-     ]
-    },
-    {
-     "from": "ACT_10",
-     "to": "OUT_02",
-     "text": "La mentoría de empresarios con experiencia elevó 20 % las utilidades de pequeños negocios en Kenia, más que la capacitación en aula.",
-     "refs": [
-      "REF_BROOKS"
-     ]
-    },
-    {
-     "from": "ACT_2",
-     "to": "OUT_02",
-     "text": "Llegar a nuevos mercados hace mejores a las empresas: exportadores en Egipto mejoraron su calidad y sus utilidades.",
-     "refs": [
-      "REF_ATKIN"
-     ]
-    },
-    {
-     "from": "ACT_1",
-     "to": "OUT_03",
-     "text": "En emprendimientos tempranos marca la diferencia la formación, no solo el dinero, como mostró Start-Up Chile.",
-     "refs": [
-      "REF_GU"
+     "text": "Una comunidad activa que respalda el modelo.",
+     "ind": [
+      "comunidad"
      ]
     }
    ],
+   "impact": [],
+   "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hacen los otros tres frentes.",
    "assumptions": [
-    "SUP_1"
-   ]
-  },
-  "TAL": {
-   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, logran ingresos estables: un empleo formal que conservan o un negocio que vende y que incluso genera empleo.",
-   "evidence": [
     {
-     "from": "ACT_3",
-     "to": "OUT_05",
-     "text": "Jóvenes en Acción, en Colombia, combinó formación con práctica en empresas y aumentó el empleo formal y los ingresos de sus participantes.",
-     "refs": [
-      "REF_ATT"
-     ]
-    },
-    {
-     "from": "ACT_4",
-     "to": "OUT_05",
-     "text": "Los programas para jóvenes funcionan mejor cuando combinan formación con conexión directa al empleo, como lo hace Qué Nivel.",
-     "refs": [
-      "REF_KLUVE",
-      "REF_CARD"
-     ]
-    },
-    {
-     "from": "OUT_04",
-     "to": "OUT_06",
-     "text": "Entrenar la iniciativa personal aumentó 30 % las utilidades de emprendedores en Togo, más que la capacitación tradicional.",
-     "refs": [
-      "REF_CAMPOS"
-     ]
+     "title": "Las organizaciones que adoptan el modelo lo sostienen.",
+     "why": "Un servicio transferido deja huella solo si conserva equipo y recursos después de su primera cohorte."
     }
    ],
-   "assumptions": [
-    "SUP_2"
-   ]
-  },
-  "ECO": {
-   "hypothesis": "Si los actores del ecosistema avanzan juntos en sus seis dimensiones, crecer se vuelve más fácil: más empresas encuentran clientes y capital, hay mentores y docentes que las acompañan, y crecer se vuelve una aspiración compartida.",
    "evidence": [
     {
-     "from": "PRD_5",
-     "to": "OUT_07",
-     "text": "Venderle a una gran empresa transforma a sus proveedores: en Costa Rica, quienes empezaron a venderle a una multinacional tenían 26 % más empleo cuatro años después.",
-     "refs": [
-      "REF_ALFARO"
-     ]
-    },
-    {
-     "from": "ACT_6",
-     "to": "OUT_07",
-     "text": "El capital bien asignado acelera a las empresas con potencial: en Nigeria aumentó su supervivencia, sus ventas y su empleo.",
-     "refs": [
-      "REF_MCK"
-     ]
-    },
-    {
-     "from": "ACT_7",
-     "to": "OUT_07",
-     "text": "Los referentes inspiran: en Chile, conocer a un empresario exitoso elevó los ingresos de microempresarios tanto como una asesoría individual, a menor costo.",
-     "refs": [
-      "REF_LAF"
-     ]
-    },
-    {
-     "from": "OUT_07",
-     "to": "impact",
-     "text": "La experiencia de Manizales Más es un caso de estudio internacional sobre cómo un ecosistema enfocado en crecer acelera a sus empresas.",
-     "refs": [
-      "REF_ISEN16"
-     ]
-    }
-   ],
-   "assumptions": [
-    "SUP_3",
-    "SUP_5"
-   ]
-  },
-  "SOS": {
-   "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hace.",
-   "evidence": [
-    {
-     "from": "PRD_9",
-     "to": "RES_24",
-     "text": "Los programas que se llevan a otros territorios conservan sus resultados cuando se cuida la fidelidad de la implementación; por eso medimos que cada servicio aplique los componentes acordados.",
+     "from": "a0",
+     "to": "o0",
+     "text": "Los programas que se llevan a otros territorios conservan sus resultados cuando se cuida la fidelidad de la implementación.",
      "refs": [
       "REF_BANERJEE"
      ]
     },
     {
-     "from": "PRD_10",
-     "to": "RES_24",
+     "from": "p0",
+     "to": "o0",
      "text": "La metodología que dio origen a Manizales Más se aplicó también en Scale Up Milwaukee, en Estados Unidos.",
      "refs": [
       "REF_ISEN16"
      ]
     }
-   ],
-   "assumptions": [
-    "SUP_4"
    ]
-  }
- },
- "assumptions": {
-  "SUP_1": {
-   "title": "Quien decide en la empresa se sienta en la mesa.",
-   "why": "Si el dueño o el gerente no participa, las decisiones de crecimiento no pasan del papel. Por eso cada sesión clave debe contar con alguien que tenga autoridad para decidir."
-  },
-  "SUP_2": {
-   "title": "Los empleadores abren las vacantes que prometen.",
-   "why": "La formación solo se convierte en empleo si hay puestos reales esperando a los jóvenes. Seguimos cada vacante comprometida hasta que se abre."
-  },
-  "SUP_3": {
-   "title": "Los aliados cumplen lo que ponen sobre la mesa.",
-   "why": "Las apuestas del ecosistema se sostienen con aportes de muchos actores; si uno falla, la iniciativa pierde fuerza. Verificamos cada compromiso en su fecha."
-  },
-  "SUP_4": {
-   "title": "Las organizaciones que adoptan el modelo lo sostienen.",
-   "why": "Un servicio transferido deja huella solo si conserva equipo y recursos después de su primera cohorte. Confirmamos responsable y financiación para cada nuevo periodo."
-  },
-  "SUP_5": {
-   "title": "El crecimiento es una tarea compartida.",
-   "why": "Ninguna organización mueve sola la economía de una región. Los resultados se construyen con universidades, gremios, gobierno, empresas ancla y financiadores, que además cofinancian buena parte de los programas."
-  }
- },
- "indicators": [
-  {
-   "code": "PRB_1",
-   "layer": "PRB",
-   "line": "EMP",
-   "statement": "Empresas con potencial que no logran crecer de forma sostenida."
-  },
-  {
-   "code": "PRB_2",
-   "layer": "PRB",
-   "line": "TAL",
-   "statement": "Jóvenes sin ingresos estables."
-  },
-  {
-   "code": "PRB_3",
-   "layer": "PRB",
-   "line": "ECO",
-   "statement": "Un entorno que no facilita crecer."
-  },
-  {
-   "code": "ACT_0",
-   "layer": "ACT",
-   "line": "SIS",
-   "statement": "Ejecución de las actividades programadas.",
-   "name": "Cumplimiento de la agenda de actividades",
-   "definition": "Sesiones, reuniones, acciones conjuntas e hitos realizados respecto de los programados con vencimiento al corte. Un solo indicador mide todas las actividades de la teoría de cambio.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Sesiones o acciones realizadas con fecha programada hasta el corte.",
-    "B": "Sesiones o acciones programadas con fecha hasta el corte."
-   },
-   "unit": "%",
-   "population": "Agendas aprobadas de todos los programas.",
-   "frequency": "Mensual",
-   "horizon": "Durante la ejecución",
-   "sources": [
-    "INS_03",
-    "INS_08"
-   ],
-   "rule": "Reportar siempre por actividad, programa y tipo. Usar la agenda aprobada antes del vencimiento; no reprogramar para mejorar la cifra."
-  },
-  {
-   "code": "ACT_1",
-   "layer": "ACT",
-   "line": "EMP",
-   "statement": "Entrenamiento con expertos, con la metodología de Babson College.",
-   "measuredBy": "ACT_0",
-   "detail": "Separar formación y mentoría. Usar la agenda aprobada antes del vencimiento."
-  },
-  {
-   "code": "ACT_10",
-   "layer": "ACT",
-   "line": "EMP",
-   "statement": "Mentoría con empresarios que ya recorrieron el camino.",
-   "measuredBy": "ACT_0"
-  },
-  {
-   "code": "ACT_11",
-   "layer": "ACT",
-   "line": "EMP",
-   "statement": "Aprendizaje entre pares de distintos sectores (peer-to-peer).",
-   "measuredBy": "ACT_0"
-  },
-  {
-   "code": "ACT_2",
-   "layer": "ACT",
-   "line": "EMP",
-   "statement": "Conexión con clientes, mercados y financiadores.",
-   "measuredBy": "ACT_0",
-   "detail": "Exigir fecha, contraparte y registro de la reunión. Separar clientes, mercados y financiadores."
-  },
-  {
-   "code": "ACT_3",
-   "layer": "ACT",
-   "line": "TAL",
-   "statement": "Formación técnica, en IA y socioemocional, por ruta.",
-   "measuredBy": "ACT_0",
-   "detail": "Reportar por separado la ruta de empleabilidad y la de emprendimiento.",
-   "dim": "AMB"
-  },
-  {
-   "code": "ACT_4",
-   "layer": "ACT",
-   "line": "TAL",
-   "statement": "Conexión con empleadores y con clientes.",
-   "measuredBy": "ACT_0",
-   "detail": "Cada conexión pertenece a una sola ruta.",
-   "dim": "AMB"
-  },
-  {
-   "code": "ACT_5",
-   "layer": "ACT",
-   "line": "ECO",
-   "statement": "Articulación multiactor alrededor de apuestas estratégicas regionales.",
-   "measuredBy": "ACT_0"
-  },
-  {
-   "code": "ACT_6",
-   "layer": "ACT",
-   "line": "ECO",
-   "statement": "Preparación de empresas y conexión con capital.",
-   "measuredBy": "ACT_0",
-   "detail": "Separar inversión, crédito y pago por resultados."
-  },
-  {
-   "code": "ACT_7",
-   "layer": "ACT",
-   "line": "ECO",
-   "statement": "Agenda de cultura de crecimiento: casos, referentes y retribución.",
-   "measuredBy": "ACT_0",
-   "detail": "Cada acción tiene responsable, fecha y evidencia."
-  },
-  {
-   "code": "ACT_8",
-   "layer": "ACT",
-   "line": "ECO",
-   "statement": "Formación de mentores, docentes y facilitadores.",
-   "measuredBy": "ACT_0",
-   "detail": "Separar programa y rol."
-  },
-  {
-   "code": "PRD_0",
-   "layer": "PRD",
-   "line": "SIS",
-   "statement": "Participantes que completan su ruta.",
-   "name": "Finalización de las rutas",
-   "definition": "Empresas, jóvenes, mentores o docentes que cumplen los requisitos de cierre de su ruta, respecto de quienes la iniciaron.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Participantes con cierre completo documentado.",
-    "B": "Participantes que iniciaron la cohorte, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Cohortes cerradas de todos los programas.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Reportar por programa y por ruta.",
-   "excludes": "Inscritos que nunca asistieron o retiros sacados del denominador."
-  },
-  {
-   "code": "PRD_1",
-   "layer": "PRD",
-   "line": "EMP",
-   "statement": "Empresas que completan su ruta de acompañamiento.",
-   "measuredBy": "PRD_0"
-  },
-  {
-   "code": "PRD_2",
-   "layer": "PRD",
-   "line": "EMP",
-   "statement": "Empresas con oportunidades comerciales o de capital documentadas.",
-   "name": "Empresas con oportunidad documentada",
-   "definition": "Empresas con contraparte, propósito y siguiente paso acordado después de una reunión de conexión.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con al menos una oportunidad documentada.",
-    "B": "Empresas que iniciaron la ruta de conexiones."
-   },
-   "unit": "%",
-   "population": "Empresas que iniciaron la ruta de conexiones.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Registrar contraparte, propósito, fecha y siguiente paso."
-  },
-  {
-   "code": "PRD_13",
-   "layer": "PRD",
-   "line": "EMP",
-   "statement": "Empresas con plan de crecimiento e hitos acordados.",
-   "name": "Empresas con plan de crecimiento",
-   "definition": "Empresas que cierran su ruta con un plan de crecimiento a tres años, con metas de ventas y empleo e hitos con responsable y fecha, aprobado por quien decide.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con plan completo y aprobado al cierre.",
-    "B": "Empresas que iniciaron la cohorte, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas en una cohorte cerrada.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "El plan es la base de los hitos que se siguen en mentoría.",
-   "excludes": "Planes sin metas cuantificadas, sin hitos con fecha o sin aprobación de quien decide."
-  },
-  {
-   "code": "PRD_3",
-   "layer": "PRD",
-   "line": "TAL",
-   "statement": "Jóvenes que completan su ruta.",
-   "measuredBy": "PRD_0",
-   "dim": "AMB"
-  },
-  {
-   "code": "PRD_4",
-   "layer": "PRD",
-   "line": "TAL",
-   "statement": "Jóvenes con una oportunidad concreta realizada.",
-   "name": "Jóvenes con oportunidad efectiva",
-   "definition": "Jóvenes que realizan una entrevista o prueba técnica (empleabilidad) o una reunión con un cliente (emprendimiento).",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes con al menos una oportunidad realizada.",
-    "B": "Jóvenes que iniciaron la cohorte."
-   },
-   "unit": "%",
-   "population": "Jóvenes de una cohorte cerrada de Qué Nivel.",
-   "frequency": "Por cohorte",
-   "horizon": "Cierre de cohorte",
-   "sources": [
-    "INS_03"
-   ],
-   "rule": "Contar personas únicas por ruta con asistencia documentada.",
-   "dim": "AMB"
-  },
-  {
-   "code": "PRD_5",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Oportunidades de mercado abiertas por empresas ancla.",
-   "name": "Retos de innovación abierta publicados",
-   "definition": "Retos publicados por organizaciones demandantes con condiciones, plazo y presupuesto identificados.",
-   "calculation": "N(retos únicos)",
-   "variables": {
-    "N": "Retos publicados durante el periodo."
-   },
-   "unit": "Retos",
-   "population": "Registro de oportunidades de Open Más.",
-   "frequency": "Trimestral",
-   "horizon": "Periodo",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "No contar varias publicaciones del mismo reto como retos distintos.",
-   "refs": [
-    "REF_OPEN"
-   ]
-  },
-  {
-   "code": "PRD_6",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Empresas que presentan solicitudes de capital.",
-   "name": "Empresas con solicitud de capital presentada",
-   "definition": "Empresas con solicitud de inversión, crédito o pago por resultados enviada a una contraparte.",
-   "calculation": "N(empresas únicas)",
-   "variables": {
-    "N": "Empresas con al menos una solicitud presentada en el periodo."
-   },
-   "unit": "Empresas",
-   "population": "Empresas de la ruta de capital.",
-   "frequency": "Trimestral",
-   "horizon": "Periodo",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Exigir fecha y soporte de presentación; contar una vez cada empresa."
-  },
-  {
-   "code": "PRD_8",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Mentores, docentes y facilitadores formados con práctica.",
-   "measuredBy": "PRD_0"
-  },
-  {
-   "code": "PRD_9",
-   "layer": "PRD",
-   "line": "SOS",
-   "statement": "Servicios transferidos listos para operar.",
-   "name": "Servicios con condiciones de inicio completas",
-   "definition": "Servicios con responsable local, equipo formado, protocolo y calendario de primera cohorte.",
-   "calculation": "N(servicios listos)",
-   "variables": {
-    "N": "Servicios con las cuatro condiciones verificadas."
-   },
-   "unit": "Servicios",
-   "population": "Servicios incluidos en acuerdos de transferencia.",
-   "frequency": "Por réplica",
-   "horizon": "Cierre de instalación",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Identificar cada servicio por organización, territorio y tipo."
-  },
-  {
-   "code": "PRD_10",
-   "layer": "PRD",
-   "line": "SOS",
-   "statement": "Metodologías estandarizadas en herramientas transferibles.",
-   "name": "Metodologías con toolkit estandarizado",
-   "definition": "Metodologías de Manizales Más documentadas en un toolkit versionado que un tercero puede aplicar sin el equipo original.",
-   "calculation": "N(metodologías con toolkit vigente)",
-   "variables": {
-    "N": "Metodologías con guía, plantillas, criterios de calidad y versión vigente."
-   },
-   "unit": "Metodologías",
-   "population": "Programas del portafolio.",
-   "frequency": "Anual",
-   "horizon": "Cierre del año",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Cuenta solo si un equipo externo lo aplicó o lo revisó con la lista de criterios.",
-   "excludes": "Presentaciones o documentos internos sin versión ni criterios de calidad."
-  },
-  {
-   "code": "PRD_11",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Territorios y ecosistemas diagnosticados.",
-   "name": "Territorios con diagnóstico de ecosistema",
-   "definition": "Municipios o ecosistemas, incluido Manizales cada año, con medición completa de los seis dominios y de las capacidades innovadora y emprendedora, y devolución de resultados a sus actores.",
-   "calculation": "N(territorios diagnosticados)",
-   "variables": {
-    "N": "Territorios con diagnóstico completo y devuelto."
-   },
-   "unit": "Territorios",
-   "population": "Territorios con acuerdo de diagnóstico o réplica.",
-   "frequency": "Anual",
-   "horizon": "Cierre del año",
-   "sources": [
-    "INS_09",
-    "INS_10"
-   ],
-   "rule": "Un territorio cuenta una vez por año. La medición exige cobertura de los cinco tipos de actor.",
-   "refs": [
-    "REF_REAP",
-    "REF_GEM"
-   ],
-   "excludes": "Visitas, talleres de sensibilización o diagnósticos parciales."
-  },
-  {
-   "code": "PRD_12",
-   "layer": "PRD",
-   "line": "ECO",
-   "statement": "Casos de crecimiento documentados y difundidos.",
-   "name": "Casos de crecimiento con cifras verificadas",
-   "definition": "Casos de empresas de la región que crecieron, publicados con cifras verificadas y con la contribución de los aliados.",
-   "calculation": "N(casos publicados)",
-   "variables": {
-    "N": "Casos publicados en el año con cifras verificadas."
-   },
-   "unit": "Casos",
-   "population": "Empresas acompañadas que autorizan su caso.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_04",
-    "INS_08"
-   ],
-   "rule": "Cada cifra del caso usa la definición de su indicador y tiene fuente verificable.",
-   "refs": [
-    "REF_ISEN10",
-    "REF_ISEN16"
-   ],
-   "excludes": "Casos con cifras sin fuente verificable."
-  },
-  {
-   "code": "RES_1",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_01",
-   "statement": "Empresas que adoptan nuevas prácticas de gestión.",
-   "name": "Adopción de prácticas a seis meses",
-   "definition": "Empresas con al menos una práctica nueva del catálogo en uso seis meses después del ingreso.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con al menos una práctica ausente al inicio y en uso al mes 6.",
-    "B": "Empresas con inventario de prácticas al inicio y al mes 6."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas con seguimiento al mes 6.",
-   "frequency": "Por cohorte",
-   "horizon": "6 meses",
-   "sources": [
-    "INS_02",
-    "INS_04"
-   ],
-   "rule": "Exigir evidencia de uso. Catálogo: estructura comercial, precios, gestión financiera, canales, procesos, delegación y medición."
-  },
-  {
-   "code": "RES_2",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_01",
-   "statement": "Empresas que cumplen los hitos estratégicos acordados con sus mentores.",
-   "name": "Hitos estratégicos cumplidos",
-   "definition": "Hitos estratégicos acordados en mentoría que la empresa cumple con evidencia en la fecha pactada.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Hitos con evidencia de cumplimiento hasta su fecha.",
-    "B": "Hitos con fecha vencida al corte."
-   },
-   "unit": "%",
-   "population": "Empresas en procesos de mentoría.",
-   "frequency": "Trimestral",
-   "horizon": "Durante y hasta 6 meses después",
-   "sources": [
-    "INS_07"
-   ],
-   "rule": "Mide la transferencia de la mentoría a decisiones, no las horas de mentoría. Modelo de mentoría en equipo por hitos.",
-   "refs": [
-    "REF_VMS"
-   ],
-   "excludes": "Tareas operativas menores o compromisos sin fecha ni evidencia."
-  },
-  {
-   "code": "RES_4",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CLI",
-   "statement": "Empresas que llegan a clientes, mercados o canales nuevos.",
-   "name": "Clientes, mercados y canales nuevos",
-   "definition": "Empresas que facturan a clientes nuevos, en un departamento o país nuevo, o por un canal de mayor alcance que no usaban en los doce meses previos al ingreso.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con al menos un cliente, mercado o canal nuevo con venta facturada.",
-    "B": "Empresas con registro de clientes, mercados y canales al ingreso y al seguimiento."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas establecidas.",
-   "frequency": "Por cohorte",
-   "horizon": "12 y 24 meses",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Desagregar: mercado nacional, mercado internacional y canal. Una empresa cuenta una vez en el total.",
-   "excludes": "Contactos, ferias, cotizaciones o perfiles en redes sin venta facturada."
-  },
-  {
-   "code": "RES_5",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CLI",
-   "statement": "Empresas que cierran más ventas de las propuestas que hacen.",
-   "name": "Propuestas comerciales que terminan en venta",
-   "definition": "Cambio en el porcentaje de propuestas o cotizaciones formales que terminan en venta facturada, entre los seis meses previos al ingreso y los seis siguientes.",
-   "calculation": "mediana(Ci,6 − Ci,0)",
-   "variables": {
-    "Ci,0": "Conversión de la empresa i en los seis meses previos al ingreso.",
-    "Ci,6": "Conversión de la misma empresa en los seis meses siguientes."
-   },
-   "unit": "Puntos porcentuales",
-   "population": "Empresas con registro de propuestas en ambos periodos.",
-   "frequency": "Por cohorte",
-   "horizon": "6 meses",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Conversión = propuestas con venta facturada / propuestas formales enviadas.",
-   "excludes": "Contactos informales o prospectos sin propuesta formal."
-  },
-  {
-   "code": "RES_6",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "VEN",
-   "statement": "Empresas que aumentan sus ventas reales.",
-   "name": "Cambio mediano de ventas reales",
-   "definition": "Mediana del cambio porcentual de las ventas reales anuales de las mismas empresas.",
-   "calculation": "mediana[100 × (Vi,t − Vi,0) / Vi,0]",
-   "variables": {
-    "Vi,0": "Ventas reales de la empresa i en los 12 meses previos al ingreso.",
-    "Vi,t": "Ventas reales de la misma empresa en los 12 meses previos al seguimiento."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas, directamente o por socios, con ventas iniciales positivas.",
-   "frequency": "Por cohorte",
-   "horizon": "12 y 24 meses",
-   "sources": [
-    "INS_04",
-    "INS_11",
-    "INS_12"
-   ],
-   "rule": "Nunca se reporta solo: va con empleo formal y caja (RES_7 a RES_9). Separar atención directa y por socios.",
-   "refs": [
-    "REF_IPC",
-    "REF_CONF17"
-   ],
-   "excludes": "Ventas proyectadas, pedidos sin facturar y cifras sin deflactar."
-  },
-  {
-   "code": "RES_7",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CAP",
-   "statement": "Empresas que generan empleo formal de calidad.",
-   "name": "Empleo formal neto por empresa",
-   "definition": "Diferencia promedio entre los cotizantes en PILA de la empresa al seguimiento y al ingreso.",
-   "calculation": "Σ(Ei,t − Ei,0) / n",
-   "variables": {
-    "Ei,0": "Cotizantes dependientes de la empresa i en el mes previo al ingreso.",
-    "Ei,t": "Cotizantes dependientes en el mes previo al seguimiento.",
-    "n": "Empresas con ambos registros verificados."
-   },
-   "unit": "Puestos por empresa",
-   "population": "Empresas atendidas con nómina verificable.",
-   "frequency": "Por cohorte",
-   "horizon": "12 y 24 meses",
-   "sources": [
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Incluir ceros confirmados. Excluir contratistas y propietarios sin salario.",
-   "refs": [
-    "REF_PILA",
-    "REF_RELAB"
-   ],
-   "excludes": "Contratistas por prestación de servicios, propietarios sin salario, practicantes y empleos estimados."
-  },
-  {
-   "code": "RES_8",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CAJ",
-   "statement": "Empresas que crecen con rentabilidad.",
-   "name": "Empresas con margen operativo estable o mayor",
-   "definition": "Empresas cuyo margen operativo al seguimiento es igual o superior al del año previo al ingreso.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con margen operativo al seguimiento ≥ margen inicial.",
-    "B": "Empresas con estados financieros o registro contable en ambos años."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas establecidas.",
-   "frequency": "Anual",
-   "horizon": "12 y 24 meses",
-   "sources": [
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Margen operativo = utilidad operacional / ventas netas, del mismo tipo de fuente en ambos años.",
-   "excludes": "Comparar estados auditados con estimaciones del empresario."
-  },
-  {
-   "code": "RES_9",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "CAJ",
-   "statement": "Empresas con flujo de caja operativo sostenible.",
-   "name": "Empresas con caja operativa positiva",
-   "definition": "Empresas con flujo de caja operativo positivo en al menos tres de los cuatro trimestres previos al seguimiento.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con flujo operativo positivo en 3 o 4 trimestres.",
-    "B": "Empresas con registro trimestral de caja completo."
-   },
-   "unit": "%",
-   "population": "Empresas atendidas establecidas.",
-   "frequency": "Por cohorte",
-   "horizon": "12 y 24 meses",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Reportar junto al valor de línea base para mostrar el cambio.",
-   "excludes": "Entradas por préstamos, aportes de socios o venta de activos."
-  },
-  {
-   "code": "RES_10",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_03",
-   "statement": "Emprendimientos que venden y siguen vendiendo.",
-   "name": "Emprendimientos que venden y sobreviven",
-   "definition": "Emprendimientos con ventas a al menos tres clientes no relacionados en los tres meses previos a cada seguimiento.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Emprendimientos con venta validada.",
-    "B": "Emprendimientos atendidos con estado comercial verificado, incluidos los cerrados."
-   },
-   "unit": "%",
-   "population": "Emprendimientos de Addventure Más y Lanza Más.",
-   "frequency": "Por cohorte",
-   "horizon": "6, 12 y 24 meses",
-   "sources": [
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Nunca reemplazar por número de postulantes o asistentes.",
-   "refs": [
-    "REF_CONF5"
-   ],
-   "excludes": "Matrícula mercantil sin ventas, ventas a familiares, socios o aliados del programa, y preventas sin entrega."
-  },
-  {
-   "code": "RES_12",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_03",
-   "statement": "Emprendimientos que se recuperan de contingencias.",
-   "name": "Resiliencia ante contingencias",
-   "definition": "Emprendimientos que, tras una contingencia registrada, recuperan al menos el 80 % de sus ventas previas en seis meses.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Emprendimientos con ventas ≥ 80 % del nivel previo dentro de seis meses.",
-    "B": "Emprendimientos con contingencia registrada y seis meses de seguimiento."
-   },
-   "unit": "%",
-   "population": "Emprendimientos con contingencia registrada.",
-   "frequency": "Por cohorte",
-   "horizon": "6 meses desde la contingencia",
-   "sources": [
-    "INS_04"
-   ],
-   "rule": "Registrar el tipo de contingencia y la adaptación adoptada (precio, canal, producto o costos).",
-   "excludes": "Caídas estacionales previsibles."
-  },
-  {
-   "code": "RES_27",
-   "layer": "RES",
-   "line": "EMP",
-   "outcome": "OUT_02",
-   "dim": "ESC",
-   "statement": "Empresas acompañadas que escalan.",
-   "name": "Empresas escaladas",
-   "definition": "Empresas atendidas con al menos diez asalariados al ingreso que crecen más de 20 % al año, en empleo o en ventas reales, durante tres años seguidos.",
-   "calculation": "N y 100 × N / B",
-   "variables": {
-    "N": "Empresas atendidas que cumplen el criterio de alto crecimiento de la OCDE.",
-    "B": "Empresas atendidas con diez o más asalariados al ingreso y tres años de seguimiento."
-   },
-   "unit": "Empresas y %",
-   "population": "Empresas atendidas con diez o más asalariados al ingreso.",
-   "frequency": "Anual",
-   "horizon": "36 meses desde el ingreso",
-   "sources": [
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Convención Eurostat y OCDE.",
-   "refs": [
-    "REF_OECD",
-    "REF_ISEN16"
-   ],
-   "excludes": "Crecimiento por fusiones o adquisiciones, o empresas que crecen un solo año."
-  },
-  {
-   "code": "RES_13",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_04",
-   "dim": "AMB",
-   "statement": "Jóvenes que fortalecen su agencia y habilidades socioemocionales.",
-   "name": "Cambio en el índice de agencia",
-   "definition": "Jóvenes cuyo índice de agencia y habilidades socioemocionales a la salida supera su línea base.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes con índice de salida > índice de entrada.",
-    "B": "Jóvenes con ambas mediciones."
-   },
-   "unit": "%",
-   "population": "Jóvenes de Qué Nivel con medición de entrada y salida.",
-   "frequency": "Por cohorte",
-   "horizon": "Ingreso y cierre",
-   "sources": [
-    "INS_06"
-   ],
-   "rule": "Reportar también el cambio medio del índice y separar por ruta.",
-   "excludes": "Mediciones solo de salida o con versiones distintas del instrumento."
-  },
-  {
-   "code": "RES_14",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_05",
-   "dim": "EMPL",
-   "statement": "Jóvenes colocados en empleos formales.",
-   "name": "Tasa de colocación efectiva",
-   "definition": "Jóvenes de la ruta de empleabilidad con contrato laboral y cotización en PILA dentro de los seis meses siguientes al cierre.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes con colocación efectiva verificada.",
-    "B": "Jóvenes que iniciaron la ruta de empleabilidad, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Ruta de empleabilidad de Qué Nivel.",
-   "frequency": "Por cohorte",
-   "horizon": "6 meses desde el cierre",
-   "sources": [
-    "INS_05",
-    "INS_11"
-   ],
-   "rule": "Solo ruta de empleabilidad. Otras vinculaciones se reportan aparte.",
-   "refs": [
-    "REF_PILA"
-   ],
-   "excludes": "Entrevistas, pasantías no remuneradas, prestación de servicios y trabajo informal."
-  },
-  {
-   "code": "RES_15",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_05",
-   "dim": "EMPL",
-   "statement": "Jóvenes que permanecen en el empleo.",
-   "name": "Permanencia a 90 días",
-   "definition": "Jóvenes colocados que siguen cotizando con el mismo u otro empleador 90 días después de su vinculación.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Colocados con cotización vigente al día 90.",
-    "B": "Colocados con 90 días cumplidos desde la vinculación."
-   },
-   "unit": "%",
-   "population": "Jóvenes con colocación efectiva.",
-   "frequency": "Por cohorte",
-   "horizon": "90 días desde la vinculación",
-   "sources": [
-    "INS_05",
-    "INS_11"
-   ],
-   "rule": "Un cambio de empleador sin interrupción mayor a 30 días cuenta como permanencia.",
-   "excludes": "Contratos terminados antes del día 90 sin nueva vinculación."
-  },
-  {
-   "code": "RES_16",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_05",
-   "dim": "EMPL",
-   "statement": "Jóvenes en cargos pertinentes a su formación técnica o en IA.",
-   "name": "Pertinencia de la colocación",
-   "definition": "Jóvenes colocados en cargos cuyas funciones usan las competencias técnicas o de IA de su ruta.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Colocados con pertinencia verificada.",
-    "B": "Jóvenes con colocación efectiva."
-   },
-   "unit": "%",
-   "population": "Jóvenes con colocación efectiva.",
-   "frequency": "Por cohorte",
-   "horizon": "90 días desde la vinculación",
-   "sources": [
-    "INS_05"
-   ],
-   "rule": "Verificar con la descripción del cargo o con el empleador.",
-   "excludes": "Declaraciones del joven sin verificar con el cargo o el empleador."
-  },
-  {
-   "code": "RES_17",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_06",
-   "dim": "EMPR",
-   "statement": "Jóvenes con negocios validados en el mercado.",
-   "name": "Validación comercial de emprendimientos juveniles",
-   "definition": "Jóvenes de la ruta de emprendimiento con ventas a al menos tres clientes no relacionados en los tres meses previos al seguimiento.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Jóvenes con venta validada.",
-    "B": "Jóvenes que iniciaron la ruta de emprendimiento, incluidos los retiros."
-   },
-   "unit": "%",
-   "population": "Ruta de emprendimiento de Qué Nivel.",
-   "frequency": "Por cohorte",
-   "horizon": "6 meses desde el cierre",
-   "sources": [
-    "INS_05"
-   ],
-   "rule": "Solo ruta de emprendimiento.",
-   "excludes": "Ventas a familiares, socios o aliados del programa, y preventas sin entrega."
-  },
-  {
-   "code": "RES_18",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_06",
-   "dim": "EMPR",
-   "statement": "Ingresos generados por los negocios de los jóvenes.",
-   "name": "Ventas mensuales de los negocios juveniles",
-   "definition": "Mediana de las ventas mensuales reales de los negocios con venta validada.",
-   "calculation": "mediana(Si)",
-   "variables": {
-    "Si": "Promedio de ventas reales de los tres meses previos al seguimiento del negocio i."
-   },
-   "unit": "Pesos constantes por mes",
-   "population": "Negocios de la ruta de emprendimiento con venta validada.",
-   "frequency": "Por cohorte",
-   "horizon": "6 y 12 meses desde el cierre",
-   "sources": [
-    "INS_05",
-    "INS_12"
-   ],
-   "rule": "Deflactar con el IPC al mes base de la cohorte.",
-   "refs": [
-    "REF_IPC"
-   ],
-   "excludes": "Ventas sin soporte o cifras sin deflactar."
-  },
-  {
-   "code": "RES_28",
-   "layer": "RES",
-   "line": "TAL",
-   "outcome": "OUT_06",
-   "dim": "EMPR",
-   "statement": "Empleos que generan los negocios de los jóvenes.",
-   "name": "Empleos generados por los negocios juveniles",
-   "definition": "Personas, además del joven, que trabajan con pago en los negocios de la ruta de emprendimiento, contadas por separado como empleos formales e informales.",
-   "calculation": "Σ empleos formales + Σ empleos informales",
-   "variables": {
-    "Formales": "Trabajadores con cotización en PILA.",
-    "Informales": "Trabajadores con pago y sin cotización."
-   },
-   "unit": "Empleos",
-   "population": "Negocios de la ruta de emprendimiento con seguimiento.",
-   "frequency": "Por cohorte",
-   "horizon": "6 y 12 meses desde el cierre",
-   "sources": [
-    "INS_05"
-   ],
-   "rule": "Reportar siempre formales e informales por separado.",
-   "excludes": "Familiares que ayudan sin pago y socios del negocio."
-  },
-  {
-   "code": "RES_19",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "SIN",
-   "statement": "Un ecosistema más fuerte en sus seis dimensiones.",
-   "name": "Índice del ecosistema",
-   "definition": "Promedio de los puntajes de las seis dimensiones del ecosistema (mercados, política, finanzas, cultura, soporte, y trabajo y talento) en la medición anual a los cinco tipos de actor.",
-   "calculation": "Σ(Dk) / 6",
-   "variables": {
-    "Dk": "Puntaje promedio de la dimensión k, de 1 a 5."
-   },
-   "unit": "Puntaje de 1 a 5",
-   "population": "Actores del ecosistema de Manizales.",
-   "frequency": "Anual",
-   "horizon": "Cada año frente a la línea base",
-   "sources": [
-    "INS_09"
-   ],
-   "rule": "Publicar siempre el puntaje de cada dimensión y por tipo de actor junto al índice.",
-   "refs": [
-    "REF_ISEN10",
-    "REF_ISEN11",
-    "REF_REAP",
-    "REF_REAP2",
-    "REF_GEM"
-   ]
-  },
-  {
-   "code": "RES_20",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "FIN",
-   "statement": "Capital movilizado hacia empresas en crecimiento.",
-   "name": "Capital desembolsado a empresas acompañadas",
-   "definition": "Monto de inversión, crédito o pago por resultados efectivamente desembolsado a empresas acompañadas.",
-   "calculation": "Σ(desembolsos verificados)",
-   "variables": {
-    "Σ": "Suma de desembolsos verificados del periodo, en pesos constantes."
-   },
-   "unit": "Pesos constantes y número de empresas",
-   "population": "Empresas de la ruta de capital.",
-   "frequency": "Anual",
-   "horizon": "12 meses desde la solicitud",
-   "sources": [
-    "INS_08",
-    "INS_12"
-   ],
-   "rule": "Separar micropréstamos, inversión ángel, financiamiento de etapa cero, crédito y pago por resultados. No se cuentan montos sin desembolso.",
-   "refs": [
-    "REF_NEVADO",
-    "REF_AURA"
-   ],
-   "excludes": "Montos solicitados, aprobados sin desembolso o en negociación."
-  },
-  {
-   "code": "RES_21",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "MER",
-   "statement": "Empresas que concretan negocios con empresas ancla.",
-   "name": "Contratos de innovación abierta",
-   "definition": "Empresas con contrato firmado dentro de doce meses desde su postulación a un reto acompañado.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresas con contrato verificado y vinculado al reto.",
-    "B": "Empresas postulantes con doce meses cumplidos y resultado conocido."
-   },
-   "unit": "%",
-   "population": "Empresas postulantes a retos de Open Más.",
-   "frequency": "Anual",
-   "horizon": "12 meses desde la postulación",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Contar una vez cada empresa por cohorte de postulación.",
-   "refs": [
-    "REF_OPEN"
-   ],
-   "excludes": "Postulaciones o pilotos sin contrato firmado."
-  },
-  {
-   "code": "RES_22",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "CUL",
-   "statement": "Empresarios que elevan su ambición de crecimiento.",
-   "name": "Cambio en la ambición de crecimiento",
-   "definition": "Empresarios cuya meta de crecimiento a tres años al cierre es mayor que la que declararon al ingreso.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Empresarios con meta de ventas o empleo a tres años mayor al cierre que al ingreso.",
-    "B": "Empresarios con meta registrada al ingreso y al cierre."
-   },
-   "unit": "%",
-   "population": "Empresas que completan su ruta.",
-   "frequency": "Por cohorte",
-   "horizon": "Ingreso y cierre",
-   "sources": [
-    "INS_02",
-    "INS_03"
-   ],
-   "rule": "Comparar la meta de cada empresario al ingreso y al cierre.",
-   "refs": [
-    "REF_ISEN13"
-   ],
-   "excludes": "Metas sin cifra de ventas y empleo, o registradas solo al cierre."
-  },
-  {
-   "code": "RES_23",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "CUL",
-   "statement": "Empresarios consolidados que retribuyen al ecosistema.",
-   "name": "Retribución al ecosistema (give back)",
-   "definition": "Horas voluntarias y su valor económico equivalente aportados por empresarios consolidados a mentoría, formación y jurados.",
-   "calculation": "H y H × T",
-   "variables": {
-    "H": "Horas voluntarias verificadas en el año.",
-    "T": "Tarifa de referencia por hora de consultoría senior, fijada cada año."
-   },
-   "unit": "Horas y pesos equivalentes",
-   "population": "Empresarios consolidados de la red de mentores.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_07"
-   ],
-   "rule": "Reportar también el número de empresarios que aportan. No incluir horas pagadas.",
-   "excludes": "Horas pagadas, horas del equipo de Manizales Más y asistencia como público."
-  },
-  {
-   "code": "RES_29",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "POL",
-   "statement": "Políticas públicas que impulsan el crecimiento.",
-   "name": "Políticas y programas públicos para el crecimiento",
-   "definition": "Políticas, programas o regulaciones que adoptan el gobierno local o departamental con aporte documentado del ecosistema.",
-   "calculation": "N(políticas o programas adoptados)",
-   "variables": {
-    "N": "Instrumentos públicos adoptados en el año con aporte documentado."
-   },
-   "unit": "Políticas o programas",
-   "population": "Gobierno municipal de Manizales y departamental de Caldas.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Cuenta la adopción formal: acto administrativo, ordenanza, acuerdo o programa con presupuesto.",
-   "excludes": "Mesas de trabajo, declaraciones o propuestas que no se adoptan."
-  },
-  {
-   "code": "RES_30",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "SOP",
-   "statement": "Mentores formados que acompañan empresas.",
-   "name": "Mentores activos en el ecosistema",
-   "definition": "Mentores y facilitadores formados por Manizales Más que, doce meses después, acompañan empresas desde sus organizaciones.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Mentores formados con al menos un acompañamiento activo a los doce meses.",
-    "B": "Mentores que completaron la formación hace doce meses."
-   },
-   "unit": "%",
-   "population": "Mentores y facilitadores formados.",
-   "frequency": "Anual",
-   "horizon": "12 meses desde la formación",
-   "sources": [
-    "INS_07",
-    "INS_10"
-   ],
-   "rule": "Separar por organización de soporte.",
-   "excludes": "Mentores que solo asisten a eventos o que cobran por su tiempo."
-  },
-  {
-   "code": "RES_31",
-   "layer": "RES",
-   "line": "ECO",
-   "outcome": "OUT_07",
-   "dim": "TYT",
-   "statement": "Docentes que enseñan emprendimiento orientado al crecimiento.",
-   "name": "Docentes que aplican la metodología",
-   "definition": "Docentes formados que, en el año siguiente, enseñan emprendimiento con la metodología en sus cursos.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Docentes formados con al menos un curso dictado con la metodología.",
-    "B": "Docentes que completaron la formación hace un año."
-   },
-   "unit": "%",
-   "population": "Docentes de universidades aliadas formados.",
-   "frequency": "Anual",
-   "horizon": "12 meses desde la formación",
-   "sources": [
-    "INS_03",
-    "INS_10"
-   ],
-   "rule": "Verificar con el programa del curso o la institución.",
-   "excludes": "Charlas sueltas o cursos sin la metodología."
-  },
-  {
-   "code": "RES_24",
-   "layer": "RES",
-   "line": "SOS",
-   "statement": "Organizaciones locales que operan los servicios transferidos.",
-   "name": "Servicios con primera operación local",
-   "definition": "Servicios que completan su primera cohorte local y aplican los componentes acordados dentro de doce meses.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Servicios con primera cohorte cerrada y componentes aplicados.",
-    "B": "Servicios listos para operar hace doce meses."
-   },
-   "unit": "%",
-   "population": "Servicios transferidos con condiciones de inicio completas.",
-   "frequency": "Por réplica",
-   "horizon": "12 meses desde la entrega",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Verificar operador local, cierre de cohorte y componentes del protocolo.",
-   "refs": [
-    "REF_LLEVA"
-   ],
-   "excludes": "Servicios instalados que aún no cierran su primera cohorte."
-  },
-  {
-   "code": "RES_26",
-   "layer": "RES",
-   "line": "SOS",
-   "statement": "Organizaciones socias que avanzan en madurez institucional.",
-   "name": "Avance en madurez institucional",
-   "definition": "Organizaciones socias que suben al menos un nivel en la escala de madurez entre el diagnóstico y los doce meses.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Organizaciones con avance de al menos un nivel.",
-    "B": "Organizaciones con diagnóstico inicial y a doce meses."
-   },
-   "unit": "%",
-   "population": "Organizaciones con acuerdo de transferencia.",
-   "frequency": "Anual",
-   "horizon": "Diagnóstico y 12 meses",
-   "sources": [
-    "INS_10"
-   ],
-   "rule": "Reportar también la distribución por nivel.",
-   "excludes": "Autoevaluaciones sin evidencia."
-  },
-  {
-   "code": "RES_32",
-   "layer": "RES",
-   "line": "SOS",
-   "statement": "Ingresos propios por venta de servicios.",
-   "name": "Ingresos propios por venta de servicios",
-   "definition": "Porcentaje del presupuesto operativo anual de Manizales Más que se financia con la venta de servicios y metodologías.",
-   "calculation": "100 × A / B",
-   "variables": {
-    "A": "Ingresos por venta de servicios y metodologías en el año.",
-    "B": "Presupuesto operativo ejecutado en el año."
-   },
-   "unit": "%",
-   "population": "Manizales Más.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "No incluye donaciones ni recursos de cooperación.",
-   "excludes": "Donaciones, cooperación internacional y aportes de aliados."
-  },
-  {
-   "code": "RES_33",
-   "layer": "RES",
-   "line": "SOS",
-   "statement": "Acuerdos de pago por resultados con resultados verificados.",
-   "name": "Pago por resultados verificado",
-   "definition": "Acuerdos de pago por resultados cuyos resultados pactados se verifican y se pagan en el periodo, y aprendizajes que se incorporan a otros programas.",
-   "calculation": "100 × A / B y N aprendizajes",
-   "variables": {
-    "A": "Acuerdos con resultados verificados y pagados.",
-    "B": "Acuerdos con fecha de verificación en el periodo.",
-    "N": "Cambios de diseño adoptados en otros programas a partir de lo aprendido."
-   },
-   "unit": "% y cambios adoptados",
-   "population": "Acuerdos de pago por resultados.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_08"
-   ],
-   "rule": "Cada aprendizaje se documenta con el programa que lo adopta.",
-   "excludes": "Acuerdos firmados que no llegan a verificación."
-  },
-  {
-   "code": "RES_34",
-   "layer": "RES",
-   "line": "SOS",
-   "statement": "Una comunidad activa que sostiene el modelo.",
-   "name": "Comunidad activa",
-   "definition": "Empresarios, mentores y egresados que participan al menos dos veces al año en actividades de la comunidad de Manizales Más.",
-   "calculation": "N(miembros activos)",
-   "variables": {
-    "N": "Personas con dos o más participaciones registradas en el año."
-   },
-   "unit": "Personas",
-   "population": "Comunidad de empresarios, mentores y egresados.",
-   "frequency": "Anual",
-   "horizon": "Año calendario",
-   "sources": [
-    "INS_03",
-    "INS_07"
-   ],
-   "rule": "Contar una vez cada persona.",
-   "excludes": "Inscritos en listas o bases de datos sin participación."
-  },
-  {
-   "code": "IMP_1",
-   "layer": "IMP",
-   "line": "SIS",
-   "statement": "Las empresas acompañadas crecen más que empresas comparables.",
-   "name": "Efecto sobre las ventas reales a 24 meses",
-   "definition": "Diferencia en el crecimiento mediano de ventas reales a 24 meses entre las empresas atendidas y un grupo de comparación.",
-   "calculation": "ΔV(atendidas) − ΔV(comparación)",
-   "variables": {
-    "ΔV": "Crecimiento mediano de las ventas reales a 24 meses de cada grupo."
-   },
-   "unit": "Puntos porcentuales",
-   "population": "Empresas atendidas y postulantes no seleccionados o empresas comparables en RUES.",
-   "frequency": "Anual",
-   "horizon": "24 meses desde el ingreso",
-   "sources": [
-    "INS_01",
-    "INS_04",
-    "INS_11",
-    "INS_12"
-   ],
-   "rule": "Sin grupo de comparación es seguimiento, no impacto. Una cohorte sola no basta: acumular cohortes.",
-   "refs": [
-    "REF_SIEF",
-    "REF_ISEN16",
-    "REF_IPC"
-   ],
-   "excludes": "Comparaciones contra promedios nacionales o sectoriales."
-  },
-  {
-   "code": "IMP_2",
-   "layer": "IMP",
-   "line": "SIS",
-   "statement": "Las empresas acompañadas generan más empleo formal y mejor pagado que empresas comparables.",
-   "name": "Efecto sobre el empleo formal y la masa salarial a 24 meses",
-   "definition": "Diferencia entre las empresas atendidas y un grupo de comparación en el crecimiento de su masa salarial formal a 24 meses, reportada junto con los puestos formales netos.",
-   "calculation": "ΔMS(atendidas) − ΔMS(comparación)",
-   "variables": {
-    "ΔMS": "Crecimiento real de la suma de salarios cotizados en PILA entre el ingreso y los 24 meses.",
-    "Puestos netos": "Cotizantes dependientes a los 24 meses menos los del ingreso, en las mismas empresas."
-   },
-   "unit": "Puntos porcentuales y puestos",
-   "population": "Empresas atendidas, directamente o por socios, y grupo de comparación.",
-   "frequency": "Anual",
-   "horizon": "24 meses desde el ingreso",
-   "sources": [
-    "INS_01",
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Reportar el total neto y la diferencia frente a comparación. Nunca empleos brutos ni estimados.",
-   "refs": [
-    "REF_PILA",
-    "REF_SIEF"
-   ],
-   "excludes": "Empleos brutos, anunciados o estimados, contratistas y salarios sin cotización."
-  },
-  {
-   "code": "IMP_3",
-   "layer": "IMP",
-   "line": "SIS",
-   "statement": "Los jóvenes atendidos logran más ingresos estables que jóvenes comparables.",
-   "name": "Efecto sobre los ingresos de los jóvenes a 12 y 24 meses",
-   "definition": "Diferencia en el ingreso laboral mensual real, por salario o por utilidad del negocio propio, entre los jóvenes de ambas rutas y un grupo de comparación.",
-   "calculation": "Y(atendidos) − Y(comparación)",
-   "variables": {
-    "Y": "Mediana del ingreso laboral mensual real de cada grupo, promedio de los tres meses previos al seguimiento."
-   },
-   "unit": "Pesos constantes por mes",
-   "population": "Jóvenes de ambas rutas de Qué Nivel y postulantes elegibles no seleccionados o en lista de espera.",
-   "frequency": "Anual",
-   "horizon": "12 y 24 meses desde el cierre",
-   "sources": [
-    "INS_01",
-    "INS_05",
-    "INS_11",
-    "INS_12"
-   ],
-   "rule": "Utilidad del negocio = ventas menos costos del negocio. Deflactar con el IPC al mes base de la cohorte.",
-   "dim": "AMB",
-   "refs": [
-    "REF_SIEF",
-    "REF_PILA"
-   ],
-   "excludes": "Transferencias, subsidios, préstamos y ventas del negocio sin descontar costos."
-  },
-  {
-   "code": "IMP_4",
-   "layer": "IMP",
-   "line": "SIS",
-   "statement": "Las empresas acompañadas sobreviven más que empresas comparables.",
-   "name": "Efecto sobre la supervivencia empresarial a 24 meses",
-   "definition": "Diferencia en el porcentaje de empresas activas a los 24 meses entre las empresas atendidas y un grupo de comparación.",
-   "calculation": "S(atendidas) − S(comparación)",
-   "variables": {
-    "S": "Porcentaje de empresas de cada grupo con matrícula renovada y ventas o cotizantes en PILA a los 24 meses."
-   },
-   "unit": "Puntos porcentuales",
-   "population": "Empresas atendidas y postulantes no seleccionados o empresas comparables en RUES.",
-   "frequency": "Anual",
-   "horizon": "24 meses desde el ingreso",
-   "sources": [
-    "INS_01",
-    "INS_04",
-    "INS_11"
-   ],
-   "rule": "Se reporta siempre junto al efecto sobre ventas, para no medir solo a las que sobrevivieron.",
-   "refs": [
-    "REF_CONF5",
-    "REF_SIEF"
-   ],
-   "excludes": "Empresas con matrícula vigente pero sin ventas ni empleados."
   }
  ],
  "programs": [
   {
-   "id": "PRG_01",
+   "id": "EAP",
    "name": "Empresas de Alto Potencial",
    "line": "EMP",
-   "portfolio": true,
-   "population": "Empresas con operación consolidada y ambición de crecer.",
-   "role": "Acompañamiento de formación, mentoría y conexiones para crecer con la fórmula de las 3C.",
-   "focus": [
-    "RES_6",
-    "RES_7",
-    "RES_8",
-    "RES_9",
-    "RES_4",
-    "RES_27"
+   "role": "Entrenamiento, mentoría y conexiones para que empresas consolidadas crezcan en clientes, capacidad y caja.",
+   "nodes": [
+    "a0",
+    "a1",
+    "a2",
+    "a3",
+    "p0",
+    "p1",
+    "p2",
+    "o0",
+    "o1",
+    "o2"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "ACT_2",
-    "PRD_1",
-    "PRD_2",
-    "PRD_12",
-    "RES_1",
-    "RES_2",
-    "RES_4",
-    "RES_6",
-    "RES_7",
-    "RES_8",
-    "RES_9",
-    "RES_27",
-    "RES_22",
-    "IMP_1",
-    "IMP_2",
-    "ACT_10",
-    "ACT_11",
-    "IMP_4",
-    "PRD_13"
-   ],
-   "refs": [
-    "REF_EAP",
-    "REF_ISEN16"
-   ]
+   "portfolio": true
   },
   {
-   "id": "PRG_04",
+   "id": "CRE",
    "name": "Crecer Más",
    "line": "EMP",
-   "portfolio": true,
-   "population": "Empresas de municipios de Caldas distintos de Manizales.",
-   "role": "Lleva el acompañamiento para crecer a los municipios de Caldas, con los mismos indicadores de crecimiento que en Manizales, reportados municipio por municipio.",
-   "focus": [
-    "RES_6",
-    "RES_7",
-    "RES_4",
-    "RES_1"
+   "role": "Entrenamiento con la metodología de Babson College para que empresas de los municipios de Caldas, con ventas entre 80 y 4.000 millones de pesos al año, aumenten sus ventas y utilidades. Lo impulsa la Gobernación de Caldas y lo opera Manizales Más; sus resultados se reportan por municipio.",
+   "nodes": [
+    "a0",
+    "a2",
+    "a3",
+    "p0",
+    "p1",
+    "p2",
+    "o0",
+    "o1"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "ACT_2",
-    "PRD_1",
-    "PRD_2",
-    "RES_1",
-    "RES_4",
-    "RES_6",
-    "RES_7",
-    "RES_8",
-    "RES_9",
-    "RES_27",
-    "RES_22",
-    "IMP_1",
-    "IMP_2",
-    "ACT_10",
-    "ACT_11",
-    "IMP_4",
-    "PRD_13"
-   ]
+   "portfolio": true
   },
   {
-   "id": "PRG_05",
+   "id": "VEN",
    "name": "Vender Más",
    "line": "EMP",
-   "portfolio": true,
-   "population": "Empresarios y equipos comerciales.",
-   "role": "Fortalece el proceso comercial para convertir más propuestas en ventas y llegar a clientes y mercados nuevos.",
-   "focus": [
-    "RES_5",
-    "RES_4",
-    "RES_6"
+   "role": "Fortalece el proceso comercial para cerrar más ventas y llegar a clientes y mercados nuevos.",
+   "nodes": [
+    "a0",
+    "a2",
+    "p0",
+    "o1"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "PRD_1",
-    "RES_1",
-    "RES_4",
-    "RES_5",
-    "RES_6",
-    "IMP_1",
-    "ACT_11"
-   ]
+   "portfolio": true
   },
   {
-   "id": "PRG_15",
-   "name": "Entrenamiento a mentores",
-   "line": "ECO",
-   "portfolio": true,
-   "population": "Mentores y facilitadores de organizaciones aliadas.",
-   "role": "Forma mentores y facilitadores para que acompañen empresas desde sus organizaciones y fortalezcan el soporte del ecosistema.",
-   "focus": [
-    "PRD_0",
-    "RES_30",
-    "RES_23"
-   ],
-   "elements": [
-    "PRB_3",
-    "ACT_8",
-    "PRD_8",
-    "RES_30",
-    "RES_23"
-   ]
-  },
-  {
-   "id": "PRG_16",
-   "name": "Desarrollo de ecosistema",
-   "line": "ECO",
-   "portfolio": true,
-   "population": "Actores del ecosistema de Manizales y de los territorios que se diagnostican.",
-   "role": "Fortalece el ecosistema en sus seis dimensiones: mide cada año sus condiciones, articula a sus actores alrededor de apuestas regionales y mueve la cultura hacia el crecimiento.",
-   "focus": [
-    "RES_19",
-    "RES_29",
-    "RES_22"
-   ],
-   "elements": [
-    "PRB_3",
-    "ACT_5",
-    "ACT_7",
-    "PRD_11",
-    "PRD_12",
-    "RES_19",
-    "RES_29",
-    "RES_22",
-    "RES_23"
-   ],
-   "refs": [
-    "REF_ISEN11",
-    "REF_REAP",
-    "REF_REAP_CAL"
-   ]
-  },
-  {
-   "id": "PRG_02",
+   "id": "MEN",
    "name": "Mentoría Empresarial",
    "line": "EMP",
-   "population": "Empresas en procesos de mentoría con empresarios consolidados.",
-   "role": "Mentoría en equipo, por hitos, con empresarios consolidados que retribuyen su experiencia. Sigue el modelo MIT Venture Mentoring Service.",
-   "focus": [
-    "RES_2",
-    "RES_23",
-    "RES_1"
+   "role": "Mentoría en equipo, por hitos, con empresarios consolidados que retribuyen su experiencia.",
+   "nodes": [
+    "a1",
+    "p1",
+    "o0",
+    "o1"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "PRD_1",
-    "RES_1",
-    "RES_2",
-    "RES_6",
-    "RES_7",
-    "RES_23",
-    "IMP_1",
-    "IMP_2",
-    "ACT_10",
-    "IMP_4",
-    "PRD_13"
-   ],
-   "refs": [
-    "REF_MENT",
-    "REF_VMS"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_03",
+   "id": "ADD",
    "name": "Addventure Más",
    "line": "EMP",
-   "population": "Emprendimientos en etapa temprana.",
-   "role": "Acompaña la validación comercial y la consolidación de negocios jóvenes.",
-   "focus": [
-    "RES_10",
-    "RES_12"
+   "role": "Acompaña a emprendimientos en etapa temprana a validar su mercado, vender y sostenerse.",
+   "nodes": [
+    "a0",
+    "a1",
+    "a3",
+    "p0",
+    "p2",
+    "o2"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "ACT_2",
-    "PRD_1",
-    "PRD_2",
-    "RES_1",
-    "RES_4",
-    "RES_10",
-    "RES_12",
-    "ACT_10",
-    "IMP_4",
-    "PRD_13"
-   ],
-   "refs": [
-    "REF_ADD"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_06",
+   "id": "LAN",
    "name": "Lanza Más",
    "line": "EMP",
-   "population": "Emprendedores de la comunidad universitaria SUMA.",
-   "role": "Acompaña exploración, validación y primeras ventas de negocios universitarios.",
-   "focus": [
-    "RES_10",
-    "RES_12"
+   "role": "Acompaña a emprendedores universitarios desde la exploración hasta sus primeras ventas.",
+   "nodes": [
+    "a0",
+    "p0",
+    "o2"
    ],
-   "elements": [
-    "PRB_1",
-    "ACT_1",
-    "PRD_1",
-    "RES_10",
-    "RES_12",
-    "IMP_4"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_10",
-   "name": "Qué Nivel",
-   "line": "TAL",
-   "population": "Jóvenes de 18 a 25 años, en ruta de empleabilidad o de emprendimiento.",
-   "role": "Conecta formación técnica, en IA y socioemocional con empleo formal o con negocios que venden.",
-   "focus": [
-    "RES_14",
-    "RES_15",
-    "RES_17",
-    "RES_18",
-    "RES_28",
-    "RES_13"
+   "id": "DEC",
+   "name": "Desarrollo de ecosistema",
+   "line": "ECO",
+   "role": "Mide cada año el ecosistema, articula a sus actores alrededor de apuestas regionales y mueve la cultura hacia el crecimiento.",
+   "nodes": [
+    "a0",
+    "a1",
+    "a4",
+    "p3",
+    "o0",
+    "o2"
    ],
-   "elements": [
-    "PRB_2",
-    "ACT_3",
-    "ACT_4",
-    "PRD_3",
-    "PRD_4",
-    "RES_13",
-    "RES_14",
-    "RES_15",
-    "RES_16",
-    "RES_17",
-    "RES_18",
-    "IMP_3",
-    "RES_28"
-   ],
-   "refs": [
-    "REF_QN"
-   ]
+   "portfolio": true
   },
   {
-   "id": "PRG_09",
+   "id": "OPE",
    "name": "Open Más",
    "line": "ECO",
-   "population": "Empresas ancla con retos y empresas que proponen soluciones.",
-   "role": "Convierte retos de empresas ancla en contratos con empresas en crecimiento.",
-   "focus": [
-    "RES_21"
+   "role": "Convierte retos de empresas ancla en negocios para empresas en crecimiento.",
+   "nodes": [
+    "a1",
+    "p0",
+    "o1"
    ],
-   "elements": [
-    "PRB_3",
-    "ACT_5",
-    "PRD_5",
-    "RES_21",
-    "RES_4",
-    "RES_6"
-   ],
-   "refs": [
-    "REF_OPEN"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_11",
+   "id": "NEV",
    "name": "Nevado Capital",
    "line": "ECO",
-   "population": "Empresas que buscan inversión e inversionistas.",
    "role": "Prepara empresas y las conecta con inversión.",
-   "focus": [
-    "RES_20"
+   "nodes": [
+    "a2",
+    "p1",
+    "o1"
    ],
-   "elements": [
-    "PRB_3",
-    "ACT_6",
-    "PRD_6",
-    "RES_20",
-    "RES_6",
-    "IMP_1",
-    "IMP_4"
-   ],
-   "refs": [
-    "REF_NEVADO"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_12",
-   "name": "AuRA y pago por resultados",
-   "line": "SOS",
-   "population": "Empresas vinculadas a financiación por resultados.",
-   "role": "Estructura financiación que se paga contra resultados verificados y convierte lo aprendido en mejores programas.",
-   "focus": [
-    "RES_33",
-    "RES_20"
+   "id": "EMT",
+   "name": "Entrenamiento a mentores",
+   "line": "ECO",
+   "role": "Forma mentores para que acompañen empresas desde sus organizaciones.",
+   "nodes": [
+    "a3",
+    "p2",
+    "o2",
+    "o0"
    ],
-   "elements": [
-    "ACT_6",
-    "PRD_6",
-    "RES_20",
-    "RES_33",
-    "RES_7",
-    "IMP_2"
-   ],
-   "refs": [
-    "REF_AURA"
-   ]
+   "portfolio": true
   },
   {
-   "id": "PRG_07",
+   "id": "PAP",
    "name": "Profesores de Alto Potencial",
    "line": "ECO",
-   "population": "Docentes de universidades aliadas.",
    "role": "Forma docentes para enseñar emprendimiento orientado al crecimiento.",
-   "focus": [
-    "PRD_0",
-    "RES_31"
+   "nodes": [
+    "a3",
+    "p2",
+    "o0"
    ],
-   "elements": [
-    "PRB_3",
-    "ACT_8",
-    "PRD_8",
-    "RES_31"
-   ],
-   "refs": [
-    "REF_PROF"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_08",
+   "id": "RUT",
    "name": "La ruta del emprendimiento",
    "line": "ECO",
-   "population": "Estudiantes de universidades aliadas.",
-   "role": "Formación aplicada en emprendimiento impartida por docentes formados.",
-   "focus": [
-    "PRD_0",
-    "RES_31"
+   "role": "Formación en emprendimiento para estudiantes, impartida por docentes formados.",
+   "nodes": [
+    "a3",
+    "p2",
+    "o0"
    ],
-   "elements": [
-    "PRB_3",
-    "ACT_8",
-    "PRD_8",
-    "RES_31"
-   ]
+   "portfolio": false
   },
   {
-   "id": "PRG_13",
+   "id": "QNV",
+   "name": "Qué Nivel",
+   "line": "TAL",
+   "role": "Conecta a jóvenes de 18 a 25 años con empleo formal o con un negocio propio, en dos rutas separadas.",
+   "nodes": [
+    "a0",
+    "a1",
+    "p0",
+    "p1",
+    "o0",
+    "o1",
+    "o2"
+   ],
+   "portfolio": false
+  },
+  {
+   "id": "AUR",
+   "name": "AuRA y pago por resultados",
+   "line": "SOS",
+   "role": "Estructura financiación que se paga contra resultados verificados y convierte lo aprendido en mejores programas.",
+   "nodes": [
+    "a2",
+    "p1",
+    "o1"
+   ],
+   "portfolio": false
+  },
+  {
+   "id": "LLE",
    "name": "Lleva el crecimiento a tu región",
    "line": "SOS",
-   "population": "Organizaciones y territorios que adoptan el modelo.",
-   "role": "Lleva el modelo a municipios de Caldas y a otros ecosistemas, con diagnóstico, instalación de servicios y herramientas estandarizadas.",
-   "focus": [
-    "RES_24",
-    "RES_26",
-    "PRD_10"
+   "role": "Lleva el modelo a municipios de Caldas y a otros ecosistemas, con herramientas listas para operar.",
+   "nodes": [
+    "a0",
+    "p0",
+    "p1",
+    "o0"
    ],
-   "elements": [
-    "PRD_9",
-    "PRD_10",
-    "PRD_11",
-    "RES_24",
-    "RES_26",
-    "RES_6",
-    "IMP_1"
-   ],
-   "refs": [
-    "REF_LLEVA"
-   ]
+   "portfolio": false
   }
  ],
- "instruments": [
+ "indicators": [
   {
-   "id": "INS_01",
-   "name": "Registro de convocatoria",
-   "moment": "Cada convocatoria.",
-   "frequency": "Por cohorte",
-   "purpose": "Registra a todos los postulantes, seleccionados o no. Es la base del grupo de comparación: sin él ningún impacto se puede estimar.",
-   "fields": [
-    "Postulante y empresa (NIT)",
-    "Programa y convocatoria",
-    "Fecha de postulación",
-    "Criterios y puntaje de selección",
-    "Resultado de selección",
-    "Sector y municipio",
-    "Ventas y empleo declarados"
-   ]
+   "id": "ventas_comp",
+   "name": "Crecimiento en ventas frente a empresas comparables",
+   "def": "Cuánto más crecen las ventas de las empresas acompañadas que las de empresas parecidas que no participaron.",
+   "calc": "Crecimiento de ventas reales a 24 meses de las empresas acompañadas, menos el de un grupo de comparación.",
+   "no": "Comparaciones contra promedios nacionales o del sector.",
+   "src": "Registro de postulantes, seguimiento a empresas y RUES",
+   "when": "Cada año, a 24 meses del ingreso"
   },
   {
-   "id": "INS_02",
-   "name": "Registro inicial",
-   "moment": "Antes del primer acompañamiento.",
-   "frequency": "Por ingreso",
-   "purpose": "Identificación, elegibilidad y línea base.",
-   "fields": [
-    "Persona y empresa",
-    "Programa, cohorte y ruta",
-    "Municipio y sector",
-    "Fecha de ingreso",
-    "Ventas de los 24 meses previos",
-    "Cotizantes en PILA",
-    "Meta de crecimiento a tres años",
-    "Prácticas de gestión",
-    "Situación laboral o de negocio (talento)"
-   ]
+   "id": "empleo_comp",
+   "name": "Empleo formal frente a empresas comparables",
+   "def": "Cuánto más empleo formal, y mejor pagado, generan las empresas acompañadas que empresas parecidas.",
+   "calc": "Cambio en empleados y en salarios cotizados en PILA a 24 meses, menos el del grupo de comparación.",
+   "no": "Contratistas, empleos anunciados o estimados.",
+   "src": "PILA, con autorización de las empresas",
+   "when": "Cada año, a 24 meses del ingreso"
   },
   {
-   "id": "INS_03",
-   "name": "Registro de implementación",
-   "moment": "Durante la ejecución y al cierre.",
-   "frequency": "Mensual y por cohorte",
-   "purpose": "Agenda, asistencia, conexiones, decisores y cierre.",
-   "fields": [
-    "Sesión, tipo y fechas programada y real",
-    "Asistentes y decisor presente",
-    "Conexión y contraparte",
-    "Siguiente paso acordado",
-    "Requisitos y estado de cierre",
-    "Vacantes comprometidas y apertura"
-   ]
+   "id": "ingresos_jov",
+   "name": "Ingresos de los jóvenes frente a jóvenes comparables",
+   "def": "Cuánto más ganan los jóvenes de Qué Nivel, por salario o por su negocio, que jóvenes parecidos que no participaron.",
+   "calc": "Ingreso mensual de los jóvenes atendidos menos el de postulantes no seleccionados, en pesos constantes.",
+   "no": "Subsidios, préstamos y ventas del negocio sin descontar costos.",
+   "src": "Seguimiento a jóvenes y registro de postulantes",
+   "when": "A 12 y 24 meses del cierre"
   },
   {
-   "id": "INS_04",
-   "name": "Seguimiento empresarial 3C",
-   "moment": "Ingreso y meses 6, 12 y 24.",
-   "frequency": "Por cohorte",
-   "purpose": "Clientes, capacidad y caja de las mismas empresas en el tiempo.",
-   "fields": [
-    "Ventas mensuales netas",
-    "Clientes facturados",
-    "Mercados (departamento o país) y canales",
-    "Propuestas enviadas y cerradas",
-    "Utilidad operacional",
-    "Flujo de caja operativo trimestral",
-    "Contingencias y adaptación",
-    "Estado de operación"
-   ]
+   "id": "plan",
+   "name": "Cumplimiento del plan de crecimiento",
+   "def": "Qué parte de los hitos que la empresa acordó en su plan de crecimiento se cumple en la fecha pactada.",
+   "calc": "Hitos cumplidos con evidencia, divididos por los hitos que ya vencieron.",
+   "no": "Tareas menores o hitos sin fecha ni evidencia.",
+   "src": "Registro de mentoría",
+   "when": "Cada trimestre"
   },
   {
-   "id": "INS_05",
-   "name": "Seguimiento de talento por ruta",
-   "moment": "Cierre y meses 3, 6 y 12.",
-   "frequency": "Por cohorte",
-   "purpose": "Colocación, permanencia y pertinencia (empleabilidad); validación y ventas (emprendimiento).",
-   "fields": [
-    "Ruta",
-    "Contrato, empleador y fecha de vinculación",
-    "Cotización en PILA",
-    "Cargo y funciones",
-    "Clientes y ventas del negocio",
-    "Fuente de verificación"
-   ]
+   "id": "ventas",
+   "name": "Crecimiento de ventas",
+   "def": "Cuánto crecen las ventas de las empresas acompañadas, descontando la inflación.",
+   "calc": "Cambio en las ventas de los 12 meses previos al seguimiento frente a los 12 previos al ingreso. Se reporta la mediana.",
+   "no": "Ventas proyectadas o pedidos sin facturar.",
+   "src": "Seguimiento a empresas",
+   "when": "A 12 y 24 meses, por cohorte"
   },
   {
-   "id": "INS_06",
-   "name": "Evaluación de agencia y habilidades socioemocionales",
-   "moment": "Ingreso y cierre.",
-   "frequency": "Por cohorte",
-   "purpose": "Mide el cambio de mentalidad de los jóvenes con el mismo instrumento a la entrada y a la salida.",
-   "fields": [
-    "Persona y ruta",
-    "Fecha de aplicación",
-    "Puntaje por dimensión",
-    "Índice total",
-    "Versión del instrumento"
-   ]
+   "id": "clientes",
+   "name": "Empresas con clientes o mercados nuevos",
+   "def": "Empresas que le venden a clientes nuevos o entran a otro departamento, país o canal de ventas.",
+   "calc": "Empresas con al menos una venta facturada a un cliente, mercado o canal nuevo, sobre el total acompañado.",
+   "no": "Contactos, ferias o cotizaciones sin venta.",
+   "src": "Seguimiento a empresas",
+   "when": "A 12 y 24 meses, por cohorte"
   },
   {
-   "id": "INS_07",
-   "name": "Registro de mentoría y retribución",
-   "moment": "Cada sesión y cada compromiso.",
-   "frequency": "Trimestral",
-   "purpose": "Compromisos estratégicos y su cumplimiento; horas voluntarias de empresarios consolidados.",
-   "fields": [
-    "Mentor y empresa",
-    "Compromiso, responsable y fecha",
-    "Evidencia de cumplimiento",
-    "Horas voluntarias y tipo de aporte",
-    "Tarifa de referencia del año"
-   ]
+   "id": "empleo",
+   "name": "Empleos formales nuevos",
+   "def": "Cuántos empleos formales suman las empresas acompañadas.",
+   "calc": "Empleados cotizando en PILA al seguimiento, menos los que había al ingreso.",
+   "no": "Contratistas y propietarios sin salario.",
+   "src": "PILA, con autorización de las empresas",
+   "when": "A 12 y 24 meses, por cohorte"
   },
   {
-   "id": "INS_08",
-   "name": "Oportunidades, capital y aliados",
-   "moment": "Desde la apertura hasta el cierre del seguimiento.",
-   "frequency": "Trimestral",
-   "purpose": "Retos, postulaciones, contratos, solicitudes, desembolsos, iniciativas multiactor y aportes de aliados.",
-   "fields": [
-    "Reto o iniciativa",
-    "Actores participantes y tipo",
-    "Postulación, contrato y fechas",
-    "Solicitud, tipo de capital y desembolso",
-    "Compromiso de aliado, vencimiento y evidencia",
-    "Aportes por programa"
-   ]
+   "id": "utilidades",
+   "name": "Crecimiento de utilidades",
+   "def": "Empresas que crecen sin sacrificar rentabilidad.",
+   "calc": "Empresas cuya utilidad operativa es igual o mayor que la del año anterior al ingreso, sobre el total acompañado.",
+   "no": "Entradas por préstamos, aportes de socios o venta de activos.",
+   "src": "Estados financieros de las empresas",
+   "when": "Cada año"
   },
   {
-   "id": "INS_09",
-   "name": "Medición anual de condiciones del ecosistema",
-   "moment": "Una vez al año.",
-   "frequency": "Anual",
-   "purpose": "Puntaje de los seis dominios del ecosistema según los cinco tipos de actor.",
-   "fields": [
-    "Territorio y año",
-    "Tipo de actor",
-    "Puntaje por dominio",
-    "Cobertura por tipo de actor",
-    "Fecha de devolución de resultados"
-   ]
+   "id": "supervivencia",
+   "name": "Empresas activas a 24 meses",
+   "def": "Empresas acompañadas que siguen operando dos años después.",
+   "calc": "Empresas con ventas o empleados a los 24 meses, sobre las que iniciaron.",
+   "no": "Matrícula mercantil vigente sin ventas ni empleados.",
+   "src": "Seguimiento a empresas y RUES",
+   "when": "A 24 meses, por cohorte"
   },
   {
-   "id": "INS_10",
-   "name": "Transferencia y madurez",
-   "moment": "Diagnóstico, instalación y seguimiento.",
-   "frequency": "Por réplica y anual",
-   "purpose": "Condiciones de inicio, operación local, repetición, toolkits y madurez de las organizaciones socias.",
-   "fields": [
-    "Organización, territorio y servicio",
-    "Condiciones de inicio",
-    "Cohortes locales y cierres",
-    "Toolkit y versión",
-    "Nivel de madurez por diagnóstico",
-    "Responsable y financiación del siguiente periodo"
-   ]
+   "id": "emprend_ventas",
+   "name": "Emprendimientos que venden",
+   "def": "Emprendimientos tempranos que ya tienen clientes reales y los conservan.",
+   "calc": "Emprendimientos con ventas a tres o más clientes en los últimos tres meses, sobre los que iniciaron.",
+   "no": "Ventas a familiares o socios, y preventas sin entrega.",
+   "src": "Seguimiento a emprendimientos",
+   "when": "A 12 y 24 meses, por cohorte"
   },
   {
-   "id": "INS_11",
-   "name": "Verificación administrativa",
-   "moment": "Ingreso y seguimiento.",
-   "frequency": "Según fuente",
-   "purpose": "Contrasta lo declarado con PILA, RUES y estados financieros, con autorización.",
-   "fields": [
-    "Empresa o persona",
-    "Fuente y periodo",
-    "Variable y valor",
-    "Autorización de acceso",
-    "Fusiones o adquisiciones"
-   ]
+   "id": "indice_eco",
+   "name": "Índice del ecosistema",
+   "def": "Qué tan fuerte está el ecosistema en cada una de sus seis dimensiones, según sus propios actores.",
+   "calc": "Puntaje de 1 a 5 por dimensión, dado por empresarios, capital, empresas ancla, gobierno y universidades. Se publica cada dimensión y el promedio.",
+   "no": "Encuestas a un solo tipo de actor.",
+   "src": "Medición anual del ecosistema",
+   "when": "Cada año"
   },
   {
-   "id": "INS_12",
-   "name": "Fuentes de contexto y precios",
-   "moment": "Según publicación.",
-   "frequency": "Según fuente",
-   "purpose": "IPC para deflactar, cuentas departamentales y registros agregados de empresas.",
-   "fields": [
-    "Fuente y fecha de consulta",
-    "Territorio y periodo",
-    "Variable y unidad",
-    "Versión de la serie",
-    "Mes base del IPC"
-   ]
+   "id": "capital",
+   "name": "Capital movilizado",
+   "def": "Dinero de inversión, crédito o pago por resultados que efectivamente llega a las empresas acompañadas.",
+   "calc": "Suma de los desembolsos verificados en el año.",
+   "no": "Montos solicitados o aprobados sin desembolso.",
+   "src": "Registro de financiación",
+   "when": "Cada año"
+  },
+  {
+   "id": "negocios_ancla",
+   "name": "Negocios con empresas ancla",
+   "def": "Empresas de la región que logran un contrato con una empresa ancla a partir de un reto.",
+   "calc": "Contratos firmados en el año y su valor.",
+   "no": "Postulaciones o pilotos sin contrato.",
+   "src": "Registro de Open Más",
+   "when": "Cada año"
+  },
+  {
+   "id": "mentoria_vol",
+   "name": "Mentoría voluntaria",
+   "def": "Empresarios que devuelven al ecosistema su tiempo y experiencia.",
+   "calc": "Mentores voluntarios activos y horas que aportan en el año.",
+   "no": "Horas pagadas y horas del equipo de Manizales Más.",
+   "src": "Registro de mentoría",
+   "when": "Cada año"
+  },
+  {
+   "id": "agencia",
+   "name": "Índice de agencia",
+   "def": "Jóvenes que salen con más confianza, iniciativa y habilidades socioemocionales de las que traían.",
+   "calc": "Jóvenes cuyo puntaje al cierre supera el del ingreso, sobre los que tienen ambas mediciones.",
+   "no": "Mediciones solo de salida.",
+   "src": "Evaluación de entrada y salida",
+   "when": "Por cohorte"
+  },
+  {
+   "id": "empleo_jov",
+   "name": "Jóvenes con empleo formal",
+   "def": "Jóvenes de la ruta de empleo que consiguen un trabajo formal.",
+   "calc": "Jóvenes con contrato y cotización en PILA a los seis meses, sobre los que iniciaron la ruta.",
+   "no": "Entrevistas, pasantías sin pago, prestación de servicios y trabajo informal.",
+   "src": "Seguimiento a jóvenes y PILA",
+   "when": "A 6 meses del cierre, por cohorte"
+  },
+  {
+   "id": "permanencia",
+   "name": "Permanencia a 90 días",
+   "def": "Jóvenes que conservan su empleo.",
+   "calc": "Jóvenes que siguen cotizando 90 días después de vincularse, sobre los vinculados.",
+   "no": "Contratos terminados antes de 90 días sin nuevo empleo.",
+   "src": "PILA",
+   "when": "A 90 días de la vinculación"
+  },
+  {
+   "id": "negocio_jov",
+   "name": "Jóvenes con negocio que vende",
+   "def": "Jóvenes de la ruta de emprendimiento con un negocio que ya tiene clientes.",
+   "calc": "Jóvenes con ventas a tres o más clientes en los últimos tres meses, sobre los que iniciaron la ruta.",
+   "no": "Ventas a familiares o socios.",
+   "src": "Seguimiento a jóvenes",
+   "when": "A 6 y 12 meses del cierre, por cohorte"
+  },
+  {
+   "id": "empleos_neg",
+   "name": "Empleos que generan los negocios de los jóvenes",
+   "def": "Personas a las que los negocios de los jóvenes les dan trabajo.",
+   "calc": "Personas con pago en esos negocios, contando por separado formales e informales.",
+   "no": "Familiares que ayudan sin pago y socios.",
+   "src": "Seguimiento a jóvenes",
+   "when": "A 6 y 12 meses del cierre, por cohorte"
+  },
+  {
+   "id": "territorios",
+   "name": "Territorios que operan el modelo",
+   "def": "Municipios, regiones o ecosistemas que aplican la metodología con su propio equipo.",
+   "calc": "Territorios con al menos una cohorte propia cerrada en el año.",
+   "no": "Convenios firmados o visitas sin cohorte.",
+   "src": "Registro de transferencia",
+   "when": "Cada año"
+  },
+  {
+   "id": "ingresos_propios",
+   "name": "Ingresos propios",
+   "def": "Qué parte de la operación de Manizales Más se paga con la venta de sus servicios.",
+   "calc": "Ingresos por servicios y metodologías, divididos por el presupuesto ejecutado del año.",
+   "no": "Donaciones y recursos de cooperación.",
+   "src": "Información financiera de Manizales Más",
+   "when": "Cada año"
+  },
+  {
+   "id": "pago_resultados",
+   "name": "Pago por resultados verificado",
+   "def": "Acuerdos de pago por resultados que cumplen lo pactado.",
+   "calc": "Acuerdos con resultados verificados y pagados, sobre los que tenían verificación en el año.",
+   "no": "Acuerdos firmados que no llegan a verificación.",
+   "src": "Registro de financiación",
+   "when": "Cada año"
+  },
+  {
+   "id": "comunidad",
+   "name": "Comunidad activa",
+   "def": "Empresarios, mentores y egresados que siguen vinculados a Manizales Más.",
+   "calc": "Personas con dos o más participaciones en el año.",
+   "no": "Inscritos en bases de datos sin participación.",
+   "src": "Registro de actividades",
+   "when": "Cada año"
+  },
+  {
+   "id": "atendidos",
+   "name": "Participantes atendidos",
+   "def": "Empresas, jóvenes, mentores o docentes que efectivamente reciben un programa.",
+   "calc": "Participantes con registro inicial y al menos una actividad con asistencia. Se reporta por programa y municipio.",
+   "no": "Inscritos que nunca asistieron y postulantes no seleccionados.",
+   "src": "Registro de actividades",
+   "when": "Por cohorte"
+  },
+  {
+   "id": "finalizacion",
+   "name": "Finalización",
+   "def": "Participantes que terminan el programa que empezaron.",
+   "calc": "Participantes que cumplen los requisitos de cierre, sobre todos los que iniciaron, incluidos los retiros.",
+   "no": "Sacar a los retirados de la cuenta.",
+   "src": "Registro de actividades",
+   "when": "Por cohorte"
   }
  ],
  "references": [
@@ -3192,55 +1764,44 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 const M = JSON.parse(document.getElementById('model').textContent);
 const $ = id => document.getElementById(id);
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const plural = (n, a, b) => `${n} ${n === 1 ? a : b}`;
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clean = s => s.replace(/\.$/, '');
 
-const byCode = new Map(M.indicators.map(x => [x.code, x]));
-const byOut = new Map(M.outcomes.map(o => [o.id, o]));
 const byLine = new Map(M.lines.map(l => [l.id, l]));
-const byLayer = new Map(M.layers.map(l => [l.id, l]));
 const byProg = new Map(M.programs.map(p => [p.id, p]));
-const byIns = new Map(M.instruments.map(i => [i.id, i]));
+const byInd = new Map(M.indicators.map(x => [x.id, x]));
 const byRef = new Map(M.references.map(r => [r.id, r]));
-const IND = M.indicators.filter(x => x.name && !x.measuredBy);
-const outsOf = id => M.outcomes.filter(o => o.line === id);
-const FRONTS = M.lines.filter(l => !l.base), BASE = M.lines.find(l => l.base);
-const compOf = id => BASE.components.find(c => 'sos:' + c.id === id);
-const ECO = byLine.get('ECO'), ECO_OUT = M.outcomes.find(o => o.formula === '6D');
-const dimOf = id => ECO.dimensions.find(d => 'dim:' + d.id === id);
-const dimCodes = d => ECO_OUT.indicators.filter(c => byCode.get(c).dim === d.id);
-const lineName = id => id === 'SIS' ? 'Todos los frentes' : byLine.get(id)?.name || id;
-const lineTone = id => byLine.get(id)?.tone || '#0B2E5C';
+const progsOf = id => M.programs.filter(p => p.line === id);
 const lineVars = id => byLine.has(id) ? `--lc:${byLine.get(id).color};--lt:${byLine.get(id).tone}` : '';
-const layerName = id => byLayer.get(id)?.name || id;
-const STAGE = {PRB:'Problemática',ACT:'Actividad',PRD:'Producto',RES:'Resultado',IMP:'Impacto',SUP:'Supuesto',CTX:'Contexto'};
+const groupOf = id => M.impact.indicators.includes(id) ? 'Impacto' : M.common.includes(id) ? 'Todos los frentes' : M.lines.find(l => l.outs.some(o => o.ind.includes(id))).name;
+const lineOfInd = id => M.lines.find(l => l.outs.some(o => o.ind.includes(id)))?.id || '';
 const VIEWS = ['modelo','teoria','cadenas','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
-const S = {view:'', mode:'line', line:'', prog:'', node:'', cLine:'EMP', cProg:'', printAll:false};
+const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, printAll:false};
 
-/* qué indicadores corresponden a cada elemento de la cadena */
-const codesOf = id => {
-  if(id === 'impact') return M.impact.indicators;
-  if(compOf(id)) return compOf(id).codes;
-  if(dimOf(id)) return dimCodes(dimOf(id));
-  if(byOut.has(id)) return byOut.get(id).indicators;
-  const x = byCode.get(id); return x.measuredBy ? [x.measuredBy] : [id];
-};
-const nodeLabel = id => id === 'impact' ? M.impact.title : compOf(id) ? compOf(id).name : dimOf(id) ? dimOf(id).name : byOut.has(id) ? byOut.get(id).statement : byCode.get(id).statement;
-const nodeStage = id => id === 'impact' ? 'Impacto' : compOf(id) ? 'Sostenibilidad' : dimOf(id) ? 'Dimensión del ecosistema' : byOut.has(id) ? 'Resultado' : STAGE[byCode.get(id).layer];
-
-/* ---------- 01 modelo ---------- */
 const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 const PILLAR_ICONS = {
   grow: svg('<path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20v-8"/><path d="M16 20v-11"/><path d="M14 5h5v5"/><path d="M19 5l-7 7"/>'),
   job: svg('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>'),
   youth: svg('<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.3 6.8 19l1-5.8L3.5 9.2l5.9-.9z"/>')};
 const ICONS = {
-  EMP: svg('<path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20v-8"/><path d="M16 20v-11"/><path d="M14 5h5v5"/><path d="M19 5l-7 7"/>'),
+  EMP: PILLAR_ICONS.grow,
   TAL: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>'),
   ECO: svg('<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="12" cy="12" r="2.5"/><path d="M8 8l2.2 2.2M16 8l-2.2 2.2M8 16l2.2-2.2M16 16l-2.2-2.2"/>'),
-  SOS: svg('<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5.5" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.3 10.8l7.4-4M8.3 13.2l7.4 4"/>')};
+  SOS: svg('<path d="M20 12a8 8 0 0 1-13.7 5.7"/><path d="M4 12a8 8 0 0 1 13.7-5.7"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/>')};
+
+/* ---------- 01 modelo ---------- */
+function wheel(){
+  const cx = 170, cy = 170, R = 158, r = 62, rad = a => a * Math.PI / 180, P = (a, d) => [(cx + d * Math.cos(rad(a))).toFixed(1), (cy + d * Math.sin(rad(a))).toFixed(1)];
+  const segs = M.ecosystem.dimensions.map((d, i) => {
+    const a0 = -90 + i * 60, a1 = a0 + 60;
+    const [x0, y0] = P(a0, R), [x1, y1] = P(a1, R), [x2, y2] = P(a1, r), [x3, y3] = P(a0, r), [lx, ly] = P(a0 + 30, (R + r) / 2 + 4);
+    return `<g class="seg" data-dim="${d.id}"><path d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${r} ${r} 0 0 0 ${x3} ${y3}Z" fill="${d.color}"/><text x="${lx}" y="${ly}" fill="${d.ink}" text-anchor="middle" dominant-baseline="middle">${esc(d.short)}</text></g>`;
+  }).join('');
+  return `<svg viewBox="0 0 340 340" aria-hidden="true" focusable="false">${segs}<circle cx="${cx}" cy="${cy}" r="${r - 8}" fill="#fff" stroke="#DFE6EF" stroke-width="2"/>
+    <g transform="translate(${cx - 18} ${cy - 30}) scale(1.5)" fill="none" stroke="#104380" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></g>
+    <text x="${cx}" y="${cy + 24}" text-anchor="middle" class="ctr">Empresario</text></svg>`;
+}
 function drawModel(){
   $('sideMeta').innerHTML = `Versión <b>${esc(M.meta.version)}</b><br>${esc(DATE)}`;
   $('heroLead').textContent = M.meta.intro[0];
@@ -3248,182 +1809,57 @@ function drawModel(){
   $('goalTitle').textContent = M.impact.title;
   $('goalStory').textContent = M.impact.story;
   $('pillars').innerHTML = M.impact.pillars.map(p => `<li><span class="pi" aria-hidden="true">${PILLAR_ICONS[p.icon]}</span><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></li>`).join('');
-  $('lineCards').innerHTML = FRONTS.map((l, i) => {
-    const ps = M.programs.filter(p => p.line === l.id);
-    return `<article class="card line-card" style="${lineVars(l.id)}"><span class="num" aria-hidden="true">0${i + 1}</span><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></div><p>${esc(l.story)}</p>
-      <div class="foot"><p class="lbl">${plural(ps.length,'programa','programas')}</p><ul class="tags">${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`;
-  }).join('');
-  const bps = M.programs.filter(p => p.line === BASE.id);
-  $('baseCard').innerHTML = `<article class="card base-card" style="${lineVars(BASE.id)}">
-    <div class="base-head"><span class="ico" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h3>${esc(BASE.name)}</h3></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
-    <p>${esc(BASE.story)}</p>
-    <ul class="base-comps">${BASE.components.map(c => `<li><b>${esc(c.name)}</b><span>${esc(c.text)}</span></li>`).join('')}</ul>
-    <div class="foot"><p class="lbl">${plural(bps.length,'programa','programas')}</p><ul class="tags">${bps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`;
+  $('ecoTitle').textContent = M.ecosystem.title;
+  $('ecoText').textContent = M.ecosystem.text;
+  $('ecoWheel').innerHTML = wheel();
+  $('ecoList').innerHTML = M.ecosystem.dimensions.map(d => `<li class="dim-card" data-dim="${d.id}" style="--dc:${d.color}"><span class="sw" aria-hidden="true"></span><div><strong>${esc(d.name)}</strong><span>${esc(d.elements)}</span></div></li>`).join('');
+  $('lineCards').innerHTML = M.lines.map((l, i) => { const ps = progsOf(l.id);
+    return `<article class="card line-card" style="${lineVars(l.id)}"><span class="num" aria-hidden="true">0${i + 1}</span><div class="lc-head"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><h3>${esc(l.name)}</h3>${l.transversal ? '<span class="tr-tag">Frente transversal</span>' : ''}</div></div><p>${esc(l.story)}</p>
+      <div class="foot"><p class="lbl">${plural(ps.length,'programa','programas')}</p><ul class="tags">${ps.map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div></article>`; }).join('');
 }
+document.addEventListener('mouseover', e => {
+  const it = e.target.closest('[data-dim]'); document.querySelectorAll('[data-dim].hl').forEach(x => x.classList.remove('hl'));
+  if(it) document.querySelectorAll(`[data-dim="${it.dataset.dim}"]`).forEach(x => x.classList.add('hl'));
+});
 
 /* ---------- 02 teoría ---------- */
 function drawControls(){
-  $('lineChips').innerHTML = [{id:'',name:'Todos'}, ...FRONTS].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
-  const bySize = [...M.lines].sort((a, b) => M.programs.filter(p => p.line === b.id).length - M.programs.filter(p => p.line === a.id).length);
-  $('pick').innerHTML = bySize.map(l => {
-    const ps = M.programs.filter(p => p.line === l.id).sort((a, b) => (b.portfolio ? 1 : 0) - (a.portfolio ? 1 : 0));
-    return `<section class="pick-col" style="${lineVars(l.id)}" aria-labelledby="pk-${l.id}">
-      <header><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><h3 id="pk-${l.id}">${esc(l.name)}</h3><span class="cnt">${ps.length}</span></header>
-      <ul>${ps.map(p => `<li><button type="button" class="pick-item" data-prog="${p.id}" aria-pressed="${S.prog===p.id}"><span class="pn">${esc(p.name)}</span>${p.portfolio || p.draft ? `<span class="pb">${p.portfolio ? '<span class="pf">Portafolio</span>' : ''}${p.draft ? '<span class="pd">En definición</span>' : ''}</span>` : ''}</button></li>`).join('')}</ul>
-    </section>`;
-  }).join('');
+  $('lineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-line="${l.id}" aria-pressed="${S.line===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
+  const bySize = [...M.lines].sort((a, b) => progsOf(b.id).length - progsOf(a.id).length);
+  $('pick').innerHTML = bySize.map(l => { const ps = progsOf(l.id).sort((a, b) => (b.portfolio ? 1 : 0) - (a.portfolio ? 1 : 0));
+    return `<section class="pick-col" style="${lineVars(l.id)}" aria-labelledby="pk-${l.id}"><header><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><h3 id="pk-${l.id}">${esc(l.name)}</h3><span class="cnt">${ps.length}</span></header>
+      <ul>${ps.map(p => `<li><button type="button" class="pick-item" data-prog="${p.id}" aria-pressed="${S.prog===p.id}"><span class="pn">${esc(p.name)}</span>${p.portfolio ? '<span class="pb"><span class="pf">Portafolio</span></span>' : ''}</button></li>`).join('')}</ul></section>`; }).join('');
   const sel = byProg.get(S.prog);
   $('pickSel').hidden = !sel;
   if(sel) $('pickSel').innerHTML = `<span class="ps-dot" style="${lineVars(sel.line)}"></span><p><strong>${esc(sel.name)}</strong> ${esc(sel.role)}</p><button type="button" class="btn" data-clear>Quitar selección</button>`;
 }
-function state(codes){ const p = byProg.get(S.prog); if(S.mode !== 'program' || !p) return ''; return codes.some(c => p.elements.includes(c)) ? ' hit' : ' dim'; }
-const pressed = () => '';
 function drawTheory(){
-  const lanes = FRONTS.filter(l => S.mode === 'program' || !S.line || l.id === S.line);
+  const p = S.mode === 'program' ? byProg.get(S.prog) : null;
+  const st = (l, k) => !p ? '' : (p.line === l.id && (k === 'prb' || p.nodes.includes(k))) ? ' hit' : ' dim';
+  const lanes = M.lines.filter(l => S.mode === 'program' || !S.line || l.id === S.line), fronts = lanes.filter(l => !l.transversal);
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
-  const node = x => x.layer === 'PRB' ? `<p class="node prb${state([x.code])}">${esc(x.statement)}</p>` : `<button type="button" class="node${state([x.code])}" data-node="${x.code}"${pressed(x.code)}>${esc(x.statement)}</button>`;
-  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['PRB','ACT','PRD','RES','IMP'].map((id, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${esc(layerName(id))}</div>`).join('');
-  const rows = lanes.map(l => {
-    const items = layer => M.indicators.filter(x => x.layer === layer && x.line === l.id);
-    const outs = outsOf(l.id).map(o => `<button type="button" class="node out${state(o.indicators)}" data-node="${o.id}"${pressed(o.id)}>${esc(o.statement)}${o.formula==='3C'?'<span class="f3c"><span>Clientes</span><span>Capacidad</span><span>Caja</span></span>':''}${o.formula==='6D'?'<span class="f3c">'+['Mercados','Política','Finanzas','Cultura','Soporte','Talento'].map(d => `<span>${d}</span>`).join('')+'</span>':''}</button>`).join('');
-    return `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
-      ${cell('Problemática', items('PRB').map(node).join(''))}${cell('Actividades', items('ACT').map(node).join(''))}${cell('Productos', items('PRD').map(node).join(''))}${cell('Resultados', outs)}
-    </section>`;
-  }).join('');
-  const imp = `<div class="imp-cell" style="grid-row:2 / span ${lanes.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><button type="button" class="node imp${state(M.impact.indicators)}" data-node="impact"${pressed('impact')}><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></button></div>`;
-  $('swim').innerHTML = head + rows + imp;
-  drawEco();
-  const bb = $('baseBand'); bb.style.cssText = lineVars(BASE.id);
-  bb.innerHTML = `<div class="bb-head"><div class="bb-title"><span class="ico sm" aria-hidden="true">${ICONS[BASE.id]}</span><div><p class="kicker">La base que sostiene los frentes</p><h2 id="lane-${BASE.id}">${esc(BASE.name)}</h2></div>${BASE.draft ? '<span class="pd">Propuesta para validar</span>' : ''}</div>
-    <div class="lane-btns row"><button type="button" class="hyp-btn" data-tip="hyp:${BASE.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${BASE.id}" aria-expanded="false">Supuestos</button></div></div>
-    <div class="bb-comps">${BASE.components.map(c => `<button type="button" class="comp${state(c.codes)}" data-node="sos:${c.id}"${pressed('sos:' + c.id)}><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span></button>`).join('')}</div>`;
-  drawChains();
-  drawIndicators();
+  const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados','Impacto'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
+  const rows = lanes.map(l => `<section class="lane${l.transversal ? ' trans' : ''}" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
+      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2>${l.transversal ? '<span class="tr-tag">Transversal</span>' : ''}<div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
+      ${cell('Problemática', `<p class="node prb${st(l,'prb')}">${esc(l.problem)}</p>`)}
+      ${cell('Actividades', l.acts.map((t, i) => `<p class="node${st(l,'a'+i)}">${esc(t)}</p>`).join(''))}
+      ${cell('Productos', l.prods.map((t, i) => `<p class="node${st(l,'p'+i)}">${esc(t)}</p>`).join(''))}
+      ${cell('Resultados', l.outs.map((o, i) => `<p class="node out${st(l,'o'+i)}">${esc(o.text)}${o.tags ? `<span class="f3c">${o.tags.map(t => `<span>${esc(t)}</span>`).join('')}</span>` : ''}</p>`).join(''))}
+    </section>`).join('');
+  const hitImp = !p || !byLine.get(p.line).transversal;
+  const imp = fronts.length ? `<div class="imp-cell" style="grid-row:2 / span ${fronts.length}" role="group" aria-label="Impacto"><span class="cell-label">Impacto</span><div class="node imp${p ? (hitImp ? ' hit' : ' dim') : ''}"><strong>${esc(M.impact.title)}</strong><span>${esc(M.impact.statement)}</span></div></div>` : '';
+  const tl = lanes.find(l => l.transversal);
+  const trans = tl ? `<div class="trans-cell" style="${lineVars(tl.id)};grid-row:${fronts.length + 2}"><strong>Sostiene los otros tres frentes</strong>Un modelo sostenible es lo que permite que los cambios en empresas, ecosistema y talento duren y lleguen a más territorios.</div>` : '';
+  $('swim').innerHTML = head + rows + imp + trans;
 }
 
-/* ---------- rueda del ecosistema ---------- */
-function wheel(){
-  const cx = 170, cy = 170, R = 158, r = 62, rad = a => a * Math.PI / 180, P = (a, d) => [(cx + d * Math.cos(rad(a))).toFixed(1), (cy + d * Math.sin(rad(a))).toFixed(1)];
-  const segs = ECO.dimensions.map((d, i) => {
-    const a0 = -90 + i * 60, a1 = a0 + 60, am = a0 + 30;
-    const [x0, y0] = P(a0, R), [x1, y1] = P(a1, R), [x2, y2] = P(a1, r), [x3, y3] = P(a0, r), [lx, ly] = P(am, (R + r) / 2 + 4);
-    const words = d.short.split(' ');
-    return `<g class="seg${state(dimCodes(d))}${S.node === 'dim:' + d.id ? ' on' : ''}" data-seg="dim:${d.id}">
-      <path d="M${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${r} ${r} 0 0 0 ${x3} ${y3}Z" fill="${d.color}"/>
-      <text x="${lx}" y="${ly}" fill="${d.ink}" text-anchor="middle" dominant-baseline="middle">${esc(words.join(' '))}</text></g>`;
-  }).join('');
-  return `<svg viewBox="0 0 340 340" aria-hidden="true" focusable="false">${segs}
-    <circle cx="${cx}" cy="${cy}" r="${r - 8}" fill="#fff" stroke="#DFE6EF" stroke-width="2"/>
-    <g transform="translate(${cx - 18} ${cy - 30}) scale(1.5)" fill="none" stroke="#104380" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></g>
-    <text x="${cx}" y="${cy + 24}" text-anchor="middle" class="ctr">Empresario</text></svg>`;
-}
-function drawEco(){
-  const band = $('ecoBand');
-  band.hidden = S.mode === 'line' && S.line && S.line !== 'ECO';
-  if(band.hidden) return;
-  band.style.cssText = lineVars('ECO');
-  band.innerHTML = `<div class="eco-head"><div><p class="kicker">Frente Ecosistema</p><h2 id="eco-h">El ecosistema en seis dimensiones</h2>
-      <p class="lede">Así entendemos el entorno que rodea a las empresas, adaptado a Manizales a partir del modelo de Babson College. Cada dimensión avanza a su propio ritmo y tiene su propia medida. Elija una para ver cómo se mide en su cadena causal.</p></div></div>
-    <div class="eco-body"><div class="eco-wheel">${wheel()}</div>
-      <ul class="eco-list">${ECO.dimensions.map(d => { const cs = dimCodes(d); return `<li><button type="button" class="dim-item${state(cs)}" data-node="dim:${d.id}"${pressed('dim:' + d.id)} style="--dc:${d.color}">
-        <span class="sw" aria-hidden="true"></span><span class="dt"><strong>${esc(d.name)}</strong><span class="de">${esc(d.elements)}</span><span class="dm">Se mide con: ${cs.map(c => esc(byCode.get(c).name)).join(' · ')}</span></span></button></li>`; }).join('')}</ul></div>
-    <p class="eco-foot">Las seis se resumen cada año en el <button type="button" class="link" data-node="RES_19"${pressed('RES_19')}>Índice del ecosistema</button>, medido con los cinco tipos de actor: empresarios, capital, empresas ancla, gobierno y universidades.</p>`;
-}
-document.addEventListener('click', e => {
-  const g = e.target.closest('[data-seg]'); if(!g) return;
-  goChain(g.dataset.seg);
-});
-document.addEventListener('mouseover', e => {
-  const it = e.target.closest('.dim-item, [data-seg]'); document.querySelectorAll('.seg.hl,.dim-item.hl').forEach(x => x.classList.remove('hl'));
-  if(!it) return; const id = it.dataset.node || it.dataset.seg;
-  document.querySelectorAll(`[data-seg="${id}"],.dim-item[data-node="${id}"]`).forEach(x => x.classList.add('hl'));
-});
-
-/* ---------- cadenas causales ---------- */
-const STEPS = [['PRB','Partimos de','El problema'],['ACT','Si hacemos','Lo que hacemos'],['PRD','entregamos','Lo que entregamos'],['RES','y entonces cambia','Lo que cambia'],['IMP','para contribuir a','El impacto']];
-function chainCard(l, pr){
-  const hot = S.node ? new Set(codesOf(S.node)) : new Set();
-  const codes = pr ? pr.elements : [...M.indicators.filter(x => x.line === l.id).map(x => x.code), ...new Set(M.programs.filter(p => p.line === l.id).flatMap(p => p.elements.filter(c => c.startsWith('IMP'))))].sort((a, b) => M.indicators.findIndex(x => x.code === a) - M.indicators.findIndex(x => x.code === b));
-  const E = new Set(codes), of = layer => codes.map(c => byCode.get(c)).filter(x => x && x.layer === layer);
-  const chip = c => { const x = byCode.get(c); return `<button type="button" class="ichip${pr && pr.focus.includes(c) ? ' key' : ''}${hot.has(c) ? ' hot' : ''}" data-open="${c}">${esc(x.name)}</button>`; };
-  const chips = cs => cs.length ? `<span class="ichips">${[...new Set(cs)].map(chip).join('')}</span>` : '';
-  const item = (k, text, cs) => `<li class="${S.node === k ? 'hot' : ''}"><span class="it">${esc(text)}</span>${chips(cs)}</li>`;
-  const body = {
-    PRB: of('PRB').map(x => `<li><span class="it">${esc(x.statement)}</span></li>`).join(''),
-    ACT: of('ACT').filter(x => x.measuredBy).map(x => item(x.code, x.statement, [])).join('') + (of('ACT').length ? `<li class="meas">${chips([...new Set(of('ACT').map(x => x.measuredBy || x.code))])}</li>` : ''),
-    PRD: of('PRD').map(x => item(x.code, x.statement, [x.measuredBy || x.code])).join(''),
-    RES: M.outcomes.filter(o => o.indicators.some(c => E.has(c))).map(o => item(o.id, o.statement, o.indicators.filter(c => E.has(c)))).join('')
-       + (l.base && !pr ? '' : of('RES').filter(x => !x.outcome).map(x => item(x.code, x.statement, [x.code])).join('')),
-    IMP: of('IMP').length ? `<li class="${S.node === 'impact' ? 'hot' : ''}"><span class="it">${esc(M.impact.title)}</span>${chips(of('IMP').map(x => x.code))}</li>` : ''
-  };
-  const steps = l.base && !pr
-    ? `<ul class="ccomps">${l.components.map(c => `<li class="${S.node === 'sos:' + c.id ? 'hot' : ''}"><strong>${esc(c.name)}</strong><span>${esc(c.text)}</span>${chips(c.codes)}</li>`).join('')}</ul>`
-    : `<ol class="csteps">${STEPS.filter(([id]) => body[id]).map(([id, link, title], i) => `<li class="cstep s-${id}"><div class="clabel"><span class="clink">${i ? link : id === 'PRB' ? link : 'Primero'}</span><b>${title}</b></div><ul class="citems">${body[id]}</ul></li>`).join('')}</ol>`;
-  const ch = M.chains[l.id], ps = M.programs.filter(p => p.line === l.id);
-  const cites = [...new Set(ch.evidence.flatMap(e => e.refs))].map(r => byRef.get(r).cite);
-  return `<article class="card chain" id="chain-${l.id}" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
-    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">${pr ? (l.base ? 'Programa de la base · ' : 'Programa del frente ') + esc(l.name) : l.base ? 'La base' : 'Frente'}</p><h2 id="chain-h-${l.id}">${esc(pr ? pr.name : l.name)}</h2></div></header>
-    <p class="clead">${esc(pr ? pr.role : ch.hypothesis)}</p>${pr ? `<p class="cpop"><b>A quién atiende:</b> ${esc(pr.population)}</p>` : ''}
-    ${steps}
-    ${pr && pr.focus.length ? '<p class="ckey"><span class="ichip key demo" aria-hidden="true">Indicador</span> Indicadores por los que responde este programa.</p>' : ''}
-    <footer><div><h3>Siempre que</h3><ul>${ch.assumptions.map(c => `<li><b>${esc(M.assumptions[c].title)}</b> ${esc(M.assumptions[c].why)}</li>`).join('')}</ul></div>
-      <div><h3>Respaldo</h3><p>${cites.length ? esc(cites.join(' · ')) + '.' : 'En construcción con nuestros propios datos.'} <a class="link" href="#referencias">Ver la evidencia</a></p></div></footer>
-  </article>`;
-}
-function drawChains(){
-  const l = byLine.get(S.cLine) || M.lines[0], pr = byProg.get(S.cProg);
-  const cur = (line, prog) => (line === l.id && prog === (pr ? pr.id : '')) ? ' aria-current="true"' : '';
-  $('cMenu').innerHTML = M.lines.map(x => `<div class="cm-group" style="${lineVars(x.id)}">
-      <button type="button" class="cm-line" data-cline="${x.id}" data-cprog=""${cur(x.id, '')}><span class="ico sm" aria-hidden="true">${ICONS[x.id]}</span><span>${esc(x.name)}<small>${x.base ? 'Toda la base' : 'Todo el frente'}</small></span></button>
-      <ul>${M.programs.filter(p => p.line === x.id).map(p => `<li><button type="button" class="cm-prog" data-cline="${x.id}" data-cprog="${p.id}"${cur(x.id, p.id)}>${esc(p.name)}</button></li>`).join('')}</ul></div>`).join('');
-  $('cSel').innerHTML = M.lines.map(x => `<optgroup label="${esc(x.name)}"><option value="${x.id}|"${x.id === l.id && !pr ? ' selected' : ''}>${esc(x.name)}: ${x.base ? 'toda la base' : 'todo el frente'}</option>${M.programs.filter(p => p.line === x.id).map(p => `<option value="${x.id}|${p.id}"${pr === p ? ' selected' : ''}>${esc(p.name)}</option>`).join('')}</optgroup>`).join('');
-  $('chains').innerHTML = S.printAll ? M.lines.map(x => chainCard(x, null)).join('') : chainCard(l, pr && pr.line === l.id ? pr : null);
-  $('focusBar').hidden = !S.node;
-  if(S.node) $('focusText').innerHTML = `Resaltado: ${esc(nodeStage(S.node).toLowerCase())} <strong>${esc(nodeLabel(S.node))}</strong>`;
-}
-function pickChain(line, prog, focusMenu){
-  S.cLine = line; S.cProg = prog; S.node = ''; drawTheory();
-  if(focusMenu) $('cMenu').querySelector('[aria-current]')?.focus({preventScroll:true});
-}
-function goChain(node){
-  S.node = node;
-  const sel = S.mode === 'program' ? byProg.get(S.prog) : null;
-  const p = sel && codesOf(node).some(c => inProg(sel, c)) ? sel : null;
-  const line = p ? p.line : compOf(node) ? BASE.id : dimOf(node) ? 'ECO' : byOut.has(node) ? byOut.get(node).line : byLine.has(byCode.get(node)?.line) ? byCode.get(node).line : (S.line || S.cLine);
-  S.cLine = line; S.cProg = p ? p.id : '';
-  drawTheory(); location.hash = 'cadenas';
-  requestAnimationFrame(() => document.querySelector('#chains .hot')?.scrollIntoView({behavior:'instant', block:'center'}));
-}
-const inProg = (p, c) => p.elements.includes(c) || p.elements.some(e => byCode.get(e)?.measuredBy === c);
-function syncMode(){
-  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === S.mode)));
-  $('byLine').hidden = S.mode !== 'line'; $('byProgram').hidden = S.mode !== 'program';
-}
-/* ---------- lista completa de indicadores ---------- */
-function drawIndicators(){
-  const q = norm($('fq').value.trim());
-  const items = IND.filter(x => !q || q.split(/\s+/).every(w => norm([x.code,x.name,x.statement,x.definition].join(' ')).includes(w)));
-  $('indTotal').textContent = IND.length;
-  $('scopeText').textContent = q ? `${plural(items.length,'indicador coincide','indicadores coinciden')} con la búsqueda` : '';
-  const row = x => `<tr class="row" data-row="${x.code}" style="${lineVars(x.line)}">
-      <td><div class="c-name"><span class="dot" aria-hidden="true"></span><div><button type="button" class="row-btn" data-open="${x.code}">${esc(x.name)}</button>
-        <span class="meta"><span class="code">${x.code}</span> · ${esc(lineName(x.line))}${x.dim?` · ${esc(M.dims[x.dim])}`:''}</span><span class="meta-m">${esc(x.unit)} · ${esc(x.frequency)}, ${esc(x.horizon.toLowerCase())}</span></div></div></td>
-      <td><span class="pill">${esc(x.unit)}</span></td><td class="c-when"><b>${esc(x.frequency)}</b><span>${esc(x.horizon)}</span></td></tr>`;
-  const groups = [['ACT','Actividades'],['PRD','Productos'],['RES','Resultados'],['IMP','Impacto']].map(([id, name]) => [name, items.filter(x => x.layer === id)]).filter(([, xs]) => xs.length);
-  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col><col class="w-unit"><col class="w-when"></colgroup>
-    <thead><tr><th scope="col">Indicador</th><th scope="col">Unidad</th><th scope="col">Medición</th></tr></thead>` +
-    (groups.length ? groups.map(([name, xs]) => `<tbody><tr class="grp"><th colspan="3" scope="colgroup">${esc(name)} <span>${xs.length}</span></th></tr>${xs.map(row).join('')}</tbody>`).join('')
-      : `<tbody><tr><td colspan="3" class="empty">Ningún indicador coincide con la búsqueda.</td></tr></tbody>`);
-}
-
-/* ---------- tooltip de hipótesis ---------- */
+/* ---------- tooltip de hipótesis y supuestos ---------- */
 const tip = $('tip'); let tipFor = null, tipPinned = false;
+const cite = r => byRef.get(r).cite;
 function showTip(btn, pin){
-  const [kind, lid] = btn.dataset.tip.split(':'), l = byLine.get(lid), ch = M.chains[l.id];
-  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${ch.assumptions.map(c => { const a = M.assumptions[c]; return `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`; }).join('')}</ul>` : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(ch.hypothesis)}</p>
-    <div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${ch.evidence.map(e => `<li>${esc(e.text)}${e.refs.length ? ` <cite>(${e.refs.map(r => esc(byRef.get(r).cite)).join('; ')})</cite>` : ''}</li>`).join('')}</ul>
-    <p class="t-note">Esta evidencia sustenta el diseño; nuestros indicadores de impacto medirán el efecto en Caldas.</p></div>`;
+  const [kind, lid] = btn.dataset.tip.split(':'), l = byLine.get(lid);
+  tip.innerHTML = kind === 'sup' ? `<h3>Lo que tiene que pasar · ${esc(l.name)}</h3><ul class="t-sup">${l.assumptions.map(a => `<li><b>${esc(a.title)}</b><br>${esc(a.why)}</li>`).join('')}</ul>`
+    : `<h3>Por qué debería funcionar · ${esc(l.name)}</h3><p>${esc(l.hypothesis)}</p><div class="t-ev"><h4>Qué dice la evidencia</h4><ul>${l.evidence.map(e => `<li>${esc(e.text)} <cite>(${e.refs.map(r => esc(cite(r))).join('; ')})</cite></li>`).join('')}</ul></div>`;
   if(tipFor && tipFor !== btn){ tipFor.setAttribute('aria-expanded','false'); tipFor.removeAttribute('aria-describedby'); }
   tip.hidden = false; tipFor = btn; tipPinned = !!pin;
   btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-describedby','tip');
@@ -3441,15 +1877,52 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape' && tipFor) hid
 addEventListener('scroll', () => { if(tipFor) hideTip(); }, {passive:true, capture:true});
 addEventListener('resize', hideTip);
 
-/* ---------- 03 referencias ---------- */
-function drawStatic(){
-  const where = c => c === 'impact' ? M.impact.title : byOut.has(c) ? byOut.get(c).statement : byCode.get(c).statement;
-  const clean = s => s.replace(/\.$/, '');
-  const cite = r => { const j = (r.title.match(/\(([^()]*),\s*\d{4}\)\s*$/) || [, ''])[1]; return `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" title="${esc(r.title)}"><b>${esc(r.cite)}</b>${j ? ` <span>${esc(j)}</span>` : ''}<span class="sr"> (abre en otra pestaña)</span></a>`; };
+/* ---------- 03 cadenas causales ---------- */
+const chip = id => `<button type="button" class="ichip" data-open="${id}">${esc(byInd.get(id).name)}</button>`;
+const chips = ids => ids.length ? `<span class="ichips">${ids.map(chip).join('')}</span>` : '';
+function chainCard(l){
+  const li = (t, ids) => `<li><span class="it">${esc(t)}</span>${chips(ids || [])}</li>`;
+  const steps = [
+    ['PRB','Partimos de','El problema', li(l.problem)],
+    ['ACT','Si hacemos','Lo que hacemos', l.acts.map(t => li(t)).join('')],
+    ['PRD','entregamos','Lo que entregamos', l.prods.map(t => li(t)).join('') + `<li class="meas">${chips(M.common)}</li>`],
+    ['RES','y entonces cambia','Lo que cambia', l.outs.map(o => li(o.text, o.ind)).join('')],
+    l.transversal ? ['IMP','y así','Lo que sostiene', li('Los otros tres frentes pueden mantenerse y crecer en el tiempo.')] : ['IMP','para contribuir a','El impacto', li(M.impact.title, l.impact)]];
+  const cites = [...new Set(l.evidence.flatMap(e => e.refs))].map(cite);
+  return `<article class="card chain" style="${lineVars(l.id)}" aria-labelledby="chain-h-${l.id}">
+    <header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><div><p class="ck">${l.transversal ? 'Frente transversal' : 'Frente'}</p><h2 id="chain-h-${l.id}">${esc(l.name)}</h2></div></header>
+    <p class="clead">${esc(l.hypothesis)}</p>
+    <div class="cprogs-l"><span>Programas:</span><ul class="tags">${progsOf(l.id).map(p => `<li>${esc(p.name)}</li>`).join('')}</ul></div>
+    <ol class="csteps">${steps.map(([id, link, title, body]) => `<li class="cstep s-${id}"><div class="clabel"><span class="clink">${link}</span><b>${title}</b></div><ul class="citems">${body}</ul></li>`).join('')}</ol>
+    <footer><div><h3>Siempre que</h3><ul>${l.assumptions.map(a => `<li><b>${esc(a.title)}</b> ${esc(a.why)}</li>`).join('')}</ul></div>
+      <div><h3>Respaldo</h3><p>${esc(cites.join(' · '))}. <a class="link" href="#referencias">Ver la evidencia</a></p></div></footer></article>`;
+}
+function drawChains(){
+  $('cTabs').innerHTML = M.lines.map(l => `<button type="button" class="ctab" role="tab" id="ctab-${l.id}" data-chain="${l.id}" aria-selected="${S.chain === l.id}" tabindex="${S.chain === l.id ? 0 : -1}" style="${lineVars(l.id)}"><span class="ico sm" aria-hidden="true">${ICONS[l.id]}</span><span>${esc(l.name)}${l.transversal ? '<small>Transversal</small>' : ''}</span></button>`).join('');
+  $('chains').setAttribute('aria-labelledby', 'ctab-' + S.chain);
+  $('chains').innerHTML = S.printAll ? M.lines.map(chainCard).join('') : chainCard(byLine.get(S.chain));
+}
+$('cTabs').addEventListener('keydown', e => {
+  if(!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+  const i = M.lines.findIndex(l => l.id === S.chain), n = M.lines.length;
+  S.chain = M.lines[(i + (e.key === 'ArrowRight' ? 1 : n - 1)) % n].id; drawChains(); $('ctab-' + S.chain).focus();
+});
+function drawIndicators(){
+  $('indTotal').textContent = M.indicators.length;
+  const order = ['Impacto', ...M.lines.map(l => l.name), 'Todos los frentes'];
+  $('indTable').innerHTML = `<caption class="sr">Indicadores</caption><colgroup><col><col class="w-when"></colgroup><thead><tr><th scope="col">Indicador</th><th scope="col">Cuándo se mide</th></tr></thead>` +
+    order.map(g => { const xs = M.indicators.filter(x => groupOf(x.id) === g);
+      return `<tbody><tr class="grp"><th colspan="2" scope="colgroup">${esc(g)} <span>${xs.length}</span></th></tr>${xs.map(x => `<tr class="row" data-row="${x.id}" style="${lineVars(lineOfInd(x.id))}"><td><div class="c-name"><span class="dot" aria-hidden="true"></span><div><button type="button" class="row-btn" data-open="${x.id}">${esc(x.name)}</button><span class="meta">${esc(x.def)}</span><span class="meta-m">${esc(x.when)}</span></div></div></td><td class="c-when"><span>${esc(x.when)}</span></td></tr>`).join('')}</tbody>`; }).join('');
+}
+
+/* ---------- 04 referencias ---------- */
+function drawRefs(){
+  const where = (l, k) => k === 'imp' ? M.impact.title : k[0] === 'o' ? l.outs[+k.slice(1)].text : l[k[0] === 'a' ? 'acts' : 'prods'][+k.slice(1)];
   const link = r => r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}<span class="sr"> (abre en otra pestaña)</span></a>` : `<span>${esc(r.title)}</span>`;
+  const short = r => { const j = (r.title.match(/\(([^()]*),\s*\d{4}\)\s*$/) || [, ''])[1]; return `<a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" title="${esc(r.title)}"><b>${esc(r.cite)}</b>${j ? ` <span>${esc(j)}</span>` : ''}<span class="sr"> (abre en otra pestaña)</span></a>`; };
   const ev = M.lines.map(l => `<article class="card ev-card" style="${lineVars(l.id)}"><header><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h3>${esc(l.name)}</h3></header>
-    <ol class="ev-list">${M.chains[l.id].evidence.map(e => `<li><div class="ev-path"><span class="ev-lbl">Sostiene el paso de</span><span class="step">${esc(clean(where(e.from)))}</span><span class="step to"><span class="sr">a </span>${esc(clean(where(e.to)))}</span></div>
-      <p class="ev-find">${esc(e.text)}</p><p class="ev-src">${e.refs.map(r => cite(byRef.get(r))).join('<span aria-hidden="true"> · </span>')}</p></li>`).join('')}</ol></article>`).join('');
+    <ol class="ev-list">${l.evidence.map(e => `<li><div class="ev-path"><span class="ev-lbl">Sostiene el paso de</span><span class="step">${esc(clean(where(l, e.from)))}</span><span class="step to"><span class="sr">a </span>${esc(clean(where(l, e.to)))}</span></div>
+      <p class="ev-find">${esc(e.text)}</p><p class="ev-src">${e.refs.map(r => short(byRef.get(r))).join('<span aria-hidden="true"> · </span>')}</p></li>`).join('')}</ol></article>`).join('');
   const list = (title, test) => { const rs = M.references.filter(test); return rs.length ? `<section class="ref-col"><h3>${esc(title)}</h3><ul>${rs.map(r => `<li>${link(r)}<span>${esc(r.use)}</span></li>`).join('')}</ul></section>` : ''; };
   $('refGroups').innerHTML = `<section class="ref-group"><h2>La evidencia detrás de cada cadena</h2><div class="ev-grid">${ev}</div></section>
     <section class="ref-group"><h2>Marcos y fuentes</h2><div class="ref-cols card">${list('Marcos que inspiran el modelo', r => /Marco|Estudio de caso|metodológ|Estándar/.test(r.type))}${list('Fuentes de datos', r => /oficial|Registro|regional|nacional/i.test(r.type))}${list('Manizales Más y sus programas', r => /institucional/.test(r.type))}</div></section>`;
@@ -3457,28 +1930,27 @@ function drawStatic(){
 
 /* ---------- ficha de indicador ---------- */
 const dlg = $('dlg'); let back = null;
-function open(code){
-  const x = byCode.get(code); if(!x || !x.name || x.measuredBy) return;
-  hideTip();
-  if(!dlg.open) back = document.activeElement;
-  $('dTitle').textContent = x.name; $('dTag').textContent = `${x.code} · ${STAGE[x.layer]} · ${lineName(x.line)}`;
-  $('dHead').style.setProperty('--dh', lineTone(x.line));
-  $('dBody').innerHTML = `<p class="def">${esc(x.definition)}</p>${x.excludes?`<p class="excl"><b>No cuenta:</b> ${esc(x.excludes)}</p>`:''}
-    <div class="formula"><code>${esc(x.calculation)}</code><dl>${Object.entries(x.variables).map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
-    <dl class="facts"><dt>Unidad</dt><dd>${esc(x.unit)}</dd><dt>Medición</dt><dd>${esc(x.frequency)} · ${esc(x.horizon)}</dd><dt>Fuente</dt><dd>${x.sources.map(s => esc(byIns.get(s).name)).join(', ')}</dd>${x.rule ? `<dt>Reporte</dt><dd>${esc(x.rule)}</dd>` : ''}</dl>`;
+function open(id){
+  const x = byInd.get(id); if(!x) return;
+  hideTip(); if(!dlg.open) back = document.activeElement;
+  $('dTitle').textContent = x.name; $('dTag').textContent = `Indicador · ${groupOf(id)}`;
+  $('dHead').style.setProperty('--dh', byLine.get(lineOfInd(id))?.tone || '#104380');
+  $('dBody').innerHTML = `<div class="ficha"><p class="def">${esc(x.def)}</p>
+    <div class="row"><b>Cómo se calcula</b><span>${esc(x.calc)}</span></div>
+    <div class="row no"><b>No cuenta</b><span>${esc(x.no)}</span></div>
+    <div class="row"><b>De dónde sale</b><span>${esc(x.src)}</span></div>
+    <div class="row"><b>Cuándo se mide</b><span>${esc(x.when)}</span></div></div>`;
   if(!dlg.open) dlg.showModal();
   $('dBody').scrollTop = 0; $('dTitle').focus({preventScroll:true});
-  history.replaceState(null, '', `#${S.view}/${code}`);
 }
-dlg.addEventListener('close', () => { history.replaceState(null, '', `#${S.view}`); if(back?.isConnected) back.focus({preventScroll:true}); });
+dlg.addEventListener('close', () => { if(back?.isConnected) back.focus({preventScroll:true}); });
 dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
 $('dClose').addEventListener('click', () => dlg.close());
 
 /* ---------- navegación ---------- */
 function show(view, focus){
-  if(view === 'indicadores') view = 'teoria';
   if(!VIEWS.includes(view)) view = 'modelo';
-  S.view = view; hideTip();
+  S.view = view; hideTip(); if(dlg.open) dlg.close();
   document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== view);
   document.querySelectorAll('.nav a').forEach(a => a.getAttribute('href') === `#${view}` ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
   document.title = `${$('h-' + view).textContent} · Manizales Más`;
@@ -3487,43 +1959,31 @@ function show(view, focus){
   if(focus) $('h-' + view).focus({preventScroll:true});
 }
 function route(focus = true){
-  const [view, id] = decodeURIComponent(location.hash.slice(1)).split('/');
-  if(view === 'h-teoria'){ return; }
-  const v = view === 'indicadores' ? 'teoria' : view === 'glosario' ? 'modelo' : view;
-  if(v !== S.view) show(v, focus);
-  if(id && byCode.has(id)) open(id); else if(dlg.open) dlg.close();
+  let view = decodeURIComponent(location.hash.slice(1)).split('/')[0];
+  if(view === 'indicadores') view = 'cadenas'; if(view === 'glosario') view = 'modelo';
+  if(view !== S.view) show(view, focus);
 }
 addEventListener('hashchange', () => route());
-function setMode(m){
-  S.mode = m; S.line = ''; S.node = ''; if(m === 'line') S.prog = '';
-  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
-  $('byLine').hidden = m !== 'line'; $('byProgram').hidden = m !== 'program';
-  drawControls(); drawTheory();
-}
 document.addEventListener('click', e => {
   const b = e.target.closest('button');
-  if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); return; }
+  if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); const r = e.target.closest('[data-row]'); if(r) open(r.dataset.row); return; }
   const d = b.dataset;
   if(d.tip){ if(tipFor === b && tipPinned) hideTip(); else showTip(b, true); return; }
   if(d.open){ open(d.open); return; }
-  if(d.node){ goChain(d.node); return; }
-  if(d.cline){ pickChain(d.cline, d.cprog || '', true); return; }
-  if('clear' in d){ S.prog = ''; S.node = ''; drawControls(); drawTheory(); return; }
-  if(d.mode){ setMode(d.mode); return; }
-  if(d.line !== undefined){ S.line = d.line; S.node = ''; drawControls(); drawTheory(); return; }
-  if(d.prog){ S.prog = S.prog === d.prog ? '' : d.prog; S.node = ''; drawControls(); drawTheory(); return; }
-  if(d.goline){ setMode('line'); S.line = d.goline; drawControls(); drawTheory(); location.hash = 'teoria'; return; }
+  if(d.chain){ S.chain = d.chain; drawChains(); $('ctab-' + S.chain).focus({preventScroll:true}); return; }
+  if(d.mode){ S.mode = d.mode; S.line = ''; S.prog = '';
+    document.querySelectorAll('[data-mode]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.mode === S.mode)));
+    $('byLine').hidden = S.mode !== 'line'; $('byProgram').hidden = S.mode !== 'program'; drawControls(); drawTheory(); return; }
+  if(d.line !== undefined){ S.line = d.line; drawControls(); drawTheory(); return; }
+  if(d.prog){ S.prog = S.prog === d.prog ? '' : d.prog; drawControls(); drawTheory(); document.querySelector(`[data-prog="${d.prog}"]`)?.focus({preventScroll:true}); return; }
+  if('clear' in d){ S.prog = ''; drawControls(); drawTheory(); return; }
 });
-$('scopeReset').addEventListener('click', () => { S.node = ''; drawTheory(); });
-$('cSel').addEventListener('change', e => { const [l, p] = e.target.value.split('|'); pickChain(l, p, false); });
-$('fq').addEventListener('input', drawIndicators);
-$('indTable').addEventListener('click', e => { if(e.target.closest('button')) return; const r = e.target.closest('[data-row]'); if(r) open(r.dataset.row); });
 addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); $('allInd').open = true; S.printAll = true; drawChains(); });
 addEventListener('afterprint', () => { S.printAll = false; drawChains(); show(S.view, false); });
 
-drawModel(); drawControls(); drawTheory(); drawStatic();
+drawModel(); drawControls(); drawTheory(); drawChains(); drawIndicators(); drawRefs();
 route(false);
-addEventListener('load', () => { if(!dlg.open) scrollTo({top:0, behavior:'instant'}); });
+addEventListener('load', () => scrollTo({top:0, behavior:'instant'}));
 </script>
 </body>
 </html>

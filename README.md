@@ -11,8 +11,9 @@ completo van embebidos. Se abre con doble clic o se publica en GitHub Pages
 | Sección | Contenido |
 |---|---|
 | 01 Modelo | Qué es Manizales Más, hacia dónde va, sus tres frentes de trabajo y la base de sostenibilidad que los sostiene |
-| 02 Teoría de cambio | El diagrama de cada frente (empresas, talento y ecosistema), de la problemática al impacto, por frente o por programa; la rueda de las seis dimensiones del ecosistema y la base de sostenibilidad. Debajo, las **cadenas causales**: cada frente y cada programa como una secuencia paso a paso, con los indicadores de cada eslabón, sus supuestos y su respaldo. La lista completa de los 46 indicadores queda plegada al final |
-| 03 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
+| 02 Teoría de cambio | El diagrama de cada frente (empresas, talento y ecosistema), de la problemática al impacto, por frente o por programa; la rueda de las seis dimensiones del ecosistema y la base de sostenibilidad. Al hacer clic en un elemento se abre su cadena causal |
+| 03 Cadenas causales | Un menú con los frentes y sus programas cambia la cadena en pantalla: problema, lo que se hace, lo que se entrega, lo que cambia e impacto, con los indicadores de cada eslabón, sus supuestos y su respaldo. Al final, la lista completa de los 46 indicadores |
+| 04 Referencias | La evidencia de cada cadena, con el paso que sostiene cada estudio; marcos, fuentes de datos y programas |
 
 ## Cambios de la versión 7.1 (observaciones de la gerencia)
 

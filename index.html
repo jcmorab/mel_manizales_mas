@@ -571,6 +571,7 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .sn{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700}
 .istage.imp .sn,.isec.imp .sn{background:var(--lime);color:var(--navy-d)}
 .isec{margin-top:22px}
+.inote{margin-top:14px;padding:14px 18px;border-left:4px solid var(--cyan);font-size:14px;color:var(--ink)}
 .isec>header{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--line)}
 .isec h2{font-size:1.25rem}
 .isec h2:focus{outline:none}
@@ -769,8 +770,8 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 <script type="application/json" id="model">
 {
  "meta": {
-  "version": "8.0",
-  "date": "2026-11-11",
+  "version": "9.0",
+  "date": "2026-11-12",
   "intro": [
    "Manizales Más nació en 2012 con una apuesta poco común para una ciudad intermedia: medir el éxito no por cuántas empresas se crean, sino por cuántas logran crecer. Desde entonces, Manizales Más trabaja junto a empresarios, universidades, gremios y gobierno, de la mano de Babson College y más tarde del MIT, para que en Manizales y Caldas crecer sea más fácil, más frecuente y más ambicioso.",
    "Esta teoría de cambio cuenta cómo lo hacemos: qué problemas atacamos, qué hacen nuestros programas, qué cambios esperamos ver en las empresas, en el entorno y en los jóvenes, y cómo vamos a saber si lo estamos logrando."
@@ -1058,7 +1059,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "name": "Talento",
    "color": "#27B9E1",
    "tone": "#0B6E8C",
-   "story": "En Manizales muchos jóvenes de 18 a 25 años tienen talento, pero poco acceso a oportunidades reales de empleo formal o de emprendimiento sostenible, y el ecosistema que debería conectarlos está fragmentado. Qué Nivel actúa en dos líneas a la vez: fortalece la agencia y las competencias de los jóvenes, y articula a las empresas para que abran y sostengan esas oportunidades. Este frente resume la teoría de cambio de Qué Nivel, que tiene su propio sistema de indicadores.",
+   "story": "En Manizales muchos jóvenes de 18 a 25 años tienen talento, pero poco acceso a oportunidades reales de empleo formal o de emprendimiento sostenible, y el ecosistema que debería conectarlos está fragmentado. Qué Nivel actúa en dos líneas a la vez: fortalece la agencia y las competencias de los jóvenes, y articula a las empresas para que abran y sostengan esas oportunidades. Este frente resume la teoría de cambio de Qué Nivel y es coherente con ella; el detalle vive en su propio sistema de indicadores.",
    "problem": "Jóvenes de Manizales con bajo acceso a oportunidades reales de empleo formal o de emprendimiento sostenible, y un ecosistema desarticulado que fragmenta las rutas de inserción.",
    "acts": [
     "Perfilación de jóvenes por líneas de trabajo y acompañamiento transversal.",
@@ -1690,175 +1691,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "lev": false,
    "info": "Se registra en la gestión comercial.",
    "freq": "Anual"
-  },
-  {
-   "id": "qn_ACT_1",
-   "line": "TAL",
-   "name": "Jóvenes caracterizados e inscritos en la Ruta",
-   "calc": "Número de jóvenes inscritos y con caracterización inicial completada en la ruta.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a0"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_2",
-   "line": "TAL",
-   "name": "Jóvenes con orientación vocacional",
-   "calc": "Número de jóvenes que participan en talleres de autoconocimiento, orientación vocacional y perfilamiento ocupacional.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a1"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_3",
-   "line": "TAL",
-   "name": "Jóvenes remitidos y postulados a vacantes",
-   "calc": "Número de jóvenes remitidos y postulados a vacantes disponibles.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a2"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_4",
-   "line": "TAL",
-   "name": "Jóvenes en entrenamiento emprendedor",
-   "calc": "Número de jóvenes que participan en entrenamientos de pensamiento-acción emprendedora y se vinculan a redes de emprendimiento.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a3"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_5",
-   "line": "TAL",
-   "name": "Empresas caracterizadas con ruta",
-   "calc": "Número de empresas caracterizadas y con ruta de acompañamiento elaborada.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a4"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_7",
-   "line": "TAL",
-   "name": "Mentorías y espacios entre pares",
-   "calc": "Número de mentorías y espacios entre pares realizados.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a5"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_ACT_8",
-   "line": "TAL",
-   "name": "Reportes de seguimiento y retroalimentación",
-   "calc": "Número de reportes de seguimiento y espacios de retroalimentación realizados con participantes y actores.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: matrices de seguimiento de jóvenes y de empresas.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "a6"
-   ],
-   "stage": "ACT"
-  },
-  {
-   "id": "qn_PRD_1",
-   "line": "TAL",
-   "name": "Cobertura de jóvenes (POWER SKILLS)",
-   "calc": "Número de jóvenes que inician el programa de proyecto de vida y orientación socio-ocupacional (POWER SKILLS).",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p0"
-   ],
-   "stage": "PRD"
-  },
-  {
-   "id": "qn_PRD_2",
-   "line": "TAL",
-   "name": "Culminación de formación en empleabilidad",
-   "calc": "Número y porcentaje de jóvenes que culminan el programa de formación en habilidades para la empleabilidad.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p1"
-   ],
-   "stage": "PRD"
-  },
-  {
-   "id": "qn_PRD_3",
-   "line": "TAL",
-   "name": "Culminación de formación en emprendimiento",
-   "calc": "Número y porcentaje de jóvenes que culminan el programa de formación en herramientas enfocadas al emprendimiento.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p2"
-   ],
-   "stage": "PRD"
-  },
-  {
-   "id": "qn_PRD_4",
-   "line": "TAL",
-   "name": "Cobertura de la ruta de acompañamiento",
-   "calc": "Número de jóvenes en la ruta de acompañamiento para la inclusión, adaptación y permanencia de talentos.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p3"
-   ],
-   "stage": "PRD"
-  },
-  {
-   "id": "qn_PRD_5",
-   "line": "TAL",
-   "name": "Alianzas activas con plan de acción",
-   "calc": "Número de alianzas formalizadas con plan de acción conjunto en ejecución.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p4"
-   ],
-   "stage": "PRD"
-  },
-  {
-   "id": "qn_PRD_6",
-   "line": "TAL",
-   "name": "Conexiones comerciales y laborales",
-   "calc": "Número de conexiones comerciales y laborales concretadas entre jóvenes o emprendimientos y empresas.",
-   "lev": false,
-   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
-   "freq": "Por cohorte",
-   "nodes": [
-    "p5"
-   ],
-   "stage": "PRD"
   },
   {
    "id": "plan",
@@ -2634,7 +2466,8 @@ function drawIndicators(){
     <dl><div><dt>Información</dt><dd>${x.lev ? '<b>Requiere levantamiento.</b> ' : ''}${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`;
   const stages = S.printAll ? STG : STG.filter(s => s[0] === S.iStage);
   $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${scope || ' en total'}`;
-  $('iGrid').innerHTML = stages.map(([id, name, sub]) => { const g = xs.filter(x => x.stage === id), i = STG.findIndex(s => s[0] === id);
+  const note = S.iLine === 'TAL' ? '<p class="card inote">Aquí están los resultados y el impacto del frente de Talento. Sus actividades y productos se miden en el sistema de indicadores de Qué Nivel, del que este frente es un resumen.</p>' : '';
+  $('iGrid').innerHTML = note + stages.map(([id, name, sub]) => { const g = xs.filter(x => x.stage === id), i = STG.findIndex(s => s[0] === id);
     return g.length ? `<section class="isec${id === 'IMP' ? ' imp' : ''}" aria-labelledby="sth-${id}"><header><span class="sn">${i + 1}</span><h2 id="sth-${id}">${name}</h2><p>${sub} · ${plural(g.length,'indicador','indicadores')}${scope}</p></header><div class="igrid">${g.map(card).join('')}</div></section>` : ''; }).join('');
 }
 

@@ -130,11 +130,14 @@ main{padding:48px var(--pad) 80px;max-width:1840px;min-width:0}
 .eco-head h2{font-size:clamp(1.25rem,2vw,1.55rem);color:var(--lt)}
 .eco-head .lede{font-size:15px;margin-top:8px}
 .eco-body{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:28px;align-items:center;margin-top:18px}
-.eco-wheel svg{display:block;width:100%;height:auto;max-width:340px;margin:0 auto}
-.seg{cursor:pointer;transition:opacity .15s,transform .15s;transform-origin:170px 170px}
+.eco-wheel svg{overflow:visible;display:block;width:100%;height:auto;max-width:340px;margin:0 auto}
+.seg{cursor:pointer;transition:opacity .18s,transform .18s,filter .18s;transform-origin:170px 170px}
 .seg path{stroke:#fff;stroke-width:3}
 .seg text{font-family:var(--ff);font-size:14px;font-weight:700;pointer-events:none}
-.seg:hover,.seg.hl{transform:scale(1.035)}
+.seg:hover,.seg.hl{transform:scale(1.09);filter:drop-shadow(0 10px 16px rgba(11,46,92,.45)) saturate(1.25) brightness(1.06)}
+.eco-body.has-hl .seg:not(.hl){opacity:.28}
+.eco-body.has-hl .dim-card:not(.hl){opacity:.45}
+.seg.hl path{stroke-width:4}
 .seg.on path{stroke:var(--navy-d);stroke-width:4}
 .seg.dim{opacity:.25}
 .eco-wheel .ctr{font-family:var(--ff);font-size:12px;font-weight:700;fill:#104380}
@@ -211,7 +214,8 @@ main{padding:48px var(--pad) 80px;max-width:1840px;min-width:0}
 .lane{display:grid;grid-column:1 / 6;grid-template-columns:subgrid;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:18px 14px 18px 0;position:relative;overflow:hidden}
 .lane::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--lc)}
 .lane-name{padding:0 0 0 20px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.lane-name h2{font-size:15.5px;color:var(--lt)}
+.lane-name h2{font-size:1.3rem;line-height:1.15;color:var(--lt);overflow-wrap:anywhere}
+.lane-name .ico{width:44px;height:44px;border-radius:14px}
 
 .hyp-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:4px 11px 4px 5px;font-size:12.5px;font-weight:600;color:var(--lt);min-height:30px}
 .hyp-btn::before{content:"i";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--lt);color:#fff;font-size:11px;font-style:italic;font-weight:700}
@@ -477,7 +481,11 @@ dialog::backdrop{background:rgba(11,30,55,.55)}
 }
 
 /* ------------------------------------------------ versión 8.0 */
-.swim{grid-template-columns:136px repeat(3,minmax(150px,1fr)) minmax(210px,1.25fr) minmax(190px,.95fr)}
+.prog-toggle{box-shadow:var(--sh);padding:12px 22px}
+.prog-toggle::before{content:"+";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:15px;line-height:1}
+.prog-toggle.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.prog-toggle.on::before{content:"−";background:var(--lime);color:var(--navy-d)}
+.swim{grid-template-columns:176px repeat(3,minmax(150px,1fr)) minmax(210px,1.25fr) minmax(190px,.95fr);min-width:1140px}
 button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height:260px;border-radius:18px;justify-content:flex-start;background:radial-gradient(300px 200px at 100% 0%,rgba(91,183,231,.35),transparent 70%),linear-gradient(170deg,var(--navy-d),var(--navy))}
 .imp-cell{display:flex;flex-direction:column}
 .node.imp strong,.node.imp span,.node.imp em{position:sticky;top:24px}
@@ -546,7 +554,7 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .i-g{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lt,var(--navy))}
 .i-g .dot{width:8px;height:8px;border-radius:50%;background:var(--lc,var(--navy))}
 .icard h3{font-size:1.08rem;line-height:1.3;color:var(--navy-d)}
-.istages{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.istages{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .istage{position:relative}
 .istage>*{display:flex;align-items:center;gap:10px;height:100%;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:12px 14px;text-decoration:none;color:var(--navy)}
 .istage:not(:last-child)::after{content:"→";position:absolute;right:-20px;top:50%;margin-top:-12px;width:18px;text-align:center;color:var(--soft);font-weight:700}
@@ -623,7 +631,10 @@ button.node.out:hover,button.node.out[aria-expanded="true"]{box-shadow:var(--sh)
 .eco-model{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);padding:clamp(24px,3.4vw,40px)}
 .eco-model .sec-head{margin-bottom:8px}
 .dim-card{display:flex;gap:12px;align-items:flex-start;background:var(--pale);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:background .15s,box-shadow .15s}
-.dim-card.hl{background:#fff;box-shadow:var(--sh)}
+.dim-card{border-left:5px solid var(--dc);transition:background .18s,box-shadow .18s,transform .18s,opacity .18s}
+.dim-card.hl{background:color-mix(in srgb,var(--dc) 20%,#fff);border-color:var(--dc);box-shadow:0 14px 28px -16px rgba(11,46,92,.55);transform:translateX(4px)}
+.dim-card.hl strong{color:var(--navy-d)}
+.dim-card.hl span,.dim-card.hl p{color:var(--ink)}
 .dim-card .sw{flex:none;width:14px;height:14px;margin-top:4px;border-radius:5px;background:var(--dc);box-shadow:inset 0 0 0 1px rgba(11,46,92,.15)}
 .dim-card strong{display:block;font-size:14.5px;color:var(--navy-d)}
 .dim-card span{font-size:13px;color:var(--muted);line-height:1.45}
@@ -713,12 +724,12 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
   <div class="view-head">
     <div><p class="kicker">Cómo funciona</p><h1 id="h-teoria" tabindex="-1">Teoría de cambio</h1>
-      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. Los cuatro desembocan en el mismo impacto. «Hipótesis» y «Supuestos» explican por qué debería funcionar cada frente; al pasar por un resultado o por el impacto se ve con qué se mide.</p></div>
-    <div class="mode" role="group" aria-label="Ver el diagrama"><button type="button" data-mode="line" aria-pressed="true">Por frente</button><button type="button" data-mode="program" aria-pressed="false">Por programa</button></div>
+      <p class="lede">Cada frente sigue la misma lógica: partimos de un problema concreto, lo enfrentamos con actividades que entregan productos verificables y buscamos cambios que se noten en las empresas, en el entorno y en los jóvenes. Sumados, esos cambios mueven la economía de la región. Los cuatro desembocan en el mismo impacto, y cada programa aporta a una parte de esa cadena. «Hipótesis» y «Supuestos» explican por qué debería funcionar cada frente; al pasar por un resultado o por el impacto se ve con qué se mide.</p></div>
+    <button type="button" class="btn prog-toggle" id="progToggle" aria-expanded="false" aria-controls="byProgram">Cómo aporta cada programa</button>
   </div>
   <div class="flt" id="byLine"><p class="flt-label" id="lblLine">Frente</p><div class="chips" id="lineChips" role="group" aria-labelledby="lblLine"></div></div>
   <div class="flt" id="byProgram" hidden>
-    <p class="flt-label">Elija un programa para ver su recorrido</p>
+    <p class="flt-label">Elija un programa para ver en qué partes de la teoría de cambio aporta</p>
     <div class="pick" id="pick"></div>
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
@@ -731,15 +742,14 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <p class="lede">Cada frente es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija un frente y siga su cadena de izquierda a derecha, del problema al impacto.</p></div></div>
   <div class="ctabs" role="tablist" aria-label="Frente" id="cTabs"></div>
   <div class="chains" id="chains" role="tabpanel"></div>
-  <a class="next" href="#indicadores"><span class="nx-k">Siguiente · 04</span><span class="nx-t">Indicadores</span><span class="nx-d">Con qué se mide cada paso de la cadena, por frente y por programa.</span><span class="nx-go" aria-hidden="true">→</span></a>
+  <a class="next" href="#indicadores"><span class="nx-k">Siguiente · 04</span><span class="nx-t">Indicadores</span><span class="nx-d">Con qué se mide cada paso de la cadena, frente por frente.</span><span class="nx-go" aria-hidden="true">→</span></a>
 </section>
 
 <section class="view" id="indicadores" aria-labelledby="h-indicadores" hidden>
   <div class="view-head"><div><p class="kicker">Cómo lo medimos</p><h1 id="h-indicadores" tabindex="-1">Indicadores</h1>
-    <p class="lede">Los indicadores siguen la misma cadena de la teoría de cambio: unos miden lo que hacemos, otros lo que entregamos, otros lo que cambia y otros el impacto. Elija un frente o un programa y recorra la cadena paso a paso.</p></div></div>
+    <p class="lede">Los indicadores siguen la misma cadena de la teoría de cambio: unos miden lo que hacemos, otros lo que entregamos, otros lo que cambia y otros el impacto. Elija un frente y recorra la cadena paso a paso.</p></div></div>
   <div class="card ifilters">
     <div class="field"><span class="flabel" id="lblIL">Frente</span><div class="chips" id="iLineChips" role="group" aria-labelledby="lblIL"></div></div>
-    <div class="field isel"><label for="iProg">Programa</label><select id="iProg"></select></div>
   </div>
   <ol class="istages" id="iStages" aria-label="Etapas de la cadena"></ol>
   <p class="scope" aria-live="polite" id="iCount"></p>
@@ -768,7 +778,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
  },
  "impact": {
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen con rentabilidad y siguen en pie, más empleo formal y más jóvenes con ingresos estables.",
+  "statement": "Más empresas que crecen con rentabilidad y siguen en pie, más empleo formal y más jóvenes con una inclusión productiva y gratificante.",
   "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre.",
   "pillars": [
    {
@@ -784,14 +794,15 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    {
     "icon": "youth",
     "title": "Jóvenes con futuro",
-    "text": "Ingresos estables, sea con un empleo formal o con un negocio propio."
+    "text": "Una inclusión productiva y gratificante: ocupación, formalidad, permanencia y bienestar."
    }
   ],
   "indicators": [
    "ventas",
    "utilidades",
    "empleo",
-   "ingresos"
+   "qn_IMP_1",
+   "qn_IMP_3"
   ]
  },
  "ecosystem": {
@@ -1047,51 +1058,94 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "name": "Talento",
    "color": "#27B9E1",
    "tone": "#0B6E8C",
-   "story": "Muchos jóvenes terminan su formación sin ingresos estables. Qué Nivel les abre dos caminos claros, empleo o emprendimiento, con formación técnica, en inteligencia artificial y en habilidades para la vida, y los conecta con empleadores y clientes reales. La meta es la misma en las dos rutas: un ingreso que dure.",
-   "problem": "Jóvenes sin ingresos estables.",
+   "story": "En Manizales muchos jóvenes de 18 a 25 años tienen talento, pero poco acceso a oportunidades reales de empleo formal o de emprendimiento sostenible, y el ecosistema que debería conectarlos está fragmentado. Qué Nivel actúa en dos líneas a la vez: fortalece la agencia y las competencias de los jóvenes, y articula a las empresas para que abran y sostengan esas oportunidades. Este frente resume la teoría de cambio de Qué Nivel, que tiene su propio sistema de indicadores.",
+   "problem": "Jóvenes de Manizales con bajo acceso a oportunidades reales de empleo formal o de emprendimiento sostenible, y un ecosistema desarticulado que fragmenta las rutas de inserción.",
    "acts": [
-    "Formación técnica, en IA y socioemocional, por ruta.",
-    "Conexión con empleadores y con clientes."
+    "Perfilación de jóvenes por líneas de trabajo y acompañamiento transversal.",
+    "Identificación de fortalezas, talentos, intereses y orientación vocacional.",
+    "Oferta de formación ajustada a la demanda laboral.",
+    "Formación en pensamiento y acción emprendedora.",
+    "Identificación de necesidades de transformación empresarial.",
+    "Mentorías y espacios entre pares.",
+    "Coordinación con rutas de formación y procesos de retroalimentación."
    ],
    "prods": [
-    "Jóvenes que completan su ruta.",
-    "Jóvenes con una oportunidad concreta: una entrevista o un primer cliente."
+    "Programa de proyecto de vida y orientación sociocupacional: POWER SKILLS.",
+    "Programa de formación en habilidades para la empleabilidad.",
+    "Programa de formación en herramientas para el emprendimiento.",
+    "Ruta de acompañamiento para la inclusión, adaptación y permanencia de talentos.",
+    "Red de alianzas con plan de acción conjunto.",
+    "Conexiones comerciales y laborales."
    ],
    "outs": [
     {
-     "text": "Jóvenes con mayor agencia y habilidades socioemocionales.",
+     "text": "Jóvenes con capacidad de agencia para influir en su trayectoria productiva.",
      "ind": [
-      "agencia"
+      "qn_RES_1"
      ]
     },
     {
-     "text": "Ruta de empleo: jóvenes con empleo formal y estable.",
+     "text": "Jóvenes con trayectorias laborales exitosas, por empleo o por emprendimientos fortalecidos.",
      "ind": [
-      "empleo_jov",
-      "permanencia"
+      "qn_RES_8",
+      "qn_RES_9"
      ]
     },
     {
-     "text": "Ruta de emprendimiento: negocios que venden y generan empleo.",
+     "text": "Empresas que adoptan modelos de vinculación, adaptación y permanencia de talento joven.",
      "ind": [
-      "negocio_jov",
-      "empleos_neg"
+      "qn_RES_2"
+     ]
+    },
+    {
+     "text": "Empresas y jóvenes conectados para promover oportunidades de negocio y empleabilidad.",
+     "ind": [
+      "qn_RES_3"
+     ]
+    },
+    {
+     "text": "Actores del ecosistema articulados en torno a agendas de inclusión productiva.",
+     "ind": [
+      "qn_RES_6"
      ]
     }
    ],
    "impact": [
-    "ingresos"
+    "qn_IMP_1",
+    "qn_IMP_2",
+    "qn_IMP_3",
+    "qn_IMP_4",
+    "qn_IMP_5",
+    "qn_IMP_6",
+    "qn_IMP_7",
+    "qn_IMP_8",
+    "qn_IMP_9",
+    "qn_IMP_10",
+    "qn_IMP_11",
+    "qn_IMP_12"
    ],
-   "hypothesis": "Si los jóvenes fortalecen su agencia y sus competencias en una ruta clara, de empleo o de emprendimiento, y los empleadores cumplen las vacantes, logran ingresos estables: un empleo formal que conservan o un negocio que vende y que incluso genera empleo.",
+   "hypothesis": "Si la formación se combina con intermediación real y con un ecosistema que cambia sus prácticas de vinculación, los jóvenes no solo consiguen empleo o fortalecen su emprendimiento: esas trayectorias perduran y se traducen en más ocupación, formalidad, ingresos y bienestar.",
    "assumptions": [
     {
-     "title": "Los empleadores abren las vacantes que prometen.",
-     "why": "La formación solo se convierte en empleo si hay puestos reales esperando a los jóvenes."
+     "title": "Los jóvenes participan y permanecen en la ruta.",
+     "why": "Sin permanencia, la formación y el acompañamiento no alcanzan a producir cambios."
+    },
+    {
+     "title": "La oferta formativa es pertinente a la demanda laboral.",
+     "why": "La formación abre puertas solo si responde a lo que las empresas están buscando."
+    },
+    {
+     "title": "Hay dinamismo económico y vacantes suficientes.",
+     "why": "La intermediación necesita oportunidades reales a las que conectar a los jóvenes."
+    },
+    {
+     "title": "Los jóvenes aceptan las ofertas de empleo que se logran.",
+     "why": "Una oferta que no se acepta no se convierte en trayectoria laboral."
     }
    ],
    "evidence": [
     {
-     "from": "a0",
+     "from": "a2",
      "to": "o1",
      "text": "Jóvenes en Acción, en Colombia, combinó formación con práctica en empresas y aumentó el empleo formal y los ingresos de sus participantes.",
      "refs": [
@@ -1100,7 +1154,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      "claim": "La formación con práctica en empresas aumenta el empleo formal de los jóvenes."
     },
     {
-     "from": "a1",
+     "from": "p4",
      "to": "o1",
      "text": "Los programas para jóvenes funcionan mejor cuando combinan formación con conexión directa al empleo, como lo hace Qué Nivel.",
      "refs": [
@@ -1111,7 +1165,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     },
     {
      "from": "o0",
-     "to": "o2",
+     "to": "o1",
      "text": "Entrenar la iniciativa personal aumentó 30 % las utilidades de emprendedores en Togo, más que la capacitación tradicional.",
      "refs": [
       "REF_CAMPOS"
@@ -1362,15 +1416,26 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "id": "QNV",
    "name": "Qué Nivel",
    "line": "TAL",
-   "role": "Conecta a jóvenes de 18 a 25 años con empleo formal o con un negocio propio, en dos rutas separadas.",
+   "role": "Fortalece la agencia y las competencias de jóvenes de 18 a 25 años y articula a las empresas para que abran y sostengan oportunidades de empleo y de emprendimiento.",
    "nodes": [
     "a0",
     "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6",
     "p0",
     "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
     "o0",
     "o1",
-    "o2"
+    "o2",
+    "o3",
+    "o4"
    ],
    "portfolio": false
   },
@@ -1561,58 +1626,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "freq": "Anual"
   },
   {
-   "id": "tal_ses",
-   "line": "TAL",
-   "stage": "ACT",
-   "nodes": [
-    "a0"
-   ],
-   "name": "Sesiones de formación realizadas",
-   "calc": "Sesiones realizadas, divididas por las programadas a la fecha, en cada ruta.",
-   "lev": false,
-   "info": "Se registra en la agenda de Qué Nivel.",
-   "freq": "Mensual"
-  },
-  {
-   "id": "tal_enc",
-   "line": "TAL",
-   "stage": "ACT",
-   "nodes": [
-    "a1"
-   ],
-   "name": "Encuentros con empleadores y clientes realizados",
-   "calc": "Entrevistas, pruebas y reuniones con clientes realizadas en la cohorte.",
-   "lev": false,
-   "info": "Se registra en la agenda de Qué Nivel.",
-   "freq": "Por cohorte"
-  },
-  {
-   "id": "tal_fin",
-   "line": "TAL",
-   "stage": "PRD",
-   "nodes": [
-    "p0"
-   ],
-   "name": "Jóvenes que completan su ruta",
-   "calc": "Jóvenes que terminan su ruta, divididos por los que la iniciaron.",
-   "lev": false,
-   "info": "Se registra en la asistencia.",
-   "freq": "Por cohorte"
-  },
-  {
-   "id": "tal_opo",
-   "line": "TAL",
-   "stage": "PRD",
-   "nodes": [
-    "p1"
-   ],
-   "name": "Jóvenes con entrevista o primer cliente",
-   "calc": "Jóvenes con al menos una entrevista de trabajo o un primer cliente, divididos por los que iniciaron.",
-   "lev": false,
-   "info": "Se registra en la agenda de Qué Nivel.",
-   "freq": "Por cohorte"
-  },
-  {
    "id": "sos_tra",
    "line": "SOS",
    "stage": "ACT",
@@ -1677,6 +1690,175 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "lev": false,
    "info": "Se registra en la gestión comercial.",
    "freq": "Anual"
+  },
+  {
+   "id": "qn_ACT_1",
+   "line": "TAL",
+   "name": "Jóvenes caracterizados e inscritos en la Ruta",
+   "calc": "Número de jóvenes inscritos y con caracterización inicial completada en la ruta.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a0"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_2",
+   "line": "TAL",
+   "name": "Jóvenes con orientación vocacional",
+   "calc": "Número de jóvenes que participan en talleres de autoconocimiento, orientación vocacional y perfilamiento ocupacional.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a1"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_3",
+   "line": "TAL",
+   "name": "Jóvenes remitidos y postulados a vacantes",
+   "calc": "Número de jóvenes remitidos y postulados a vacantes disponibles.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a2"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_4",
+   "line": "TAL",
+   "name": "Jóvenes en entrenamiento emprendedor",
+   "calc": "Número de jóvenes que participan en entrenamientos de pensamiento-acción emprendedora y se vinculan a redes de emprendimiento.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a3"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_5",
+   "line": "TAL",
+   "name": "Empresas caracterizadas con ruta",
+   "calc": "Número de empresas caracterizadas y con ruta de acompañamiento elaborada.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a4"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_7",
+   "line": "TAL",
+   "name": "Mentorías y espacios entre pares",
+   "calc": "Número de mentorías y espacios entre pares realizados.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a5"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_ACT_8",
+   "line": "TAL",
+   "name": "Reportes de seguimiento y retroalimentación",
+   "calc": "Número de reportes de seguimiento y espacios de retroalimentación realizados con participantes y actores.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matrices de seguimiento de jóvenes y de empresas.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "a6"
+   ],
+   "stage": "ACT"
+  },
+  {
+   "id": "qn_PRD_1",
+   "line": "TAL",
+   "name": "Cobertura de jóvenes (POWER SKILLS)",
+   "calc": "Número de jóvenes que inician el programa de proyecto de vida y orientación socio-ocupacional (POWER SKILLS).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p0"
+   ],
+   "stage": "PRD"
+  },
+  {
+   "id": "qn_PRD_2",
+   "line": "TAL",
+   "name": "Culminación de formación en empleabilidad",
+   "calc": "Número y porcentaje de jóvenes que culminan el programa de formación en habilidades para la empleabilidad.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p1"
+   ],
+   "stage": "PRD"
+  },
+  {
+   "id": "qn_PRD_3",
+   "line": "TAL",
+   "name": "Culminación de formación en emprendimiento",
+   "calc": "Número y porcentaje de jóvenes que culminan el programa de formación en herramientas enfocadas al emprendimiento.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p2"
+   ],
+   "stage": "PRD"
+  },
+  {
+   "id": "qn_PRD_4",
+   "line": "TAL",
+   "name": "Cobertura de la ruta de acompañamiento",
+   "calc": "Número de jóvenes en la ruta de acompañamiento para la inclusión, adaptación y permanencia de talentos.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: registro administrativo del programa.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p3"
+   ],
+   "stage": "PRD"
+  },
+  {
+   "id": "qn_PRD_5",
+   "line": "TAL",
+   "name": "Alianzas activas con plan de acción",
+   "calc": "Número de alianzas formalizadas con plan de acción conjunto en ejecución.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p4"
+   ],
+   "stage": "PRD"
+  },
+  {
+   "id": "qn_PRD_6",
+   "line": "TAL",
+   "name": "Conexiones comerciales y laborales",
+   "calc": "Número de conexiones comerciales y laborales concretadas entre jóvenes o emprendimientos y empresas.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matriz de seguimiento de empresas.",
+   "freq": "Por cohorte",
+   "nodes": [
+    "p5"
+   ],
+   "stage": "PRD"
   },
   {
    "id": "plan",
@@ -1789,66 +1971,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "stage": "RES"
   },
   {
-   "id": "agencia",
-   "line": "TAL",
-   "name": "Jóvenes que fortalecen su agencia",
-   "calc": "Jóvenes cuyo puntaje en la prueba de agencia sube entre el inicio y el cierre, divididos por los jóvenes con ambas pruebas.",
-   "lev": true,
-   "info": "Prueba al inicio y al cierre de cada cohorte.",
-   "freq": "Por cohorte",
-   "stage": "RES"
-  },
-  {
-   "id": "empleo_jov",
-   "line": "TAL",
-   "name": "Jóvenes con empleo formal",
-   "calc": "Jóvenes de la ruta de empleo con contrato laboral seis meses después del cierre, divididos por los que iniciaron la ruta.",
-   "lev": true,
-   "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte",
-   "stage": "RES"
-  },
-  {
-   "id": "permanencia",
-   "line": "TAL",
-   "name": "Jóvenes que conservan su empleo",
-   "calc": "Jóvenes que siguen empleados 90 días después de vincularse, divididos por los vinculados.",
-   "lev": true,
-   "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte",
-   "stage": "RES"
-  },
-  {
-   "id": "negocio_jov",
-   "line": "TAL",
-   "name": "Jóvenes con negocio en marcha",
-   "calc": "Jóvenes de la ruta de emprendimiento con ventas en los últimos tres meses, divididos por los que iniciaron la ruta.",
-   "lev": true,
-   "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte",
-   "stage": "RES"
-  },
-  {
-   "id": "empleos_neg",
-   "line": "TAL",
-   "name": "Empleos creados por los negocios de los jóvenes",
-   "calc": "Personas con pago en los negocios de los jóvenes, contando por separado formales e informales.",
-   "lev": true,
-   "info": "Seguimiento a cada joven.",
-   "freq": "Por cohorte",
-   "stage": "RES"
-  },
-  {
-   "id": "ingresos",
-   "line": "TAL",
-   "name": "Aumento de los ingresos de los jóvenes",
-   "calc": "Ingreso mensual promedio de los jóvenes un año después del cierre, frente al que tenían al ingresar.",
-   "lev": true,
-   "info": "Seguimiento a cada joven.",
-   "freq": "Anual, durante dos años por cohorte",
-   "stage": "IMP"
-  },
-  {
    "id": "territorios",
    "line": "SOS",
    "name": "Territorios que operan el modelo",
@@ -1887,6 +2009,186 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "info": "Se registra en la asistencia a actividades.",
    "freq": "Anual",
    "stage": "RES"
+  },
+  {
+   "id": "qn_RES_1",
+   "line": "TAL",
+   "name": "Agencia personal y empoderamiento (ESAGE-Sp-19)",
+   "calc": "Porcentaje de jóvenes participantes que mejoran su puntaje en la Escala de Agencia Personal y Empoderamiento (ESAGE-Sp-19) entre la medición pre y post.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: ESAGE-Sp-19.",
+   "freq": "Pre-post por cohorte",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_RES_8",
+   "line": "TAL",
+   "name": "Vinculación laboral de los jóvenes",
+   "calc": "Porcentaje de jóvenes de la ruta de empleabilidad que se vinculan a un empleo al finalizar su proceso (colocación efectiva).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matriz de seguimiento.",
+   "freq": "Por cohorte",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_RES_9",
+   "line": "TAL",
+   "name": "Emprendimientos de jóvenes fortalecidos",
+   "calc": "Porcentaje de jóvenes de la ruta de emprendimiento cuyo micronegocio queda activo y fortalecido (mejora en gestión) al egreso.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: matriz de seguimiento.",
+   "freq": "Por cohorte",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_RES_2",
+   "line": "TAL",
+   "name": "Empresas que adoptan prácticas de vinculación",
+   "calc": "Porcentaje de empresas participantes que adoptan modelos de vinculación, adaptación y permanencia de talento joven (incluida la flexibilización de requisitos de ingreso y la apertura a jóvenes sin experiencia).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a empresarios.",
+   "freq": "Por cohorte",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_RES_3",
+   "line": "TAL",
+   "name": "Conexión estratégica jóvenes-empresas",
+   "calc": "Porcentaje de jóvenes participantes que concretan empleo, pasantía u oportunidad de negocio mediante la conexión con empresas.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta de egreso a empresarios.",
+   "freq": "Por cohorte",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_RES_6",
+   "line": "TAL",
+   "name": "Fortaleza de la articulación del ecosistema",
+   "calc": "Escala corta pre-post a los empresarios participantes que mide la fortaleza de la relación de su empresa con el ecosistema de empleo y emprendimiento juvenil (conexiones, confianza y agendas compartidas).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a empresarios, ingreso y egreso.",
+   "freq": "Pre-post",
+   "stage": "RES"
+  },
+  {
+   "id": "qn_IMP_1",
+   "line": "TAL",
+   "name": "Ocupación de los jóvenes participantes",
+   "calc": "Tasa de ocupación de los jóvenes participantes al cierre, definición GEIH (incluye empleo asalariado y trabajo por cuenta propia).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: seguimiento a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_2",
+   "line": "TAL",
+   "name": "Satisfacción con el trabajo",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los participantes con su trabajo (pregunta ECV).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a jóvenes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_3",
+   "line": "TAL",
+   "name": "Formalidad laboral de los participantes",
+   "calc": "Porcentaje de jóvenes participantes ocupados que son formales, definición GEIH (afiliación a seguridad social).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: seguimiento a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_4",
+   "line": "TAL",
+   "name": "Variación del ingreso de micronegocios jóvenes",
+   "calc": "Variación del valor real de los ingresos de los micronegocios de los jóvenes participantes (18 a 25 años) con emprendimientos de menos de 6 meses.",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: seguimiento a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_5",
+   "line": "TAL",
+   "name": "Permanencia laboral del talento joven",
+   "calc": "De los jóvenes que se emplean, porcentaje que sigue trabajando a los 6 meses (medido por cohorte).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: seguimiento a participantes.",
+   "freq": "Post (3 a 6 meses)",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_6",
+   "line": "TAL",
+   "name": "Satisfacción con el ingreso",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los participantes con su ingreso (pregunta ECV).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a jóvenes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_7",
+   "line": "TAL",
+   "name": "Satisfacción con la vida",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los jóvenes participantes con su vida en general (ECV, bienestar subjetivo).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_8",
+   "line": "TAL",
+   "name": "Sentido de vida (las cosas valen la pena)",
+   "calc": "Calificación promedio (0 a 10) de qué tanto los jóvenes consideran que las cosas que hacen en su vida valen la pena (ECV, bienestar eudaimónico).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_9",
+   "line": "TAL",
+   "name": "Posición en la vida (escalera de Cantril)",
+   "calc": "Calificación promedio (0 a 10) en la escalera de Cantril: en qué escalón se ubican los jóvenes entre la peor (0) y la mejor (10) vida posible (ECV).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_10",
+   "line": "TAL",
+   "name": "Satisfacción con la salud",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los jóvenes participantes con su salud (ECV, bienestar subjetivo).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_11",
+   "line": "TAL",
+   "name": "Satisfacción con la seguridad",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los jóvenes participantes con su seguridad (ECV, bienestar subjetivo).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
+  },
+  {
+   "id": "qn_IMP_12",
+   "line": "TAL",
+   "name": "Satisfacción con el tiempo libre",
+   "calc": "Calificación promedio (0 a 10) de la satisfacción de los jóvenes participantes con su tiempo libre (ECV, bienestar subjetivo).",
+   "lev": false,
+   "info": "Lo levanta Qué Nivel: encuesta a participantes.",
+   "freq": "Cierre del piloto",
+   "stage": "IMP"
   }
  ],
  "frameworks": [
@@ -2225,6 +2527,7 @@ function drawModel(){
 }
 document.addEventListener('mouseover', e => {
   const it = e.target.closest('[data-dim]'); document.querySelectorAll('[data-dim].hl').forEach(x => x.classList.remove('hl'));
+  document.querySelector('.eco-body')?.classList.toggle('has-hl', !!it);
   if(it) document.querySelectorAll(`[data-dim="${it.dataset.dim}"]`).forEach(x => x.classList.add('hl'));
 });
 
@@ -2246,7 +2549,7 @@ function drawTheory(){
   const cell = (label, inner) => `<div class="cell" role="group" aria-label="${esc(label)}"><span class="cell-label">${esc(label)}</span>${inner}</div>`;
   const head = `<div class="swim-h" aria-hidden="true"></div>` + ['Problemática','Actividades','Productos','Resultados','Impacto'].map((n, i) => `<div class="swim-h" aria-hidden="true"><span class="sn">${i + 1}</span>${n}</div>`).join('');
   const rows = lanes.map(l => `<section class="lane" style="${lineVars(l.id)}" aria-labelledby="lane-${l.id}">
-      <div class="lane-name"><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
+      <div class="lane-name"><span class="ico" aria-hidden="true">${ICONS[l.id]}</span><h2 id="lane-${l.id}">${esc(l.name)}</h2><div class="lane-btns"><button type="button" class="hyp-btn" data-tip="hyp:${l.id}" aria-expanded="false">Hipótesis</button><button type="button" class="hyp-btn sup" data-tip="sup:${l.id}" aria-expanded="false">Supuestos</button></div></div>
       ${cell('Problemática', `<p class="node prb${st(l,'prb')}">${esc(l.problem)}</p>`)}
       ${cell('Actividades', l.acts.map((t, i) => `<p class="node${st(l,'a'+i)}">${esc(t)}</p>`).join(''))}
       ${cell('Productos', l.prods.map((t, i) => `<p class="node${st(l,'p'+i)}">${esc(t)}</p>`).join(''))}
@@ -2290,7 +2593,7 @@ addEventListener('resize', hideTip);
 
 /* ---------- 03 cadenas causales ---------- */
 function chainCard(l){
-  const names = ids => ids.length ? `<span class="cm">Se mide con: ${ids.map(id => esc(byInd.get(id).name)).join(' · ')}</span>` : '';
+  const names = ids => ids.length ? `<span class="cm">Se mide con: ${ids.slice(0, 5).map(id => esc(byInd.get(id).name)).join(' · ')}${ids.length > 5 ? ` y ${ids.length - 5} medidas de bienestar más` : ''}</span>` : '';
   const li = (t, ids) => `<li>${esc(t)}${names(ids || [])}</li>`;
   const steps = [
     ['Partimos de','El problema', li(l.problem)],
@@ -2316,22 +2619,20 @@ $('cTabs').addEventListener('keydown', e => {
 });
 const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...byLine.get(p.line).impact,
   ...M.indicators.filter(x => x.nodes && x.line === p.line && x.nodes.some(n => p.nodes.includes(n))).map(x => x.id)]);
-const STG = [['PRB','Problemática'],['ACT','Actividades','Lo que hacemos'],['PRD','Productos','Lo que entregamos'],['RES','Resultados','Lo que cambia'],['IMP','Impacto','A lo que contribuimos']];
+const STG = [['ACT','Actividades','Lo que hacemos'],['PRD','Productos','Lo que entregamos'],['RES','Resultados','Lo que cambia'],['IMP','Impacto','A lo que contribuimos']];
 function drawIndicators(){
   const opt = (v, n) => `<option value="${v}"${S.iProg === v ? ' selected' : ''}>${esc(n)}</option>`;
   $('iLineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-iline="${l.id}" aria-pressed="${!S.iProg && S.iLine===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
-  $('iProg').innerHTML = opt('', 'Todos los programas') + M.lines.map(l => `<optgroup label="${esc(l.name)}">${progsOf(l.id).map(p => opt(p.id, p.name)).join('')}</optgroup>`).join('');
-  const p = byProg.get(S.iProg), set = p ? progInds(p) : null;
+  const p = null, set = null;
   const xs = M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || byLine.get(S.iLine).impact.includes(x.id));
   const count = id => xs.filter(x => x.stage === id).length;
-  if(!count(S.iStage)) S.iStage = STG.slice(1).map(s => s[0]).find(count) || 'ACT';
+  if(!count(S.iStage)) S.iStage = STG.map(s => s[0]).find(count) || 'ACT';
   $('iStages').innerHTML = STG.map(([id, name], i) => { const n = count(id);
-    return `<li class="istage${id === 'IMP' ? ' imp' : ''}">${id === 'PRB' ? `<div class="off"><span class="sn">1</span><span><b>${name}</b><small>No se mide</small></span></div>`
-      : `<button type="button" data-stage="${id}" aria-pressed="${S.iStage === id}"${n ? '' : ' disabled'}><span class="sn">${i + 1}</span><span><b>${name}</b><small>${plural(n, 'indicador', 'indicadores')}</small></span></button>`}</li>`; }).join('');
+    return `<li class="istage${id === 'IMP' ? ' imp' : ''}"><button type="button" data-stage="${id}" aria-pressed="${S.iStage === id}"${n ? '' : ' disabled'}><span class="sn">${i + 1}</span><span><b>${name}</b><small>${plural(n, 'indicador', 'indicadores')}</small></span></button></li>`; }).join('');
   const scope = p ? ` de <strong>${esc(p.name)}</strong>` : S.iLine ? ` del frente <strong>${esc(byLine.get(S.iLine).name)}</strong>` : '';
   const card = x => `<article class="card icard" style="${lineVars(lineOfInd(x.id))}"><p class="i-g"><span class="dot" aria-hidden="true"></span>${esc(groupOf(x.id))}</p><h3>${esc(x.name)}</h3><p class="i-c">${esc(x.calc)}</p>
     <dl><div><dt>Información</dt><dd>${x.lev ? '<b>Requiere levantamiento.</b> ' : ''}${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`;
-  const stages = S.printAll ? STG.slice(1) : STG.filter(s => s[0] === S.iStage);
+  const stages = S.printAll ? STG : STG.filter(s => s[0] === S.iStage);
   $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${scope || ' en total'}`;
   $('iGrid').innerHTML = stages.map(([id, name, sub]) => { const g = xs.filter(x => x.stage === id), i = STG.findIndex(s => s[0] === id);
     return g.length ? `<section class="isec${id === 'IMP' ? ' imp' : ''}" aria-labelledby="sth-${id}"><header><span class="sn">${i + 1}</span><h2 id="sth-${id}">${name}</h2><p>${sub} · ${plural(g.length,'indicador','indicadores')}${scope}</p></header><div class="igrid">${g.map(card).join('')}</div></section>` : ''; }).join('');
@@ -2379,14 +2680,13 @@ document.addEventListener('click', e => {
   if(d.iline !== undefined){ S.iLine = d.iline; S.iProg = ''; drawIndicators(); document.querySelector(`[data-iline="${d.iline}"]`)?.focus({preventScroll:true}); return; }
   if(d.ref){ S.ref = d.ref; drawRefs(); document.querySelector(`[data-ref="${d.ref}"]`)?.focus({preventScroll:true}); return; }
   if(d.chain){ S.chain = d.chain; drawChains(); $('ctab-' + S.chain).focus({preventScroll:true}); return; }
-  if(d.mode){ S.mode = d.mode; S.line = ''; S.prog = '';
-    document.querySelectorAll('[data-mode]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.mode === S.mode)));
-    $('byLine').hidden = S.mode !== 'line'; $('byProgram').hidden = S.mode !== 'program'; drawControls(); drawTheory(); return; }
+  if(b.id === 'progToggle'){ const on = S.mode !== 'program'; S.mode = on ? 'program' : 'line'; S.prog = ''; S.line = '';
+    b.setAttribute('aria-expanded', String(on)); b.classList.toggle('on', on); b.textContent = on ? 'Ocultar programas' : 'Cómo aporta cada programa';
+    $('byLine').hidden = on; $('byProgram').hidden = !on; drawControls(); drawTheory(); return; }
   if(d.line !== undefined){ S.line = d.line; drawControls(); drawTheory(); return; }
   if(d.prog){ S.prog = S.prog === d.prog ? '' : d.prog; drawControls(); drawTheory(); document.querySelector(`[data-prog="${d.prog}"]`)?.focus({preventScroll:true}); return; }
   if('clear' in d){ S.prog = ''; drawControls(); drawTheory(); return; }
 });
-$('iProg').addEventListener('change', e => { S.iProg = e.target.value; S.iLine = ''; drawIndicators(); $('iProg').focus(); });
 addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); S.printAll = true; drawChains(); drawIndicators(); drawRefs(); });
 addEventListener('afterprint', () => { S.printAll = false; drawChains(); drawIndicators(); drawRefs(); show(S.view, false); });
 

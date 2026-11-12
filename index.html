@@ -164,8 +164,13 @@ main{padding:48px var(--pad) 80px;max-width:1840px;min-width:0}
 .comp[aria-pressed="true"]{box-shadow:0 0 0 3px var(--navy)}
 .comp.dim{opacity:.25;filter:saturate(.4)}
 .comp.hit{box-shadow:0 8px 20px -14px rgba(11,46,92,.55)}
-.next{position:relative;overflow:hidden;margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;padding:34px 38px;border-radius:24px;color:#fff;background:radial-gradient(500px 220px at 100% 100%,rgba(205,221,0,.22),transparent 70%),linear-gradient(120deg,var(--navy-d),var(--navy));box-shadow:0 24px 50px -30px rgba(11,46,92,.7)}
-.next p{flex:1 1 380px;font-size:1.08rem;line-height:1.65;color:#E4ECF7}
+.next{position:relative;overflow:hidden;margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 32px;align-items:center;padding:clamp(28px,3.4vw,46px) clamp(26px,3.6vw,52px);border-radius:28px;color:#fff;text-decoration:none;background:radial-gradient(600px 260px at 100% 100%,rgba(205,221,0,.28),transparent 70%),linear-gradient(120deg,var(--navy-d),var(--navy));box-shadow:0 30px 60px -32px rgba(11,46,92,.8);transition:transform .2s,box-shadow .2s}
+.next:hover{transform:translateY(-3px);box-shadow:0 36px 70px -30px rgba(11,46,92,.9)}
+.nx-k{grid-column:1;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.nx-t{grid-column:1;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}
+.nx-d{grid-column:1;margin-top:8px;font-size:1.05rem;line-height:1.6;color:#DCE6F3;max-width:70ch}
+.nx-go{grid-column:2;grid-row:1 / span 3;display:grid;place-items:center;width:clamp(64px,7vw,92px);height:clamp(64px,7vw,92px);border-radius:50%;background:var(--lime);color:var(--navy-d);font-size:clamp(28px,3vw,40px);font-weight:700;transition:transform .2s}
+.next:hover .nx-go{transform:translateX(6px)}
 
 /* ------------------------------------------------ 02 teoría */
 .mode{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--sh)}
@@ -243,7 +248,6 @@ main{padding:48px var(--pad) 80px;max-width:1840px;min-width:0}
 .tip .t-note{margin-top:10px;font-size:12.5px;color:#A9BFDA}
 
 /* indicadores debajo de la cadena */
-.to-chains{margin-top:22px}
 .cc{display:grid;grid-template-columns:268px minmax(0,1fr);gap:20px;align-items:start}
 .cmenu{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;padding:10px;border-radius:20px}
 .cm-group+.cm-group{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
@@ -548,12 +552,17 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .istage:not(:last-child)::after{content:"→";position:absolute;right:-20px;top:50%;margin-top:-12px;width:18px;text-align:center;color:var(--soft);font-weight:700}
 .istage b{display:block;font-size:14.5px}
 .istage small{font-size:12px;color:var(--muted)}
-.istage a:hover{border-color:var(--navy)}
-.istage.off>*{background:transparent;box-shadow:none;border-style:dashed}
-.istage.off .sn{background:var(--soft)}
+.istage button{width:100%;text-align:left;font:inherit}
+.istage button:hover:not(:disabled){border-color:var(--navy)}
+.istage button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.istage button[aria-pressed="true"] small{color:#C9D7EA}
+.istage button[aria-pressed="true"] .sn{background:var(--lime);color:var(--navy-d)}
+.istage button:disabled{opacity:.5;cursor:default;box-shadow:none}
+.istage .off{background:transparent;box-shadow:none;border-style:dashed}
+.istage .off .sn{background:var(--soft)}
 .sn{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700}
 .istage.imp .sn,.isec.imp .sn{background:var(--lime);color:var(--navy-d)}
-.isec{margin-top:30px;scroll-margin-top:20px}
+.isec{margin-top:22px}
 .isec>header{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--line)}
 .isec h2{font-size:1.25rem}
 .isec h2:focus{outline:none}
@@ -562,7 +571,7 @@ button.node.imp{width:100%;cursor:pointer;text-align:left;height:100%;min-height
 .icard dl{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:grid;gap:8px}
 .icard dt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
 .icard dd{font-size:13px;color:var(--muted);line-height:1.5}
-.icard .lev{margin:2px 8px 2px 0}
+.icard dd b{color:var(--ink);font-weight:600}
 /* referencias */
 .fw-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .fwc{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;padding:24px 26px;border-radius:20px;color:#fff;background:radial-gradient(260px 160px at 100% 0%,rgba(205,221,0,.22),transparent 70%),linear-gradient(150deg,var(--navy-d),var(--navy));border:0}
@@ -698,7 +707,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <div class="sec-head"><div><p class="kicker">Cómo lo hacemos</p><h2>Cuatro frentes, un mismo propósito</h2></div><p>El crecimiento no depende de un solo actor. Por eso trabajamos en las empresas que pueden crecer, en el entorno que las rodea y en el talento que necesitan. El cuarto frente es transversal y hace que todo esto dure: la sostenibilidad del modelo.</p></div>
     <div class="lines" id="lineCards"></div>
   </div>
-  <div class="next"><p id="nextText"></p><a class="btn primary" href="#teoria">Recorrer la teoría de cambio <span aria-hidden="true">→</span></a></div>
+  <a class="next" href="#teoria"><span class="nx-k">Siguiente · 02</span><span class="nx-t">Teoría de cambio</span><span class="nx-d" id="nextText"></span><span class="nx-go" aria-hidden="true">→</span></a>
 </section>
 
 <section class="view" id="teoria" aria-labelledby="h-teoria" hidden>
@@ -714,7 +723,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <div class="pick-sel" id="pickSel" hidden aria-live="polite"></div>
   </div>
   <div class="swim-wrap" tabindex="0" role="region" aria-label="Diagrama de la teoría de cambio"><div class="swim" id="swim"></div></div>
-  <div class="next to-chains"><p>Cada frente tiene su cadena causal: la secuencia completa, paso a paso, del problema al impacto.</p><a class="btn primary" href="#cadenas">Ver las cadenas causales <span aria-hidden="true">→</span></a></div>
+  <a class="next" href="#cadenas"><span class="nx-k">Siguiente · 03</span><span class="nx-t">Cadenas causales</span><span class="nx-d">La secuencia completa de cada frente, paso a paso, del problema al impacto.</span><span class="nx-go" aria-hidden="true">→</span></a>
 </section>
 
 <section class="view" id="cadenas" aria-labelledby="h-cadenas" hidden>
@@ -722,11 +731,12 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     <p class="lede">Cada frente es una apuesta: si hacemos esto, entregamos aquello, y entonces algo cambia. Elija un frente y siga su cadena de izquierda a derecha, del problema al impacto.</p></div></div>
   <div class="ctabs" role="tablist" aria-label="Frente" id="cTabs"></div>
   <div class="chains" id="chains" role="tabpanel"></div>
+  <a class="next" href="#indicadores"><span class="nx-k">Siguiente · 04</span><span class="nx-t">Indicadores</span><span class="nx-d">Con qué se mide cada paso de la cadena, por frente y por programa.</span><span class="nx-go" aria-hidden="true">→</span></a>
 </section>
 
 <section class="view" id="indicadores" aria-labelledby="h-indicadores" hidden>
   <div class="view-head"><div><p class="kicker">Cómo lo medimos</p><h1 id="h-indicadores" tabindex="-1">Indicadores</h1>
-    <p class="lede">Los indicadores siguen la misma cadena de la teoría de cambio: unos miden lo que hacemos, otros lo que entregamos, otros lo que cambia y otros el impacto. De cada uno decimos cómo se calcula, si exige levantar información y cada cuánto se mide.</p></div></div>
+    <p class="lede">Los indicadores siguen la misma cadena de la teoría de cambio: unos miden lo que hacemos, otros lo que entregamos, otros lo que cambia y otros el impacto. Elija un frente o un programa y recorra la cadena paso a paso.</p></div></div>
   <div class="card ifilters">
     <div class="field"><span class="flabel" id="lblIL">Frente</span><div class="chips" id="iLineChips" role="group" aria-labelledby="lblIL"></div></div>
     <div class="field isel"><label for="iProg">Programa</label><select id="iProg"></select></div>
@@ -734,6 +744,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   <ol class="istages" id="iStages" aria-label="Etapas de la cadena"></ol>
   <p class="scope" aria-live="polite" id="iCount"></p>
   <div id="iGrid"></div>
+  <a class="next" href="#referencias"><span class="nx-k">Siguiente · 05</span><span class="nx-t">Referencias</span><span class="nx-d">Los marcos que guían el modelo y la evidencia que respalda cada cadena.</span><span class="nx-go" aria-hidden="true">→</span></a>
 </section>
 
 <section class="view" id="referencias" aria-labelledby="h-referencias" hidden>
@@ -757,7 +768,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
  },
  "impact": {
   "title": "Crecimiento económico de Manizales y Caldas",
-  "statement": "Más empresas que crecen y siguen en pie, más empleo formal y más jóvenes con ingresos estables.",
+  "statement": "Más empresas que crecen con rentabilidad y siguen en pie, más empleo formal y más jóvenes con ingresos estables.",
   "story": "Queremos una región con más empresas que venden más, contratan formalmente y conquistan nuevos mercados; con jóvenes que encuentran un empleo de calidad o construyen su propio negocio; y con un entorno donde crecer deje de ser la excepción y se vuelva costumbre.",
   "pillars": [
    {
@@ -778,6 +789,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
   ],
   "indicators": [
    "ventas",
+   "utilidades",
    "empleo",
    "ingresos"
   ]
@@ -842,11 +854,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    }
   ]
  },
- "common": [
-  "actividades",
-  "participantes",
-  "finalizacion"
- ],
+ "common": [],
  "lines": [
   {
    "id": "EMP",
@@ -876,8 +884,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
     {
      "text": "Empresas que crecen en clientes, capacidad y caja.",
      "ind": [
-      "clientes",
-      "utilidades"
+      "clientes"
      ]
     },
     {
@@ -890,6 +897,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    ],
    "impact": [
     "ventas",
+    "utilidades",
     "empleo"
    ],
    "hypothesis": "Si las empresas con potencial se entrenan con expertos, aprenden de sus pares, reciben mentoría y conexiones, y participa quien decide, mejoran su gestión y llegan a más clientes. Eso se convierte en más empleo formal, caja sana, ventas que crecen y empresas que siguen en pie.",
@@ -1151,7 +1159,10 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
      ]
     }
    ],
-   "impact": [],
+   "impact": [
+    "ventas",
+    "empleo"
+   ],
    "hypothesis": "Si Manizales Más lleva su modelo a otros ecosistemas, vende sus servicios, aprende del pago por resultados y cuida su comunidad, deja de depender de una sola fuente y puede sostener y ampliar lo que hacen los otros tres frentes, y con ello su aporte al crecimiento de la región.",
    "assumptions": [
     {
@@ -1391,6 +1402,283 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
  ],
  "indicators": [
   {
+   "id": "emp_ses",
+   "line": "EMP",
+   "stage": "ACT",
+   "nodes": [
+    "a0",
+    "a1",
+    "a2"
+   ],
+   "name": "Sesiones de entrenamiento y mentoría realizadas",
+   "calc": "Sesiones realizadas, divididas por las programadas a la fecha.",
+   "lev": false,
+   "info": "Se registra en la agenda de cada programa.",
+   "freq": "Mensual"
+  },
+  {
+   "id": "emp_con",
+   "line": "EMP",
+   "stage": "ACT",
+   "nodes": [
+    "a3"
+   ],
+   "name": "Conexiones comerciales y de financiación realizadas",
+   "calc": "Reuniones realizadas entre empresas y clientes, aliados o financiadores.",
+   "lev": false,
+   "info": "Se registra en la agenda de conexiones.",
+   "freq": "Mensual"
+  },
+  {
+   "id": "emp_fin",
+   "line": "EMP",
+   "stage": "PRD",
+   "nodes": [
+    "p0"
+   ],
+   "name": "Empresas que completan el entrenamiento",
+   "calc": "Empresas que terminan el programa, divididas por las que lo iniciaron.",
+   "lev": false,
+   "info": "Se registra en la asistencia.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "emp_plan",
+   "line": "EMP",
+   "stage": "PRD",
+   "nodes": [
+    "p1"
+   ],
+   "name": "Empresas con plan de crecimiento",
+   "calc": "Empresas que cierran con un plan de crecimiento y sus hitos acordados, divididas por las que iniciaron.",
+   "lev": false,
+   "info": "Se registra al cierre de cada cohorte.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "emp_opo",
+   "line": "EMP",
+   "stage": "PRD",
+   "nodes": [
+    "p2"
+   ],
+   "name": "Empresas con oportunidades abiertas",
+   "calc": "Empresas que salen con al menos una oportunidad comercial o de financiación en curso, divididas por las que iniciaron.",
+   "lev": false,
+   "info": "Se registra en la agenda de conexiones.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "eco_med",
+   "line": "ECO",
+   "stage": "ACT",
+   "nodes": [
+    "a0"
+   ],
+   "name": "Actores que participan en la medición del ecosistema",
+   "calc": "Número de empresarios, financiadores, empresas ancla, entidades públicas y universidades que responden la medición anual.",
+   "lev": false,
+   "info": "Se registra al aplicar la encuesta.",
+   "freq": "Anual"
+  },
+  {
+   "id": "eco_ini",
+   "line": "ECO",
+   "stage": "ACT",
+   "nodes": [
+    "a1"
+   ],
+   "name": "Iniciativas conjuntas en marcha",
+   "calc": "Iniciativas del ecosistema con al menos una acción ejecutada por varios actores en el año.",
+   "lev": false,
+   "info": "Se registra en el seguimiento de cada iniciativa.",
+   "freq": "Anual"
+  },
+  {
+   "id": "eco_ses",
+   "line": "ECO",
+   "stage": "ACT",
+   "nodes": [
+    "a2",
+    "a3"
+   ],
+   "name": "Sesiones de preparación y formación realizadas",
+   "calc": "Sesiones realizadas con empresas, mentores y docentes, divididas por las programadas a la fecha.",
+   "lev": false,
+   "info": "Se registra en la agenda de cada programa.",
+   "freq": "Mensual"
+  },
+  {
+   "id": "eco_ret",
+   "line": "ECO",
+   "stage": "PRD",
+   "nodes": [
+    "p0"
+   ],
+   "name": "Retos de empresas ancla publicados",
+   "calc": "Número de retos abiertos a las empresas de la región en el año.",
+   "lev": false,
+   "info": "Se registra en Open Más.",
+   "freq": "Anual"
+  },
+  {
+   "id": "eco_cap",
+   "line": "ECO",
+   "stage": "PRD",
+   "nodes": [
+    "p1"
+   ],
+   "name": "Empresas listas para recibir capital",
+   "calc": "Empresas que terminan su preparación y presentan una solicitud de inversión o crédito.",
+   "lev": false,
+   "info": "Se registra en los programas de financiación.",
+   "freq": "Anual"
+  },
+  {
+   "id": "eco_for",
+   "line": "ECO",
+   "stage": "PRD",
+   "nodes": [
+    "p2"
+   ],
+   "name": "Mentores y docentes formados",
+   "calc": "Mentores y docentes que terminan su formación en el año.",
+   "lev": false,
+   "info": "Se registra en la asistencia.",
+   "freq": "Anual"
+  },
+  {
+   "id": "eco_cas",
+   "line": "ECO",
+   "stage": "PRD",
+   "nodes": [
+    "p3"
+   ],
+   "name": "Casos de crecimiento publicados",
+   "calc": "Número de casos de empresas de la región publicados en el año.",
+   "lev": false,
+   "info": "Se registra en comunicaciones.",
+   "freq": "Anual"
+  },
+  {
+   "id": "tal_ses",
+   "line": "TAL",
+   "stage": "ACT",
+   "nodes": [
+    "a0"
+   ],
+   "name": "Sesiones de formación realizadas",
+   "calc": "Sesiones realizadas, divididas por las programadas a la fecha, en cada ruta.",
+   "lev": false,
+   "info": "Se registra en la agenda de Qué Nivel.",
+   "freq": "Mensual"
+  },
+  {
+   "id": "tal_enc",
+   "line": "TAL",
+   "stage": "ACT",
+   "nodes": [
+    "a1"
+   ],
+   "name": "Encuentros con empleadores y clientes realizados",
+   "calc": "Entrevistas, pruebas y reuniones con clientes realizadas en la cohorte.",
+   "lev": false,
+   "info": "Se registra en la agenda de Qué Nivel.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "tal_fin",
+   "line": "TAL",
+   "stage": "PRD",
+   "nodes": [
+    "p0"
+   ],
+   "name": "Jóvenes que completan su ruta",
+   "calc": "Jóvenes que terminan su ruta, divididos por los que la iniciaron.",
+   "lev": false,
+   "info": "Se registra en la asistencia.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "tal_opo",
+   "line": "TAL",
+   "stage": "PRD",
+   "nodes": [
+    "p1"
+   ],
+   "name": "Jóvenes con entrevista o primer cliente",
+   "calc": "Jóvenes con al menos una entrevista de trabajo o un primer cliente, divididos por los que iniciaron.",
+   "lev": false,
+   "info": "Se registra en la agenda de Qué Nivel.",
+   "freq": "Por cohorte"
+  },
+  {
+   "id": "sos_tra",
+   "line": "SOS",
+   "stage": "ACT",
+   "nodes": [
+    "a0"
+   ],
+   "name": "Territorios en proceso de transferencia",
+   "calc": "Territorios u organizaciones con un acompañamiento de transferencia en curso.",
+   "lev": false,
+   "info": "Se registra en los acuerdos de transferencia.",
+   "freq": "Anual"
+  },
+  {
+   "id": "sos_pro",
+   "line": "SOS",
+   "stage": "ACT",
+   "nodes": [
+    "a1",
+    "a2"
+   ],
+   "name": "Propuestas de servicios y de financiación presentadas",
+   "calc": "Número de propuestas comerciales y de pago por resultados presentadas en el año.",
+   "lev": false,
+   "info": "Se registra en la gestión comercial.",
+   "freq": "Anual"
+  },
+  {
+   "id": "sos_com",
+   "line": "SOS",
+   "stage": "ACT",
+   "nodes": [
+    "a3"
+   ],
+   "name": "Encuentros de la comunidad realizados",
+   "calc": "Número de encuentros con empresarios, mentores y egresados en el año.",
+   "lev": false,
+   "info": "Se registra en la agenda institucional.",
+   "freq": "Anual"
+  },
+  {
+   "id": "sos_met",
+   "line": "SOS",
+   "stage": "PRD",
+   "nodes": [
+    "p0"
+   ],
+   "name": "Metodologías listas para transferir",
+   "calc": "Metodologías documentadas con guía y materiales que otro equipo puede aplicar.",
+   "lev": false,
+   "info": "Se registra en el inventario de metodologías.",
+   "freq": "Anual"
+  },
+  {
+   "id": "sos_acu",
+   "line": "SOS",
+   "stage": "PRD",
+   "nodes": [
+    "p1"
+   ],
+   "name": "Acuerdos firmados",
+   "calc": "Número de acuerdos firmados en el año con territorios, clientes y financiadores.",
+   "lev": false,
+   "info": "Se registra en la gestión comercial.",
+   "freq": "Anual"
+  },
+  {
    "id": "plan",
    "line": "EMP",
    "name": "Hitos cumplidos del plan de crecimiento",
@@ -1438,7 +1726,7 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "lev": true,
    "info": "Estados financieros anuales de cada empresa.",
    "freq": "Anual, durante dos años por cohorte",
-   "stage": "RES"
+   "stage": "IMP"
   },
   {
    "id": "supervivencia",
@@ -1599,36 +1887,6 @@ p.node.out:hover{border-color:var(--line);border-left-color:var(--lc)}
    "info": "Se registra en la asistencia a actividades.",
    "freq": "Anual",
    "stage": "RES"
-  },
-  {
-   "id": "actividades",
-   "line": "ALL",
-   "name": "Actividades realizadas frente a las programadas",
-   "calc": "Actividades realizadas, divididas por las actividades programadas a la fecha.",
-   "lev": false,
-   "info": "Se registra en la agenda de cada programa.",
-   "freq": "Mensual",
-   "stage": "ACT"
-  },
-  {
-   "id": "participantes",
-   "line": "ALL",
-   "name": "Empresas y personas atendidas",
-   "calc": "Empresas y personas con al menos una actividad con asistencia, por programa y municipio.",
-   "lev": false,
-   "info": "Se registra en la asistencia a actividades.",
-   "freq": "Por cohorte",
-   "stage": "PRD"
-  },
-  {
-   "id": "finalizacion",
-   "line": "ALL",
-   "name": "Participantes que terminan el programa",
-   "calc": "Participantes que terminan el programa, divididos por los que lo iniciaron.",
-   "lev": false,
-   "info": "Se registra en la asistencia a actividades.",
-   "freq": "Por cohorte",
-   "stage": "PRD"
   }
  ],
  "frameworks": [
@@ -1925,7 +2183,7 @@ const lineOfInd = id => byLine.has(byInd.get(id).line) ? byInd.get(id).line : ''
 const groupOf = id => byLine.get(lineOfInd(id))?.name || 'Todos los frentes';
 const VIEWS = ['modelo','teoria','cadenas','indicadores','referencias'];
 const DATE = new Date(M.meta.date + 'T12:00:00').toLocaleDateString('es-CO', {day:'numeric', month:'long', year:'numeric'});
-const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, iLine:'', iProg:'', ref:M.lines[0].id, printAll:false};
+const S = {view:'', mode:'line', line:'', prog:'', chain:M.lines[0].id, iLine:'', iProg:'', iStage:'ACT', ref:M.lines[0].id, printAll:false};
 
 const svg = d => `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 const PILLAR_ICONS = {
@@ -2005,7 +2263,7 @@ const cite = r => byRef.get(r).cite;
 function showTip(btn, pin){
   const [kind, lid, oi] = btn.dataset.tip.split(':'), l = byLine.get(lid);
   const headT = (k, title, icon) => `<header><span class="t-ico" aria-hidden="true">${icon}</span><div><p>${k}</p><h3>${esc(title)}</h3></div></header>`;
-  const indList = ids => `<ul class="t-inds">${ids.map(id => { const x = byInd.get(id); return `<li><b>${esc(x.name)}</b><span>${esc(x.calc)}</span><i class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</i></li>`; }).join('')}</ul>`;
+  const indList = ids => `<ul class="t-inds">${ids.map(id => { const x = byInd.get(id); return `<li><b>${esc(x.name)}</b><span>${esc(x.calc)}</span></li>`; }).join('')}</ul>`;
   tip.style.cssText = l ? lineVars(l.id) : '--lc:#CDDD00;--lt:#0B2E5C';
   tip.innerHTML = kind === 'imp' ? headT('Impacto · Se mide con', M.impact.title, PILLAR_ICONS.grow) + `<div class="t-body">${indList(M.impact.indicators)}</div>`
     : kind === 'out' ? headT('Resultado · Se mide con', l.outs[+oi].text, ICONS[l.id]) + `<div class="t-body">${indList(l.outs[+oi].ind)}</div>`
@@ -2056,19 +2314,27 @@ $('cTabs').addEventListener('keydown', e => {
   const i = M.lines.findIndex(l => l.id === S.chain), n = M.lines.length;
   S.chain = M.lines[(i + (e.key === 'ArrowRight' ? 1 : n - 1)) % n].id; drawChains(); $('ctab-' + S.chain).focus();
 });
-const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...byLine.get(p.line).impact, ...M.common]);
+const progInds = p => new Set([...byLine.get(p.line).outs.filter((o, i) => p.nodes.includes('o' + i)).flatMap(o => o.ind), ...byLine.get(p.line).impact,
+  ...M.indicators.filter(x => x.nodes && x.line === p.line && x.nodes.some(n => p.nodes.includes(n))).map(x => x.id)]);
+const STG = [['PRB','Problemática'],['ACT','Actividades','Lo que hacemos'],['PRD','Productos','Lo que entregamos'],['RES','Resultados','Lo que cambia'],['IMP','Impacto','A lo que contribuimos']];
 function drawIndicators(){
   const opt = (v, n) => `<option value="${v}"${S.iProg === v ? ' selected' : ''}>${esc(n)}</option>`;
   $('iLineChips').innerHTML = [{id:'',name:'Todos'}, ...M.lines].map(l => `<button type="button" class="chip" data-iline="${l.id}" aria-pressed="${!S.iProg && S.iLine===l.id}" style="${lineVars(l.id)}">${l.id?'<span class="dot"></span>':''}${esc(l.name)}</button>`).join('');
   $('iProg').innerHTML = opt('', 'Todos los programas') + M.lines.map(l => `<optgroup label="${esc(l.name)}">${progsOf(l.id).map(p => opt(p.id, p.name)).join('')}</optgroup>`).join('');
   const p = byProg.get(S.iProg), set = p ? progInds(p) : null;
-  const xs = S.printAll ? M.indicators : M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || x.line === 'ALL' || byLine.get(S.iLine).impact.includes(x.id));
-  const STG = [['PRB','Problemática','Se describe en la teoría de cambio; no se mide.'],['ACT','Actividades','Lo que hacemos'],['PRD','Productos','Lo que entregamos'],['RES','Resultados','Lo que cambia'],['IMP','Impacto','A lo que contribuimos']];
-  $('iStages').innerHTML = STG.map(([id, name, sub], i) => { const n = xs.filter(x => x.stage === id).length; return `<li class="istage${n ? '' : ' off'}${id === 'IMP' ? ' imp' : ''}">${n ? `<a href="#st-${id}" data-stage="${id}">` : '<div>'}<span class="sn">${i + 1}</span><span><b>${name}</b><small>${id === 'PRB' ? 'No se mide' : plural(n, 'indicador', 'indicadores')}</small></span>${n ? '</a>' : '</div>'}</li>`; }).join('');
-  $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${p ? ` de <strong>${esc(p.name)}</strong>` : S.iLine ? ` del frente <strong>${esc(byLine.get(S.iLine).name)}</strong>` : ' en total'} · ${xs.filter(x => x.lev).length} requieren levantar información`;
+  const xs = M.indicators.filter(x => set ? set.has(x.id) : !S.iLine || x.line === S.iLine || byLine.get(S.iLine).impact.includes(x.id));
+  const count = id => xs.filter(x => x.stage === id).length;
+  if(!count(S.iStage)) S.iStage = STG.slice(1).map(s => s[0]).find(count) || 'ACT';
+  $('iStages').innerHTML = STG.map(([id, name], i) => { const n = count(id);
+    return `<li class="istage${id === 'IMP' ? ' imp' : ''}">${id === 'PRB' ? `<div class="off"><span class="sn">1</span><span><b>${name}</b><small>No se mide</small></span></div>`
+      : `<button type="button" data-stage="${id}" aria-pressed="${S.iStage === id}"${n ? '' : ' disabled'}><span class="sn">${i + 1}</span><span><b>${name}</b><small>${plural(n, 'indicador', 'indicadores')}</small></span></button>`}</li>`; }).join('');
+  const scope = p ? ` de <strong>${esc(p.name)}</strong>` : S.iLine ? ` del frente <strong>${esc(byLine.get(S.iLine).name)}</strong>` : '';
   const card = x => `<article class="card icard" style="${lineVars(lineOfInd(x.id))}"><p class="i-g"><span class="dot" aria-hidden="true"></span>${esc(groupOf(x.id))}</p><h3>${esc(x.name)}</h3><p class="i-c">${esc(x.calc)}</p>
-    <dl><div><dt>Información</dt><dd><span class="lev ${x.lev ? 'yes' : 'no'}">${x.lev ? 'Requiere levantamiento' : 'Ya se registra'}</span>${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`;
-  $('iGrid').innerHTML = STG.slice(1).map(([id, name, sub], i) => { const g = xs.filter(x => x.stage === id); return g.length ? `<section class="isec${id === 'IMP' ? ' imp' : ''}" id="st-${id}" aria-labelledby="sth-${id}"><header><span class="sn">${i + 2}</span><h2 id="sth-${id}">${name}</h2><p>${sub}</p></header><div class="igrid">${g.map(card).join('')}</div></section>` : ''; }).join('');
+    <dl><div><dt>Información</dt><dd>${x.lev ? '<b>Requiere levantamiento.</b> ' : ''}${esc(x.info)}</dd></div><div><dt>Frecuencia</dt><dd>${esc(x.freq)}</dd></div></dl></article>`;
+  const stages = S.printAll ? STG.slice(1) : STG.filter(s => s[0] === S.iStage);
+  $('iCount').innerHTML = `${plural(xs.length,'indicador','indicadores')}${scope || ' en total'}`;
+  $('iGrid').innerHTML = stages.map(([id, name, sub]) => { const g = xs.filter(x => x.stage === id), i = STG.findIndex(s => s[0] === id);
+    return g.length ? `<section class="isec${id === 'IMP' ? ' imp' : ''}" aria-labelledby="sth-${id}"><header><span class="sn">${i + 1}</span><h2 id="sth-${id}">${name}</h2><p>${sub} · ${plural(g.length,'indicador','indicadores')}${scope}</p></header><div class="igrid">${g.map(card).join('')}</div></section>` : ''; }).join('');
 }
 
 /* ---------- 04 referencias ---------- */
@@ -2109,6 +2375,7 @@ document.addEventListener('click', e => {
   if(!b){ if(tipPinned && !e.target.closest('#tip')) hideTip(); return; }
   const d = b.dataset;
   if(d.tip){ if(tipFor === b && tipPinned) hideTip(); else showTip(b, true); return; }
+  if(d.stage){ S.iStage = d.stage; drawIndicators(); document.querySelector(`[data-stage="${d.stage}"]`)?.focus({preventScroll:true}); return; }
   if(d.iline !== undefined){ S.iLine = d.iline; S.iProg = ''; drawIndicators(); document.querySelector(`[data-iline="${d.iline}"]`)?.focus({preventScroll:true}); return; }
   if(d.ref){ S.ref = d.ref; drawRefs(); document.querySelector(`[data-ref="${d.ref}"]`)?.focus({preventScroll:true}); return; }
   if(d.chain){ S.chain = d.chain; drawChains(); $('ctab-' + S.chain).focus({preventScroll:true}); return; }
@@ -2120,7 +2387,6 @@ document.addEventListener('click', e => {
   if('clear' in d){ S.prog = ''; drawControls(); drawTheory(); return; }
 });
 $('iProg').addEventListener('change', e => { S.iProg = e.target.value; S.iLine = ''; drawIndicators(); $('iProg').focus(); });
-document.addEventListener('click', e => { const a = e.target.closest('[data-stage]'); if(a){ e.preventDefault(); const el = $('st-' + a.dataset.stage); el.scrollIntoView({behavior:'smooth', block:'start'}); el.querySelector('h2').setAttribute('tabindex','-1'); el.querySelector('h2').focus({preventScroll:true}); } });
 addEventListener('beforeprint', () => { document.querySelectorAll('.view').forEach(v => v.hidden = false); S.printAll = true; drawChains(); drawIndicators(); drawRefs(); });
 addEventListener('afterprint', () => { S.printAll = false; drawChains(); drawIndicators(); drawRefs(); show(S.view, false); });
 
